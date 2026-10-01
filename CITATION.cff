@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using these metadata."
+title: "Medical Journal Selector"
+version: 1.0.0
+date-released: 2026-10-02
+authors:
+  - family-names: Hu
+    given-names: Jizhou
+repository-code: "https://github.com/hujizhou35-cmd/medical-journal-selector"
+license: MIT

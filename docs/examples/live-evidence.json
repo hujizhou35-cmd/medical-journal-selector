@@ -1,0 +1,417 @@
+{
+  "schema_version": "1.0",
+  "run": {
+    "mode": "live",
+    "web_available": true,
+    "started_at": "2026-10-01T16:01:19+00:00",
+    "completed_at": "2026-10-01T16:24:12+00:00"
+  },
+  "profile": {
+    "summary": "虚构稿件（非真实未公开研究）：NHANES 成人睡眠时长与高血压的横断面关联；作者拟使用调查权重、多变量 logistic 回归和限制性立方样条。该案例只验证流程，不替代全文评估。",
+    "article_types": [
+      "公共数据库二次分析",
+      "横断面研究"
+    ],
+    "methods": [
+      "复杂抽样加权",
+      "多变量 logistic 回归",
+      "限制性立方样条"
+    ],
+    "validation": "未提供独立外部验证；关联分析不是预测模型；不能把内部划分或合并调查周期称为外部验证。",
+    "queries": [
+      "NHANES AND hypertension AND sleep；发表窗口 2024-10-02 至 2026-10-02",
+      "NHANES sleep hypertension site:journals.plos.org",
+      "NHANES sleep hypertension site:link.springer.com BMC Public Health"
+    ],
+    "limitations": [
+      "仅有虚构摘要；未读取真实患者资料。",
+      "候选发现来自 Europe PMC 与补充官网检索；本次详查两刊，非全市场穷尽检索。",
+      "例设无分区、SCIE、费用硬限制；时间目标为接收。",
+      "本例未核到 JCR 与目标接收周期，因此前两条路线保留但不强行排名。"
+    ]
+  },
+  "constraints": {
+    "time_endpoint": "acceptance"
+  },
+  "journals": [
+    {
+      "id": "bmc-public-health",
+      "title": "BMC Public Health",
+      "ranking_category": "未核到",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "疾病流行病学与行为相关健康因素直接对应睡眠和高血压；近期同库同主题先例明确。须说明现有问题的新贡献，不能只是重复关联。",
+        "limitations": [
+          "同主题近期先例很接近，必须解释研究增量。",
+          "期刊 Research 指南排除未经约稿的文献计量分析；本例不是该类型。",
+          "只有摘要，未核验真实数据、分析代码或伦理材料。"
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "1471-2458"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal information: Electronic ISSN。"
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "articles on the epidemiology of disease and the understanding of all aspects of public health.",
+            "fit_explanation": "节录：Aims and scope 第一段首句中的连续原文。睡眠行为与高血压患病关联属于疾病流行病学；具体公共卫生意义仍需由稿件证明。"
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/aims-and-scope",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Aims and scope 第一段；此处明确为节录。"
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Research article 包括原创研究；本例为人群数据二次分析的原创研究。"
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/submission-guidelines/research-article",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria: original primary research；另列不接受的 pooled/bibliometric 分析。"
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "结合 Scope 的科学问题、适当方法和分析标准及 Research 指南评估；描述性分析的增量和适用范围需说明。本次未看到对全部 NHANES 稿件的一概禁投条文，不等于保证接收。"
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/submission-guidelines/research-article",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Research article 的 Criteria；当前明确排除 non-commissioned bibliometric analyses。"
+            }
+          ]
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：出版社页面列出 SCIE 等，但本次未完成 Master Journal List 的 collection 独立核验；保留线索，不确认满足 SCIE 硬条件。",
+          "evidence": []
+        },
+        "jcr": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未取得可核验的 JCR 学科类别、分区及数据年度。",
+          "evidence": []
+        },
+        "jif": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "number": 4.4
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal metrics: Journal Impact Factor 4.4 (2025)；年度按官网标示。"
+            }
+          ]
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/how-to-publish-with-us",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Publishing model / Open access。"
+            }
+          ]
+        },
+        "fees": {
+          "status": "verified",
+          "value": {
+            "amount": 3450,
+            "currency": "USD",
+            "option": "oa",
+            "total_known": false,
+            "notes": "当前标价 APC；页面另列 GBP 2690 / EUR 3150。适用税费可能另计，价格按接收日确定；国家分层试点、机构协议等须按作者资格核实，最终应付总额未核到。"
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/how-to-publish-with-us",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Fees and funding / Publication fee，金额及税费、定价时间、分层说明。"
+            }
+          ]
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未完成具名预警名单及收录异常核验；学校/医院名单也未提供。",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "verified",
+          "value": {
+            "days": 5,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "未核到",
+            "period": "未核到",
+            "ranking_usable": false
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal metrics: Submission to first decision (median), 5 days；该栏未给统计期或完整样本口径。"
+            }
+          ]
+        },
+        "acceptance": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：本次未取得这一终点的官方统计。",
+          "evidence": []
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：本次未取得这一终点的官方统计。",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：本次未取得这一终点的官方统计。",
+          "evidence": []
+        }
+      },
+      "precedents": [
+        {
+          "status": "verified",
+          "value": {
+            "title": "Gender differences in the relationships between weekday sleep duration, weekend catch-up sleep, and hypertension",
+            "date": "2025-11-21",
+            "date_kind": "publication",
+            "url": "https://link.springer.com/article/10.1186/s12889-025-25183-w",
+            "similarity": "NHANES、睡眠与高血压、加权多变量 logistic 回归；已检查方法部分。",
+            "difference": "先例强调性别差异与周末补觉，并合并调查周期；不能把合并周期说成独立外部验证。本例尚未说明独特增量。"
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/article/10.1186/s12889-025-25183-w",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Published 21 November 2025；Methods / Study population / Statistical analysis。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plos-one",
+      "title": "PLOS One",
+      "ranking_category": "未核到",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "医学范围覆盖该问题；公开标准接受方法可靠的原创研究，近期 NHANES 睡眠研究提供发表先例。只有虚构摘要，尚不能确认分析质量。",
+        "limitations": [
+          "必须核实加权、混杂、缺失数据与结论边界。",
+          "与已有睡眠/NHANES 论文相比的新贡献尚待说明。",
+          "近期发表先例不能证明当前稿件会被接收。"
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "1932-6203"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/publishing-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "eISSN 表的 PLOS One 行。"
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "PLOS ONE accepts research in over two hundred subject areas across science, engineering, medicine, and the related social sciences and humanities.",
+            "fit_explanation": "官网 Inclusive publication criteria and scope 的完整短句。睡眠与高血压属于医学及人群健康问题，进入该范围；方法是否可靠仍须审稿判断。"
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Inclusive publication criteria and scope，首句。"
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Criteria for Publication 接受原创研究；本例按原创横断面研究评估。"
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/criteria-for-publication",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria 1: original research；并非所有综述或病例均可投。"
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "当前标准强调技术可靠、分析恰当、结论有数据支持与伦理要求。这里的 allowed 表示原则上可按原创研究评估，不是编辑已批准 NHANES 稿件。"
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/criteria-for-publication",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria 1–5；衍生或重复研究须说明新增知识。"
+            }
+          ]
+        },
+        "indexing": {
+          "status": "verified",
+          "value": {
+            "collections": [
+              "MEDLINE"
+            ],
+            "wos_checked": false
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Indexing and Archiving 明列 MEDLINE；未把一般 Web of Science 字样升级为 SCIE。"
+            }
+          ]
+        },
+        "jcr": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：JCR 官方页面未取得可读的期刊类别/年度/分区；不能用其他分区替代。",
+          "evidence": []
+        },
+        "jif": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：本次可读官方材料未取得明确的 JIF 数值与年度。",
+          "evidence": []
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal Information 的 Open Access 说明。"
+            }
+          ]
+        },
+        "fees": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：费用总页能读取，但本次文本提取未可靠保留期刊名称与价格对应关系；不猜测适用 APC。",
+          "evidence": []
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未提供学校/医院的具名名单，亦未完成具名公开预警名单和收录异常核验；不代表没有风险。",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。",
+          "evidence": []
+        },
+        "acceptance": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。",
+          "evidence": []
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。",
+          "evidence": []
+        }
+      },
+      "precedents": [
+        {
+          "status": "verified",
+          "value": {
+            "title": "Associations of sleep pattern, sleep duration, bedtime, rising time and cardiovascular disease: Data from NHANES (2017–2020)",
+            "date": "2025-07-11",
+            "date_kind": "publication",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499",
+            "similarity": "NHANES、睡眠指标、回归与样条分析，心血管结局中包含高血压。",
+            "difference": "先例讨论多个睡眠维度及更广的心血管结局；本例聚焦睡眠时长与高血压。不能借先例推定本稿新颖性。"
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "文章发布日期、Abstract、Materials and methods；未把 received/accepted 日期当发表日期。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

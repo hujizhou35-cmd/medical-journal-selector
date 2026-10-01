@@ -1,0 +1,20 @@
+{
+  "name": "medical-journal-selector",
+  "version": "1.0.0",
+  "description": "Evidence-backed medical journal selection with three simultaneous submission strategies.",
+  "author": {"name": "Jizhou Hu", "url": "https://github.com/hujizhou35-cmd"},
+  "homepage": "https://github.com/hujizhou35-cmd/medical-journal-selector",
+  "repository": "https://github.com/hujizhou35-cmd/medical-journal-selector",
+  "license": "MIT",
+  "keywords": ["medical", "journal-selection", "academic-writing", "agent-skills"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Medical Journal Selector",
+    "shortDescription": "医学选刊：高分区、时间、适配三条路线，逐项核验来源。",
+    "longDescription": "Read a medical manuscript, check current journal policies and metrics, and compare three submission strategies with explicit missing evidence.",
+    "developerName": "Jizhou Hu",
+    "category": "Productivity",
+    "capabilities": ["Research"],
+    "defaultPrompt": "Read my manuscript and recommend journals by JCR quartile, publication time, and methodological fit. Verify current facts and mark anything unverified."
+  }
+}

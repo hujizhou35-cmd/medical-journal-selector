@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.work/
+dist/
+.env
+.env.*
+!.env.example
+private/
+node_modules/

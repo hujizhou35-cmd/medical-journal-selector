@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="440" viewBox="0 0 1080 440" role="img" aria-labelledby="title desc">
+<title id="title">一篇稿件，三条投稿路线</title><desc id="desc">高分区优先、时间优先、适配优先共享同一套现查证据。所有数字和状态有来源，未确认项写未核到。示意图不含真实期刊数据。</desc>
+<rect width="1080" height="440" rx="18" fill="#F6F9FC"/>
+<g font-family="Segoe UI,Microsoft YaHei,sans-serif" fill="#102A43">
+<text x="44" y="57" font-size="14" letter-spacing="2" fill="#526477">MEDICAL JOURNAL SELECTOR · V1.0</text>
+<text x="44" y="109" font-size="34" font-weight="700">一篇稿件，三条投稿路线</text>
+<text x="44" y="146" font-size="18" fill="#526477">先读方法，再选期刊。每个推荐，都能追溯到证据。</text>
+<rect x="44" y="183" width="316" height="129" rx="10" fill="white" stroke="#DCE5ED"/>
+<rect x="382" y="183" width="316" height="129" rx="10" fill="white" stroke="#DCE5ED"/>
+<rect x="720" y="183" width="316" height="129" rx="10" fill="white" stroke="#DCE5ED"/>
+<text x="64" y="221" font-size="22" fill="#1768AC" font-weight="700">01 高分区优先</text>
+<text x="402" y="221" font-size="22" fill="#A56418" font-weight="700">02 时间优先</text>
+<text x="740" y="221" font-size="22" fill="#0A7D70" font-weight="700">03 适配优先</text>
+<g font-size="17" fill="#526477"><text x="64" y="256">相关学科的 JCR 分区</text><text x="64" y="284">说明挑战和方法缺口</text><text x="402" y="256">按接收、上线等目标比较</text><text x="402" y="284">首轮决定 ≠ 录用时间</text><text x="740" y="256">方法政策、读者与发表先例</text><text x="740" y="284">适配判断 ≠ 录用保证</text></g>
+<path d="M202 312v24h676v-24 M540 336v20" stroke="#A8BAC9" stroke-width="2" fill="none"/>
+<rect x="44" y="356" width="992" height="49" rx="8" fill="#E7F1F7"/>
+<text x="540" y="387" text-anchor="middle" font-size="18">同一套现查证据：Scope 原文 · 指标与费用 · 周期与风险 · 未核到</text>
+</g></svg>

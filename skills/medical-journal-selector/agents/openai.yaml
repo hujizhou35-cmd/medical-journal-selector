@@ -1,0 +1,4 @@
+interface:
+  display_name: "Medical Journal Selector"
+  short_description: "医学选刊：同时比较高分区、投稿时间与方法适配，逐项给出核验依据"
+  default_prompt: "使用 $medical-journal-selector 读取我的稿件，同时给出高分区、时间和适配三条投稿路线，现查来源，未确认的信息写未核到。"

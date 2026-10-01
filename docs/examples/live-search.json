@@ -1,0 +1,10 @@
+{
+  "source": "Europe PMC",
+  "source_status": "succeeded",
+  "query": "(NHANES AND hypertension AND sleep) AND FIRST_PDATE:[2024-10-02 TO 2026-10-02]",
+  "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28NHANES+AND+hypertension+AND+sleep%29+AND+FIRST_PDATE%3A%5B2024-10-02+TO+2026-10-02%5D&format=json&pageSize=30&resultType=core",
+  "checked_at": "2026-10-01T16:04:47.505104+00:00",
+  "hit_count": 2335,
+  "returned": 30,
+  "limit": "First page only; counts and metadata do not establish methodological fit or acceptance rates."
+}
