@@ -1,0 +1,682 @@
+{
+  "schema_version": "1.0",
+  "run": {
+    "mode": "offline_fixture",
+    "web_available": true,
+    "started_at": "2026-01-01T11:59:00+00:00",
+    "completed_at": "2026-01-01T12:01:00+00:00",
+    "report_language": "en"
+  },
+  "profile": {
+    "summary": "Fictional teaching case: a hypertension follow-up cohort in primary care.",
+    "article_types": [
+      "cohort"
+    ],
+    "methods": [
+      "multivariable analysis"
+    ],
+    "validation": "No external validation; not a prediction model",
+    "queries": [
+      "hypertension cohort primary care"
+    ],
+    "limitations": [
+      "All examples are fictional"
+    ]
+  },
+  "constraints": {
+    "time_endpoint": "acceptance"
+  },
+  "journals": [
+    {
+      "id": "j0",
+      "title": "Fictional Clinical Journal",
+      "ranking_category": "Public Health",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "The fictional cohort study matches this fictional journal's readership and methodological requirements.",
+        "limitations": [
+          "For ranking demonstration only; not actual submission advice."
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "9000-0005"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "We publish public health research.",
+            "fit_explanation": "Fictional scope, demonstrating how to quote it and relate it to the study."
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional Original Research policy"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional policy on cohort study methods"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "indexing": {
+          "status": "verified",
+          "value": {
+            "collections": [
+              "SCIE"
+            ],
+            "wos_checked": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jcr": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "categories": [
+              {
+                "name": "Public Health",
+                "quartile": "Q1"
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jif": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "number": 3.5
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "fees": {
+          "status": "verified",
+          "value": {
+            "amount": 1000,
+            "currency": "USD",
+            "option": "oa",
+            "total_known": true,
+            "notes": "Fictional total fee"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "verified",
+          "value": {
+            "days": 10,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "all submissions",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "acceptance": {
+          "status": "verified",
+          "value": {
+            "days": 120,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "accepted articles",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "precedents": []
+    },
+    {
+      "id": "j1",
+      "title": "Fictional Rapid Health",
+      "ranking_category": "Public Health",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "The fictional cohort study matches this fictional journal's readership and methodological requirements.",
+        "limitations": [
+          "For ranking demonstration only; not actual submission advice."
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "9000-0013"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "We publish public health research.",
+            "fit_explanation": "Fictional scope, demonstrating how to quote it and relate it to the study."
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional Original Research policy"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional policy on cohort study methods"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "indexing": {
+          "status": "verified",
+          "value": {
+            "collections": [
+              "SCIE"
+            ],
+            "wos_checked": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jcr": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "categories": [
+              {
+                "name": "Public Health",
+                "quartile": "Q2"
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jif": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "number": 3.5
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "fees": {
+          "status": "verified",
+          "value": {
+            "amount": 1000,
+            "currency": "USD",
+            "option": "oa",
+            "total_known": true,
+            "notes": "Fictional total fee"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "verified",
+          "value": {
+            "days": 10,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "all submissions",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "acceptance": {
+          "status": "verified",
+          "value": {
+            "days": 60,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "accepted articles",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "precedents": []
+    },
+    {
+      "id": "j2",
+      "title": "Fictional Methods & Care",
+      "ranking_category": "Public Health",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "strong",
+        "reason": "The fictional cohort study matches this fictional journal's readership and methodological requirements.",
+        "limitations": [
+          "For ranking demonstration only; not actual submission advice."
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "9000-0021"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "We publish public health research.",
+            "fit_explanation": "Fictional scope, demonstrating how to quote it and relate it to the study."
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional Original Research policy"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Fictional policy on cohort study methods"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "indexing": {
+          "status": "verified",
+          "value": {
+            "collections": [
+              "SCIE"
+            ],
+            "wos_checked": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jcr": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "categories": [
+              {
+                "name": "Public Health",
+                "quartile": "Q3"
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "jif": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "number": 3.5
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "fees": {
+          "status": "verified",
+          "value": {
+            "amount": 1000,
+            "currency": "USD",
+            "option": "oa",
+            "total_known": true,
+            "notes": "Fictional total fee"
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "verified",
+          "value": {
+            "days": 10,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "all submissions",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "acceptance": {
+          "status": "verified",
+          "value": {
+            "days": 100,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "accepted articles",
+            "period": "2025",
+            "ranking_usable": true
+          },
+          "evidence": [
+            {
+              "url": "https://example.org/fictional-journal",
+              "source_type": "official",
+              "checked_at": "2026-01-01T12:00:00+00:00",
+              "support": "Fictional test source; not real evidence."
+            }
+          ]
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Missing field for testing",
+          "evidence": []
+        }
+      },
+      "precedents": []
+    }
+  ]
+}

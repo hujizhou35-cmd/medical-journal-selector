@@ -1,132 +1,138 @@
-# 医学选刊报告
+# Medical Journal Selection Report
 
-核验区间：2026-10-01T16:01:19+00:00 — 2026-10-01T16:24:12+00:00
+[简体中文](live-report.zh-CN.md) · [All examples](README.md) · [Evidence](live-evidence.en.json)
 
-> 本报告是本次核验的快照；后续使用须重新核验。适配排序不代表录用概率。
+> English translation of the original verification snapshot. Numbers, statuses and acquisition times were preserved; this formatting update did not perform new verification.
 
-## 稿件与条件
+Verification interval: 2026-10-01T16:01:19+00:00 — 2026-10-01T16:24:12+00:00
 
-虚构稿件（非真实未公开研究）：NHANES 成人睡眠时长与高血压的横断面关联；作者拟使用调查权重、多变量 logistic 回归和限制性立方样条。该案例只验证流程，不替代全文评估。
+> A snapshot of this verification run. Recheck changing facts before use. Fit is not an acceptance probability.
 
-研究类型：公共数据库二次分析 / 横断面研究
+## Manuscript and requirements
 
-方法：复杂抽样加权 / 多变量 logistic 回归 / 限制性立方样条
+Fictional manuscript (not actual unpublished research): a cross-sectional study of the association between sleep duration and hypertension among NHANES adults; the authors plan to use survey weights, multivariable logistic regression, and restricted cubic splines. This example only tests the workflow and does not replace a full-manuscript assessment.
 
-验证：未提供独立外部验证；关联分析不是预测模型；不能把内部划分或合并调查周期称为外部验证。
+Article type: Public-database secondary analysis / Cross-sectional study
 
-材料限制：仅有虚构摘要；未读取真实患者资料。；候选发现来自 Europe PMC 与补充官网检索；本次详查两刊，非全市场穷尽检索。；例设无分区、SCIE、费用硬限制；时间目标为接收。；本例未核到 JCR 与目标接收周期，因此前两条路线保留但不强行排名。
+Methods: Complex-survey weighting / Multivariable logistic regression / Restricted cubic splines
 
-投稿条件：时间目标为接收。未列出的项目未设硬限制。
+Validation: No independent external validation was provided; an association analysis is not a prediction model; internal data splits or combined survey cycles cannot be called external validation.
 
-## 高分区优先
+Material limitations: Only a fictional abstract is available; no actual patient data were read.; Candidates were identified through Europe PMC and supplementary searches of official websites; two journals were examined in detail in this run, which was not an exhaustive search of all journals.; The example assumes no hard requirements for quartile, SCIE indexing, or fees; the target time endpoint is acceptance.; JCR information and the time to the target acceptance endpoint were not verified in this example, so the first two options are retained without forcing a ranking.
 
-暂无可核验排名。见待核验项与原因。
+Requirements: Target endpoint: acceptance. Unspecified limits are not hard requirements.
+
+## Higher quartile
+
+No verified ranking available for this route. See evidence gaps and pending candidates.
 
 
-## 时间优先
+## Time
 
-暂无可核验排名。见待核验项与原因。
+No verified ranking available for this route. See evidence gaps and pending candidates.
 
 
-## 适配优先
+## Fit
 
-- **BMC Public Health** — 疾病流行病学与行为相关健康因素直接对应睡眠和高血压；近期同库同主题先例明确。须说明现有问题的新贡献，不能只是重复关联。
-- **PLOS One** — 医学范围覆盖该问题；公开标准接受方法可靠的原创研究，近期 NHANES 睡眠研究提供发表先例。只有虚构摘要，尚不能确认分析质量。
+- **BMC Public Health** — Disease epidemiology and health factors related to behavior directly cover sleep and hypertension; a recent publication using the same database on the same topic provides a clear precedent. The manuscript must explain its new contribution to the existing research question and cannot merely repeat an association.
+- **PLOS One** — The journal's medical scope covers this question; its published criteria accept original research with sound methods, and recent NHANES sleep research provides a publication precedent. Only a fictional abstract is available, so the quality of the analysis cannot yet be confirmed.
 
-适配等级相同时按刊名排列以保持显示稳定，不表示真实适配存在高低差距。
-高分区路线缺少适用类别的已核验 JCR，暂不排名。
-时间路线缺少目标终点的可比较官方周期，暂不排名。
+Equal fit assessments are displayed alphabetically for stable presentation; this is not evidence of a quality difference.
 
-## 待核验候选
+## Pending verification
 
-本次无此类候选。
+None in this run.
 
-## 排除及理由
+## Excluded candidates
 
-本次无此类候选。
+None in this run.
 
 ## BMC Public Health
 
 > articles on the epidemiology of disease and the understanding of all aspects of public health.
 
-节录：Aims and scope 第一段首句中的连续原文。睡眠行为与高血压患病关联属于疾病流行病学；具体公共卫生意义仍需由稿件证明。
+Excerpt: a continuous passage from the first sentence of the first paragraph of Aims and scope. The association between sleep behavior and hypertension prevalence falls within disease epidemiology; the manuscript must still demonstrate its specific public health relevance.
 
-方法适配判断：疾病流行病学与行为相关健康因素直接对应睡眠和高血压；近期同库同主题先例明确。须说明现有问题的新贡献，不能只是重复关联。
+Method fit: Disease epidemiology and health factors related to behavior directly cover sleep and hypertension; a recent publication using the same database on the same topic provides a clear precedent. The manuscript must explain its new contribution to the existing research question and cannot merely repeat an association.
 
-局限／投稿挑战：同主题近期先例很接近，必须解释研究增量。；期刊 Research 指南排除未经约稿的文献计量分析；本例不是该类型。；只有摘要，未核验真实数据、分析代码或伦理材料。
+Limitations / submission challenges: The recent precedent on the same topic is very similar, so the manuscript must explain what it adds.; The journal's Research guidelines exclude unsolicited bibliometric analyses; this example is not that article type.; Only an abstract is available; actual data, analysis code, and ethics documentation have not been verified.
 
-| 核验项 | 结果 |
+| Verification item | Result |
 |---|---|
-| ISSN / 身份 | 1471-2458 |
-| 文章类型政策 | 允许：Research article 包括原创研究；本例为人群数据二次分析的原创研究。 |
-| 方法政策 | 允许：结合 Scope 的科学问题、适当方法和分析标准及 Research 指南评估；描述性分析的增量和适用范围需说明。本次未看到对全部 NHANES 稿件的一概禁投条文，不等于保证接收。 |
-| 收录 | 未核到 — 未核到：出版社页面列出 SCIE 等，但本次未完成 Master Journal List 的 collection 独立核验；保留线索，不确认满足 SCIE 硬条件。 |
-| JCR 分区 | 未核到 — 未核到：未取得可核验的 JCR 学科类别、分区及数据年度。 |
-| 影响因子 | 2025 JIF: 4.4 |
-| OA 模式 | gold |
-| 费用 | 3450 USD；路径 oa；总费用已确认=False；当前标价 APC；页面另列 GBP 2690 / EUR 3150。适用税费可能另计，价格按接收日确定；国家分层试点、机构协议等须按作者资格核实，最终应付总额未核到。 |
-| 风险与预警 | 未核到 — 未核到：未完成具名预警名单及收录异常核验；学校/医院名单也未提供。 |
-| 周期：首轮决定 | 5 天；median；起点 submission；未核到；统计期 未核到；仅展示，不用于时间排名 |
-| 周期：接收 | 未核到 — 未核到：本次未取得这一终点的官方统计。 |
-| 周期：上线 | 未核到 — 未核到：本次未取得这一终点的官方统计。 |
-| 周期：检索收录 | 未核到 — 未核到：本次未取得这一终点的官方统计。 |
+| ISSN / identity | 1471-2458 |
+| Article-type policy | Allowed: Research article includes original research; this example is original research based on a secondary analysis of population data. |
+| Method policy | Allowed: Assessed against the standards for scientific questions, appropriate methods, and analysis in Scope, together with the Research guidelines; the contribution and applicability of descriptive analyses need to be explained. No blanket prohibition on all NHANES manuscripts was found in this run, which does not guarantee acceptance. |
+| Indexing | Not verified（未核到） — Not verified: the publisher's page lists SCIE and other indexes, but independent verification of the collection in the Master Journal List was not completed in this run; the lead is retained, but compliance with a hard SCIE requirement is not confirmed. |
+| JCR quartiles | Not verified（未核到） — Not verified: verifiable JCR subject categories, quartiles, and the data year were not obtained. |
+| Journal Impact Factor | 2025 JIF: 4.4 |
+| OA model | Fully open access |
+| Fees | 3450 USD; open-access publication; Applicable total not verified; this is not a final amount due; The currently listed APC; the page also lists GBP 2690 / EUR 3150. Applicable taxes may be added, and the price is determined on the acceptance date; eligibility for the country-based tiered pricing pilot, institutional agreements, and other arrangements must be checked for the authors. The final total payable was not verified. |
+| Warnings and risk checks | Not verified（未核到） — Not verified: checks of specific journal warning lists and indexing irregularities were not completed; university/hospital lists were also not provided. |
+| Time: First decision | 5 days; median; start: submission; cohort: 未核到; period: 未核到; shown for context, excluded from time ranking |
+| Time: Acceptance | Not verified（未核到） — Not verified: official statistics for this endpoint were not obtained in this run. |
+| Time: Online publication | Not verified（未核到） — Not verified: official statistics for this endpoint were not obtained in this run. |
+| Time: Indexing | Not verified（未核到） — Not verified: official statistics for this endpoint were not obtained in this run. |
 
-### 发表先例
+### Publication precedents
 
-- [Gender differences in the relationships between weekday sleep duration, weekend catch-up sleep, and hypertension](<https://link.springer.com/article/10.1186/s12889-025-25183-w>) — 2025-11-21 (publication)；相似：NHANES、睡眠与高血压、加权多变量 logistic 回归；已检查方法部分。；差别：先例强调性别差异与周末补觉，并合并调查周期；不能把合并周期说成独立外部验证。本例尚未说明独特增量。
+- [Gender differences in the relationships between weekday sleep duration, weekend catch-up sleep, and hypertension](<https://link.springer.com/article/10.1186/s12889-025-25183-w>) — 2025-11-21 (publication); similarity: NHANES, sleep and hypertension, and weighted multivariable logistic regression; the methods section was checked.; difference: The precedent emphasizes gender differences and weekend catch-up sleep and combines survey cycles; combining cycles cannot be described as independent external validation. This example has not yet explained its distinct contribution.
 
-### 核验记录
+### Verification record
 
-- identity：[来源](<https://link.springer.com/journal/12889>)；2026-10-01T16:23:12+00:00；official；依据：Journal information: Electronic ISSN。
-- scope：[来源](<https://link.springer.com/journal/12889/aims-and-scope>)；2026-10-01T16:23:12+00:00；official；依据：Aims and scope 第一段；此处明确为节录。
-- article_type：[来源](<https://link.springer.com/journal/12889/submission-guidelines/research-article>)；2026-10-01T16:24:12+00:00；official；依据：Criteria: original primary research；另列不接受的 pooled/bibliometric 分析。
-- method_policy：[来源](<https://link.springer.com/journal/12889/submission-guidelines/research-article>)；2026-10-01T16:24:12+00:00；official；依据：Research article 的 Criteria；当前明确排除 non-commissioned bibliometric analyses。
-- jif：[来源](<https://link.springer.com/journal/12889>)；2026-10-01T16:23:12+00:00；official；依据：Journal metrics: Journal Impact Factor 4.4 (2025)；年度按官网标示。
-- oa：[来源](<https://link.springer.com/journal/12889/how-to-publish-with-us>)；2026-10-01T16:24:12+00:00；official；依据：Publishing model / Open access。
-- fees：[来源](<https://link.springer.com/journal/12889/how-to-publish-with-us>)；2026-10-01T16:24:12+00:00；official；依据：Fees and funding / Publication fee，金额及税费、定价时间、分层说明。
-- first_decision：[来源](<https://link.springer.com/journal/12889>)；2026-10-01T16:23:12+00:00；official；依据：Journal metrics: Submission to first decision (median), 5 days；该栏未给统计期或完整样本口径。
-- precedent：[来源](<https://link.springer.com/article/10.1186/s12889-025-25183-w>)；2026-10-01T16:24:12+00:00；official；依据：Published 21 November 2025；Methods / Study population / Statistical analysis。
+Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.
+
+- identity: [source](<https://link.springer.com/journal/12889>) — 2026-10-01T16:23:12+00:00; official; evidence record `bmc-public-health/identity/0`
+- scope: [source](<https://link.springer.com/journal/12889/aims-and-scope>) — 2026-10-01T16:23:12+00:00; official; evidence record `bmc-public-health/scope/0`
+- article_type: [source](<https://link.springer.com/journal/12889/submission-guidelines/research-article>) — 2026-10-01T16:24:12+00:00; official; evidence record `bmc-public-health/article_type/0`
+- method_policy: [source](<https://link.springer.com/journal/12889/submission-guidelines/research-article>) — 2026-10-01T16:24:12+00:00; official; evidence record `bmc-public-health/method_policy/0`
+- jif: [source](<https://link.springer.com/journal/12889>) — 2026-10-01T16:23:12+00:00; official; evidence record `bmc-public-health/jif/0`
+- oa: [source](<https://link.springer.com/journal/12889/how-to-publish-with-us>) — 2026-10-01T16:24:12+00:00; official; evidence record `bmc-public-health/oa/0`
+- fees: [source](<https://link.springer.com/journal/12889/how-to-publish-with-us>) — 2026-10-01T16:24:12+00:00; official; evidence record `bmc-public-health/fees/0`
+- first_decision: [source](<https://link.springer.com/journal/12889>) — 2026-10-01T16:23:12+00:00; official; evidence record `bmc-public-health/first_decision/0`
+- precedent: [source](<https://link.springer.com/article/10.1186/s12889-025-25183-w>) — 2026-10-01T16:24:12+00:00; official; evidence record `bmc-public-health/precedent/0`
 
 ## PLOS One
 
 > PLOS ONE accepts research in over two hundred subject areas across science, engineering, medicine, and the related social sciences and humanities.
 
-官网 Inclusive publication criteria and scope 的完整短句。睡眠与高血压属于医学及人群健康问题，进入该范围；方法是否可靠仍须审稿判断。
+A complete short sentence from Inclusive publication criteria and scope on the official website. Sleep and hypertension are medical and population health topics and fall within this scope; reviewers must still assess whether the methods are sound.
 
-方法适配判断：医学范围覆盖该问题；公开标准接受方法可靠的原创研究，近期 NHANES 睡眠研究提供发表先例。只有虚构摘要，尚不能确认分析质量。
+Method fit: The journal's medical scope covers this question; its published criteria accept original research with sound methods, and recent NHANES sleep research provides a publication precedent. Only a fictional abstract is available, so the quality of the analysis cannot yet be confirmed.
 
-局限／投稿挑战：必须核实加权、混杂、缺失数据与结论边界。；与已有睡眠/NHANES 论文相比的新贡献尚待说明。；近期发表先例不能证明当前稿件会被接收。
+Limitations / submission challenges: Weighting, confounding, missing data, and the limits of the conclusions must be checked.; The new contribution compared with existing sleep/NHANES papers remains to be explained.; A recent publication precedent does not establish that the current manuscript will be accepted.
 
-| 核验项 | 结果 |
+| Verification item | Result |
 |---|---|
-| ISSN / 身份 | 1932-6203 |
-| 文章类型政策 | 允许：Criteria for Publication 接受原创研究；本例按原创横断面研究评估。 |
-| 方法政策 | 允许：当前标准强调技术可靠、分析恰当、结论有数据支持与伦理要求。这里的 allowed 表示原则上可按原创研究评估，不是编辑已批准 NHANES 稿件。 |
-| 收录 | MEDLINE；WoS 具体 collection 未核到 |
-| JCR 分区 | 未核到 — 未核到：JCR 官方页面未取得可读的期刊类别/年度/分区；不能用其他分区替代。 |
-| 影响因子 | 未核到 — 未核到：本次可读官方材料未取得明确的 JIF 数值与年度。 |
-| OA 模式 | gold |
-| 费用 | 未核到 — 未核到：费用总页能读取，但本次文本提取未可靠保留期刊名称与价格对应关系；不猜测适用 APC。 |
-| 风险与预警 | 未核到 — 未核到：未提供学校/医院的具名名单，亦未完成具名公开预警名单和收录异常核验；不代表没有风险。 |
-| 周期：首轮决定 | 未核到 — 未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。 |
-| 周期：接收 | 未核到 — 未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。 |
-| 周期：上线 | 未核到 — 未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。 |
-| 周期：检索收录 | 未核到 — 未核到：未取得本次目标终点的适用当前官方统计；历史表不能冒充当前周期。 |
+| ISSN / identity | 1932-6203 |
+| Article-type policy | Allowed: Criteria for Publication accepts original research; this example is assessed as an original cross-sectional study. |
+| Method policy | Allowed: The current criteria emphasize technical soundness, appropriate analysis, conclusions supported by data, and ethical requirements. Here, allowed means that the manuscript can in principle be assessed as original research, not that an editor has approved the NHANES manuscript. |
+| Indexing | MEDLINE; WoS collection: Not verified（未核到） |
+| JCR quartiles | Not verified（未核到） — Not verified: readable journal category/year/quartile information was not obtained from the official JCR page; other ranking systems cannot be used as substitutes. |
+| Journal Impact Factor | Not verified（未核到） — Not verified: no explicit JIF value and year were obtained from the official materials readable in this run. |
+| OA model | Fully open access |
+| Fees | Not verified（未核到） — Not verified: the general fees page was readable, but text extraction in this run did not reliably preserve the association between journal names and prices; the applicable APC was not guessed. |
+| Warnings and risk checks | Not verified（未核到） — Not verified: specific university/hospital lists were not provided, and checks of specific public journal warning lists and indexing irregularities were not completed; this does not mean there is no risk. |
+| Time: First decision | Not verified（未核到） — Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines. |
+| Time: Acceptance | Not verified（未核到） — Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines. |
+| Time: Online publication | Not verified（未核到） — Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines. |
+| Time: Indexing | Not verified（未核到） — Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines. |
 
-### 发表先例
+### Publication precedents
 
-- [Associations of sleep pattern, sleep duration, bedtime, rising time and cardiovascular disease: Data from NHANES (2017–2020)](<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499>) — 2025-07-11 (publication)；相似：NHANES、睡眠指标、回归与样条分析，心血管结局中包含高血压。；差别：先例讨论多个睡眠维度及更广的心血管结局；本例聚焦睡眠时长与高血压。不能借先例推定本稿新颖性。
+- [Associations of sleep pattern, sleep duration, bedtime, rising time and cardiovascular disease: Data from NHANES (2017–2020)](<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499>) — 2025-07-11 (publication); similarity: NHANES, sleep measures, regression and spline analyses, with hypertension included among the cardiovascular outcomes.; difference: The precedent examines multiple dimensions of sleep and broader cardiovascular outcomes; this example focuses on sleep duration and hypertension. The precedent cannot be used to assume that this manuscript is novel.
 
-### 核验记录
+### Verification record
 
-- identity：[来源](<https://journals.plos.org/plosone/s/publishing-information>)；2026-10-01T16:24:12+00:00；official；依据：eISSN 表的 PLOS One 行。
-- scope：[来源](<https://journals.plos.org/plosone/s/journal-information>)；2026-10-01T16:23:12+00:00；official；依据：Inclusive publication criteria and scope，首句。
-- article_type：[来源](<https://journals.plos.org/plosone/s/criteria-for-publication>)；2026-10-01T16:24:12+00:00；official；依据：Criteria 1: original research；并非所有综述或病例均可投。
-- method_policy：[来源](<https://journals.plos.org/plosone/s/criteria-for-publication>)；2026-10-01T16:24:12+00:00；official；依据：Criteria 1–5；衍生或重复研究须说明新增知识。
-- indexing：[来源](<https://journals.plos.org/plosone/s/journal-information>)；2026-10-01T16:23:12+00:00；official；依据：Indexing and Archiving 明列 MEDLINE；未把一般 Web of Science 字样升级为 SCIE。
-- oa：[来源](<https://journals.plos.org/plosone/s/journal-information>)；2026-10-01T16:23:12+00:00；official；依据：Journal Information 的 Open Access 说明。
-- precedent：[来源](<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499>)；2026-10-01T16:24:12+00:00；official；依据：文章发布日期、Abstract、Materials and methods；未把 received/accepted 日期当发表日期。
+Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.
 
-## 下一步
+- identity: [source](<https://journals.plos.org/plosone/s/publishing-information>) — 2026-10-01T16:24:12+00:00; official; evidence record `plos-one/identity/0`
+- scope: [source](<https://journals.plos.org/plosone/s/journal-information>) — 2026-10-01T16:23:12+00:00; official; evidence record `plos-one/scope/0`
+- article_type: [source](<https://journals.plos.org/plosone/s/criteria-for-publication>) — 2026-10-01T16:24:12+00:00; official; evidence record `plos-one/article_type/0`
+- method_policy: [source](<https://journals.plos.org/plosone/s/criteria-for-publication>) — 2026-10-01T16:24:12+00:00; official; evidence record `plos-one/method_policy/0`
+- indexing: [source](<https://journals.plos.org/plosone/s/journal-information>) — 2026-10-01T16:23:12+00:00; official; evidence record `plos-one/indexing/0`
+- oa: [source](<https://journals.plos.org/plosone/s/journal-information>) — 2026-10-01T16:23:12+00:00; official; evidence record `plos-one/oa/0`
+- precedent: [source](<https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499>) — 2026-10-01T16:24:12+00:00; official; evidence record `plos-one/precedent/0`
 
-先核实待核验硬条件，再由作者选择目标期刊。请勿同时向多刊投稿。选定后可生成投稿信交接材料。
+## Next steps
+
+Verify pending hard requirements, then choose the target journal. Do not submit simultaneously to multiple journals. A cover-letter handoff is available after the author's choice.

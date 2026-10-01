@@ -2,19 +2,17 @@
 
 **从读懂稿件、查找期刊到逐项核验，帮你比较适合这篇文章的投稿选择。**
 
-[English](../README.md) · [下载 v1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [安装教程](getting-started.md) · [完整报告示例](examples/fictional-report.md)
+[English](../README.md) · [下载 v1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [安装教程](getting-started.zh-CN.md) · [完整报告示例](examples/fictional-report.zh-CN.md)
 
 ## 从这里开始
 
 选择你正在使用的 AI 助手，**只需下载一种文件**。
 
-| 你使用什么 | 下载文件 | 下一步 |
-|---|---|---|
-| **Codex** | [Skill 安装包](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill) | 将文件交给 Codex，按[教程](getting-started.md#codex)安装 |
-| **Claude Code** | [Skill 文件夹 ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-portable-v1.0.0.zip) | 将其中的文件夹放进 `.claude/skills/`；[查看步骤](getting-started.md#claude-code) |
-| **其他 AI 助手** | [独立 SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md) | 让助手读取这个文件，再提供稿件 |
+- **Codex：** 下载 [Skill 安装包](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill)，将文件交给 Codex，安装到当前项目的 `.agents/skills/medical-journal-selector/`；[查看步骤](getting-started.zh-CN.md#codex)。
+- **Claude Code：** 下载 [Skill 文件夹 ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-portable-v1.0.0.zip)，将其中的文件夹放进 `.claude/skills/`，再调用 `/medical-journal-selector`；[查看步骤](getting-started.zh-CN.md#claude-code)。
+- **其他 AI 助手：** 下载 [独立 SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md)，让助手读取这个文件，再提供稿件。
 
-完整安装步骤和 Codex Plugin 的使用方式见[安装教程](getting-started.md)。
+完整安装步骤和 Codex Plugin 的使用方式见[安装教程](getting-started.zh-CN.md)。
 
 ## 它怎样完成选刊
 
@@ -54,7 +52,7 @@
 
 每本期刊都附有官网 **Aims & Scope 原文**、具体适配理由、相似论文、投稿信息和来源。每条路线最多列 3 本，证据不足时少列。适配判断不等于录用概率。
 
-**[查看完整报告示例 →](examples/fictional-report.md)** 示例中的期刊与数字均为虚构，用来展示你会收到怎样的报告。
+**[查看完整报告示例 →](examples/fictional-report.zh-CN.md)** 示例中的期刊与数字均为虚构，用来展示你会收到怎样的报告。
 
 ## 常见问题
 

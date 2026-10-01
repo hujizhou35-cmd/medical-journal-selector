@@ -2,17 +2,15 @@
 
 **Find journals for your medical manuscript—from understanding the study to checking each journal and comparing submission options.**
 
-[简体中文](docs/README.zh-CN.md) · [Download v1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [Installation guide (中文)](docs/getting-started.md) · [Example report (中文)](docs/examples/fictional-report.md)
+[简体中文](docs/README.zh-CN.md) · [Download v1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [Installation guide](docs/getting-started.md) · [Example report](docs/examples/fictional-report.md)
 
 ## Start here
 
 Choose the AI assistant you use. You only need **one** download.
 
-| Your assistant | Download | Next step |
-|---|---|---|
-| **Codex** | [Skill package](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill) | Ask Codex to install it in your project's `.agents/skills/medical-journal-selector/` folder |
-| **Claude Code** | [Skill folder ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-portable-v1.0.0.zip) | Put the enclosed folder in `.claude/skills/`; invoke `/medical-journal-selector` |
-| **Another AI assistant** | [Standalone SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md) | Ask your assistant to read the file and use it with your manuscript |
+- **Codex:** download the [Skill package](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill), then ask Codex to install it in your project's `.agents/skills/medical-journal-selector/` folder.
+- **Claude Code:** download the [Skill folder ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-portable-v1.0.0.zip), put the enclosed folder in `.claude/skills/`, then invoke `/medical-journal-selector`.
+- **Another AI assistant:** download [standalone SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md) and ask your assistant to read it and use it with your manuscript.
 
 For step-by-step setup or the Codex Plugin option, see the [installation guide](docs/getting-started.md).
 
@@ -55,7 +53,7 @@ You can add: `I need JCR Q2 or above, a total fee below [budget/currency], and a
 
 Each journal comes with an official **Aims & Scope quotation**, a specific explanation of its fit, similar papers, key publication information and source links. Each route contains up to three journals; fewer are shown when the evidence is insufficient. Fit is an assessment, not an acceptance probability.
 
-**[Read a complete example report (Chinese) →](docs/examples/fictional-report.md)** The example uses fictional journals and figures to show the report format.
+**[Read a complete example report →](docs/examples/fictional-report.md)** The example uses fictional journals and figures to show the report format. Switch to Chinese at the top of the report.
 
 ## Common questions
 
@@ -81,9 +79,9 @@ Yes—tell the Skill what is required and what is only a preference. For a deadl
 </details>
 
 <details>
-<summary><strong>Why does a field say “未核到”?</strong></summary>
+<summary><strong>Why does a field say “Not verified”?</strong></summary>
 
-It means “not verified”: the Skill could not confirm the information from a reliable current source. The report explains what is missing. If that fact is one of your hard requirements, the journal stays pending rather than being presented as a confirmed match.
+The Skill could not confirm that information from a reliable current source. Chinese reports use “未核到” for the same status. The report explains what is missing. If that fact is one of your hard requirements, the journal stays pending rather than being presented as a confirmed match.
 
 </details>
 

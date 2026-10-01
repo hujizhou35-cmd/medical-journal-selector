@@ -1,0 +1,418 @@
+{
+  "schema_version": "1.0",
+  "run": {
+    "mode": "live",
+    "web_available": true,
+    "started_at": "2026-10-01T16:01:19+00:00",
+    "completed_at": "2026-10-01T16:24:12+00:00",
+    "report_language": "en"
+  },
+  "profile": {
+    "summary": "Fictional manuscript (not actual unpublished research): a cross-sectional study of the association between sleep duration and hypertension among NHANES adults; the authors plan to use survey weights, multivariable logistic regression, and restricted cubic splines. This example only tests the workflow and does not replace a full-manuscript assessment.",
+    "article_types": [
+      "Public-database secondary analysis",
+      "Cross-sectional study"
+    ],
+    "methods": [
+      "Complex-survey weighting",
+      "Multivariable logistic regression",
+      "Restricted cubic splines"
+    ],
+    "validation": "No independent external validation was provided; an association analysis is not a prediction model; internal data splits or combined survey cycles cannot be called external validation.",
+    "queries": [
+      "NHANES AND hypertension AND sleep；publication window 2024-10-02 to 2026-10-02",
+      "NHANES sleep hypertension site:journals.plos.org",
+      "NHANES sleep hypertension site:link.springer.com BMC Public Health"
+    ],
+    "limitations": [
+      "Only a fictional abstract is available; no actual patient data were read.",
+      "Candidates were identified through Europe PMC and supplementary searches of official websites; two journals were examined in detail in this run, which was not an exhaustive search of all journals.",
+      "The example assumes no hard requirements for quartile, SCIE indexing, or fees; the target time endpoint is acceptance.",
+      "JCR information and the time to the target acceptance endpoint were not verified in this example, so the first two options are retained without forcing a ranking."
+    ]
+  },
+  "constraints": {
+    "time_endpoint": "acceptance"
+  },
+  "journals": [
+    {
+      "id": "bmc-public-health",
+      "title": "BMC Public Health",
+      "ranking_category": "未核到",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "Disease epidemiology and health factors related to behavior directly cover sleep and hypertension; a recent publication using the same database on the same topic provides a clear precedent. The manuscript must explain its new contribution to the existing research question and cannot merely repeat an association.",
+        "limitations": [
+          "The recent precedent on the same topic is very similar, so the manuscript must explain what it adds.",
+          "The journal's Research guidelines exclude unsolicited bibliometric analyses; this example is not that article type.",
+          "Only an abstract is available; actual data, analysis code, and ethics documentation have not been verified."
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "1471-2458"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal information: Electronic ISSN。"
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "articles on the epidemiology of disease and the understanding of all aspects of public health.",
+            "fit_explanation": "Excerpt: a continuous passage from the first sentence of the first paragraph of Aims and scope. The association between sleep behavior and hypertension prevalence falls within disease epidemiology; the manuscript must still demonstrate its specific public health relevance."
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/aims-and-scope",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Aims and scope, first paragraph; explicitly identified here as an excerpt."
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Research article includes original research; this example is original research based on a secondary analysis of population data."
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/submission-guidelines/research-article",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria: original primary research; also lists pooled/bibliometric analyses that are not accepted."
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Assessed against the standards for scientific questions, appropriate methods, and analysis in Scope, together with the Research guidelines; the contribution and applicability of descriptive analyses need to be explained. No blanket prohibition on all NHANES manuscripts was found in this run, which does not guarantee acceptance."
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/submission-guidelines/research-article",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "The Criteria for Research article; currently explicitly excludes non-commissioned bibliometric analyses."
+            }
+          ]
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: the publisher's page lists SCIE and other indexes, but independent verification of the collection in the Master Journal List was not completed in this run; the lead is retained, but compliance with a hard SCIE requirement is not confirmed.",
+          "evidence": []
+        },
+        "jcr": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: verifiable JCR subject categories, quartiles, and the data year were not obtained.",
+          "evidence": []
+        },
+        "jif": {
+          "status": "verified",
+          "value": {
+            "year": 2025,
+            "number": 4.4
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal metrics: Journal Impact Factor 4.4 (2025); the year is as displayed on the official website."
+            }
+          ]
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/how-to-publish-with-us",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Publishing model / Open access。"
+            }
+          ]
+        },
+        "fees": {
+          "status": "verified",
+          "value": {
+            "amount": 3450,
+            "currency": "USD",
+            "option": "oa",
+            "total_known": false,
+            "notes": "The currently listed APC; the page also lists GBP 2690 / EUR 3150. Applicable taxes may be added, and the price is determined on the acceptance date; eligibility for the country-based tiered pricing pilot, institutional agreements, and other arrangements must be checked for the authors. The final total payable was not verified."
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889/how-to-publish-with-us",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Fees and funding / Publication fee, including amounts, taxes, when the price is determined, and tiered pricing details."
+            }
+          ]
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: checks of specific journal warning lists and indexing irregularities were not completed; university/hospital lists were also not provided.",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "verified",
+          "value": {
+            "days": 5,
+            "statistic": "median",
+            "start_event": "submission",
+            "cohort": "未核到",
+            "period": "未核到",
+            "ranking_usable": false
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/journal/12889",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Journal metrics: Submission to first decision (median), 5 days; this field does not state the reporting period or fully define the sample."
+            }
+          ]
+        },
+        "acceptance": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: official statistics for this endpoint were not obtained in this run.",
+          "evidence": []
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: official statistics for this endpoint were not obtained in this run.",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: official statistics for this endpoint were not obtained in this run.",
+          "evidence": []
+        }
+      },
+      "precedents": [
+        {
+          "status": "verified",
+          "value": {
+            "title": "Gender differences in the relationships between weekday sleep duration, weekend catch-up sleep, and hypertension",
+            "date": "2025-11-21",
+            "date_kind": "publication",
+            "url": "https://link.springer.com/article/10.1186/s12889-025-25183-w",
+            "similarity": "NHANES, sleep and hypertension, and weighted multivariable logistic regression; the methods section was checked.",
+            "difference": "The precedent emphasizes gender differences and weekend catch-up sleep and combines survey cycles; combining cycles cannot be described as independent external validation. This example has not yet explained its distinct contribution."
+          },
+          "evidence": [
+            {
+              "url": "https://link.springer.com/article/10.1186/s12889-025-25183-w",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Published 21 November 2025；Methods / Study population / Statistical analysis。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plos-one",
+      "title": "PLOS One",
+      "ranking_category": "未核到",
+      "assessment": {
+        "scope_fit": "strong",
+        "method_fit": "moderate",
+        "reason": "The journal's medical scope covers this question; its published criteria accept original research with sound methods, and recent NHANES sleep research provides a publication precedent. Only a fictional abstract is available, so the quality of the analysis cannot yet be confirmed.",
+        "limitations": [
+          "Weighting, confounding, missing data, and the limits of the conclusions must be checked.",
+          "The new contribution compared with existing sleep/NHANES papers remains to be explained.",
+          "A recent publication precedent does not establish that the current manuscript will be accepted."
+        ]
+      },
+      "facts": {
+        "identity": {
+          "status": "verified",
+          "value": {
+            "issns": [
+              "1932-6203"
+            ]
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/publishing-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "The PLOS One row in the eISSN table."
+            }
+          ]
+        },
+        "scope": {
+          "status": "verified",
+          "value": {
+            "quote": "PLOS ONE accepts research in over two hundred subject areas across science, engineering, medicine, and the related social sciences and humanities.",
+            "fit_explanation": "A complete short sentence from Inclusive publication criteria and scope on the official website. Sleep and hypertension are medical and population health topics and fall within this scope; reviewers must still assess whether the methods are sound."
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Inclusive publication criteria and scope, first sentence."
+            }
+          ]
+        },
+        "article_type": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "Criteria for Publication accepts original research; this example is assessed as an original cross-sectional study."
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/criteria-for-publication",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria 1: original research; not all reviews or case reports are eligible for submission."
+            }
+          ]
+        },
+        "method_policy": {
+          "status": "verified",
+          "value": {
+            "allowed": true,
+            "notes": "The current criteria emphasize technical soundness, appropriate analysis, conclusions supported by data, and ethical requirements. Here, allowed means that the manuscript can in principle be assessed as original research, not that an editor has approved the NHANES manuscript."
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/criteria-for-publication",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "Criteria 1–5; derivative or replication studies must explain the new knowledge they add."
+            }
+          ]
+        },
+        "indexing": {
+          "status": "verified",
+          "value": {
+            "collections": [
+              "MEDLINE"
+            ],
+            "wos_checked": false
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "Indexing and Archiving explicitly lists MEDLINE; a general mention of Web of Science was not treated as confirmation of SCIE indexing."
+            }
+          ]
+        },
+        "jcr": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: readable journal category/year/quartile information was not obtained from the official JCR page; other ranking systems cannot be used as substitutes.",
+          "evidence": []
+        },
+        "jif": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: no explicit JIF value and year were obtained from the official materials readable in this run.",
+          "evidence": []
+        },
+        "oa": {
+          "status": "verified",
+          "value": "gold",
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/s/journal-information",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:23:12+00:00",
+              "support": "The Open Access explanation in Journal Information."
+            }
+          ]
+        },
+        "fees": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: the general fees page was readable, but text extraction in this run did not reliably preserve the association between journal names and prices; the applicable APC was not guessed.",
+          "evidence": []
+        },
+        "warnings": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: specific university/hospital lists were not provided, and checks of specific public journal warning lists and indexing irregularities were not completed; this does not mean there is no risk.",
+          "evidence": []
+        }
+      },
+      "timelines": {
+        "first_decision": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines.",
+          "evidence": []
+        },
+        "acceptance": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines.",
+          "evidence": []
+        },
+        "online": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines.",
+          "evidence": []
+        },
+        "indexing": {
+          "status": "unverified",
+          "value": null,
+          "reason": "Not verified: applicable current official statistics for the target endpoint were not obtained in this run; historical tables cannot be presented as current timelines.",
+          "evidence": []
+        }
+      },
+      "precedents": [
+        {
+          "status": "verified",
+          "value": {
+            "title": "Associations of sleep pattern, sleep duration, bedtime, rising time and cardiovascular disease: Data from NHANES (2017–2020)",
+            "date": "2025-07-11",
+            "date_kind": "publication",
+            "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499",
+            "similarity": "NHANES, sleep measures, regression and spline analyses, with hypertension included among the cardiovascular outcomes.",
+            "difference": "The precedent examines multiple dimensions of sleep and broader cardiovascular outcomes; this example focuses on sleep duration and hypertension. The precedent cannot be used to assume that this manuscript is novel."
+          },
+          "evidence": [
+            {
+              "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0326499",
+              "source_type": "official",
+              "checked_at": "2026-10-01T16:24:12+00:00",
+              "support": "The article's publication date, Abstract, and Materials and methods; received/accepted dates were not treated as the publication date."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

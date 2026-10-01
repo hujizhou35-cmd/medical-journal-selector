@@ -1,183 +1,193 @@
-# 医学选刊报告
+# Medical Journal Selection Report
 
-核验区间：2026-01-01T11:59:00+00:00 — 2026-01-01T12:01:00+00:00
+[简体中文](fictional-report.zh-CN.md) · [All examples](README.md) · [Evidence](fictional-evidence.en.json)
 
-> 离线虚构测试样例。所有期刊和数字均为测试数据，不能用于投稿。
+> Fictional journals and figures for demonstration only.
 
-## 稿件与条件
+Verification interval: 2026-01-01T11:59:00+00:00 — 2026-01-01T12:01:00+00:00
 
-虚构教学案例：基层高血压随访队列。
+> Fictional offline demonstration. All journals and figures are test data and must not guide a submission.
 
-研究类型：cohort
+## Manuscript and requirements
 
-方法：multivariable analysis
+Fictional teaching case: a hypertension follow-up cohort in primary care.
 
-验证：无外部验证；非预测模型
+Article type: cohort
 
-材料限制：全部为虚构样例
+Methods: multivariable analysis
 
-投稿条件：时间目标为接收。未列出的项目未设硬限制。
+Validation: No external validation; not a prediction model
 
-## 高分区优先
+Material limitations: All examples are fictional
 
-- **Fictional Clinical Journal** — 2025 JCR；Public Health: Q1；采用类别：Public Health
-- **Fictional Rapid Health** — 2025 JCR；Public Health: Q2；采用类别：Public Health
-- **Fictional Methods & Care** — 2025 JCR；Public Health: Q3；采用类别：Public Health
+Requirements: Target endpoint: acceptance. Unspecified limits are not hard requirements.
 
-## 时间优先
+## Higher quartile
 
-- **Fictional Rapid Health** — 60 天；median；起点 submission；accepted articles；统计期 2025；不同口径不可横比
-- **Fictional Methods & Care** — 100 天；median；起点 submission；accepted articles；统计期 2025；不同口径不可横比
-- **Fictional Clinical Journal** — 120 天；median；起点 submission；accepted articles；统计期 2025；不同口径不可横比
+- **Fictional Clinical Journal** — 2025 JCR; Public Health: Q1; selected category: Public Health
+- **Fictional Rapid Health** — 2025 JCR; Public Health: Q2; selected category: Public Health
+- **Fictional Methods & Care** — 2025 JCR; Public Health: Q3; selected category: Public Health
 
-## 适配优先
+## Time
 
-- **Fictional Methods & Care** — 虚构队列研究与该虚构期刊读者和方法要求匹配。
-- **Fictional Clinical Journal** — 虚构队列研究与该虚构期刊读者和方法要求匹配。
-- **Fictional Rapid Health** — 虚构队列研究与该虚构期刊读者和方法要求匹配。
+- **Fictional Rapid Health** — 60 days; median; start: submission; cohort: accepted articles; period: 2025; compare only equivalent definitions
+- **Fictional Methods & Care** — 100 days; median; start: submission; cohort: accepted articles; period: 2025; compare only equivalent definitions
+- **Fictional Clinical Journal** — 120 days; median; start: submission; cohort: accepted articles; period: 2025; compare only equivalent definitions
 
-适配等级相同时按刊名排列以保持显示稳定，不表示真实适配存在高低差距。
+## Fit
 
-## 待核验候选
+- **Fictional Methods & Care** — The fictional cohort study matches this fictional journal's readership and methodological requirements.
+- **Fictional Clinical Journal** — The fictional cohort study matches this fictional journal's readership and methodological requirements.
+- **Fictional Rapid Health** — The fictional cohort study matches this fictional journal's readership and methodological requirements.
 
-本次无此类候选。
+Equal fit assessments are displayed alphabetically for stable presentation; this is not evidence of a quality difference.
 
-## 排除及理由
+## Pending verification
 
-本次无此类候选。
+None in this run.
+
+## Excluded candidates
+
+None in this run.
 
 ## Fictional Clinical Journal
 
 > We publish public health research.
 
-虚构 scope，演示如何引用和对应研究。
+Fictional scope, demonstrating how to quote it and relate it to the study.
 
-方法适配判断：虚构队列研究与该虚构期刊读者和方法要求匹配。
+Method fit: The fictional cohort study matches this fictional journal's readership and methodological requirements.
 
-局限／投稿挑战：仅演示排序；非真实投稿建议。
+Limitations / submission challenges: For ranking demonstration only; not actual submission advice.
 
-| 核验项 | 结果 |
+| Verification item | Result |
 |---|---|
-| ISSN / 身份 | 9000-0005 |
-| 文章类型政策 | 允许：虚构 Original Research 政策 |
-| 方法政策 | 允许：虚构队列方法政策 |
-| 收录 | SCIE；WoS 已核验 |
-| JCR 分区 | 2025 JCR；Public Health: Q1 |
-| 影响因子 | 2025 JIF: 3.5 |
-| OA 模式 | gold |
-| 费用 | 1000 USD；路径 oa；总费用已确认=True；虚构总费用 |
-| 风险与预警 | 未核到 — 测试缺失字段 |
-| 周期：首轮决定 | 10 天；median；起点 submission；all submissions；统计期 2025 |
-| 周期：接收 | 120 天；median；起点 submission；accepted articles；统计期 2025 |
-| 周期：上线 | 未核到 — 测试缺失字段 |
-| 周期：检索收录 | 未核到 — 测试缺失字段 |
+| ISSN / identity | 9000-0005 |
+| Article-type policy | Allowed: Fictional Original Research policy |
+| Method policy | Allowed: Fictional policy on cohort study methods |
+| Indexing | SCIE; WoS collection checked |
+| JCR quartiles | 2025 JCR; Public Health: Q1 |
+| Journal Impact Factor | 2025 JIF: 3.5 |
+| OA model | Fully open access |
+| Fees | 1000 USD; open-access publication; Total required fees verified; Fictional total fee |
+| Warnings and risk checks | Not verified（未核到） — Missing field for testing |
+| Time: First decision | 10 days; median; start: submission; cohort: all submissions; period: 2025 |
+| Time: Acceptance | 120 days; median; start: submission; cohort: accepted articles; period: 2025 |
+| Time: Online publication | Not verified（未核到） — Missing field for testing |
+| Time: Indexing | Not verified（未核到） — Missing field for testing |
 
-### 发表先例
+### Publication precedents
 
-未核到 — 本次没有确认可用的同类先例。
+Not verified（未核到） — No confirmed usable similar paper in this run.
 
-### 核验记录
+### Verification record
 
-- identity：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- scope：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- article_type：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- method_policy：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- indexing：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jcr：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jif：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- oa：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- fees：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- first_decision：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- acceptance：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
+Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.
+
+- identity: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/identity/0`
+- scope: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/scope/0`
+- article_type: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/article_type/0`
+- method_policy: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/method_policy/0`
+- indexing: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/indexing/0`
+- jcr: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/jcr/0`
+- jif: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/jif/0`
+- oa: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/oa/0`
+- fees: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/fees/0`
+- first_decision: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/first_decision/0`
+- acceptance: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j0/acceptance/0`
 
 ## Fictional Rapid Health
 
 > We publish public health research.
 
-虚构 scope，演示如何引用和对应研究。
+Fictional scope, demonstrating how to quote it and relate it to the study.
 
-方法适配判断：虚构队列研究与该虚构期刊读者和方法要求匹配。
+Method fit: The fictional cohort study matches this fictional journal's readership and methodological requirements.
 
-局限／投稿挑战：仅演示排序；非真实投稿建议。
+Limitations / submission challenges: For ranking demonstration only; not actual submission advice.
 
-| 核验项 | 结果 |
+| Verification item | Result |
 |---|---|
-| ISSN / 身份 | 9000-0013 |
-| 文章类型政策 | 允许：虚构 Original Research 政策 |
-| 方法政策 | 允许：虚构队列方法政策 |
-| 收录 | SCIE；WoS 已核验 |
-| JCR 分区 | 2025 JCR；Public Health: Q2 |
-| 影响因子 | 2025 JIF: 3.5 |
-| OA 模式 | gold |
-| 费用 | 1000 USD；路径 oa；总费用已确认=True；虚构总费用 |
-| 风险与预警 | 未核到 — 测试缺失字段 |
-| 周期：首轮决定 | 10 天；median；起点 submission；all submissions；统计期 2025 |
-| 周期：接收 | 60 天；median；起点 submission；accepted articles；统计期 2025 |
-| 周期：上线 | 未核到 — 测试缺失字段 |
-| 周期：检索收录 | 未核到 — 测试缺失字段 |
+| ISSN / identity | 9000-0013 |
+| Article-type policy | Allowed: Fictional Original Research policy |
+| Method policy | Allowed: Fictional policy on cohort study methods |
+| Indexing | SCIE; WoS collection checked |
+| JCR quartiles | 2025 JCR; Public Health: Q2 |
+| Journal Impact Factor | 2025 JIF: 3.5 |
+| OA model | Fully open access |
+| Fees | 1000 USD; open-access publication; Total required fees verified; Fictional total fee |
+| Warnings and risk checks | Not verified（未核到） — Missing field for testing |
+| Time: First decision | 10 days; median; start: submission; cohort: all submissions; period: 2025 |
+| Time: Acceptance | 60 days; median; start: submission; cohort: accepted articles; period: 2025 |
+| Time: Online publication | Not verified（未核到） — Missing field for testing |
+| Time: Indexing | Not verified（未核到） — Missing field for testing |
 
-### 发表先例
+### Publication precedents
 
-未核到 — 本次没有确认可用的同类先例。
+Not verified（未核到） — No confirmed usable similar paper in this run.
 
-### 核验记录
+### Verification record
 
-- identity：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- scope：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- article_type：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- method_policy：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- indexing：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jcr：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jif：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- oa：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- fees：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- first_decision：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- acceptance：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
+Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.
+
+- identity: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/identity/0`
+- scope: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/scope/0`
+- article_type: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/article_type/0`
+- method_policy: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/method_policy/0`
+- indexing: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/indexing/0`
+- jcr: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/jcr/0`
+- jif: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/jif/0`
+- oa: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/oa/0`
+- fees: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/fees/0`
+- first_decision: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/first_decision/0`
+- acceptance: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j1/acceptance/0`
 
 ## Fictional Methods & Care
 
 > We publish public health research.
 
-虚构 scope，演示如何引用和对应研究。
+Fictional scope, demonstrating how to quote it and relate it to the study.
 
-方法适配判断：虚构队列研究与该虚构期刊读者和方法要求匹配。
+Method fit: The fictional cohort study matches this fictional journal's readership and methodological requirements.
 
-局限／投稿挑战：仅演示排序；非真实投稿建议。
+Limitations / submission challenges: For ranking demonstration only; not actual submission advice.
 
-| 核验项 | 结果 |
+| Verification item | Result |
 |---|---|
-| ISSN / 身份 | 9000-0021 |
-| 文章类型政策 | 允许：虚构 Original Research 政策 |
-| 方法政策 | 允许：虚构队列方法政策 |
-| 收录 | SCIE；WoS 已核验 |
-| JCR 分区 | 2025 JCR；Public Health: Q3 |
-| 影响因子 | 2025 JIF: 3.5 |
-| OA 模式 | gold |
-| 费用 | 1000 USD；路径 oa；总费用已确认=True；虚构总费用 |
-| 风险与预警 | 未核到 — 测试缺失字段 |
-| 周期：首轮决定 | 10 天；median；起点 submission；all submissions；统计期 2025 |
-| 周期：接收 | 100 天；median；起点 submission；accepted articles；统计期 2025 |
-| 周期：上线 | 未核到 — 测试缺失字段 |
-| 周期：检索收录 | 未核到 — 测试缺失字段 |
+| ISSN / identity | 9000-0021 |
+| Article-type policy | Allowed: Fictional Original Research policy |
+| Method policy | Allowed: Fictional policy on cohort study methods |
+| Indexing | SCIE; WoS collection checked |
+| JCR quartiles | 2025 JCR; Public Health: Q3 |
+| Journal Impact Factor | 2025 JIF: 3.5 |
+| OA model | Fully open access |
+| Fees | 1000 USD; open-access publication; Total required fees verified; Fictional total fee |
+| Warnings and risk checks | Not verified（未核到） — Missing field for testing |
+| Time: First decision | 10 days; median; start: submission; cohort: all submissions; period: 2025 |
+| Time: Acceptance | 100 days; median; start: submission; cohort: accepted articles; period: 2025 |
+| Time: Online publication | Not verified（未核到） — Missing field for testing |
+| Time: Indexing | Not verified（未核到） — Missing field for testing |
 
-### 发表先例
+### Publication precedents
 
-未核到 — 本次没有确认可用的同类先例。
+Not verified（未核到） — No confirmed usable similar paper in this run.
 
-### 核验记录
+### Verification record
 
-- identity：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- scope：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- article_type：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- method_policy：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- indexing：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jcr：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- jif：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- oa：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- fees：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- first_decision：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
-- acceptance：[来源](<https://example.org/fictional-journal>)；2026-01-01T12:00:00+00:00；official；依据：Fictional test source; not real evidence.
+Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.
 
-## 下一步
+- identity: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/identity/0`
+- scope: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/scope/0`
+- article_type: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/article_type/0`
+- method_policy: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/method_policy/0`
+- indexing: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/indexing/0`
+- jcr: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/jcr/0`
+- jif: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/jif/0`
+- oa: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/oa/0`
+- fees: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/fees/0`
+- first_decision: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/first_decision/0`
+- acceptance: [source](<https://example.org/fictional-journal>) — 2026-01-01T12:00:00+00:00; official; evidence record `j2/acceptance/0`
 
-先核实待核验硬条件，再由作者选择目标期刊。请勿同时向多刊投稿。选定后可生成投稿信交接材料。
+## Next steps
+
+Verify pending hard requirements, then choose the target journal. Do not submit simultaneously to multiple journals. A cover-letter handoff is available after the author's choice.
