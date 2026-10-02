@@ -18,10 +18,12 @@ def main():
         errors.append("invalid skill frontmatter")
     if (ROOT / "SKILL.md").read_text(encoding="utf-8") != builder.portable():
         errors.append("portable SKILL.md is stale")
+    if not (ROOT / "TRAINER-SKILL.md").exists() or (ROOT / "TRAINER-SKILL.md").read_text(encoding="utf-8") != builder.portable(builder.TRAINER):
+        errors.append("portable TRAINER-SKILL.md is stale")
     for path in ROOT.rglob("*.md"):
-        if any(p in (".work", ".git", "dist", "__pycache__") for p in path.parts):
+        if any(p in (".work", ".git", "dist", "private", "__pycache__") for p in path.parts):
             continue
-        if path == ROOT / "SKILL.md":
+        if path in (ROOT / "SKILL.md", ROOT / "TRAINER-SKILL.md"):
             continue  # Inlined references intentionally retain canonical relative names.
         text = path.read_text(encoding="utf-8")
         for link in re.findall(r"\]\(([^)]+)\)", text):

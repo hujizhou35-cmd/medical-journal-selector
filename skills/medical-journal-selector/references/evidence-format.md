@@ -16,6 +16,8 @@ Use this format when machine-readable output or the helper is available. Otherwi
 
 All timestamps include timezone. Record actual start/end/check times. `offline_fixture` explicitly labels fictional automated-test data, never a real recommendation. Offline operation (`web_available: false`) yields no rankings, even if journals were previously known.
 
+Optional `run.report_language` is `en` or `zh-CN`, selected from the user's explicit request or conversation language. Existing 1.0 records without this field remain readable and preserve the helper's legacy Chinese rendering. `--language en` or `--language zh-CN` overrides rendering only; it does not translate manuscript-specific evidence prose, which the host must write in the requested language. Official source quotations remain in their original language. English unknown fields say `Not verified（未核到）`.
+
 Supported hard constraints: `jcr_quartiles` (Q1–Q4 list), `jcr_category` (exact category), optional `jcr_year`, `scie_only`, `oa_required`, `max_fee` (`amount`, `currency`), `exclude_issns`, `exclude_warnings` with `warning_lists` (named list+year identifiers). `time_endpoint` is first_decision/acceptance/online/indexing. Omitted limits mean no hard limit. Do not encode preferences as hard constraints. Do not silently omit a user's condition the helper cannot represent: apply it manually and record the excluded/pending result before automated ranking, or deliver a manual report.
 
 ## Fact envelope
@@ -62,6 +64,7 @@ Run from the installed skill directory with Python 3.10+ (standard library only;
 
 ```text
 python scripts/selector.py evidence.json --report report.md
+python scripts/selector.py evidence.json --report report.md --language en
 python scripts/search_precedents.py --query "hypertension cohort" --from-date YYYY-MM-DD --to-date YYYY-MM-DD --output precedents.json
 ```
 

@@ -18,6 +18,12 @@ These checks identify journal-method fit and questions for the author; they are 
 | Case report/series | Explicit acceptance of case reports, consent, privacy and educational point. General medical scope is not proof this article type is accepted. |
 | Basic/animal/in-vitro | Mechanism, model relevance, controls, replication, reporting and ethics requirements. Do not recommend irrelevant clinical journals solely on a disease keyword. |
 
+## Match the policy trigger to the actual study
+
+Separate study design, database provenance and data-access conditions. A routing label such as `public_database` does not define a journal's term "public data". Identify the exact policy trigger, establish whether the manuscript meets it, then assess the required validation. Registered or controlled access neither automatically proves unrestricted public data nor creates a policy exemption. Statistical software alone does not establish that every observational study falls under a restriction on solely computational research.
+
+When a decision depends on undefined policy terminology or incomplete manuscript facts, mark applicability **unverified** and keep the journal pending; state the concern and the clarification needed. Apply a confirmed restriction when its trigger is established. If a policy says acceptable validation forms "include" certain examples, do not silently turn that list into an exhaustive one. These checks do not waive a validation requirement or substitute internal splitting for independent validation.
+
 ## Validation labels
 
 - **Internal:** random split, cross-validation or bootstrap within the development population.

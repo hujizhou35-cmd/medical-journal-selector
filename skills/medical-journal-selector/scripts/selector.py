@@ -70,6 +70,8 @@ def validate(bundle):
         errors.append("run.mode must be live or offline_fixture")
     if type(run.get("web_available")) is not bool:
         errors.append("run.web_available must be boolean")
+    if "report_language" in run and run["report_language"] not in ("en","zh-CN"):
+        errors.append("run.report_language must be en or zh-CN when supplied")
     profile = bundle.get("profile", {})
     if not isinstance(profile, dict):
         return errors + ["profile must be an object"]
@@ -354,7 +356,7 @@ def fact_text(fact):
     if isinstance(v, list):
         return clean(" / ".join(map(str, v)))
     if not isinstance(v, dict):
-        return clean(v)
+        return clean({"gold":"完全开放获取", "hybrid":"混合模式，可选开放获取", "subscription":"订阅模式", "diamond":"钻石开放获取（无 APC）"}.get(v,v))
     if "categories" in v:
         return clean(f"{v['year']} JCR；" + "; ".join(f"{x['name']}: {x['quartile']}" for x in v["categories"]))
     if "collections" in v:
@@ -364,7 +366,9 @@ def fact_text(fact):
     if "days" in v:
         return clean(f"{v['days']} 天；{v['statistic']}；起点 {v['start_event']}；{v['cohort']}；统计期 {v['period']}" + ("" if v.get("ranking_usable") else "；仅展示，不用于时间排名"))
     if "amount" in v:
-        return clean(f"{v['amount']} {v['currency']}；路径 {v['option']}；总费用已确认={v['total_known']}；{v['notes']}")
+        path="开放获取" if v['option']=="oa" else "订阅发表"
+        total="所需总费用已核实" if v['total_known'] else "适用总费用未核到，不能视为最终应付金额"
+        return clean(f"{v['amount']} {v['currency']}；{path}；{total}；{v['notes']}")
     if "flags" in v:
         return clean("；".join(v["flags"]) if v["flags"] else "在所查名单中未发现匹配记录") + "；" + clean(v["coverage_note"]) + "；名单：" + clean(" / ".join(v["checked_lists"]))
     if "allowed" in v:
@@ -392,7 +396,7 @@ def constraints_text(c):
     return clean("；".join(parts) + "。未列出的项目未设硬限制。")
 
 
-def render(bundle):
+def render_zh(bundle):
     ranking = rankings(bundle)
     out = ["# 医学选刊报告", "", f"核验区间：{bundle['run']['started_at']} — {bundle['run']['completed_at']}", ""]
     if bundle["run"]["mode"] == "offline_fixture":
@@ -453,12 +457,157 @@ def render(bundle):
             else:
                 out.append("- " + fact_text(p))
         out += ["", "### 核验记录", ""]
+        out.append("支持原文或具体位置保留在结构化证据中；以下列出逐项来源与记录位置。")
+        out.append("")
         for key, fact in list(j["facts"].items()) + list(j["timelines"].items()) + [("precedent", p) for p in j.get("precedents", [])]:
-            for ev in fact.get("evidence", []):
-                out.append(f"- {key}：[来源](<{ev['url']}>)；{ev['checked_at']}；{ev['source_type']}；依据：{clean(ev['support'])}")
+            for index, ev in enumerate(fact.get("evidence", [])):
+                out.append(f"- {key}：[来源](<{ev['url']}>)；{ev['checked_at']}；{ev['source_type']}；证据记录 `{clean(j['id'])}/{key}/{index}`")
         out.append("")
     out += ["## 下一步", "", "先核实待核验硬条件，再由作者选择目标期刊。请勿同时向多刊投稿。选定后可生成投稿信交接材料。", ""]
     return "\n".join(out)
+
+
+def english_fact(fact):
+    if not known(fact):
+        return "Not verified（未核到） — " + clean(fact["reason"])
+    v = fact["value"]
+    if isinstance(v, list):
+        return clean(" / ".join(map(str, v)))
+    if not isinstance(v, dict):
+        return clean({"gold":"Fully open access", "hybrid":"Hybrid; open access is optional", "subscription":"Subscription", "diamond":"Diamond open access (no APC)"}.get(v,v))
+    if "categories" in v:
+        return clean(f"{v['year']} JCR; " + "; ".join(f"{x['name']}: {x['quartile']}" for x in v["categories"]))
+    if "collections" in v:
+        return clean(" / ".join(v["collections"])) + ("; WoS collection checked" if v["wos_checked"] else "; WoS collection: Not verified（未核到）")
+    if "number" in v:
+        return clean(f"{v['year']} JIF: {v['number']}")
+    if "days" in v:
+        return clean(f"{v['days']} days; {v['statistic']}; start: {v['start_event']}; cohort: {v['cohort']}; period: {v['period']}" + ("" if v.get("ranking_usable") else "; shown for context, excluded from time ranking"))
+    if "amount" in v:
+        option="open-access publication" if v['option']=="oa" else "subscription publication"
+        total="Total required fees verified" if v['total_known'] else "Applicable total not verified; this is not a final amount due"
+        return clean(f"{v['amount']} {v['currency']}; {option}; {total}; {v['notes']}")
+    if "flags" in v:
+        return clean("; ".join(v["flags"]) if v["flags"] else "No matching record in the checked lists") + "; " + clean(v["coverage_note"]) + "; lists: " + clean(" / ".join(v["checked_lists"]))
+    if "allowed" in v:
+        return clean(("Allowed: " if v["allowed"] else "Not allowed: ") + v["notes"])
+    if "issns" in v:
+        return clean(" / ".join(v["issns"]))
+    return clean(json.dumps(v, ensure_ascii=False))
+
+
+def render_en(bundle):
+    r = rankings(bundle)
+    missing = "Not verified（未核到）"
+    out = ["# Medical Journal Selection Report", "", f"Verification interval: {bundle['run']['started_at']} — {bundle['run']['completed_at']}", ""]
+    if bundle["run"]["mode"] == "offline_fixture":
+        out += ["> Fictional offline demonstration. All journals and figures are test data and must not guide a submission.", ""]
+    else:
+        out += ["> A snapshot of this verification run. Recheck changing facts before use. Fit is not an acceptance probability.", ""]
+    profile = bundle["profile"]
+    out += ["## Manuscript and requirements", "", clean(profile["summary"]), "",
+            "Article type: " + clean(" / ".join(profile["article_types"])), "",
+            "Methods: " + clean(" / ".join(profile["methods"])), "",
+            "Validation: " + clean(profile["validation"]), "",
+            "Material limitations: " + clean("; ".join(profile["limitations"]) or "No additional limitations recorded"), "",
+            "Requirements: " + english_constraints(bundle["constraints"]), ""]
+    byid = {j["id"]: j for j in bundle["journals"]}
+    titles = ("Higher quartile", "Time", "Fit")
+    for route, title in zip(ROUTES, titles):
+        out += ["## " + title, ""]
+        ids = r["routes"][route]
+        if not ids:
+            out += ["No verified ranking available for this route. See evidence gaps and pending candidates.", ""]
+        for jid in ids:
+            j = byid[jid]
+            if route == ROUTES[0]:
+                reason = english_fact(j["facts"]["jcr"]) + "; selected category: " + clean(bundle["constraints"].get("jcr_category") or j["ranking_category"])
+            elif route == ROUTES[1]:
+                reason = english_fact(j["timelines"][bundle["constraints"].get("time_endpoint", "acceptance")]) + "; compare only equivalent definitions"
+            else:
+                reason = clean(j["assessment"]["reason"])
+            out += [f"- **{clean(j['title'])}** — {reason}"]
+        out.append("")
+    if any("适配等级相同" in n for n in r["notes"]):
+        out += ["Equal fit assessments are displayed alphabetically for stable presentation; this is not evidence of a quality difference.", ""]
+    if any("年度不同" in n for n in r["notes"]):
+        out += ["JCR years differ. Only the selected/most recent verified year is ranked; that does not establish the latest released edition.", ""]
+    if any("分组" in n for n in r["notes"]):
+        out += ["Time statistics have different definitions or periods. Groups must not be ranked against one another.", ""]
+    if not bundle["run"]["web_available"]:
+        out += ["## Search plan", "", "The host is offline: current recommendations and rankings are unavailable.", ""]
+        out += ["- " + clean(q) for q in profile["queries"]]
+        return "\n".join(out) + "\n"
+    # Reasons originate in eligibility() and retain exact explanations in the
+    # evidence record; render standard status phrases in the selected language.
+    reason_terms = {"SCIE 收录未核到":"SCIE indexing: Not verified（未核到）", "SCIE 未核到；其他数据库收录不能代替 WoS 核验":"SCIE: Not verified（未核到）; other databases do not establish WoS indexing", "JCR 分区未核到":"JCR quartile: Not verified（未核到）", "指定 JCR 类别或年度未核到":"Requested JCR category/year: Not verified（未核到）", "OA 模式未核到":"OA model: Not verified（未核到）", "OA 路径适用费用未核到":"Applicable OA fee: Not verified（未核到）", "适用路径总费用未核到":"Applicable total fee: Not verified（未核到）", "指定预警名单覆盖未核到":"Requested warning-list coverage: Not verified（未核到）"}
+    for title, entries in (("Pending verification", r["pending"]), ("Excluded candidates", r["excluded"])):
+        out += ["## " + title, ""]
+        for e in entries:
+            additional = {"范围或方法适配弱；见评估理由":"Weak scope or method fit; see assessment", "用户排除的 ISSN":"ISSN excluded by the user", "WoS 收录核验不包含 SCIE":"Verified WoS collections do not include SCIE", "不满足指定类别的 JCR 分区":"Does not meet the requested JCR category/quartile", "不提供 OA 选项":"No OA option offered", "币种不同；未进行现查汇率换算":"Currencies differ; no current exchange-rate conversion was verified", "超过费用上限":"Exceeds the fee limit"}
+            reasons = "; ".join(reason_terms.get(x, additional.get(x, x.replace("核到风险记录：", "Verified warning record: ").replace("未核到", "Not verified（未核到）"))) for x in e["reasons"])
+            out.append(f"- **{clean(byid[e['id']]['title'])}**: {clean(reasons)}")
+        if not entries:
+            out.append("None in this run.")
+        out.append("")
+    labels = {"identity":"ISSN / identity", "article_type":"Article-type policy", "method_policy":"Method policy", "indexing":"Indexing", "jcr":"JCR quartiles", "jif":"Journal Impact Factor", "oa":"OA model", "fees":"Fees", "warnings":"Warnings and risk checks"}
+    for j in bundle["journals"]:
+        out += ["## " + clean(j["title"]), ""]
+        scope = j["facts"]["scope"]
+        if known(scope):
+            out += ["> " + clean(scope["value"]["quote"]), "", clean(scope["value"]["fit_explanation"]), ""]
+        else:
+            out += ["Scope quotation: " + english_fact(scope), ""]
+        out += ["Method fit: " + clean(j["assessment"]["reason"]), "",
+                "Limitations / submission challenges: " + clean("; ".join(j["assessment"]["limitations"]) or "No additional limitations recorded; this does not establish absence of risk"), "",
+                "| Verification item | Result |", "|---|---|"]
+        for key, label in labels.items():
+            out.append(f"| {label} | {english_fact(j['facts'][key])} |")
+        for endpoint, label in zip(ENDPOINTS, ("First decision", "Acceptance", "Online publication", "Indexing")):
+            out.append(f"| Time: {label} | {english_fact(j['timelines'][endpoint])} |")
+        out += ["", "### Publication precedents", ""]
+        if not j.get("precedents"):
+            out.append(missing + " — No confirmed usable similar paper in this run.")
+        for p in j.get("precedents", []):
+            if known(p):
+                v = p["value"]
+                out.append(f"- [{clean(v['title'])}](<{v['url']}>) — {v['date']} ({v['date_kind']}); similarity: {clean(v['similarity'])}; difference: {clean(v['difference'])}")
+            else:
+                out.append("- " + english_fact(p))
+        out += ["", "### Verification record", ""]
+        out.append("Supporting passages or precise locations are retained in the structured evidence; item sources and record pointers follow.")
+        out.append("")
+        for key, fact in list(j["facts"].items()) + list(j["timelines"].items()) + [("precedent", p) for p in j.get("precedents", [])]:
+            for index, ev in enumerate(fact.get("evidence", [])):
+                out.append(f"- {key}: [source](<{ev['url']}>) — {ev['checked_at']}; {ev['source_type']}; evidence record `{clean(j['id'])}/{key}/{index}`")
+        out.append("")
+    out += ["## Next steps", "", "Verify pending hard requirements, then choose the target journal. Do not submit simultaneously to multiple journals. A cover-letter handoff is available after the author's choice.", ""]
+    return "\n".join(out)
+
+
+def english_constraints(c):
+    endpoints={"first_decision":"first decision","acceptance":"acceptance","online":"online publication","indexing":"indexing"}
+    parts=["Target endpoint: "+endpoints[c.get("time_endpoint","acceptance")]]
+    if c.get("jcr_quartiles"):
+        parts.append("JCR "+"/".join(c["jcr_quartiles"])+"; category: "+c["jcr_category"]+(f"; year: {c['jcr_year']}" if c.get("jcr_year") else ""))
+    if c.get("scie_only"):
+        parts.append("SCIE required")
+    if c.get("oa_required"):
+        parts.append("OA option required")
+    if "max_fee" in c:
+        parts.append(f"Total fee limit: {c['max_fee']['amount']} {c['max_fee']['currency']}")
+    if c.get("exclude_issns"):
+        parts.append("Excluded ISSNs: "+", ".join(c["exclude_issns"]))
+    if c.get("exclude_warnings"):
+        parts.append("Exclude journals on these lists: "+", ".join(c["warning_lists"]))
+    return clean("; ".join(parts)+". Unspecified limits are not hard requirements.")
+
+
+def render(bundle, language=None):
+    language = language or bundle.get("run", {}).get("report_language", "zh-CN")
+    if language not in ("en", "zh-CN"):
+        raise ValueError("report language must be en or zh-CN")
+    return render_en(bundle) if language == "en" else render_zh(bundle)
 
 
 def handoff(bundle, jid):
@@ -476,6 +625,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("evidence", type=Path)
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--language", choices=("en", "zh-CN"), help="User-requested language; otherwise run.report_language or legacy zh-CN")
     parser.add_argument("--handoff-journal", help="Use only after the user selected this ID")
     parser.add_argument("--handoff-output", type=Path)
     args = parser.parse_args()
@@ -489,7 +639,7 @@ def main():
         return 1
     if args.report:
         args.report.parent.mkdir(parents=True, exist_ok=True)
-        args.report.write_text(render(bundle), encoding="utf-8")
+        args.report.write_text(render(bundle, args.language), encoding="utf-8")
     if args.handoff_journal:
         if not args.handoff_output:
             parser.error("--handoff-output required with --handoff-journal")

@@ -1,0 +1,19 @@
+# V2 evaluation
+
+[简体中文](README.zh-CN.md) · [Trainer guide](../trainer-guide.md) · [Homepage](../../README.md)
+
+**Status: real workflow pilots are in progress. No final V2 accuracy result or stable V2 release is claimed.**
+
+The formal count restarted after workflow pilots exposed incorrect outlet scoring for XML files without ISSNs and problems extracting research-only XML text. **Four exposed protocol-only cases are preserved and excluded from the required 100.** Nested citation/declaration/history text is now removed, and narrative after XML citations is preserved. All input hashes were amended before new formal generation. [Derived formal case records and current gate decision](results.json) report actual completion. Six unevaluated license-ineligible records and four unevaluated records with unresolved answer identity were excluded under eligibility rules; same-stratum reserves preserve the 100/50 allocation. A 900-second generation timeout was retained, and its identical retry completed under the 1,800-second ceiling with unchanged model/settings.
+
+The repaired clinical pilot illustrates the distinction: the original outlet was discovered, delivered and assessed, but current admission remained pending, so it did not enter the eligible fit sequence. Its abstract baseline ranked the outlet second. This is a protocol check, not a formal accuracy result or a rule requiring recommendation of that outlet. Original scores and the subsequent reconciliation remain preserved privately.
+
+The first stage requires 100 distinct development cases and 50 untouched final tests. It compares fixed keyword/abstract baselines, original V1 and a frozen V2 candidate. Recommendations and independent AI reviews are sealed before answer reveal. If gates fail, at most one extension adds 100 development papers and 50 new tests.
+
+Published journal matches are reported separately from current recommendation fitness. Missing JCR/SCIE information stays unverified. Reviewers are AI sessions, not medical experts. The corpus is an OA convenience sample with stratification, not a representative sample of all medical submissions.
+
+The paired comparison uses a shared preparation stage for manuscript profiles, retrieved journals and current source snapshots. It tests recommendation decisions on those inputs; it does not measure differences between fully autonomous V1 and V2 searches. Supplement links are recorded, but supplements not inspected remain an explicit method-evidence limit.
+
+The completed report will include actual case counts, failures, by-stratum results, Hit@3/5/10 with uncertainty intervals, usable coverage, evidence errors, paired judgments, rule changes and observed time/usage. Raw papers, answer maps and full logs remain excluded from public packages.
+
+The checkpoint is a development log, not an accuracy estimate. Available token totals do not include unreported usage from incomplete calls; summed model-call durations include parallel reviews and are not the experiment's wall-clock time. Final article identifiers and answers stay private until all final recommendations and reviews are sealed.

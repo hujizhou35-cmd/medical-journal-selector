@@ -9,6 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SKILL = ROOT / "skills/medical-journal-selector"
+TRAINER = ROOT / "skills/medical-journal-selector-skill-trainer"
 
 
 def bundle(path, roots):
@@ -29,10 +30,10 @@ def bundle(path, roots):
             z.writestr(info, payload)
 
 
-def portable():
-    text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
+def portable(skill=SKILL):
+    text = (skill / "SKILL.md").read_text(encoding="utf-8")
     text += "\n\n# Portable edition: inlined references\n\nAll references below are included in this file. If a relative reference cannot be opened, read its matching section below. Executable helpers are optional and are shipped only in the full bundles; apply their documented rules manually when unavailable.\n"
-    for ref in sorted((SKILL / "references").glob("*.md")):
+    for ref in sorted((skill / "references").glob("*.md")):
         text += f"\n---\n\n## Inlined reference: {ref.name}\n\n" + ref.read_text(encoding="utf-8")
     return text
 
@@ -47,10 +48,14 @@ def main():
     if manifest["version"] != version:
         raise SystemExit("manifest/version mismatch")
     expected = portable()
+    trainer_expected = portable(TRAINER)
     if args.sync_portable:
         (ROOT / "SKILL.md").write_text(expected, encoding="utf-8", newline="\n")
+        (ROOT / "TRAINER-SKILL.md").write_text(trainer_expected, encoding="utf-8", newline="\n")
     elif not (ROOT / "SKILL.md").exists() or (ROOT / "SKILL.md").read_text(encoding="utf-8") != expected:
         raise SystemExit("root SKILL.md is stale; run with --sync-portable")
+    if not (ROOT / "TRAINER-SKILL.md").exists() or (ROOT / "TRAINER-SKILL.md").read_text(encoding="utf-8") != trainer_expected:
+        raise SystemExit("root TRAINER-SKILL.md is stale; run with --sync-portable")
     out = args.output
     out.mkdir(parents=True, exist_ok=True)
     name = f"medical-journal-selector-v{version}.skill"
@@ -59,6 +64,18 @@ def main():
     bundle(out / f"medical-journal-selector-codex-plugin-v{version}.zip", [(ROOT / ".codex-plugin", ".codex-plugin"), (SKILL, "skills/medical-journal-selector"), (ROOT / "LICENSE", "LICENSE")])
     (out / "SKILL.md").write_text(expected, encoding="utf-8", newline="\n")
     assets = sorted([out / name, out / f"medical-journal-selector-portable-v{version}.zip", out / f"medical-journal-selector-codex-plugin-v{version}.zip", out / "SKILL.md"])
+    trainer_manifest = json.loads((ROOT / "development/trainer-plugin.json").read_text(encoding="utf-8"))
+    trainer_version = trainer_manifest["version"]
+    prefix = f"medical-journal-selector-skill-trainer"
+    trainer_skill = out / f"{prefix}-v{trainer_version}.skill"
+    trainer_zip = out / f"{prefix}-portable-v{trainer_version}.zip"
+    trainer_plugin = out / f"{prefix}-codex-plugin-v{trainer_version}.zip"
+    bundle(trainer_skill, [(TRAINER, ""), (ROOT / "LICENSE", "LICENSE")])
+    bundle(trainer_zip, [(TRAINER, prefix), (ROOT / "LICENSE", prefix+"/LICENSE")])
+    bundle(trainer_plugin, [(ROOT / "development/trainer-plugin.json", ".codex-plugin/plugin.json"), (TRAINER, "skills/"+prefix), (ROOT / "LICENSE", "LICENSE")])
+    trainer_md=out / "TRAINER-SKILL.md"
+    trainer_md.write_text(trainer_expected,encoding="utf-8",newline="\n")
+    assets=sorted(assets+[trainer_skill,trainer_zip,trainer_plugin,trainer_md])
     sums = "".join(f"{hashlib.sha256(f.read_bytes()).hexdigest()}  {f.name}\n" for f in assets)
     (out / "SHA256SUMS.txt").write_text(sums, encoding="ascii", newline="\n")
     print(sums, end="")

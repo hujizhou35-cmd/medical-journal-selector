@@ -1,0 +1,206 @@
+#!/usr/bin/env python3
+"""Fetch, filter and capture scholarly/publisher evidence before model exposure."""
+from __future__ import annotations
+import hashlib
+import ipaddress
+import json
+import re
+import socket
+import urllib.parse
+import urllib.request
+from concurrent.futures import ThreadPoolExecutor
+from html.parser import HTMLParser
+from pathlib import Path
+from corpus import get, search, stamp, fingerprint, near_duplicate
+
+class TextHTML(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.hidden=0
+        self.parts=[]
+        self.links=[]
+    def handle_starttag(self,tag,attrs):
+        if tag=="a":
+            href=dict(attrs).get("href")
+            if href:
+                self.links.append(href)
+        if tag in ("script","style","noscript","svg"):
+            self.hidden+=1
+        if tag in ("p","div","section","h1","h2","h3","li","tr","br") and not self.hidden:
+            self.parts.append("\n")
+    def handle_endtag(self,tag):
+        if tag in ("script","style","noscript","svg"):
+            self.hidden=max(0,self.hidden-1)
+    def handle_data(self,data):
+        if not self.hidden:
+            self.parts.append(data)
+    def text(self):
+        return "\n".join(re.sub(r"\s+"," ",line).strip() for line in "".join(self.parts).splitlines() if line.strip())
+
+def permitted_url(url):
+    parsed=urllib.parse.urlparse(url)
+    if parsed.scheme!="https" or not parsed.hostname or parsed.username or parsed.password or parsed.port not in (None,443):
+        return False
+    host=parsed.hostname.lower()
+    suffixes=("plos.org","biomedcentral.com","springer.com","springernature.com","frontiersin.org","mdpi.com","wiley.com","elsevier.com","sciencedirect.com","tandfonline.com","sagepub.com","lww.com","bmj.com","oup.com","nature.com","karger.com","thieme.com","liebertpub.com","clarivate.com","nlm.nih.gov","ncbi.nlm.nih.gov","doaj.org","casjournals.cn","cell.com","thelancet.com","aacrjournals.org","asm.org","rsc.org","acs.org","hindawi.com","scipress.com","journalofnursingstudies.com","onlinelibrary.wiley.com","cambridge.org","jstage.jst.go.jp","jsmrm.jp","endocrine.org")
+    return any(host==s or host.endswith("."+s) for s in suffixes)
+
+def canonical_url(url):
+    parsed=urllib.parse.urlsplit(url)
+    pairs=[(k,v) for k,v in urllib.parse.parse_qsl(parsed.query,keep_blank_values=True) if k.lower() not in ("error","code","fbclid","gclid") and not k.lower().startswith("utm_")]
+    return urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,urllib.parse.urlencode(pairs),""))
+
+class OfficialRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self,request,fp,code,msg,headers,newurl):
+        if not permitted_url(newurl):
+            raise ValueError("Redirect leaves the permitted official-source hosts")
+        return super().redirect_request(request,fp,code,msg,headers,newurl)
+
+def fetch_page(url):
+    opener=urllib.request.build_opener(OfficialRedirect())
+    request=urllib.request.Request(url,headers={"User-Agent":"MedicalJournalSelectorResearch/2.0 (+https://github.com/hujizhou35-cmd/medical-journal-selector)"})
+    with opener.open(request,timeout=25) as response:
+        mime=response.headers.get_content_type()
+        if mime not in ("text/html","application/xhtml+xml","text/plain"):
+            raise ValueError("Unsupported policy-page content type: "+mime)
+        return response.read(),response.geturl(),mime
+
+def excluded_paper(paper, answer, masked):
+    ids={str(v).lower() for v in answer.get("ids",{}).values()}
+    for name in ("id","pmid","pmcid","doi"):
+        if str(paper.get(name,"")).lower() in ids:
+            return True
+    title=re.sub(r"\W+"," ",paper.get("title","").lower()).strip()
+    target=re.sub(r"\W+"," ",answer.get("title","").lower()).strip()
+    if title and target and (title==target or len(set(title.split()) & set(target.split()))/max(1,len(set(target.split())))>.85):
+        return True
+    abstract=paper.get("abstractText","")
+    if abstract and near_duplicate(fingerprint(abstract),fingerprint(masked),.65):
+        return True
+    return False
+
+def strip_target_mentions(text, answer):
+    # Filter complete result/paragraph lines, not merely DOI strings, since
+    # nearby journal text could reveal the answer.
+    secrets=[answer.get("title","")]+[v for k,v in answer.get("ids",{}).items() if k in ("doi","pmid","pmc")]
+    return "\n".join(line for line in text.splitlines() if not any(secret and len(secret)>5 and secret.casefold() in line.casefold() for secret in secrets))
+
+def discover(queries, answer, masked, from_date, to_date, output):
+    records=[]
+    papers={}
+    for query in queries[:3]:
+        # A query is a short concept combination, never a copied long sentence.
+        if len(query.split())>18 or answer.get("title","").casefold() in query.casefold() or any(len(phrase.split())>6 for phrase in re.findall(r'"([^"]+)"',query)):
+            raise ValueError("Rejected answer-bearing or long manuscript search")
+        q=f'({query}) AND FIRST_PDATE:[{from_date} TO {to_date}]'
+        data,url=search(q,size=70)
+        checked_at=stamp()
+        records.append({"url":url,"query":q,"checked_at":checked_at,"hit_count":data.get("hitCount"),"limit":70})
+        for p in data.get("resultList",{}).get("result",[]):
+            if excluded_paper(p,answer,masked):
+                continue
+            journal=p.get("journalInfo",{}).get("journal",{})
+            name=journal.get("title") or journal.get("medlineAbbreviation")
+            if not name:
+                continue
+            issn=journal.get("issn") or journal.get("essn") or name.casefold()
+            key=p.get("doi") or p.get("pmcid") or p.get("id")
+            papers[key]={"journal_id":issn,"journal":name,"title":p.get("title",""),
+                         "abstract":strip_target_mentions(p.get("abstractText",""),answer),
+                         "date":p.get("firstPublicationDate") or p.get("pubYear"),
+                         "doi":p.get("doi"),"pmcid":p.get("pmcid"),"id":p.get("id"),"source":p.get("source"),
+                         "url":"https://europepmc.org/article/"+p.get("source","MED")+"/"+p.get("id",""),
+                         "record_url":url,"checked_at":checked_at,"source_type":"bibliographic",
+                         "read_extent":"Bibliographic API title/abstract/metadata; original methods not independently inspected"}
+    result={"records":records,"papers":list(papers.values())}
+    Path(output).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+    return result
+
+def capture(url,answer):
+    captured={"url":url,"checked_at":stamp(),"status":"unverified","text":"","source_type":"official"}
+    if any(value and len(value)>5 and value.casefold() in urllib.parse.unquote(url).casefold() for value in answer.get("ids",{}).values()):
+        return {"url":"[filtered publication URL]","checked_at":stamp(),"status":"unverified","text":"","failure":"Excluded target-publication source"}
+    if not permitted_url(url):
+        captured["failure"]="URL is not on the permitted official-source host list"
+        return captured
+    try:
+        raw,final_url,mime=fetch_page(url)
+        captured.update(final_url=final_url,content_type=mime)
+        parser=TextHTML()
+        parser.feed(raw.decode("utf-8",errors="replace"))
+        text=strip_target_mentions(parser.text(),answer)
+        captured['read_extent']='Complete extracted visible page text'
+        if len(text)<200 or re.search(r"^(Access Denied|Just a moment|403 Forbidden|Checking your browser|Verify you are human)\b",text,re.I|re.M):
+            raise ValueError("Page did not provide readable source content")
+        # Preserve starts and relevant policy sections; never truncate before
+        # extracting a scope sentence simply to satisfy a result.
+        if len(text)>40000:
+            text=policy_excerpt(text)
+            captured['read_extent']='Selected visible page sections, clipped to 40,000 characters; omitted text was not supplied to the model'
+        links=[]
+        for href in parser.links:
+            absolute=canonical_url(urllib.parse.urljoin(final_url,href))
+            if permitted_url(absolute) and not any(v and len(v)>5 and v.casefold() in urllib.parse.unquote(absolute).casefold() for v in answer.get("ids",{}).values()):
+                links.append(absolute)
+        # Link metadata is not article content. Keep real policy leads even
+        # when long journal navigation precedes them in the document.
+        captured.update(status="readable_snapshot",text=text,content_hash=hashlib.sha256(raw).hexdigest(),links=list(dict.fromkeys(links)))
+    except Exception as exc:
+        captured["failure"]=str(exc)
+    return captured
+
+def policy_excerpt(text,limit=40000):
+    """Prioritize admission rules before lengthy topic/navigation matches.
+
+    The result remains an explicitly partial read; it is not evidence that no
+    exception exists elsewhere in the page. Retain whole selected lines.
+    """
+    lines=text.splitlines()
+    strong=re.compile(r'methodolog|validation|computational|public data|secondary analy|'
+                      r'unsolicited|bibliometric|independent|experimental|'
+                      r'(?:do not|will not|cannot|not considered) accept',re.I)
+    ordinary=re.compile(r'scope|article type|submission|publication fee|processing charge|'
+                        r'impact factor|review time|case report|review article',re.I)
+    selected=set()
+    used=0
+    def add(indices):
+        nonlocal used
+        for i in indices:
+            size=len(lines[i])+1
+            if i not in selected and used+size<=limit:
+                selected.add(i)
+                used+=size
+    add(range(min(15,len(lines))))
+    for pattern in (strong,ordinary):
+        for i,line in enumerate(lines):
+            if pattern.search(line):
+                add(range(max(0,i-2),min(len(lines),i+16)))
+    return '\n'.join(lines[i] for i in sorted(selected))
+
+def capture_all(urls, answer, output):
+    urls=list(dict.fromkeys(urls))[:18]
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        records=list(pool.map(lambda u:capture(u,answer),urls))
+    # Follow policy links actually present in captured official pages, not
+    # guessed URL grids. Preserve the total 30-page budget for every variant.
+    follow=[]
+    already={canonical_url(u) for u in urls}|{canonical_url(p["final_url"]) for p in records if p.get("final_url")}
+    policy_path=re.compile(r"aims|scope|content[-_]?types|article[-_]?types|editorial[-_]?polic|submission[-_]?(guide|guideline)|author[-_]?(guide|instruction)|publishing[-_]?(polic|ethic)|methodolog|policies-and-publication-ethics|submission-checklist",re.I)
+    for page in records:
+        for link in page.get("links",[]):
+            if canonical_url(link) not in already and link not in follow and policy_path.search(urllib.parse.urlparse(link).path) and not re.search(r"\.(pdf|docx?|xlsx?|zip)$",urllib.parse.urlparse(link).path,re.I):
+                follow.append(link)
+    def priority(url):
+        path=urllib.parse.urlparse(url).path
+        if re.search(r'methodolog|policies-and-publication-ethics|editorial[-_]?polic',path,re.I):return (0,url)
+        if re.search(r'content[-_]?types|article[-_]?types|aims|scope',path,re.I):return (1,url)
+        if re.search(r'/journal[s]?/',path,re.I):return (2,url)
+        return (3,url)
+    follow.sort(key=priority)
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        additional=list(pool.map(lambda u:capture(u,answer),follow[:30-len(records)]))
+    for page in additional:
+        page["retrieval_round"]=2
+    records+=additional
+    Path(output).write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding="utf-8")
+    return records

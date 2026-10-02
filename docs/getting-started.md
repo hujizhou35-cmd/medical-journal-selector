@@ -2,7 +2,7 @@
 
 [简体中文](getting-started.zh-CN.md) · [Homepage](../README.md) · [Stable download](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0)
 
-**Choose one installation method.** The `.skill` and ZIP downloads contain the same selector rules. Install in your manuscript project so its version is easy to manage.
+**Choose one installation method.** The `.skill` and ZIP downloads contain the same selector rules. Install in your manuscript project so its version is easy to manage. V2 is being evaluated; the stable download above remains V1 until release gates pass.
 
 ## Codex
 
@@ -52,7 +52,7 @@ Expect a manuscript profile and search plan, material/browsing limits, and why c
 
 Provide a manuscript or abstract, important methods/supplements, indexing and quartile requirements, budget/currency, OA preference, deadline endpoint and institutional warning lists. Only missing conditions need clarification. An abstract cannot establish all methods or independent validation.
 
-Read pending hard requirements first, then compare routes. Choose a journal before requesting the cover-letter handoff. For an English or Chinese report, state your preferred language in the request. The website language does not decide the report language.
+Read pending hard requirements first, then compare routes. Choose a journal before requesting the cover-letter handoff. Specify your report language; V2 follows your request or conversation language independently of this website.
 
 ## Update or uninstall
 
@@ -68,3 +68,5 @@ Back up your edits, then replace the old Skill folder. Avoid duplicate copies ac
 | JCR requires login | Missing accessible evidence stays Not verified（未核到）; add a permitted source if available |
 | Facts differ from an older report | Compare year, currency, article type and check date; new selections recheck changing facts |
 | Every route is empty | Inspect hard requirements and evidence gaps; unknown facts are not confirmed matches |
+
+For evaluation and improvement, see the separate [Trainer guide](trainer-guide.md).

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Medical Journal Selector Skill Trainer"
+  short_description: "Improve journal selection with masked cases, evidence review and untouched tests"
+  default_prompt: "Use $medical-journal-selector-skill-trainer to evaluate my selector with masked manuscripts, sealed outputs, independent review and an untouched final test set."

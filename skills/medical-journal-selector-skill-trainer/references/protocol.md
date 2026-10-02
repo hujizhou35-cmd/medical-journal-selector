@@ -1,0 +1,17 @@
+# Sampling and experiment protocol
+
+Primary strata: clinical/nursing original; laboratory experiment; public-database secondary; bioinformatics; prediction model; network pharmacology/toxicology; systematic review/Meta-analysis; other review; bibliometrics; case report/series. Assign each paper one primary stratum plus overlapping method labels. Check the actual manuscript before claiming the search classifier is correct.
+
+The project seed is `20261002`; stage-two seed is `20261003`. Select ten development and five final cases per stratum, with journal caps of five/three per split per stage. Search results are shuffled with the stored seed before allocation, not sorted by later model performance. Store preselected reserves. A replacement is permitted only for pre-generation eligibility/access/duplicate problems and must come from the same stratum with a recorded reason. Once the model has been evaluated on the input, keep its bad result in the denominator.
+
+Use the CC0 or CC BY subset for this campaign, with methods and accessible supplements. Record the individual article license and retrieval path, including linked license URLs. Do not mistake Attribution-Non Commercial, NoDerivs or ShareAlike for plain CC BY; mixed or ambiguous permissions need eligibility review before generation. PMC accessibility alone does not establish reuse permission. Keep originals private; share identifiers and scores. Check clinical/medical relevance; classifications based solely on retrieval queries are provisional. Unknown JCR/SCIE cannot be called verified SCI. Record journal concentration and field coverage rather than claiming population representativeness.
+
+Current mode uses current scope and method policy. Public-database/rapid computational discovery uses 24 months; other designs use five years with recent emphasis. Record any expansion. The published target is excluded from all retrieval windows even if it falls inside them. Historical mode, when separately requested, needs time-cutoff evidence and must not borrow later policies or papers.
+
+Freeze input IDs, split, reserve order, model settings and tool bounds in `manifest.json` before generation. Ten development cases and five final cases per stratum are minimum required valid-input records, not a license to discard unfavorable recommendations. Access failures and contamination are explicit incomplete outcomes and cannot satisfy completion gates.
+
+Check the answer's outlet identity in the preparation role before generation. A full-text XML journal block may omit ISSNs; reconcile them against an exact article-matched bibliographic or primary record and retain that provenance privately. The supplied helpers require reconciled identifiers for formal inputs. Keep answer metadata outside blind packets. Discovery, delivery and pending assessment are distinct from eligible recommendation: a discovered but policy-pending original outlet is not a hit in the supported fit sequence. Missing identity cannot silently become a non-hit.
+
+## Shared-input interpretation
+
+If the implementation shares a manuscript profile, retrieved journal pool and official snapshots between V1 and V2, describe the comparison as recommendation quality on shared prepared evidence. It does not measure differences in autonomous end-to-end search or discovery. Record the preparation model, queries, curation limits, page budget, clipping extent and time ceiling. Use identical bounds and snapshots for paired final variants; do not hide a retrieval repair's extra requests in the original case budget.

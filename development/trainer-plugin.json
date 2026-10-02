@@ -1,0 +1,20 @@
+{
+  "name": "medical-journal-selector-skill-trainer",
+  "version": "1.0.0",
+  "description": "Improve medical journal selection using masked cases, sealed outputs and untouched tests.",
+  "author": {"name": "Jizhou Hu", "url": "https://github.com/hujizhou35-cmd"},
+  "homepage": "https://github.com/hujizhou35-cmd/medical-journal-selector",
+  "repository": "https://github.com/hujizhou35-cmd/medical-journal-selector",
+  "license": "MIT",
+  "keywords": ["medical", "journal-selection", "skill-evaluation", "agent-skills"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Medical Journal Selector Skill Trainer",
+    "shortDescription": "Evaluate and improve journal selection with masked manuscripts and evidence review.",
+    "longDescription": "Seal recommendations and independent AI reviews before revealing a known publication outlet; develop reusable rules and test them on untouched cases.",
+    "developerName": "Jizhou Hu",
+    "category": "Productivity",
+    "capabilities": ["Research"],
+    "defaultPrompt": "Evaluate my selector with masked manuscripts, independent evidence review and an untouched final test set."
+  }
+}

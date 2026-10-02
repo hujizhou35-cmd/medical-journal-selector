@@ -2,7 +2,7 @@
 
 [English](getting-started.md) · [中文主页](README.zh-CN.md) · [下载页面](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0)
 
-**选择一种安装方式即可。** `.skill` 和 ZIP 中包含相同的核心规则。推荐安装到当前稿件项目，便于管理不同版本。
+**选择一种安装方式即可。** `.skill` 和 ZIP 中包含相同的核心规则。推荐安装到当前稿件项目，便于管理不同版本。V2 正在评测，上方稳定下载仍为 V1，须通过发布检查才会更新。
 
 ## Codex
 
@@ -50,7 +50,7 @@ Plugin ZIP 包含 `.codex-plugin/plugin.json` 和 `skills/medical-journal-select
 
 全文或摘要；重要补充方法；分区及收录要求；预算和币种；OA 偏好；时间终点；单位认可的预警名单（如有）。允许 Agent 询问尚未明确的条件。仅有摘要时，它不能替你证明外部验证或完整方法质量。
 
-拿到报告后，先看待核验硬条件，再看三条路线。将期刊选定后，才让 Agent 生成投稿信交接材料。需要英文或中文报告时，在请求里注明语言；主页语言不决定报告语言。
+拿到报告后，先看待核验硬条件，再看三条路线。将期刊选定后，才让 Agent 生成投稿信交接材料。V2 报告先服从你明确要求的语言，否则跟随对话语言，不按主页或论文语言决定。
 
 ## 更新与卸载
 
@@ -66,3 +66,5 @@ Plugin ZIP 包含 `.codex-plugin/plugin.json` 和 `skills/medical-journal-select
 | JCR 要登录 | 不绕过访问限制；报告写“未核到”，有合法权限时补核验 |
 | 报告数字看起来与旧报告不同 | 检查年度、币种、文章类型及来源日期；每次重新核验是预期行为 |
 | 所有路线都为空 | 查看硬条件和缺失证据，不把未确认期刊塞进推荐榜单 |
+
+评测和改进请使用独立的 [Trainer 教程](trainer-guide.zh-CN.md)。

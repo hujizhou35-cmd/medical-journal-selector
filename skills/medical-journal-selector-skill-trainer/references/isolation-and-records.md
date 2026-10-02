@@ -1,0 +1,13 @@
+# Isolation and records
+
+Keep original papers and answers in a preparation-only store. Generator packets contain masked body text, constraints, target-Skill text and filtered source excerpts. They contain no target paper IDs, answer file paths, author names or exact manuscript title. Retain a private exclusion fingerprint containing DOI/PMID/PMCID, title tokens, authors and duplicate-family hashes; filter retrieved content before delivery.
+
+Extract research text recursively: publishing notes, nested reference lists, self-citation instructions, transparency declarations and review histories can occur inside the XML body. Removing a citation or link must preserve its following XML tail, including methods and results. Audit known identity strings and publishing-history patterns before freezing masked inputs. A changed extractor requires a recorded input-hash amendment before generation; exposed cases affected by a protocol defect remain protocol-only records. Recheck near-duplicate families and identifier-based journal caps after changing extracted text.
+
+Recommended project runner: fresh ephemeral Codex processes in an empty workspace, user config/memories/hooks/MCP loading disabled, explicit frozen model/effort, shell and direct web tools disabled. All input is supplied by the orchestrator; retrieval requests are serviced outside the model and filtered before the next generation. Inspect events for unexpected tools. A prompt-only prohibition is not equivalent. Test attempted answer reads and injected search titles with synthetic sentinel inputs before real cases.
+
+The local record contains `case_id`, `stage`, `split`, `stratum`, `license`, `study_family`, `input_hash`, `skill_hash`, `model`, `effort`, `context_id`, `evidence_hash`, `output_hash`, `sealed_at`, `review_context_ids`, `review_hashes`, `reviews_sealed_at`, `revealed_at`, `status`, `failure_kind`, and `changes`. Timestamps are real ISO values including timezone. Hashes identify artifacts; they alone are not a tamper-proof remote audit.
+
+Statuses: prepared, generated, reviewed, revealed, completed, infrastructure_failed, contamination_failed. Recommendation errors are scored results, not infrastructure failures. Save a checkpoint after every completed phase and refuse reuse if input/Skill/settings differ. Never label a failed or skipped model call successful. A final-set reveal gate checks all required output and review seals before reading the answer map.
+
+Actual isolation values: `CONTROLLED_PACKET_FRESH_CONTEXT`, `FRESH_CONTEXT_UNRESTRICTED_TOOLS`, `SHARED_CONTEXT_EXPOSED`, `UNVERIFIED`. Only the first can satisfy this campaign's blind-evaluation gate after event inspection. It still does not exclude prior model memory of public text.

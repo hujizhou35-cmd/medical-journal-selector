@@ -54,6 +54,12 @@
 
 **[查看完整报告示例 →](examples/fictional-report.zh-CN.md)** 示例中的期刊与数字均为虚构，用来展示你会收到怎样的报告。
 
+## 改进选刊 Skill
+
+**Medical Journal Selector Skill Trainer** 先对脱敏稿件选刊、封存推荐和独立评审，再揭晓真实发表期刊，将有依据的问题变成可复用规则，并用未参与修改的文章验收。
+
+V2 候选和 Trainer 正在评测；发布门槛通过前，稳定下载仍为 V1.0.0。[Trainer 教程](trainer-guide.zh-CN.md) · [评测状态](evaluation/README.zh-CN.md)
+
 ## 常见问题
 
 <details>

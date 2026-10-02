@@ -55,6 +55,12 @@ Each journal comes with an official **Aims & Scope quotation**, a specific expla
 
 **[Read a complete example report →](docs/examples/fictional-report.md)** The example uses fictional journals and figures to show the report format. Switch to Chinese at the top of the report.
 
+## Improve the selector
+
+**Medical Journal Selector Skill Trainer** runs masked manuscript cases, seals recommendations and independent reviews, then reveals the known publishing journal. It turns supported failures into reusable rules and checks a separate untouched test set.
+
+The V2 candidate and Trainer are under evaluation; the stable release remains V1.0.0 until the gates pass. [Trainer guide](docs/trainer-guide.md) · [Evaluation status](docs/evaluation/README.md)
+
 ## Common questions
 
 <details>
