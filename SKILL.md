@@ -128,7 +128,7 @@ Unverified:
 {"status":"unverified","value":null,"reason":"Official page could not be read; 未核到","evidence":[]}
 ```
 
-Use `bibliographic` for a paper/identifier record; journal policy/metrics require the appropriate authority. `third_party` may document an unresolved lead, never a verified critical field. Preserve failed-source URLs and reasons when useful. A support excerpt should not repeat the full scope quote in the human report; use a section locator to respect aggregate quotation limits.
+Use `bibliographic` for paper records, article DOI metadata and abstract searches. An actually retrieved registry's own journal title/ISSN record, including Crossref `/journals/{issn}`, is primary identity evidence and uses `official` for the identity envelope only. Preserve the supplied source's classification and field restrictions. Such a record cannot support policy, title history, indexing or metrics; other fields need their own appropriate authority. `third_party` may document an unresolved lead, never a verified critical field. Preserve failed-source URLs and reasons when useful. A support excerpt should not repeat the full scope quote in the human report; use a section locator to respect aggregate quotation limits.
 
 ## Journal
 
@@ -225,6 +225,7 @@ Do not invent unspecified recruitment periods, sites or participant overlap. A c
 
 | Field | Preferred evidence | Common error to prevent |
 |---|---|---|
+| Identity | Exact journal masthead/publisher record and appropriate journal identity registry; Crossref `/journals/{issn}` can corroborate its recorded title/ISSN pairing | A journal-registry record classified as an ordinary paper citation, or identity metadata used to prove editorial policy or metrics |
 | Scope / article type / method restrictions | Exact journal's official scope and author guidelines; applicable publisher policy | Publisher-wide text treated as a journal-specific exception, or old accepted papers overriding new rules |
 | Indexing | Clarivate Master Journal List for WoS collections; NLM Catalog for MEDLINE; named database's own record | PubMed, PMC, MEDLINE and SCIE treated as synonyms |
 | JCR/JIF | Current accessible JCR record; alternatively official publisher reporting an explicitly named JCR category/year or JIF/year | Unspecified year, promotional “real-time IF”, or SJR quartile presented as JCR |
@@ -248,6 +249,8 @@ A paid JCR subscription is not assumed. Third-party aggregators may locate leads
 ## Per-field verification
 
 Resolve journal title, ISSN/eISSN and title history first. Read source content; search-result snippets are discovery only. Record an exact short supporting excerpt or precise table/section location. Mark `verified` only when the actual retrieved content supports the value, year, journal and applicable conditions. On a redirect, record the resolved URL.
+
+Distinguish a registry's own journal record from an article's DOI metadata. A current, actually retrieved Crossref `/journals/{issn}` record may support its stated title/ISSN pairing as identity-only primary registry evidence (`source_type: official`). Crossref article records and abstract search records are `bibliographic`. Neither proves current title history, submission permission, indexing, JCR/JIF, fees or timelines. Preserve supplied field restrictions and source classifications when serializing evidence; do not promote all records from the same domain.
 
 Use an ISO 8601 checked-at timestamp with timezone within the current run. A source's statistics year can be older than the run: report it, never relabel it as this year's data. A field without a required metric year is unverified. Reuse a fetch within the same run, not across runs. In a long run crossing a date boundary, retain actual timestamps rather than forcing one date.
 

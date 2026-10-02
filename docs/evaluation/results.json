@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-10-02T09:46:48.759306+00:00",
+  "exported_at": "2026-10-02T10:31:49.885963+00:00",
   "status": "incomplete_or_failed",
   "input_manifest_sha256": "545192c7193ad2c55aa18eea67ab94e794c07340b04089abd98be665b5de4408",
   "seed": 20261002,
@@ -7,114 +7,114 @@
   "protocol_revision": 8,
   "allocated_development": 100,
   "allocated_final": 50,
-  "completed_development": 2,
+  "completed_development": 3,
   "completed_final": 0,
   "development_summary": {
-    "cases": 3,
-    "completed": 2,
+    "cases": 4,
+    "completed": 3,
     "infrastructure_failed": 0,
     "contamination_failed": 0,
     "model_failed": 0,
     "variants": {
       "v2": {
-        "n": 2,
+        "n": 3,
         "hit3": 0,
         "hit5": 0,
         "hit10": 0,
         "usable": 0,
-        "usable_known": 2,
+        "usable_known": 3,
         "discovered": 1,
-        "discovered_known": 2,
-        "hard_failures": 0,
-        "hard_failure_cases": 0,
-        "source_coverage_cases": 2,
+        "discovered_known": 3,
+        "hard_failures": 6,
+        "hard_failure_cases": 1,
+        "source_coverage_cases": 3,
         "source_coverage": {
           "identity": {
-            "verified": 2,
+            "verified": 8,
             "unverified": 17,
             "invalid_status": 0
           },
           "scope": {
-            "verified": 6,
-            "unverified": 13,
+            "verified": 8,
+            "unverified": 17,
             "invalid_status": 0
           },
           "article_type": {
-            "verified": 6,
-            "unverified": 13,
+            "verified": 7,
+            "unverified": 18,
             "invalid_status": 0
           },
           "method_policy": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           },
           "indexing": {
             "verified": 1,
-            "unverified": 18,
+            "unverified": 24,
             "invalid_status": 0
           },
           "jcr": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           },
           "jif": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           },
           "oa": {
-            "verified": 6,
-            "unverified": 13,
+            "verified": 8,
+            "unverified": 17,
             "invalid_status": 0
           },
           "fees": {
-            "verified": 2,
-            "unverified": 17,
+            "verified": 3,
+            "unverified": 22,
             "invalid_status": 0
           },
           "warnings": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           },
           "timeline:first_decision": {
             "verified": 1,
-            "unverified": 18,
+            "unverified": 24,
             "invalid_status": 0
           },
           "timeline:acceptance": {
             "verified": 1,
-            "unverified": 18,
+            "unverified": 24,
             "invalid_status": 0
           },
           "timeline:online": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           },
           "timeline:indexing": {
             "verified": 0,
-            "unverified": 19,
+            "unverified": 25,
             "invalid_status": 0
           }
         },
         "hit3_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit5_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit10_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ]
       },
       "keyword": {
-        "n": 2,
+        "n": 3,
         "hit3": 0,
         "hit5": 0,
         "hit10": 1,
@@ -127,20 +127,20 @@
         "source_coverage_cases": 0,
         "source_coverage": {},
         "hit3_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit5_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit10_wilson95": [
-          0.09453120573423074,
-          0.9054687942657693
+          0.06149194472039621,
+          0.7923403991979522
         ]
       },
       "abstract": {
-        "n": 2,
+        "n": 3,
         "hit3": 0,
         "hit5": 0,
         "hit10": 0,
@@ -153,16 +153,16 @@
         "source_coverage_cases": 0,
         "source_coverage": {},
         "hit3_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit5_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ],
         "hit10_wilson95": [
-          0,
-          0.6576197724933469
+          5.551115123125783e-17,
+          0.5614970317550454
         ]
       }
     },
@@ -483,29 +483,187 @@
           }
         }
       },
-      "systematic_meta": {
+      "network": {
         "cases": 1,
         "completed": 0,
         "states": {
           "request_checkpoint": 1
         },
         "variants": {}
+      },
+      "systematic_meta": {
+        "cases": 1,
+        "completed": 1,
+        "states": {
+          "completed": 1
+        },
+        "variants": {
+          "v2": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 0,
+            "usable_known": 1,
+            "discovered": 0,
+            "discovered_known": 1,
+            "hard_failures": 6,
+            "hard_failure_cases": 1,
+            "source_coverage_cases": 1,
+            "source_coverage": {
+              "identity": {
+                "verified": 6,
+                "unverified": 0,
+                "invalid_status": 0
+              },
+              "scope": {
+                "verified": 2,
+                "unverified": 4,
+                "invalid_status": 0
+              },
+              "article_type": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "method_policy": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "indexing": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "jcr": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "jif": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "oa": {
+                "verified": 2,
+                "unverified": 4,
+                "invalid_status": 0
+              },
+              "fees": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "warnings": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:first_decision": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:acceptance": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:online": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:indexing": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              }
+            },
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0,
+              0.7934506856227626
+            ]
+          },
+          "keyword": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0,
+              0.7934506856227626
+            ]
+          },
+          "abstract": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0,
+              0.7934506856227626
+            ]
+          }
+        }
       }
     },
-    "elapsed_seconds": 5201.639999999999,
+    "elapsed_seconds": 7401.028999999999,
     "usage": {
-      "input_tokens": 1266522,
-      "cached_input_tokens": 11136,
+      "input_tokens": 2279190,
+      "cached_input_tokens": 161024,
       "cache_write_input_tokens": 0,
-      "output_tokens": 53172,
-      "reasoning_output_tokens": 14748
+      "output_tokens": 107868,
+      "reasoning_output_tokens": 44042
     },
-    "model_calls": 13,
+    "model_calls": 22,
     "call_outcomes": {
-      "completed": 12,
+      "completed": 21,
       "infrastructure_failed": 1
     },
-    "usage_reported_calls": 12,
+    "usage_reported_calls": 21,
     "usage_unavailable_calls": 1,
     "request_checkpoint": 1,
     "unscored": 1,
@@ -894,13 +1052,178 @@
       ]
     },
     {
-      "case_id": "s1-systematic_meta-002",
-      "stratum": "systematic_meta",
+      "case_id": "s1-network-002",
+      "stratum": "network",
       "split": "development",
       "status": "request_checkpoint",
       "lesson_status": null,
       "failure": null,
       "scores": null
+    },
+    {
+      "case_id": "s1-systematic_meta-002",
+      "stratum": "systematic_meta",
+      "split": "development",
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [
+            "1758-9193.identity: verified fact requires authoritative evidence",
+            "1387-2877.identity: verified fact requires authoritative evidence",
+            "2426-0266.identity: verified fact requires authoritative evidence",
+            "1663-4365.identity: verified fact requires authoritative evidence",
+            "2542-4823.identity: verified fact requires authoritative evidence",
+            "2076-3425.identity: verified fact requires authoritative evidence"
+          ],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13526724",
+      "original_outlet": "Journal of Neurology",
+      "revealed_at": "2026-10-02T10:05:41.845012+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a0fc06-bb10-7912-92d4-ea85cef4f6c1",
+          "output_hash": "3d72f66edcad5ee61222632da5f611e32bf01461039eeed91db5221a9f0b8472",
+          "sealed_at": "2026-10-02T10:04:16.054010+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a0fc12-611a-7062-8bbf-bb9b852b31f6",
+          "output_hash": "d99ba39cd15a3b590f343023668f26e743f9ebde610b3388bffc0249d644a2e0",
+          "sealed_at": "2026-10-02T10:05:40.721172+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a0fc12-6151-72d2-ba14-75c695a59777",
+          "output_hash": "c582c787619320c3d4a0e7091b638f2969f3128eadb9ab3cfbc0476d33bc620c",
+          "sealed_at": "2026-10-02T10:05:39.627123+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "accepted_change",
+          "reason": "Actual case diagnosis identified six supported Crossref journal identity claims serialized with the wrong authority type. Clarify primary journal-registry versus article bibliographic evidence and preserve per-record field restrictions. A separate six-field diagnostic replay changes no factual values. Fresh generation plus independent reviews passed the source/claim checks. Original six flags and the empty recommendation outcome remain intact; no additional case or performance gain is claimed.",
+          "at": "2026-10-02T10:29:25.563414+00:00",
+          "files": [
+            {
+              "name": "sources-and-verification.md",
+              "sha256": "9ecc2c59ad12766780eefd99ce012058c854fb1d0a6d67c65a0732762f0d61dc"
+            },
+            {
+              "name": "evidence-format.md",
+              "sha256": "9ef54f1d3f7e56d4255f5cb82b8a293b51aee498d59033b22f3b8e26aa524ead"
+            },
+            {
+              "name": "campaign.py",
+              "sha256": "7f8882c46294e9e96af0af53a6674751fa7117a3ad6a6de793900b80293e89d0"
+            }
+          ],
+          "regression_sha256": "38e677a50c562df76d508de45cd684fcc0963ad8dcfd4e7d95680e66f477cdbb"
+        }
+      ]
     }
   ]
 }

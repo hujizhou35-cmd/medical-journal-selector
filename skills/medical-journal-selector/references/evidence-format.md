@@ -34,7 +34,7 @@ Unverified:
 {"status":"unverified","value":null,"reason":"Official page could not be read; 未核到","evidence":[]}
 ```
 
-Use `bibliographic` for a paper/identifier record; journal policy/metrics require the appropriate authority. `third_party` may document an unresolved lead, never a verified critical field. Preserve failed-source URLs and reasons when useful. A support excerpt should not repeat the full scope quote in the human report; use a section locator to respect aggregate quotation limits.
+Use `bibliographic` for paper records, article DOI metadata and abstract searches. An actually retrieved registry's own journal title/ISSN record, including Crossref `/journals/{issn}`, is primary identity evidence and uses `official` for the identity envelope only. Preserve the supplied source's classification and field restrictions. Such a record cannot support policy, title history, indexing or metrics; other fields need their own appropriate authority. `third_party` may document an unresolved lead, never a verified critical field. Preserve failed-source URLs and reasons when useful. A support excerpt should not repeat the full scope quote in the human report; use a section locator to respect aggregate quotation limits.
 
 ## Journal
 

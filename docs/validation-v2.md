@@ -6,7 +6,7 @@ These are observed development checks, not a completed V2 release or a journal-s
 
 ## Local checks
 
-The checked source covers report language, current-source envelopes, hard constraints, three routes, policy exclusions, masking, source restrictions, duplicate families, answer isolation, sealed-output integrity, failed-attempt retention, final reveal gates and packaging. The complete suite passed 91 tests. Source links and standalone Markdown consistency passed separately.
+The checked source covers report language, current-source envelopes, hard constraints, three routes, policy exclusions, masking, source restrictions, duplicate families, answer isolation, sealed-output integrity, failed-attempt retention, final reveal gates and packaging. The complete suite passed 92 tests. Source links and standalone Markdown consistency passed separately.
 
 The current corpus audit checked all 150 allocated inputs: hashes match their prepared research text, licenses and answer identities are documented, no detected near-duplicate families cross the splits, and journal caps hold. These program checks do not exclude remembered public papers, unknown duplicate versions or errors requiring scientific judgment.
 
@@ -15,7 +15,7 @@ The current corpus audit checked all 150 allocated inputs: hashes match their pr
 | Host / format | Observed result | Limit |
 |---|---|---|
 | Claude Code, candidate `.skill` packages extracted into `.claude/skills/` | Both tools were discovered and read. A Chinese request about an English NHANES paper received Chinese output, identified random splitting as internal validation, and kept all three routes unavailable without current sources. Trainer evaluation was not started. | Existing host model: `deepseek-v4-pro`. One offline smoke test; scripts were not executed. |
-| Codex, earlier candidate installed in `.agents/skills/` | A genuine completed fresh CLI response read both tools, distinguished their purposes and avoided offline rankings. | Rules changed afterward. This earlier result does not certify the latest or final release files; repeat on the frozen release candidate. |
+| Codex CLI, candidate packages installed in `.agents/skills/` | A genuine completed fresh 6.1 Sol / xhigh response read both tools and the methods reference. Terminal events show three file-read commands, English output, correct internal-validation labeling and unavailable offline routes. | Source-provenance rules changed afterward. This result does not certify the final release files; repeat on the frozen release candidate. |
 | Self-contained Markdown and archives | Generated from each tool's core and references, with deterministic archives and checksums. | Structural checks do not prove behavior in every Agent. |
 | Codex Plugin ZIP | Manifest and same-source contents can be checked. | Native Plugin ZIP import has not been observed; do not claim one-click import or marketplace approval. |
 

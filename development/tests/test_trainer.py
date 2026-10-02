@@ -76,6 +76,21 @@ class TrainerTests(unittest.TestCase):
         self.assertEqual(len(failures),2)
         self.assertTrue(all('restricted to journal identity' in e for e in failures))
 
+    def test_serialized_identity_source_type_must_match_its_actual_registry_record(self):
+        from types import SimpleNamespace
+        stamp='2026-10-02T00:00:00+00:00';url='https://api.crossref.org/journals/9000-0005'
+        ev={'url':url,'checked_at':stamp,'support':'Fictional identity text','source_type':'bibliographic'}
+        page={'url':url,'checked_at':stamp,'text':ev['support'],'status':'readable_snapshot',
+              'source_type':'official','allowed_fact_fields':['identity']}
+        value={'evidence':{'constraints':{},'journals':[{'id':'9000-0005','facts':{'identity':{
+               'status':'verified','value':{'issns':['9000-0005']},'evidence':[ev]}}}]},'fit_sequence':[]}
+        packet={'policies':[page],'literature':[{'journal_id':'9000-0005'}]}
+        failures=source_audit(value,packet,SimpleNamespace(validate=lambda b:[]))
+        self.assertEqual(len(failures),1)
+        self.assertIn('source classification changed',failures[0])
+        ev['source_type']='official'
+        self.assertEqual(source_audit(value,packet,SimpleNamespace(validate=lambda b:[])),[])
+
     def test_essential_declarations_and_back_matter_are_not_publication_metadata(self):
         xml='''<article><front><journal-meta><journal-title-group><journal-title>Secret Journal</journal-title></journal-title-group></journal-meta><article-meta><title-group><article-title>Secret Paper Title</article-title></title-group><permissions><license><license-p>Creative Commons Attribution License CC BY</license-p></license></permissions></article-meta></front><body><sec><title>Methods</title><p>Two cohorts were analysed.</p></sec><sec><title>Declarations</title><sec><title>Ethics approval</title><p>Written informed consent was obtained.</p></sec><sec><title>Author contributions</title><p>Secret author workflow</p></sec></sec></body><back><sec><title>Data availability statement</title><p>Training used GSE26440; validation used GSE167363.</p></sec><sec><title>Consent for publication</title><p>Written publication consent was obtained from all patients.</p></sec><ref-list><ref>Secret Journal reference</ref></ref-list></back></article>'''
         _,text=parse_article(xml)
