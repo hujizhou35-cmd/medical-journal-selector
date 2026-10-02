@@ -13,10 +13,33 @@ from corpus import mask_text, near_duplicate, fingerprint, parse_article, licens
 from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt
 from evaluation import fixed_baselines, require_reveal, wilson, summarize, promotion, journal_match,candidate_handoff
 from freeze import freeze,verify
-from campaign import prepare_case,InputEligibilityError,reveal_case
+from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no_rule_reason
 from status import inspect as inspect_status
 
 class TrainerTests(unittest.TestCase):
+    def test_no_rule_bookkeeping_preserves_bad_outcomes_but_never_adopts_rules(self):
+        ledger={'split':'development','status':'diagnosed','lesson_status':'change_review_pending',
+                'revealed_at':'actual-time','lesson_record':{'status':'completed'},
+                'scores':{'v2':{'hard_failures':[],'usable':False,'true_rank':None}},
+                'diagnosis':{'hypotheses':[{'rule':'no rule'}],'stratum_confirmed':True,'no_change_reason':'Existing rules address the gap.'}}
+        self.assertIsNotNone(automatic_no_rule_reason(ledger))
+        changed=copy.deepcopy(ledger)
+        changed['diagnosis']['hypotheses'][0]['rule']='Always prefer the revealed journal'
+        self.assertIsNone(automatic_no_rule_reason(changed))
+        changed=copy.deepcopy(ledger)
+        changed['diagnosis']['stratum_confirmed']=False
+        self.assertIsNone(automatic_no_rule_reason(changed))
+        changed['diagnosis']['stratum_confirmed']='false'
+        self.assertIsNone(automatic_no_rule_reason(changed))
+        changed=copy.deepcopy(ledger)
+        changed['scores']['v2']['hard_failures']=['Unsupported claim']
+        self.assertIsNone(automatic_no_rule_reason(changed))
+        changed=copy.deepcopy(ledger)
+        changed['diagnosis']['hypotheses']=[]
+        self.assertIsNotNone(automatic_no_rule_reason(changed))
+        changed['diagnosis']['stratum_confirmed']=False
+        self.assertIsNone(automatic_no_rule_reason(changed))
+
     def test_diagnostic_handoff_preserves_frozen_baseline_prefix(self):
         papers=[{'journal_id':str(i),'journal':'Journal '+str(i),'title':'asthma','abstract':'asthma clinical outcomes '+('lung '*i)} for i in range(1,16)]
         small=fixed_baselines('asthma lung',['asthma'],papers)
@@ -235,6 +258,11 @@ class TrainerTests(unittest.TestCase):
         self.assertEqual(r["variants"]["v2"]["n"],1)
         self.assertEqual(r["unscored"],1)
         self.assertEqual(r["strata"]["unknown"]["states"]["infrastructure_failed"],1)
+    def test_repeated_review_flags_are_separate_from_affected_case_count(self):
+        result=summarize([{'status':'completed','stratum':'review','scores':{'v2':{'true_rank':None,'usable':False,'hard_failures':['same claim','same claim']}}}])
+        score=result['variants']['v2']
+        self.assertEqual(score['hard_failures'],2)
+        self.assertEqual(score['hard_failure_cases'],1)
     def test_unknown_usable_metric_is_not_claimed_negative(self):
         r=summarize([{"case_id":"x","status":"completed","stratum":"review","scores":{"keyword":{"true_rank":2,"usable":None}}}])
         self.assertEqual(r["variants"]["keyword"]["usable_known"],0)

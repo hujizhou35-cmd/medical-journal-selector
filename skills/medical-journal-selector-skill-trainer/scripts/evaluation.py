@@ -5,7 +5,6 @@ import argparse
 import collections
 import hashlib
 import json
-import json
 import math
 import re
 from datetime import datetime
@@ -132,8 +131,9 @@ def summarize(records):
         aggregate["discovered_known"]+=int(value.get("discovered") is not None)
         aggregate["discovered"]+=int(value.get("discovered") is True)
         aggregate["hard_failures"]+=len(value.get("hard_failures",[]))
+        aggregate['hard_failure_cases']+=int(bool(value.get('hard_failures',[])))
     def blank():
-        return {"n":0,"hit3":0,"hit5":0,"hit10":0,"usable":0,"usable_known":0,"discovered":0,"discovered_known":0,"hard_failures":0}
+        return {"n":0,"hit3":0,"hit5":0,"hit10":0,"usable":0,"usable_known":0,"discovered":0,"discovered_known":0,"hard_failures":0,'hard_failure_cases':0}
     for r in records:
         state=r.get("status","incomplete")
         out[state]=out.get(state,0)+1
@@ -167,6 +167,7 @@ def summarize(records):
     out["time_interpretation"]="Sum of recorded model-call elapsed times, including parallel reviews; not end-to-end wall-clock runtime."
     out["usage_interpretation"]="Available CLI usage only. Calls with unavailable usage are counted separately, not assumed to consume zero."
     out["interval_interpretation"]="Conditional on completed, scored cases; unscored cases are separately retained, not claimed as successful runs."
+    out['hard_failure_interpretation']='hard_failures counts retained source/reviewer flags, which can repeat one underlying error. hard_failure_cases counts affected cases out of n; original development errors remain after regression.'
     return out
 
 def promotion(development, final, checks):

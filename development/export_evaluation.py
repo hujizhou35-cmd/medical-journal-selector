@@ -10,6 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'skills/medical-journal-selector-skill-trainer/scripts'))
 from corpus import stamp
 from evaluation import require_reveal,promotion,summarize
+from runner import collect_call_records
 
 
 def read(path):
@@ -27,9 +28,13 @@ def export(corpus,development_runs,final_runs,output,checks):
             continue
         runs=Path(development_runs if split=='development' else final_runs)
         file=runs/case['case_id']/'ledger.json'
-        if not file.exists():
+        if not file.exists() and not file.parent.exists():
             continue
-        ledger=read(file)
+        ledger=read(file) if file.exists() else {'case_id':case['case_id'],'stratum':case['stratum'],'split':split,'status':'request_checkpoint'}
+        # Read actual receipts at export time, including post-decision
+        # regressions and unfinished-case preparation. Never mark them as a
+        # completed case or rewrite the underlying ledger.
+        ledger['calls']=collect_call_records(file.parent)
         records[split].append(ledger)
         entry={'case_id':case['case_id'],'stratum':case['stratum'],'split':split,
                'status':ledger.get('status'),'lesson_status':ledger.get('lesson_status'),

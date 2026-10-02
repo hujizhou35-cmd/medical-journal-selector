@@ -71,6 +71,8 @@ Always show **待核验候选**, **排除及理由**, and material evidence gaps
 
 Before delivery, trace each number/status/quotation to its supporting source, check identity and years, and check that rankings obey constraints. Revisit failed facts, replace unsuitable candidates, and rerank for at most **two additional search rounds**. Stop earlier when no unresolved issue can change the answer. Persistent missing data remains 未核到. If the whole host is offline, deliver the profile and search plan only, with three route headings explicitly unavailable; no purported current ranking.
 
+Audit consequential manuscript-method and eligibility comparisons against the specific manuscript section too. Preserve the stated design boundaries: an unmentioned design is not proven excluded, and a weaker methodological precedent is not automatically an ineligible study.
+
 Deliver:
 
 1. Manuscript profile and stated constraints.

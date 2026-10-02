@@ -13,7 +13,7 @@ from datetime import date
 from pathlib import Path
 
 from corpus import stamp, parse_article
-from runner import run
+from runner import run, collect_call_records
 from broker import discover, capture_all, canonical_url
 from evaluation import fixed_baselines, require_reveal, summarize, journal_match, candidate_handoff
 
@@ -55,18 +55,6 @@ def artifact(rec,path,variant):
     return {"variant":variant,"path":str(Path(path).resolve()),"output_hash":rec["output_hash"],
             "sealed_at":rec["completed_at"],"context_id":rec["context_id"],"status":rec["status"],"isolation":rec["isolation"],
             "elapsed_seconds":rec.get("elapsed_seconds"),"usage":rec.get("usage"),"model":rec.get("model"),"effort":rec.get("effort")}
-
-def collect_call_records(work):
-    records=[]
-    seen=set()
-    for path in sorted(Path(work).rglob("*.record.json")):
-        data=read(path)
-        key=(data.get("context_id"),data.get("started_at"),data.get("input_hash"))
-        if key in seen:
-            continue
-        seen.add(key)
-        records.append({"role":path.name.removesuffix(".record.json"),"record_path":str(path.resolve()),**data})
-    return records
 
 def save_ledger(work,ledger):
     ledger["calls"]=collect_call_records(work)
@@ -345,15 +333,28 @@ CURRENT COMPLETE SKILL:\n'''+skill_packet(skillfolders["v2"])+"\nDATA:\n"+json.d
     ledger["diagnosis"]=lesson
     # A proposed modification is not an adopted rule. Leave it pending until
     # the orchestrator reviews, tests, and records accept/revert.
-    if lesson.get("hypotheses"):
-        ledger["lesson_status"]="change_review_pending"
-        ledger["status"]="diagnosed"
-    else:
-        ledger["lesson_status"]="completed"
-        ledger["status"]="completed"
-        ledger["changes"]=[{"decision":"no_change","reason":lesson.get("no_change_reason","")}]
+    ledger["lesson_status"]="change_review_pending"
+    ledger["status"]="diagnosed"
     save_ledger(work,ledger)
     return ledger
+
+def automatic_no_rule_reason(ledger):
+    """Opt-in bookkeeping only; never apply a proposed rule or clear failures."""
+    lesson=ledger.get('diagnosis',{})
+    hypotheses=lesson.get('hypotheses',[])
+    score=ledger.get('scores',{}).get('v2',{})
+    if (ledger.get('split')!='development' or ledger.get('status')!='diagnosed'
+        or ledger.get('lesson_status')!='change_review_pending'
+        or not ledger.get('lesson_record') or not ledger.get('revealed_at')
+        or lesson.get('stratum_confirmed') is not True
+        or not lesson.get('no_change_reason') or 'hard_failures' not in score
+        or score['hard_failures']
+        or any(h.get('rule','').strip().casefold()!='no rule' for h in hypotheses)):
+        return None
+    return ('Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. '
+            'The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. '
+            'No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. '
+            'Analyst reason: '+lesson['no_change_reason'])
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
@@ -365,6 +366,7 @@ def main():
     p.add_argument("--limit",type=int,default=5)
     p.add_argument("--date",default=date.today().isoformat())
     p.add_argument("--pilot",action="store_true",help="Preset five distinct method families for the first workflow check")
+    p.add_argument('--auto-no-rule',action='store_true',help='Record only explicit no-rule decisions with clean audits; never edit Skill instructions')
     p.add_argument("--reveal-final",action="store_true",help="Reveal only after every required final generation/review is sealed")
     args=p.parse_args()
     manifest=read(args.corpus/"manifest.json")
@@ -399,6 +401,10 @@ def main():
             break
         print("Starting "+case["case_id"],flush=True)
         value=execute(case,args.corpus,args.runs,folders,selector,args.date)
+        reason=automatic_no_rule_reason(value) if args.auto_no_rule else None
+        if reason:
+            from record_decision import record as record_no_change
+            value=record_no_change(args.runs/case['case_id'],'no_change',reason)
         records.append(value)
         print(case["case_id"]+": "+value["status"]+" "+value.get("failure",""),flush=True)
         write(args.runs/"run-summary.json",summarize(records))

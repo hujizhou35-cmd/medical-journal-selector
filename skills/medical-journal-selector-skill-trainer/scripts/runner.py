@@ -20,6 +20,18 @@ def stamp():
 def digest(data):
     return hashlib.sha256(data).hexdigest()
 
+def collect_call_records(work):
+    """Count genuine receipts, including failed attempts and regressions once."""
+    records=[]
+    seen=set()
+    for path in sorted(Path(work).rglob("*.record.json")):
+        data=json.loads(path.read_text(encoding='utf-8'))
+        key=(data.get('context_id'),data.get('started_at'),data.get('input_hash'))
+        if key in seen:continue
+        seen.add(key)
+        records.append({'role':path.name.removesuffix('.record.json'),'record_path':str(path.resolve()),**data})
+    return records
+
 def event_records(path):
     events=[]
     if Path(path).exists():
@@ -37,6 +49,22 @@ def completed_message(events):
     if any(e.get("item",{}).get("type") in {"command_execution","mcp_tool_call","web_search","file_change"} for e in events):
         return None
     return next((e["item"].get("text") for e in reversed(events[:terminal]) if e.get("type")=="item.completed" and e.get("item",{}).get("type")=="agent_message"),None)
+
+def persist_completed_message(output, events):
+    """Store only the genuine terminal message, preserving a stale CLI output."""
+    output=Path(output)
+    message=completed_message(events)
+    if message is None:
+        raise ValueError("No genuine completed tool-free model message")
+    if output.exists() and output.read_text(encoding="utf-8").strip()!=message.strip():
+        previous=output.read_bytes()
+        backup=output.with_name(output.name+".conflicting-output-"+digest(previous)[:16])
+        if not backup.exists():
+            backup.write_bytes(previous)
+    output.write_text(message,encoding="utf-8")
+    if output.read_text(encoding="utf-8")!=message:
+        raise ValueError("Saved output differs from the actual terminal model message")
+    return message
 
 def recover_terminal_output(output):
     """Recover only an exact real terminal event; keep the failed transport record."""
@@ -78,6 +106,9 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
         previous = json.loads(record_path.read_text(encoding="utf-8"))
         if previous.get("input_hash") == identity and previous.get("status") == "completed" and output.exists():
             if previous.get("output_hash") == digest(output.read_bytes()):
+                actual=completed_message(event_records(output.with_suffix(output.suffix+".events.jsonl")))
+                if actual is None or output.read_text(encoding="utf-8").strip()!=actual.strip():
+                    raise ValueError("Completed checkpoint conflicts with its actual terminal events")
                 return previous
         if previous.get("input_hash") != identity:
             raise ValueError("Refusing to overwrite a run with different inputs/settings")
@@ -131,8 +162,6 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
                 streamed=event_records(log_path)
                 message=completed_message(streamed)
                 if message is not None:
-                    if not output.exists():
-                        output.write_text(message,encoding="utf-8")
                     try:
                         process.wait(timeout=2)
                     except subprocess.TimeoutExpired:
@@ -155,7 +184,8 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
         finished = any(e.get("type") == "turn.completed" for e in events)
         if unexpected:
             status, failure = "contamination_failed", "Unexpected tool use outside controlled packets"
-        elif finished and completed_message(events) is not None and output.exists():
+        elif finished and completed_message(events) is not None:
+            persist_completed_message(output,events)
             if schema:
                 json.loads(output.read_text(encoding="utf-8"))
             status = "completed"
@@ -181,6 +211,8 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
               "transport_outcome":"normal exit" if exitcode==0 else ("CLI stopped after observed model completion" if status=="completed" else "failed/incomplete"),
               "isolation": "CONTROLLED_PACKET_FRESH_CONTEXT" if status == "completed" else "UNVERIFIED",
               "output_hash": digest(output.read_bytes()) if status == "completed" else None}
+    record['terminal_output_matches']=(status=='completed' and
+        output.read_text(encoding='utf-8')==completed_message(events))
     retries=sum(e.get('type')=='error' and 'Reconnecting' in e.get('message','') for e in events)
     record['transport_retries']=retries
     record['usage_scope']=('Last completed turn only; usage from disconnected retry attempts is unavailable'

@@ -43,6 +43,9 @@ def permitted_url(url):
         return False
     host=parsed.hostname.lower()
     suffixes=("plos.org","biomedcentral.com","springer.com","springernature.com","frontiersin.org","mdpi.com","wiley.com","elsevier.com","sciencedirect.com","tandfonline.com","sagepub.com","lww.com","bmj.com","oup.com","nature.com","karger.com","thieme.com","liebertpub.com","clarivate.com","nlm.nih.gov","ncbi.nlm.nih.gov","doaj.org","casjournals.cn","cell.com","thelancet.com","aacrjournals.org","asm.org","rsc.org","acs.org","hindawi.com","scipress.com","journalofnursingstudies.com","onlinelibrary.wiley.com","cambridge.org","jstage.jst.go.jp","jsmrm.jp","endocrine.org")
+    # Verified publisher/journal hosts exposed by genuine development runs.
+    # These allow evidence retrieval, never a recommendation or endorsement.
+    suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com")
     return any(host==s or host.endswith("."+s) for s in suffixes)
 
 def canonical_url(url):
@@ -53,7 +56,7 @@ def canonical_url(url):
 class OfficialRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self,request,fp,code,msg,headers,newurl):
         if not permitted_url(newurl):
-            raise ValueError("Redirect leaves the permitted official-source hosts")
+            raise ValueError("Redirect leaves the permitted official-source hosts: "+(urllib.parse.urlparse(newurl).hostname or "unknown host"))
         return super().redirect_request(request,fp,code,msg,headers,newurl)
 
 def fetch_page(url):
@@ -85,6 +88,37 @@ def strip_target_mentions(text, answer):
     secrets=[answer.get("title","")]+[v for k,v in answer.get("ids",{}).items() if k in ("doi","pmid","pmc")]
     return "\n".join(line for line in text.splitlines() if not any(secret and len(secret)>5 and secret.casefold() in line.casefold() for secret in secrets))
 
+def normalize_journal_ids(papers):
+    """Resolve name-only IDs from an unambiguous same-title retrieved record.
+
+    Do not fuzzy-match titles or consult the answer. Multiple known ISSNs for
+    a title remain ambiguous here; this does not assume they are print/e-ISSNs.
+    """
+    known={}
+    issn=re.compile(r'^\d{4}-\d{3}[\dXx]$')
+    def name(value):return re.sub(r'\W+',' ',value.casefold()).strip()
+    for p in papers:
+        if issn.fullmatch(p['journal_id']):
+            known.setdefault(name(p['journal']),{})[p['journal_id'].upper()]=p
+    result=[]
+    amendments=[]
+    for original in papers:
+        p=dict(original)
+        if not issn.fullmatch(p['journal_id']):
+            matches=known.get(name(p['journal']),{})
+            if len(matches)==1:
+                jid,evidence=next(iter(matches.items()))
+                p['source_journal_id']=p['journal_id']
+                p['journal_id']=jid
+                amendments.append({'old_id':original['journal_id'],'new_id':jid,
+                    'journal':p['journal'],'paper_url':p.get('url'),
+                    'identity_basis_url':evidence.get('url'),
+                    'basis':'Exact normalized title with one ISSN in the same retrieved pool; no answer used'})
+            elif len(matches)>1:
+                p['identity_normalization']='Ambiguous same-title ISSNs; no automatic merge'
+        result.append(p)
+    return result,amendments
+
 def discover(queries, answer, masked, from_date, to_date, output):
     records=[]
     papers={}
@@ -112,7 +146,8 @@ def discover(queries, answer, masked, from_date, to_date, output):
                          "url":"https://europepmc.org/article/"+p.get("source","MED")+"/"+p.get("id",""),
                          "record_url":url,"checked_at":checked_at,"source_type":"bibliographic",
                          "read_extent":"Bibliographic API title/abstract/metadata; original methods not independently inspected"}
-    result={"records":records,"papers":list(papers.values())}
+    normalized,amendments=normalize_journal_ids(list(papers.values()))
+    result={"records":records,"papers":normalized,"identity_normalization":amendments}
     Path(output).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
     return result
 

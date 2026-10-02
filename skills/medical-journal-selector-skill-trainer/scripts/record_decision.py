@@ -3,9 +3,11 @@
 import argparse
 import hashlib
 import json
+from datetime import datetime
 from pathlib import Path
 from corpus import stamp
-from evaluation import require_reveal
+from evaluation import require_reveal, sealed
+from runner import collect_call_records
 
 def record(folder,decision,reason,changed_files=(),regression_record=None):
     folder=Path(folder)
@@ -13,6 +15,14 @@ def record(folder,decision,reason,changed_files=(),regression_record=None):
     if ledger["split"]!="development" or not ledger.get("revealed_at") or not ledger.get("lesson_record"):
         raise ValueError("An actual sealed/reviewed/revealed development case and diagnosis are required")
     require_reveal([ledger])
+    lesson=ledger['lesson_record']
+    previous_contexts={a['context_id'] for a in ledger['generations']+ledger['reviews']}
+    if (lesson.get('status')!='completed' or lesson.get('isolation')!='CONTROLLED_PACKET_FRESH_CONTEXT'
+        or not lesson.get('context_id') or lesson['context_id'] in previous_contexts
+        or not sealed(lesson.get('path',''),lesson.get('output_hash'))
+        or not lesson.get('sealed_at')
+        or datetime.fromisoformat(lesson['sealed_at'])<datetime.fromisoformat(ledger['revealed_at'])):
+        raise ValueError('Post-reveal diagnosis needs its own genuine completed context, timestamp and unchanged output')
     if not reason.strip():
         raise ValueError("An evidence-based decision reason is required")
     if decision=="accepted_change" and (not changed_files or not regression_record):
@@ -28,6 +38,7 @@ def record(folder,decision,reason,changed_files=(),regression_record=None):
     ledger["lesson_status"]="completed"
     ledger["status"]="completed"
     ledger["completed_at"]=stamp()
+    ledger['calls']=collect_call_records(folder)
     (folder/"ledger.json").write_text(json.dumps(ledger,ensure_ascii=False,indent=2),encoding="utf-8")
     return ledger
 
