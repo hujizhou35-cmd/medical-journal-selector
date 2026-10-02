@@ -1,0 +1,30 @@
+{
+  "observed_at": "2026-10-02T18:51:57.309288+00:00",
+  "eval_version": "r21-wave10-02",
+  "wave_id": "b0e9140ea6bd4d609a4642a44539ad60",
+  "status": "running",
+  "case_workers": 10,
+  "model_call_limit": 10,
+  "one_case_per_primary_class": true,
+  "primary_classes": [
+    "clinical_nursing",
+    "laboratory",
+    "public_database",
+    "bioinformatics",
+    "prediction",
+    "network",
+    "systematic_meta",
+    "other_review",
+    "bibliometrics",
+    "case_report"
+  ],
+  "completed_development_before_wave": 13,
+  "completed_final": 0,
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "xhigh",
+  "execution_snapshot": "execution-protocol-r21",
+  "selector_snapshot": "selector-candidate-r17",
+  "corpus_manifest_sha256": "3d53cf824157181ee6e12b171a953d24a96faed0af907dec79666e5dd069001c",
+  "corpus_files_sha256": "32bf11ab3a71f3e49057531b13c845de485d723c6323d8a9a48a21c8664caab9",
+  "interpretation": "Actual observed start only; no running case receives completion credit. Whole-wave barrier precedes central decisions. Final sources/answers remain withheld."
+}

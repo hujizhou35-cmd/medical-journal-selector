@@ -34,9 +34,11 @@ The terminal ten-class wave used ten workers and a ten-call ceiling. Both the sc
 
 The earlier ten-request infrastructure smoke and completed two-case and five-case waves remain separate evidence. Retrieval still has host, redirect and source-count limits. [Navigation repair regressions](execution-repairs.json) preserve real acquisition counts and original-score checks, with no new case credit. An inaccurate Scope word-count annotation remains recorded alongside its accurate quotation.
 
-The r21 workflow, including material-eligibility and profile prompt guards, passed 242 synthetic checks. Both real exposed-input replays passed the specified regressions: each had 20 integrity checks, 24 timeline envelopes audited and a negative control on a real hard requirement. [Instruction repair regressions](instruction-repairs.json) retain the sealed audit. The replays reused source snapshots, added zero new blind cases and did not replace original scores or establish an accuracy improvement. The systematic-review replay retained one transport reconnect; disconnected-attempt usage is unknown, so available terminal-token totals are not complete cost. The next ordinary wave has not yet been registered.
+The r21 workflow, including material-eligibility and profile prompt guards, passed 242 synthetic checks. Both real exposed-input replays passed the specified regressions: each had 20 integrity checks, 24 timeline envelopes audited and a negative control on a real hard requirement. [Instruction repair regressions](instruction-repairs.json) retain the sealed audit. The replays reused source snapshots, added zero new blind cases and did not replace original scores or establish an accuracy improvement. The systematic-review replay retained one transport reconnect; disconnected-attempt usage is unknown, so available terminal-token totals are not complete cost.
 
 [Two preparation renewals](preparation-renewals.json) passed fresh profile requests and 42 file-hash checks. Original failures, profiles and usage are retained; validated new profiles can be resumed in the next ordinary wave. These two preparation calls add no completed-case credit.
+
+The next [registered ten-class wave](current-wave.json), `r21-wave10-02`, has actually started with ten case workers and a ceiling of ten model calls. Its corpus, r21 execution and r17 Selector rules remain frozen; running cases receive no completion credit. Central decisions wait for all workers to finish.
 
 ## Evidence and interpretation
 
