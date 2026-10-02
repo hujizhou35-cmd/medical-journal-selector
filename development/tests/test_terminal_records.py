@@ -9,8 +9,18 @@ ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"skills/medical-journal-selector-skill-trainer/scripts"))
 from runner import completed_message,recover_terminal_output,persist_completed_message,collect_call_records
 from broker import canonical_url,permitted_url,normalize_journal_ids
+from evaluation import summarize
 
 class TerminalRecordTests(unittest.TestCase):
+    def test_successful_retry_does_not_erase_failed_call_count(self):
+        report=summarize([{'status':'completed','lesson_status':'completed','stratum':'fixture','scores':{},
+                          'calls':[{'status':'infrastructure_failed','usage':None,'elapsed_seconds':7},
+                                   {'status':'completed','usage':{'output_tokens':2},'elapsed_seconds':10}]}])
+        self.assertEqual(report['completed'],1)
+        self.assertEqual(report['infrastructure_failed'],0)
+        self.assertEqual(report['call_outcomes'],{'infrastructure_failed':1,'completed':1})
+        self.assertEqual(report['usage_unavailable_calls'],1)
+        self.assertEqual(report['elapsed_seconds'],17)
     def test_call_accounting_includes_regression_and_deduplicates_copied_receipts(self):
         with tempfile.TemporaryDirectory() as folder:
             root=Path(folder)

@@ -114,19 +114,27 @@ MANUSCRIPT DATA:\n'''+masked
         representatives.extend(papers[:2])
     plan_path=work/"source-plan.json"
     plan_prompt='''Return ONLY JSON {"journals":[{"journal_id":"...","title":"...","official_urls":["https://..."]}]}.
-For the discovered candidate journals below, identify official Aims & Scope and substantive article-type/method-policy pages, plus official metrics/fees/timing pages if resources remain and you know the URLs. Prioritize plausible topic, article-type and methods matches using the manuscript profile. URLs are retrieval leads only: we will actually fetch and verify them; never claim facts from memory. Do not add journals absent from the candidate set. At most 18 distinct initial URLs total; the broker reserves the remaining 12 of its 30-page budget to follow policy links actually found on those pages. Avoid spending the budget on multiple copies of a landing page.
+For the discovered candidate journals below, choose at most SIX plausible topic, article-type and methods matches. Give at most TWO substantive official page leads per journal, prioritizing Aims & Scope and applicable submission/method policies. A journal About page may also provide identity and dated metrics. URLs are leads only: we will actually fetch and verify them; never claim facts from memory. Do not add journals absent from the candidate set. At most 12 initial web URLs total. Up to six current Crossref journal identity lookups occupy the other initial-source slots; 12 slots remain for linked official policies within the same 30-endpoint ceiling. Prefer complete dossiers for fewer candidates over fragmented coverage of many. Avoid duplicate landing pages.
 Do not identify the target manuscript's publishing journal. DATA:\n'''+json.dumps({"profile":profile,"candidates":representatives},ensure_ascii=False)
     source_plan,_=model_json(plan_prompt,plan_path)
     allowed_ids=set(top)
     if any(j.get("journal_id") not in allowed_ids for j in source_plan["journals"]):
         raise ValueError("Source planner introduced an undiscovered candidate")
+    dossier_plan=[]
+    seen_ids=set()
+    for journal in source_plan['journals']:
+        if journal['journal_id'] in seen_ids:continue
+        seen_ids.add(journal['journal_id'])
+        dossier_plan.append({**journal,'official_urls':journal['official_urls'][:2]})
+        if len(dossier_plan)==6:break
+    source_plan={'journals':dossier_plan,'coverage_limit':'At most six coherent dossiers; the independently discovered literature pool remains available. Identity registry records support identity only.'}
     write(work/'candidate-handoff.json',candidate_handoff(profile['abstract_summary'],profile['keywords'],
                                                         literature['papers'],representatives,source_plan))
     policy_path=work/"policies.json"
     if policy_path.exists():
         policies=read(policy_path)
     else:
-        policies=capture_all([u for j in source_plan["journals"] for u in j["official_urls"]],answer,policy_path,profile.get('article_type',''))
+        policies=capture_all([u for j in source_plan["journals"] for u in j["official_urls"]],answer,policy_path,profile.get('article_type',''),source_plan['journals'])
     packet={"manuscript":masked,"profile":profile,"constraints":{"time_endpoint":"acceptance"},
             "literature":representatives,"retrieval_records":literature["records"],"policies":policies,
             "source_plan":source_plan,"material_limits":["Published final manuscript; public-paper memory cannot be excluded",case["supplements"],
@@ -184,6 +192,9 @@ def source_audit(value,packet,selector):
                     failures.append(j["id"]+"/"+key+": supporting passage absent from captured source")
                 elif key!="precedent" and not any(p.get("source_type")=="official" for p in supported):
                     failures.append(j["id"]+"/"+key+": journal fact attributed to a bibliographic-only record")
+                elif not any((key=='precedent' or p.get('source_type')=='official') and
+                        (p.get('allowed_fact_fields') is None or key in p['allowed_fact_fields']) for p in supported):
+                    failures.append(j['id']+'/'+key+': source is restricted to journal identity metadata')
                 elif not any(ev["checked_at"]==p.get("checked_at") for p in supported):
                     failures.append(j["id"]+"/"+key+": acquisition timestamp changed")
             if key=="scope" and f.get("value"):

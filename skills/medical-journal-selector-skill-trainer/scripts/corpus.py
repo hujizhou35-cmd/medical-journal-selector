@@ -189,7 +189,9 @@ AMBIGUOUS_JOURNAL_WORDS = frozenset(('medicine','cancer','cancers','blood','cell
     'toxins','toxics','healthcare','foods','insects','proteomes','antioxidants','microorganisms',
     'pharmaceuticals','pathogens','pharmaceutics','biomolecules'))
 DATASET_ACCESSION = re.compile(r'\b(?:GSE\d+|GSM\d+|E-[A-Z]{4}-\d+|SRP\d+|PRJNA\d+)\b',re.I)
-TRIAL_REGISTRY = re.compile(r'\b(?:NCT\d{8}|ISRCTN\d+)\b',re.I)
+TRIAL_REGISTRY = re.compile(
+    r'\b(?:NCT\d{8}|ISRCTN\d+|CRD420\d+|ChiCTR[A-Za-z]*\d+|ACTRN\d+|'
+    r'UMIN\d+|DRKS\d+|IRCT\d+(?:N\d+)?|KCT\d+)\b', re.I)
 
 def mask_text(text, target, research_id_policy='preserve_public_accessions'):
     if research_id_policy not in ('preserve_public_accessions','pseudonymize_accessions'):

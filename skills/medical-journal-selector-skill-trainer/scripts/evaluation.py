@@ -136,7 +136,7 @@ def evidence_coverage(evidence):
 
 
 def summarize(records):
-    out={"cases":len(records),"completed":0,"infrastructure_failed":0,"contamination_failed":0,"model_failed":0,"variants":{},"strata":{},"elapsed_seconds":0,"usage":{},"model_calls":0,"usage_reported_calls":0,"usage_unavailable_calls":0}
+    out={"cases":len(records),"completed":0,"infrastructure_failed":0,"contamination_failed":0,"model_failed":0,"variants":{},"strata":{},"elapsed_seconds":0,"usage":{},"model_calls":0,"call_outcomes":{},"usage_reported_calls":0,"usage_unavailable_calls":0}
     def add_score(aggregate,value):
         aggregate["n"]+=1
         rank=value.get("true_rank")
@@ -169,6 +169,8 @@ def summarize(records):
             calls=r.get("generations",[])+r.get("reviews",[])+r.get("attempts",[])+([r["lesson_record"]] if r.get("lesson_record") else [])
         for artifact in calls:
             out["model_calls"]+=1
+            call_state=artifact.get('status','unrecorded')
+            out['call_outcomes'][call_state]=out['call_outcomes'].get(call_state,0)+1
             if artifact.get("usage") is None:
                 out["usage_unavailable_calls"]+=1
             else:

@@ -18,6 +18,12 @@ The completed report will include actual case counts, failures, by-stratum resul
 
 The checkpoint is a development log, not an accuracy estimate. Available token totals do not include unreported usage from incomplete calls; summed model-call durations include parallel reviews and are not the experiment's wall-clock time. Final article identifiers and answers stay private until all final recommendations and reviews are sealed.
 
+`call_outcomes` reports actual call statuses separately from case completion. A successful retry can complete one case while its earlier infrastructure failure remains counted. Unknown usage is not zero usage.
+
 Two independent reviewers flagged one unsupported design-exclusion claim in a real development case. A general manuscript-comparison audit was added and tested with fresh generation and two new reviews; the original error and negative result remain recorded. This regression is not proof of a causal performance gain. `hard_failures` counts retained flags, which can repeat the same error; `hard_failure_cases` counts affected cases. Usage includes actual regression and unfinished-case receipts without increasing completed-case counts.
 
 Field coverage counts come from the original sealed fact and timeline envelopes. They show declared verified, unverified and invalid statuses; they do not replace independent source checks. Repairs do not overwrite these original counts.
+
+The first two formal development cases completed without a usable recommendation. Both negative outcomes are retained. Bounded acquisition regressions repaired official-host coverage, applicable article-type links and current title/ISSN lookup. Six coherent journal dossiers share the unchanged ceiling of eighteen initial and twelve followed endpoints. Crossref journal metadata supports identity only, not admission, indexing or metrics. These acquisition checks do not establish improved recommendation scores; subsequent fresh cases must test that.
+
+Before generation, eight remaining inputs required additional study-registration masking. The amendment preserves registration facts, the 100/50 allocation and both completed inputs. The same query guard covers the added registries. Historical protocol records remain unchanged.

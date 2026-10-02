@@ -10,13 +10,62 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"skills/medical-journal-selector-skill-trainer/scripts"))
 from corpus import mask_text, near_duplicate, fingerprint, parse_article, license_eligibility, prepare, attach_journal_identity,research_text
-from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt
+from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt,capture_identity
 from evaluation import fixed_baselines, require_reveal, wilson, summarize, promotion, journal_match,candidate_handoff,evidence_coverage
 from freeze import freeze,verify
-from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no_rule_reason
+from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no_rule_reason,source_audit
 from status import inspect as inspect_status
 
 class TrainerTests(unittest.TestCase):
+    def test_study_registrations_mask_consistently_without_removing_registration_facts(self):
+        ids=['CRD42021234567','ChiCTR2400081234','ACTRN12624001234567',
+             'UMIN000012345','DRKS00012345','IRCT20240101012345N1','KCT0001234']
+        for identifier in ids:
+            with self.subTest(identifier=identifier):
+                text=mask_text('Prospectively registered: '+identifier+'. Repeated '+identifier+'. GSE26440.',{})
+                self.assertNotIn(identifier,text)
+                self.assertIn('Prospectively registered',text)
+                self.assertEqual(text.count('[masked trial registry 1]'),2)
+                self.assertIn('GSE26440',text)
+
+    def test_registry_capture_is_selected_identity_metadata_only(self):
+        raw=json.dumps({'status':'ok','message':{'title':'Fictional Registry Journal','ISSN':['9000-0005'],
+                       'publisher':'Fictional Publisher','coverage':{'references-current':.91}}}).encode()
+        with patch('broker.get',return_value=raw):
+            page=capture_identity('9000-0005')
+        self.assertEqual(page['status'],'readable_snapshot')
+        self.assertEqual(page['allowed_fact_fields'],['identity'])
+        self.assertIn('Fictional Registry Journal',page['text'])
+        self.assertNotIn('coverage',page['text'])
+        with patch('broker.get',return_value=raw):
+            self.assertEqual(capture_identity('9000-0013')['status'],'unverified')
+
+    def test_registry_sources_share_the_initial_and_total_budget(self):
+        initial=['https://link.springer.com/journal/12876/aims-scope-'+str(i) for i in range(18)]
+        follows=['https://link.springer.com/journal/'+str(i)+'/submission-guidelines/research-articles' for i in range(20)]
+        ids=[{'journal_id':f'9000-000{i}'} for i in range(6)]
+        fake=lambda u,a:{'url':u,'status':'readable_snapshot','text':'Fictional page','links':follows if u in initial else []}
+        registry=lambda jid:{'url':'https://api.crossref.org/journals/'+jid,'status':'readable_snapshot','text':'Fictional identity','links':[],'allowed_fact_fields':['identity']}
+        with tempfile.TemporaryDirectory() as folder,patch('broker.capture',side_effect=fake),patch('broker.capture_identity',side_effect=registry),patch('broker.time.sleep'):
+            records=capture_all(initial,{'ids':{}},Path(folder)/'pages.json','Original research',ids)
+        self.assertEqual(len(records),30)
+        self.assertEqual(sum('api.crossref.org' in p['url'] for p in records),6)
+        self.assertEqual(sum(p.get('retrieval_round')==2 for p in records),12)
+
+    def test_identity_registry_cannot_verify_scope_or_a_publication_precedent(self):
+        from types import SimpleNamespace
+        stamp='2026-10-02T00:00:00+00:00';url='https://api.crossref.org/journals/9000-0005'
+        envelope={'status':'verified','value':{'quote':'Fictional identity text'},
+                  'evidence':[{'url':url,'checked_at':stamp,'support':'Fictional identity text','source_type':'official'}]}
+        page={'url':url,'checked_at':stamp,'text':'Fictional identity text','status':'readable_snapshot',
+              'source_type':'official','allowed_fact_fields':['identity']}
+        packet={'policies':[page],'literature':[{'journal_id':'9000-0005'}]}
+        value={'evidence':{'constraints':{},'journals':[{'id':'9000-0005','facts':{'identity':copy.deepcopy(envelope),'scope':copy.deepcopy(envelope)},
+                'precedents':[copy.deepcopy(envelope)]}]},'fit_sequence':[]}
+        failures=source_audit(value,packet,SimpleNamespace(validate=lambda b:[]))
+        self.assertEqual(len(failures),2)
+        self.assertTrue(all('restricted to journal identity' in e for e in failures))
+
     def test_essential_declarations_and_back_matter_are_not_publication_metadata(self):
         xml='''<article><front><journal-meta><journal-title-group><journal-title>Secret Journal</journal-title></journal-title-group></journal-meta><article-meta><title-group><article-title>Secret Paper Title</article-title></title-group><permissions><license><license-p>Creative Commons Attribution License CC BY</license-p></license></permissions></article-meta></front><body><sec><title>Methods</title><p>Two cohorts were analysed.</p></sec><sec><title>Declarations</title><sec><title>Ethics approval</title><p>Written informed consent was obtained.</p></sec><sec><title>Author contributions</title><p>Secret author workflow</p></sec></sec></body><back><sec><title>Data availability statement</title><p>Training used GSE26440; validation used GSE167363.</p></sec><sec><title>Consent for publication</title><p>Written publication consent was obtained from all patients.</p></sec><ref-list><ref>Secret Journal reference</ref></ref-list></back></article>'''
         _,text=parse_article(xml)
@@ -193,12 +242,14 @@ class TrainerTests(unittest.TestCase):
     def test_research_admission_links_are_not_displaced_by_methodology_type(self):
         start='https://link.springer.com/journal/12933/submission-guidelines'
         unrelated=['https://link.springer.com/journal/'+str(i)+'/submission-guidelines/methodology' for i in range(20)]
-        research='https://link.springer.com/journal/12933/submission-guidelines/original-investigation'
-        initial={'url':start,'status':'readable_snapshot','links':unrelated+[research],'text':'Guidelines'}
-        with tempfile.TemporaryDirectory() as folder,patch('broker.capture',side_effect=lambda u,a:initial if u==start else {'url':u,'status':'readable_snapshot','links':[],'text':'Rules'}):
-            records=capture_all([start],{'ids':{}},Path(folder)/'pages.json','Original observational research')
-        self.assertEqual(records[1]['url'],research)
-        self.assertLessEqual(len(records),30)
+        unrelated+=['https://www.nature.com/nature-portfolio/editorial-policies/policy-'+str(i) for i in range(20)]
+        for suffix in ('original-investigation','research-articles'):
+            research='https://link.springer.com/journal/12933/submission-guidelines/'+suffix
+            initial={'url':start,'status':'readable_snapshot','links':unrelated+[research],'text':'Guidelines'}
+            with self.subTest(suffix=suffix),tempfile.TemporaryDirectory() as folder,patch('broker.capture',side_effect=lambda u,a:initial if u==start else {'url':u,'status':'readable_snapshot','links':[],'text':'Rules'}):
+                records=capture_all([start],{'ids':{}},Path(folder)/'pages.json','Original observational research')
+            self.assertEqual(records[1]['url'],research)
+            self.assertLessEqual(len(records),13)  # one initial page, at most twelve followed
 
     def test_missing_xml_issn_can_be_reconciled_from_exact_article_metadata(self):
         target={'journal':'Clinical Journal','issns':[],'ids':{'doi':'10.1234/study'}}
@@ -307,6 +358,9 @@ class TrainerTests(unittest.TestCase):
     def test_host_allowlist(self):
         self.assertTrue(permitted_url("https://journals.plos.org/plosone/s/journal-information"))
         self.assertTrue(permitted_url("https://haematologica.org/about"))
+        self.assertTrue(permitted_url("https://tcr.amegroups.org/about"))
+        self.assertTrue(permitted_url("https://publichealth.jmir.org/about-journal/aims-and-scope"))
+        self.assertFalse(permitted_url("https://publichealth.jmir.org.evil.example/about"))
         self.assertFalse(permitted_url("https://haematologica.org.evil.example/about"))
         self.assertFalse(permitted_url("http://localhost:8000/answers"))
         self.assertFalse(permitted_url("https://plos.org.evil.example/"))

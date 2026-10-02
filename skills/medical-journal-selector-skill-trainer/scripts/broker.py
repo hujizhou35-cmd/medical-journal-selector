@@ -6,6 +6,7 @@ import ipaddress
 import json
 import re
 import socket
+import time
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
@@ -53,7 +54,8 @@ def permitted_url(url):
     suffixes=("plos.org","biomedcentral.com","springer.com","springernature.com","frontiersin.org","mdpi.com","wiley.com","elsevier.com","sciencedirect.com","tandfonline.com","sagepub.com","lww.com","bmj.com","oup.com","nature.com","karger.com","thieme.com","liebertpub.com","clarivate.com","nlm.nih.gov","ncbi.nlm.nih.gov","doaj.org","casjournals.cn","cell.com","thelancet.com","aacrjournals.org","asm.org","rsc.org","acs.org","hindawi.com","scipress.com","journalofnursingstudies.com","onlinelibrary.wiley.com","cambridge.org","jstage.jst.go.jp","jsmrm.jp","endocrine.org")
     # Verified publisher/journal hosts exposed by genuine development runs.
     # These allow evidence retrieval, never a recommendation or endorsement.
-    suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com","haematologica.org")
+    suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com","haematologica.org",
+               "amegroups.org","amegroups.com","jmir.org")
     return any(host==s or host.endswith("."+s) for s in suffixes)
 
 def canonical_url(url):
@@ -223,10 +225,41 @@ def policy_excerpt(text,limit=40000):
                 add(range(max(0,i-2),min(len(lines),i+16)))
     return '\n'.join(lines[i] for i in sorted(selected))
 
-def capture_all(urls, answer, output, article_type=''):
-    urls=list(dict.fromkeys(urls))[:18]
+def capture_identity(journal_id):
+    """Current Crossref journal metadata, usable only for title/ISSN identity."""
+    url='https://api.crossref.org/journals/'+urllib.parse.quote(journal_id,safe='')
+    captured={'url':url,'checked_at':stamp(),'status':'unverified','text':'',
+              'source_type':'official','source_role':'journal_identity_registry',
+              'allowed_fact_fields':['identity'],'links':[]}
+    if not re.fullmatch(r'\d{4}-\d{3}[\dXx]',journal_id):
+        captured['failure']='No ISSN identifier supplied; registry lookup not attempted'
+        return captured
+    try:
+        raw=get(url,timeout=25,attempts=1)
+        response=json.loads(raw)
+        data=response.get('message',{})
+        ids=data.get('ISSN',[])
+        if response.get('status')!='ok' or not data.get('title') or journal_id.upper() not in [v.upper() for v in ids]:
+            raise ValueError('Registry response did not resolve the requested title/ISSN')
+        fields={key:data[key] for key in ('title','ISSN','publisher') if key in data}
+        captured.update(checked_at=stamp(),status='readable_snapshot',
+                        text=json.dumps(fields,ensure_ascii=False,indent=2),
+                        content_hash=hashlib.sha256(raw).hexdigest(),
+                        read_extent='Selected title/ISSN/publisher fields from the current Crossref journal endpoint; identity evidence only')
+    except Exception as exc:
+        captured['failure']=str(exc)
+    return captured
+
+def capture_all(urls, answer, output, article_type='', identity_journals=()):
+    # Identity requests occupy initial-source slots, rather than expanding the
+    # 18 initial + 12 followed endpoint ceiling. Only discovered IDs are passed.
+    identities=list(dict.fromkeys(j['journal_id'] for j in identity_journals))[:6]
+    urls=list(dict.fromkeys(urls))[:18-len(identities)]
     with ThreadPoolExecutor(max_workers=3) as pool:
         records=list(pool.map(lambda u:capture(u,answer),urls))
+    for index,jid in enumerate(identities):
+        if index:time.sleep(.5)
+        records.append(capture_identity(jid))
     # Follow policy links actually present in captured official pages, not
     # guessed URL grids. Preserve the total 30-page budget for every variant.
     follow=[]
@@ -238,10 +271,12 @@ def capture_all(urls, answer, output, article_type=''):
                 follow.append(link)
     def priority(url):
         path=urllib.parse.urlparse(url).path
-        if re.search(r'policies-and-publication-ethics|editorial[-_]?polic',path,re.I):return (0,url)
-        if re.search(r'case',article_type,re.I) and re.search(r'case[-_]?reports?',path,re.I):return (1,url)
-        if re.search(r'review|meta.?analys',article_type,re.I) and re.search(r'systematic[-_]?review|review[-_]?article',path,re.I):return (1,url)
-        if not re.search(r'case|review|meta.?analys',article_type,re.I) and re.search(r'/(?:research(?:[-_]article)?|original[-_](?:research|investigation))(?:/|$)',path,re.I):return (1,url)
+        # Applicable admission pages come before generic publishing policies;
+        # broad policy indexes must not consume every bounded follow-up slot.
+        if re.search(r'case',article_type,re.I) and re.search(r'case[-_]?reports?',path,re.I):return (0,url)
+        if re.search(r'review|meta.?analys',article_type,re.I) and re.search(r'systematic[-_]?review|review[-_]?articles?',path,re.I):return (0,url)
+        if not re.search(r'case|review|meta.?analys',article_type,re.I) and re.search(r'/(?:research(?:[-_]articles?)?|original[-_](?:research|investigations?))(?:/|$)',path,re.I):return (0,url)
+        if re.search(r'policies-and-publication-ethics|editorial[-_]?polic',path,re.I):return (1,url)
         if re.search(r'content[-_]?types|article[-_]?types|aims|scope',path,re.I):return (2,url)
         # Methodology is often a separate submission type. Its page must not
         # crowd out ordinary Research/Original Investigation instructions.
