@@ -183,5 +183,77 @@
     "No recommendations were regenerated, so these checks do not demonstrate improved usable-candidate coverage or outlet hit rate.",
     "Neither check found a followable JCR lead. JCR has zero attempts, not an inaccessible-query result or verified quartile.",
     "Readable timing leads do not by themselves prove that a model extracted or used a comparable acceptance statistic."
-  ]
+  ],
+  "additional_repairs": [
+    {
+      "id": "r22-transport-stop",
+      "at": "2026-10-02T22:58:55.576174+00:00",
+      "kind": "Tested execution transport repair, not a Selector rule or new paper-case credit",
+      "new_case_credit": 0,
+      "preserved_original_failed_calls": 2,
+      "per_call_policy": {
+        "http_request_retries": 0,
+        "stream_retries": 2,
+        "same_cause_failure_limit": 3,
+        "scope": "Per-call CLI overrides; user configuration is unchanged. Completed older checkpoints retain their original policy and receipt."
+      },
+      "terminal_race_handling": "Genuine terminal completion takes precedence; stop observation remains separate from actual model/transport failure. Invalid JSON stays model failure.",
+      "validation": {
+        "full_suite_before_terminal_race_fix": {
+          "tests": 249,
+          "passed": true,
+          "elapsed_seconds": 224.445
+        },
+        "related_transport_tests_after_final_fix": 9,
+        "independent_offline_checks_after_final_fix": 7,
+        "offline_audit_sha256": "e007d0d588e23dd0eeb9c3ee1b19aad1fa9d1ebe14f226ca249a3d0c503c6f86",
+        "single_actual_small_request": {
+          "passed": true,
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh",
+          "context_id": "01a0fed4-32f2-7f00-af58-b6a14a45364b",
+          "elapsed_seconds": 24.844,
+          "usage": {
+            "input_tokens": 7933,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 37,
+            "reasoning_output_tokens": 0
+          },
+          "record_sha256": "95db1d28cd66f16b44f191a6cb5e6b1f870cb32ab213044dcc138c7c01b4abfb",
+          "events_sha256": "4dc03c8a710c659daaf72e53e425d978c5a7f0939d50cc7118f3baa50d88f3c3"
+        },
+        "project_links_portable_parity_development_packaging": "passed; not final-release installation/public-download validation"
+      },
+      "limits": [
+        "One small live request does not establish full-size case reliability.",
+        "Actual provider internal retry behavior during a new failure is not yet observed.",
+        "Windows failed-call process-tree cleanup still needs observation.",
+        "Disconnected original-call usage remains unknown."
+      ],
+      "next_registered_settings": {
+        "case_workers": 5,
+        "global_model_call_limit": 5,
+        "logical_class_queues": 10
+      }
+    }
+  ],
+  "latest_objective_based_preselection_amendment": {
+    "manifest_sha256": "acd8b39d6d8de6838f367b61660aac0f9c1e4d6b8e2ed3e49a778e9e1b11e00e",
+    "protocol_revision": 12,
+    "development": 100,
+    "untouched_final": 50,
+    "primary_classes": 10,
+    "development_per_class": 10,
+    "final_per_class": 5,
+    "original_execution_files_changed": false,
+    "source_masked_files_changed": false,
+    "final50_changed": false,
+    "cached_profile_reused_without_new_call": true,
+    "new_case_credit": 0,
+    "preparation_seal_sha256": "979463a4e3cdd64bd490235cc51f718297fc331d8f667869f97210a0be5d0ee2",
+    "independent_verification_seal_sha256": "dd4432d3451d163449ef2329dbc33a466fddf8f7d790c5c4a83bb39464943fc0",
+    "interpretation": "Fixed selection-order metadata repair before selection, independent of recommendation scores. Secondary method labels and all original failure/usage records remain."
+  },
+  "latest_exported_at": "2026-10-02T22:58:55.577622+00:00"
 }

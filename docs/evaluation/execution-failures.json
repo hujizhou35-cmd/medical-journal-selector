@@ -38,6 +38,88 @@
       "sealed_at": "2026-10-02T17:14:29.518846+00:00",
       "initial_call_count": 1,
       "interpretation": "Original terminal failure before selection, preserved independently of any later resumed outcome."
+    },
+    {
+      "case_id": "s1-public_database-009",
+      "eval_version": "r21-wave10-02",
+      "wave_id": "b0e9140ea6bd4d609a4642a44539ad60",
+      "status": "input_ineligible",
+      "failure": "Pre-generation primary stratum mismatch: laboratory versus public_database",
+      "failed_at": "2026-10-02T18:52:56.343754+00:00",
+      "original_ledger_sha256": "9c85f3765c750b8f5cf476539896d3be69e4e57d2c8637a3c60b24e71ed543b7",
+      "original_attempt_preserved": true,
+      "completion_credit": 0,
+      "interpretation": "Preselection scientific main-purpose mismatch. Fixed objective-based corpus amendment assigns laboratory while preserving mixed database/omics labels and the original valid cached profile. An unexecuted highest-ordinal laboratory allocation is demoted and earliest eligible public-database reserve promoted; no poor valid-input recommendation is removed."
+    },
+    {
+      "case_id": "s1-other_review-002",
+      "eval_version": "r21-wave10-02",
+      "wave_id": "b0e9140ea6bd4d609a4642a44539ad60",
+      "status": "infrastructure_failed",
+      "failure": "infrastructure_failed: Model call exceeded 1800 seconds",
+      "failed_at": "2026-10-02T19:41:58.415181+00:00",
+      "original_ledger_sha256": "c73205bde13e3216ef0d21a4e43138358f842dd78eae22a84b76cf7466c4aaed",
+      "original_attempt_preserved": true,
+      "completion_credit": 0,
+      "failed_reviews": [
+        {
+          "context_id": "01a0fe07-cb6e-7193-84fb-0b5b6fd9e9de",
+          "input_hash": "2aeeb2f31439141ca64f71425ed43df07a8658286ab93a34f9346b06663af4ed",
+          "started_at": "2026-10-02T19:11:58.179959+00:00",
+          "completed_at": "2026-10-02T19:41:58.413198+00:00",
+          "elapsed_seconds": 1800.233,
+          "status": "infrastructure_failed",
+          "usage": null,
+          "failure": "Model call exceeded 1800 seconds",
+          "transport_retries": 22
+        },
+        {
+          "context_id": "01a0fe07-cb4f-7871-a233-d9309c71e7e0",
+          "input_hash": "2aeeb2f31439141ca64f71425ed43df07a8658286ab93a34f9346b06663af4ed",
+          "started_at": "2026-10-02T19:11:58.180698+00:00",
+          "completed_at": "2026-10-02T19:41:58.291104+00:00",
+          "elapsed_seconds": 1800.11,
+          "status": "infrastructure_failed",
+          "usage": null,
+          "failure": "Model call exceeded 1800 seconds",
+          "transport_retries": 22
+        }
+      ],
+      "interpretation": "Two separate blind-review application calls, each with22 internal reconnect events and1800s timeout. Neither produced a completed terminal output. Internal retries are not22 independent campaign attempts. Original sealed preparation and generation stay unchanged."
     }
-  ]
+  ],
+  "wave_observations": [
+    {
+      "observed_at": "2026-10-02T22:58:55.537004+00:00",
+      "eval_version": "r21-wave10-02",
+      "wave_id": "b0e9140ea6bd4d609a4642a44539ad60",
+      "status": "failed",
+      "started_at": "2026-10-02T18:50:06.783449+00:00",
+      "sealed_at": "2026-10-02T19:41:59.155226+00:00",
+      "case_workers": 10,
+      "model_call_limit": 10,
+      "one_case_per_primary_class": true,
+      "actual_interval_peak": 10,
+      "actual_cli_calls": 52,
+      "actual_unique_contexts": 52,
+      "transport_completed_calls": 50,
+      "failed_calls": 2,
+      "completed_case_chains": 8,
+      "centrally_decided_valid_cases": 8,
+      "new_selector_instruction_changes": 0,
+      "completed_development_before_wave": 13,
+      "completed_development_after_decisions": 21,
+      "completed_final": 0,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "execution_snapshot": "execution-protocol-r21",
+      "selector_snapshot": "selector-candidate-r17",
+      "original_wave_sha256": "34b5193fd30ada2348d56813ae47fc6128a29b300c1d42990f500e915cbb94c9",
+      "runtime_audit_sha256": "c1358a63e3ded5cc5befca83684a170da41807851761535c0ad010ce81f4cc56",
+      "decision_seal_sha256": "b91aded8f1bc7a7557a5eeaa4e2ab10ae114b3b8a56830dc9f25a05f80da7e80",
+      "original_scores_unchanged": true,
+      "interpretation": "Original failed wave is preserved. Eight genuine complete loops are credited only after central decisions; two incomplete cases receive no completion credit. Final answers remain withheld. Unknown disconnected-call usage is not zero usage."
+    }
+  ],
+  "latest_exported_at": "2026-10-02T22:58:55.558359+00:00"
 }

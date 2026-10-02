@@ -9,11 +9,33 @@ import re
 import shutil
 import subprocess
 import time
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
 MODEL = "gpt-6.1-sol"
 EFFORT = "xhigh"
+TRANSPORT_FAILURE_LIMIT = 3
+
+def transport_failure_counts(events):
+    """Group observed primary transport errors, never model/content failures."""
+    counts=Counter()
+    for event in events:
+        if event.get('type')!='error':continue
+        message=event.get('message','').casefold()
+        if 'error sending request' in message:
+            counts['http_request_failure']+=1
+        elif 'error decoding response body' in message:
+            counts['response_decode_failure']+=1
+        elif 'stream disconnected before completion' in message:
+            counts['stream_disconnect']+=1
+    return dict(counts)
+
+def repeated_transport_failure(events):
+    for cause,count in transport_failure_counts(events).items():
+        if count>=TRANSPORT_FAILURE_LIMIT:
+            return f'Repeated transport failure: {cause}; observed {count} same-cause errors (limit {TRANSPORT_FAILURE_LIMIT}). Further retries paused.'
+    return ''
 
 def stamp():
     return datetime.now(timezone.utc).isoformat()
@@ -166,6 +188,8 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
                "-c", 'model_providers.evaluation-http.name="OpenAI authenticated HTTP"',
                "-c", "model_providers.evaluation-http.requires_openai_auth=true",
                "-c", "model_providers.evaluation-http.supports_websockets=false",
+               "-c", "model_providers.evaluation-http.request_max_retries=0",
+               "-c", "model_providers.evaluation-http.stream_max_retries=2",
                "-c", "memories.use_memories=false", "-c", "memories.generate_memories=false",
                "-m", model, "-c", f'model_reasoning_effort="{effort}"', "--json",
                "-C", str(workspace.resolve()), "-o", str(output.resolve())]
@@ -176,6 +200,7 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
     before = time.monotonic()
     log_path = output.with_suffix(output.suffix + ".events.jsonl")
     status, events, failure, exitcode = "infrastructure_failed", [], "", None
+    transport_stop_observation = ""
     try:
         # Desktop coordination variables can inject the parent thread's MCP
         # bridge and policies into a CLI child. Saved auth is still resolved
@@ -200,6 +225,13 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
                         process.kill()
                         process.wait()
                     break
+                stop_reason=repeated_transport_failure(streamed)
+                if stop_reason:
+                    failure=stop_reason
+                    transport_stop_observation=stop_reason
+                    process.kill()
+                    process.wait()
+                    break
                 if time.monotonic()>=deadline:
                     process.kill()
                     process.wait()
@@ -217,6 +249,9 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
         if unexpected:
             status, failure = "contamination_failed", "Unexpected tool use outside controlled packets"
         elif finished and completed_message(events) is not None:
+            # A terminal frame may land during stop/kill. Classify its real
+            # outcome and retain the stop observation separately from failure.
+            failure=""
             persist_completed_message(output,events)
             if require_json or schema:
                 try:
@@ -229,7 +264,7 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
             else:
                 status = "completed"
         else:
-            failure = "Model call did not complete successfully"
+            failure = failure or repeated_transport_failure(events) or "Model call did not complete successfully"
     except subprocess.TimeoutExpired:
         failure = f"Model call exceeded {timeout} seconds"
         for line in log_path.read_text(encoding="utf-8").splitlines():
@@ -254,6 +289,11 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, re
         output.read_text(encoding='utf-8')==completed_message(events))
     retries=sum(e.get('type')=='error' and 'Reconnecting' in e.get('message','') for e in events)
     record['transport_retries']=retries
+    record['transport_failure_counts']=transport_failure_counts(events)
+    record['transport_stop_observation']=transport_stop_observation or None
+    record['transport_retry_policy']={'http_request_retries':0,'stream_retries':2,
+                                     'same_cause_failure_limit':TRANSPORT_FAILURE_LIMIT,
+                                     'scope':'Per-call CLI overrides; user configuration is unchanged. Completed older checkpoints retain their original policy and receipt.'}
     record['usage_scope']=('Last completed turn only; usage from disconnected retry attempts is unavailable'
                            if retries else 'Available terminal-turn usage only')
     record_path.write_text(json.dumps(record, indent=2), encoding="utf-8")

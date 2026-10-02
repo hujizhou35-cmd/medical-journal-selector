@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Thirteen distinct valid development loops have passed central decisions; no final case has been evaluated. The first ten-class wave remains recorded as failed: seven chains reached diagnosis, one used notice-only material and is invalid, and the other six have now passed central decisions. Three chains failed before selection. Original sealed reports had usable candidates in 7/13 cases and matched the published outlet in 2/13; repaired outputs do not replace those scores. These development checks do not establish V2 accuracy or improvement over V1.
+Twenty-one distinct valid development loops have passed central decisions: **21/100 development cases and 0/50 final cases**. Original negative results, scores and failed-wave records remain intact; later repairs do not replace them. These development checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -30,7 +30,7 @@ The corrected allocation contains 100 development and 50 final studies, with ten
 
 Ten class queues feed waves with at most one manuscript per class. Case directories and model contexts are independent. A wave uses one frozen protocol and Skill snapshot; central decisions happen only after its workers finish. Default ceilings are ten cases and ten simultaneous model calls. Reporting groups of twenty do not change that decision barrier. Failed workers retain their receipts and remain incomplete.
 
-The terminal ten-class wave used ten workers and a ten-call ceiling. Both the scheduler measurement and actual CLI receipt intervals show a peak of ten. All 45 CLI calls completed transport, but this does not mean 45 successful cases: two chains failed the primary-class check and one profile broke the query-length contract. Of the seven diagnosed chains, one was subsequently invalidated by the uniform material audit. [Execution failures](execution-failures.json) preserve the original failures separately from any resumed outcome.
+The first terminal ten-class wave used ten workers and a ten-call ceiling. Both the scheduler measurement and actual CLI receipt intervals show a peak of ten. All 45 CLI calls completed transport, but this does not mean 45 successful cases: two chains failed the primary-class check and one profile broke the query-length contract. Of the seven diagnosed chains, one was subsequently invalidated by the uniform material audit; the other six passed central decisions. [Execution failures](execution-failures.json) preserve the original failures separately from any resumed outcome.
 
 The earlier ten-request infrastructure smoke and completed two-case and five-case waves remain separate evidence. Retrieval still has host, redirect and source-count limits. [Navigation repair regressions](execution-repairs.json) preserve real acquisition counts and original-score checks, with no new case credit. An inaccurate Scope word-count annotation remains recorded alongside its accurate quotation.
 
@@ -38,7 +38,11 @@ The r21 workflow, including material-eligibility and profile prompt guards, pass
 
 [Two preparation renewals](preparation-renewals.json) passed fresh profile requests and 42 file-hash checks. Original failures, profiles and usage are retained; validated new profiles can be resumed in the next ordinary wave. These two preparation calls add no completed-case credit.
 
-The next [registered ten-class wave](current-wave.json), `r21-wave10-02`, has actually started with ten case workers and a ceiling of ten model calls. Its corpus, r21 execution and r17 Selector rules remain frozen; running cases receive no completion credit. Central decisions wait for all workers to finish.
+The latest [completed ten-class wave](waves/r21-wave10-02.json), `r21-wave10-02`, ended and remains recorded as failed. It used 52 fresh CLI contexts: 50 calls reached terminal completion and two failed. Eight distinct cases completed selection, blind review, reveal, diagnosis and sealed central decisions. Those decisions added **zero new Selector rules**; original poor results and scores remain unchanged.
+
+Two chains await recovery. The [sealed primary-objective classification correction](execution-repairs.json) for `s1-public_database-009` passed review and assigns it to laboratory research; its cached profile is ready to resume. The ten-class quotas remain balanced, and all fifty final source files are byte-identical. Both blind-review calls for `s1-other_review-002` logged 22 internal reconnects each and failed at the 1,800-second limit; their unreported usage remains unknown. The classification repair adds no completed manuscript case.
+
+A tested transport-stop guard is prepared for recovery. Its initial version passed the full 249-check synthetic suite; the subsequent race fix passed nine focused checks and seven independent checks. The 249-check result is not a full-suite rerun of the final fix. A fresh, tool-free `gpt-6.1-sol/xhigh` connection check completed in 24.844 seconds and added zero manuscript-case credit; large-packet reliability remains unproven. The frozen r22 execution keeps Selector r17 unchanged. The next recovery wave awaits registration with **five workers and five simultaneous model calls**, while retaining all ten logical class queues.
 
 ## Evidence and interpretation
 
