@@ -6,7 +6,7 @@ These are observed development checks, not a completed V2 release or a journal-s
 
 ## Local checks
 
-The checked source covers report language, current-source envelopes, hard constraints, three routes, policy exclusions, masking, source restrictions, duplicate families, answer isolation, sealed-output integrity, failed-attempt retention, final reveal gates and packaging. The complete suite passed 93 tests. Source links and standalone Markdown consistency passed separately.
+The checked source covers report language, current-source envelopes, hard constraints, three routes, policy exclusions, masking, source restrictions, duplicate families, answer isolation, sealed-output integrity, failed-attempt retention, final reveal gates and packaging. The complete suite passed 156 tests. Source links and standalone Markdown consistency passed separately.
 
 The current corpus audit checked all 150 allocated inputs: hashes match their prepared research text, licenses and answer identities are documented, no detected near-duplicate families cross the splits, and journal caps hold. These program checks do not exclude remembered public papers, unknown duplicate versions or errors requiring scientific judgment.
 

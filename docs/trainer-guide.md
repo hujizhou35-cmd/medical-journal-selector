@@ -37,3 +37,5 @@ The Trainer uses its own `medical-journal-selector-skill-trainer` folder. For Co
 Python helpers collect permitted papers, prepare masked packets, execute fresh restricted Codex sessions and retain seals/metrics. They use the host's existing access. Other Agents can follow the portable workflow with their own tools; auditable blind evaluation requires separated contexts and controlled retrieval.
 
 The project uses AI reviewers, not medical experts. Public-paper model memory and the reviewed final manuscript remain limitations. Raw papers, answer maps and full logs are excluded from release packages.
+
+For a faster campaign, independent cases may be scheduled in two-case waves with a maximum of four model calls, while each case keeps its own serial generation, review, reveal and decision chain. Read the [parallel execution plan](evaluation/parallel-execution-plan.md) before enabling a scheduler; the existing public checkpoints remain serial until a synthetic isolation dry run passes.

@@ -13,6 +13,8 @@ Record the target Skill snapshot and hash, model and reasoning settings, current
 
 For the project V2 campaign, use 100 distinct development cases and 50 untouched final cases, ten primary article classes, and current policies. At most one failed-gate extension adds 100 development cases and 50 new final cases. Each class has 10 development and 5 final cases per stage. Record additional method labels. Maximum journal representation is five development and three final cases per stage. Verify licenses individually; unavailable JCR/SCIE records remain unknown, not invented sample labels. Read [protocol.md](references/protocol.md).
 
+In current-fit retrospective evaluation, assess the study as hypothetical original, never-submitted and unpublished work under today's policies. The source text is a published final article used to supply study content. Keep these two states explicit in generation, review and diagnosis; the source article's publication history alone must not disqualify every candidate. Substantive method, article-type, ethics and originality requirements still apply.
+
 ## Separate inputs and answers
 
 The corpus preparation role may know the answer. The selection generator and recommendation reviewers must not. Give each generation a fresh context containing only the complete frozen target Skill, masked research materials, stated constraints, and filtered current evidence. Do not inherit the development conversation, evaluator lessons, answer map, user memories, or previous responses.
@@ -32,6 +34,8 @@ Host-enforced restricted inputs are different from a prompt that merely asks an 
 7. Test a changed complete candidate in another fresh generation context, without revealing evaluator prose. Run affected cases and protected methods. Accept or revert with evidence; at most two candidate repairs per case.
 
 Retries, repaired responses and regressions do not increment the distinct-case count. Infrastructure failures, contamination and bad model recommendations have separate statuses. Retain all model failures in reported denominators; do not replace hard cases after seeing results. Missing facts remain 未核到 / Not verified（未核到）. Sources are not verified merely because a URL exists.
+
+For the project parallel campaign, use ten primary-class queues. A wave handles at most one case per class, with a frozen input/protocol/Skill bundle and independent case directories. Default ceilings are ten case workers and ten simultaneous model calls. Start with a smaller real wave before increasing concurrency. Seal and inspect the entire wave before adopting changes; the next wave receives a newly registered snapshot. Reporting groups of twenty do not change the per-wave decision barrier. Never share case answers or review lessons with a still-running generator. A failed worker preserves its records and cannot be counted as complete.
 
 ## Final evaluation and promotion
 

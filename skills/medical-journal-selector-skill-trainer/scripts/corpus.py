@@ -13,6 +13,7 @@ import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
+from rate_limit import request_slot
 
 BASE = "https://www.ebi.ac.uk/europepmc/webservices/rest/"
 STRATA = {
@@ -35,8 +36,9 @@ def get(url, timeout=40, attempts=3):
     for attempt in range(attempts):
         try:
             request = urllib.request.Request(url, headers={"User-Agent":"MedicalJournalSelectorResearch/2.0 (+https://github.com/hujizhou35-cmd/medical-journal-selector)"})
-            with urllib.request.urlopen(request, timeout=timeout) as response:
-                return response.read()
+            with request_slot(url):
+                with urllib.request.urlopen(request, timeout=timeout) as response:
+                    return response.read()
         except Exception:
             if attempt + 1 == attempts:
                 raise

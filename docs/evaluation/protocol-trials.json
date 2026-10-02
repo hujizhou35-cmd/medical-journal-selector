@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-02T07:23:54.392016+00:00",
-  "distinct_protocol_cases": 11,
+  "exported_at": "2026-10-02T14:47:44.266768+00:00",
+  "distinct_protocol_cases": 17,
   "formal_case_count": 0,
-  "interpretation": "Preserved workflow trials, excluded after preparation defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
-  "observed_model_calls": 77,
+  "interpretation": "Preserved workflow trials, excluded after preparation or task-scenario defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
+  "observed_model_calls": 118,
   "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
   "cases": [
     {
@@ -352,6 +352,525 @@
           ]
         }
       ]
+    },
+    {
+      "case_id": "s1-clinical_nursing-004",
+      "stratum": "clinical_nursing",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 2,
+                  "unverified": 8,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 2,
+                  "unverified": 8,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 1,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 2,
+                  "unverified": 8,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 1,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 10,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No skill-text change is justified by this case. Existing instructions already require specialty discovery, representative-paper inspection, authoritative alternative retrieval, bounded repair rounds and source-supported eligibility decisions. The main repair belongs in upstream retrieval and candidate handoff. Supported abstention should be preserved; neither missing evidence nor failure to name the publishing outlet warrants speculative journal rules.",
+              "at": "2026-10-02T08:54:14.964490+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Both actual development cases lacked useful recommendations and the clinical case had ten unverified journal identities. Add the planned public Crossref title/ISSN lookup with identity-only source guards and concentrate on six already discovered dossiers within the same 18 initial + 12 followed endpoint ceiling. Real bounded acquisition regression is recorded. Original negative outcomes are preserved; no improved selection score is claimed.",
+              "at": "2026-10-02T09:30:26.559692+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fbcd-0587-7b43-b97c-d157cb4dd76a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 342.782,
+              "usage": {
+                "input_tokens": 131691,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1161,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": 1
+            },
+            {
+              "context_id": "01a0fbae-1d2c-7671-89ab-89a05fa77a6f",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 136.078,
+              "usage": {
+                "input_tokens": 19492,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2720,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fbc9-d52f-7813-b53a-036e3fb63889",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 208.828,
+              "usage": {
+                "input_tokens": 116670,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3531,
+                "reasoning_output_tokens": 3088
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fbc9-d513-7230-befc-2051fee41520",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 97.75,
+              "usage": {
+                "input_tokens": 116670,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1442,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fbb0-938c-7882-8a3d-83a16d1896e4",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 105.109,
+              "usage": {
+                "input_tokens": 30973,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2286,
+                "reasoning_output_tokens": 1708
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fbb2-a5ce-7a30-b22b-b95a6fee5843",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 1519.062,
+              "usage": {
+                "input_tokens": 118627,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 16090,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": 1
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13499703",
+      "original_outlet": "Age and Ageing"
+    },
+    {
+      "case_id": "s1-clinical_nursing-005",
+      "stratum": "clinical_nursing",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "infrastructure_failed",
+          "lesson_status": null,
+          "scores": null,
+          "changes": [],
+          "calls": [
+            {
+              "context_id": "01a0fcb5-b1e3-7e81-bc35-60eb0ac5e8dc",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 77.562,
+              "usage": {
+                "input_tokens": 22561,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1876,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fcb7-3f65-7df2-8495-1620a9499d12",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 336.609,
+              "usage": {
+                "input_tokens": 52771,
+                "cached_input_tokens": 36352,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 6011,
+                "reasoning_output_tokens": 5582
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fcbd-a5b2-7282-aa7e-7e49ad9f1699",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 537.484,
+              "usage": {
+                "input_tokens": 90294,
+                "cached_input_tokens": 89856,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 17315,
+                "reasoning_output_tokens": 11540
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fccd-b603-7563-b91e-190b18ce0af1",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 768.64,
+              "usage": {
+                "input_tokens": 90294,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 17503,
+                "reasoning_output_tokens": 6244
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "s1-laboratory-001",
+      "stratum": "laboratory",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [
+                {
+                  "claim": "A lists 2211-3428 as usable for the supplied manuscript.",
+                  "source": "https://link.springer.com/journal/13402/submission-guidelines; MANUSCRIPT AND SOURCE DATA.material_limits",
+                  "reason": "Cellular Oncology requires submitted work to have not been published before or be under consideration elsewhere. The supplied packet identifies this text as a published final manuscript, so listing it as usable bypasses an explicit prior-publication prohibition absent evidence of a new unpublished version or authorized transfer."
+                }
+              ],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 6,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 4,
+                  "unverified": 2,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 9,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "The diagnosis found an execution failure: the selector should have applied the existing originality and unresolved-publication gate before ranking. The Skill already requires current policy precedence, hard-gate eligibility, pending treatment of unknown applicability, and separation of search/access failure from non-fit. We therefore adopt no new broad or journal-specific rule; retain the hard failure and use the case to audit gate execution and retrieval repair. The original score and the disagreement are preserved.",
+              "at": "2026-10-02T12:59:45.827499+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fcad-1b1f-7a31-8501-e0f749797820",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 314.594,
+              "usage": {
+                "input_tokens": 156556,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 5962,
+                "reasoning_output_tokens": 5128
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc8c-e1fb-7cf0-a4dd-ebc40523fe09",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 202.907,
+              "usage": {
+                "input_tokens": 19251,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3966,
+                "reasoning_output_tokens": 3106
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fca3-5c4f-7f21-be65-e4699934902c",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 427.516,
+              "usage": {
+                "input_tokens": 144397,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 8606,
+                "reasoning_output_tokens": 8387
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fca3-5b8f-7c12-ae19-483b4f72fc96",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 507.719,
+              "usage": {
+                "input_tokens": 144397,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 10363,
+                "reasoning_output_tokens": 10132
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fcab-1bfe-7621-995a-a38f1d2bdd70",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 131.234,
+              "usage": {
+                "input_tokens": 144926,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1921,
+                "reasoning_output_tokens": 1667
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc90-5037-79d0-a036-da6a6f67ba08",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 232.016,
+              "usage": {
+                "input_tokens": 74164,
+                "cached_input_tokens": 47616,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 6368,
+                "reasoning_output_tokens": 5573
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc95-6494-7d31-97d3-5d76c574189d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 914.672,
+              "usage": {
+                "input_tokens": 138385,
+                "cached_input_tokens": 138240,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 25352,
+                "reasoning_output_tokens": 14359
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13207009",
+      "original_outlet": "International Journal of Molecular Sciences"
     },
     {
       "case_id": "s1-public_database-001",
@@ -1262,6 +1781,233 @@
       "original_outlet": "Cardiovascular Diabetology"
     },
     {
+      "case_id": "s1-public_database-006",
+      "stratum": "public_database",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true,
+              "source_coverage": {
+                "identity": {
+                  "verified": 2,
+                  "unverified": 7,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 4,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 4,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 4,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 2,
+                  "unverified": 7,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": 8,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No skill-text change is justified by this case. Existing instructions already cover policy-trigger uncertainty, authoritative alternate retrieval, specialist discovery, candidate replacement and route-specific evidence gaps. Repair retrieval and handoff execution first. Neither the known publishing outlet nor inaccessible official evidence supports a new journal-specific rule.",
+              "at": "2026-10-02T08:14:46.196158+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "The genuine diagnosis identified independently discovered official AME/JMIR journal hosts blocked by the broker and an applicable linked Research articles page missed by singular-only prioritization. Verify host provenance and repair plural matching. Actual bounded post-reveal source recapture is recorded; the original negative recommendation remains unchanged.",
+              "at": "2026-10-02T08:37:31.476226+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "The genuine diagnosis identified independently discovered official AME/JMIR journal hosts blocked by the broker and an applicable linked Research articles page missed by singular-only prioritization. Verify host provenance and repair plural matching and prioritize applicable admission over generic policy indexes. Actual bounded post-reveal source recapture is recorded; the original negative recommendation remains unchanged.",
+              "at": "2026-10-02T08:43:34.128809+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fbab-3cb7-73a3-8757-1a520928ccf7",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 189.266,
+              "usage": {
+                "input_tokens": 179829,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2655,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb7f-b5d1-7781-b7cc-1ee2787e7c55",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 152.265,
+              "usage": {
+                "input_tokens": 20488,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2975,
+                "reasoning_output_tokens": 1502
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fba9-5c33-70f3-890c-c8b62f298c2b",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 121.953,
+              "usage": {
+                "input_tokens": 168260,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1738,
+                "reasoning_output_tokens": 1358
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fba9-59a6-7cd0-bf8a-c70e81f1ee31",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 90.235,
+              "usage": {
+                "input_tokens": 168260,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1293,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb82-76d1-75b1-a13d-a3b9bbecd076",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 125.5,
+              "usage": {
+                "input_tokens": 27708,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2444,
+                "reasoning_output_tokens": 1920
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb85-7058-77c1-9b4b-1efd8afb493f",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 644.937,
+              "usage": null,
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb92-f620-75c0-895d-0c1143dd995a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 1467.875,
+              "usage": {
+                "input_tokens": 167854,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 14837,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": 1
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13545786",
+      "original_outlet": "BMC Cancer"
+    },
+    {
       "case_id": "s1-network-001",
       "stratum": "network",
       "designation": "exposed_visible_research_label_protocol_pilot",
@@ -1590,6 +2336,266 @@
       "original_outlet": "MicrobiologyOpen"
     },
     {
+      "case_id": "s1-systematic_meta-002",
+      "stratum": "systematic_meta",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [
+                "1758-9193.identity: verified fact requires authoritative evidence",
+                "1387-2877.identity: verified fact requires authoritative evidence",
+                "2426-0266.identity: verified fact requires authoritative evidence",
+                "1663-4365.identity: verified fact requires authoritative evidence",
+                "2542-4823.identity: verified fact requires authoritative evidence",
+                "2076-3425.identity: verified fact requires authoritative evidence"
+              ],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 6,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "accepted_change",
+              "reason": "Actual case diagnosis identified six supported Crossref journal identity claims serialized with the wrong authority type. Clarify primary journal-registry versus article bibliographic evidence and preserve per-record field restrictions. A separate six-field diagnostic replay changes no factual values. Fresh generation plus independent reviews passed the source/claim checks. Original six flags and the empty recommendation outcome remain intact; no additional case or performance gain is claimed.",
+              "at": "2026-10-02T10:29:25.563414+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fc13-ad2e-7b01-942d-0653c8034fe6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 145.671,
+              "usage": {
+                "input_tokens": 151356,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3097,
+                "reasoning_output_tokens": 1939
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc01-fa62-7bd1-b65e-5e3edf8a4300",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 121.718,
+              "usage": {
+                "input_tokens": 19604,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2556,
+                "reasoning_output_tokens": 1370
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc28-2243-73d1-9909-aad87cac1cfb",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 75.797,
+              "usage": {
+                "input_tokens": 135910,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1577,
+                "reasoning_output_tokens": 1298
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc28-22d8-75d2-918b-49383d62e055",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 83.062,
+              "usage": {
+                "input_tokens": 135910,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1633,
+                "reasoning_output_tokens": 1214
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc1c-5987-7b63-812e-fcf058c36358",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 773.063,
+              "usage": {
+                "input_tokens": 131106,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 20741,
+                "reasoning_output_tokens": 10876
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc12-611a-7062-8bbf-bb9b852b31f6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 84.469,
+              "usage": {
+                "input_tokens": 137432,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1683,
+                "reasoning_output_tokens": 1207
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc12-6151-72d2-ba14-75c695a59777",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 83.375,
+              "usage": {
+                "input_tokens": 137432,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1415,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc04-3947-7851-b987-2f14b4db1b7a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 70.156,
+              "usage": {
+                "input_tokens": 33141,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1398,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc06-bb10-7912-92d4-ea85cef4f6c1",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 762.078,
+              "usage": {
+                "input_tokens": 130777,
+                "cached_input_tokens": 130560,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 20596,
+                "reasoning_output_tokens": 9322
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13526724",
+      "original_outlet": "Journal of Neurology"
+    },
+    {
       "case_id": "s1-case_report-001",
       "stratum": "case_report",
       "designation": "exposed_visible_research_label_protocol_pilot",
@@ -1729,6 +2735,232 @@
       ],
       "pmcid": "PMC13590347",
       "original_outlet": "Frontiers in Oncology"
+    },
+    {
+      "case_id": "s1-case_report-002",
+      "stratum": "case_report",
+      "designation": "hypothetical_submission_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r14",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 5,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "The diagnosis identifies an enforcement and retrieval execution miss, not a missing general rule. The current selector already requires exact article-type applicability, keeps unresolved applicability pending, uses alternate authoritative sources after blocking, and distinguishes confirmed incompatibility from unresolved evidence. We retain the case as a completed no-change cycle and use the findings as an audit reminder rather than adding a journal- or theme-specific rule.",
+              "at": "2026-10-02T12:09:30.909549+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fc7b-08c7-7d20-b71e-51aa800c4950",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 478.093,
+              "usage": {
+                "input_tokens": 97625,
+                "cached_input_tokens": 11008,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 8053,
+                "reasoning_output_tokens": 7250
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc3d-ce43-7cf3-89f3-2edf6532f8fd",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 77.703,
+              "usage": {
+                "input_tokens": 13735,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1589,
+                "reasoning_output_tokens": 781
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc4a-baf0-7ce1-a491-80b39266fece",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 14.328,
+              "usage": null,
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc76-1d8b-7040-8c1f-1aa6e01bc6d0",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 187.484,
+              "usage": {
+                "input_tokens": 83721,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3223,
+                "reasoning_output_tokens": 2992
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc4a-be34-7a60-8bd7-155a2c1ec86d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 14.437,
+              "usage": null,
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc76-1c39-7120-a857-0627aa6db79b",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 322.109,
+              "usage": {
+                "input_tokens": 83721,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 5701,
+                "reasoning_output_tokens": 5481
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc3f-5a4b-7810-8c45-62b744cb0ae9",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 74.078,
+              "usage": {
+                "input_tokens": 33473,
+                "cached_input_tokens": 3072,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1537,
+                "reasoning_output_tokens": 1253
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fc41-5e0b-73d2-bfe0-f8ac8a4c36dd",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 613.079,
+              "usage": {
+                "input_tokens": 80711,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 16473,
+                "reasoning_output_tokens": 8286
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13444786",
+      "original_outlet": "European Psychiatry"
     }
   ]
 }

@@ -37,6 +37,9 @@ def export(corpus,development_runs,final_runs,output,checks):
         ledger['calls']=collect_call_records(file.parent)
         if ledger.get('revealed_at'):
             require_reveal([ledger],final=split=='holdout')
+            last_review=max(datetime.fromisoformat(a['sealed_at']) for a in ledger['reviews'])
+            if datetime.fromisoformat(ledger['revealed_at'])<last_review:
+                raise ValueError('Case answer revealed before all blind reviews were sealed')
             # Read only the original sealed generations, never regressions.
             # Enrich the exported copy; do not change historical ledger scores.
             for artifact in ledger['generations']:

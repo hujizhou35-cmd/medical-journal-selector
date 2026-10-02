@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import time
@@ -19,6 +20,29 @@ def stamp():
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def parse_json_message(message):
+    """Accept one JSON value, optionally wrapped in a single JSON fence."""
+    value=message.strip()
+    fenced=re.fullmatch(r"```(?:json)?\s*\n([\s\S]*?)\n```",value,re.IGNORECASE)
+    if fenced:
+        value=fenced.group(1)
+    def reject_constant(token):
+        raise ValueError("Non-finite JSON constant: "+token)
+    return json.loads(value,parse_constant=reject_constant)
+
+
+def mark_output_contract_failed(output,reason):
+    """Keep the genuine completed call but prevent reuse of its invalid payload."""
+    output=Path(output)
+    record_path=output.with_suffix(output.suffix+".record.json")
+    record=json.loads(record_path.read_text(encoding="utf-8"))
+    if record.get("status")!="completed" or record.get("output_hash")!=digest(output.read_bytes()):
+        raise ValueError("Cannot reject an output without a matching completed call")
+    record["output_contract_status"]="failed"
+    record["output_contract_failure"]=str(reason)
+    record_path.write_text(json.dumps(record,indent=2),encoding="utf-8")
 
 def collect_call_records(work):
     """Count genuine receipts, including failed attempts and regressions once."""
@@ -76,11 +100,7 @@ def recover_terminal_output(output):
     if record.get("status")!="infrastructure_failed" or message is None or not record.get("context_id"):
         raise ValueError("No genuine completed tool-free model turn to recover")
     # This recovery is for structured campaign outputs, not a truncated response.
-    parsed=message.strip()
-    if parsed.startswith("```"):
-        import re
-        parsed=re.sub(r"^```(?:json)?\s*|\s*```$","",parsed)
-    json.loads(parsed)
+    parse_json_message(message)
     if output.exists() and output.read_text(encoding="utf-8").strip()!=message.strip():
         raise ValueError("Saved output conflicts with the actual model event")
     original=record_path.with_suffix(record_path.suffix+".transport-failed-original")
@@ -95,21 +115,33 @@ def recover_terminal_output(output):
     record_path.write_text(json.dumps(record,indent=2),encoding="utf-8")
     return record
 
-def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
+def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT, require_json=False):
     """Never resume an exposed thread. Reuse only an identical completed input."""
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
     packet = prompt.encode("utf-8")
-    identity = digest(packet + model.encode() + effort.encode() + b"controlled-packet-env-closed-tools-disabled-v3")
+    identity = digest(packet + model.encode() + effort.encode() + b"controlled-packet-env-closed-tools-disabled-v3" +
+                      (digest(Path(schema).read_bytes()).encode() if schema else b""))
     record_path = output.with_suffix(output.suffix + ".record.json")
     if record_path.exists():
         previous = json.loads(record_path.read_text(encoding="utf-8"))
-        if previous.get("input_hash") == identity and previous.get("status") == "completed" and output.exists():
+        if (previous.get("input_hash") == identity and previous.get("status") == "completed" and
+                previous.get("output_contract_status")!="failed" and output.exists()):
             if previous.get("output_hash") == digest(output.read_bytes()):
                 actual=completed_message(event_records(output.with_suffix(output.suffix+".events.jsonl")))
                 if actual is None or output.read_text(encoding="utf-8").strip()!=actual.strip():
                     raise ValueError("Completed checkpoint conflicts with its actual terminal events")
-                return previous
+                if not require_json:
+                    return previous
+                try:
+                    parse_json_message(output.read_text(encoding="utf-8"))
+                except ValueError:
+                    # A transport-complete but schema-invalid response is not
+                    # reusable. The archive below preserves it as an attempt
+                    # before the fresh call starts.
+                    pass
+                else:
+                    return previous
         if previous.get("input_hash") != identity:
             raise ValueError("Refusing to overwrite a run with different inputs/settings")
         # A retry does not erase the failed call or create another case.
@@ -186,9 +218,16 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
             status, failure = "contamination_failed", "Unexpected tool use outside controlled packets"
         elif finished and completed_message(events) is not None:
             persist_completed_message(output,events)
-            if schema:
-                json.loads(output.read_text(encoding="utf-8"))
-            status = "completed"
+            if require_json or schema:
+                try:
+                    parse_json_message(output.read_text(encoding="utf-8"))
+                except ValueError as exc:
+                    status = "model_failed"
+                    failure = "Completed model response was not valid JSON: " + str(exc)
+                else:
+                    status = "completed"
+            else:
+                status = "completed"
         else:
             failure = "Model call did not complete successfully"
     except subprocess.TimeoutExpired:
@@ -208,10 +247,10 @@ def run(prompt, output, schema=None, timeout=900, model=MODEL, effort=EFFORT):
               "usage": next((e.get("usage") for e in reversed(events) if e.get("type") == "turn.completed"), None),
               "parent_bridge_inherited":False,
               "model_turn_completed":any(e.get("type")=="turn.completed" for e in events),
-              "transport_outcome":"normal exit" if exitcode==0 else ("CLI stopped after observed model completion" if status=="completed" else "failed/incomplete"),
-              "isolation": "CONTROLLED_PACKET_FRESH_CONTEXT" if status == "completed" else "UNVERIFIED",
-              "output_hash": digest(output.read_bytes()) if status == "completed" else None}
-    record['terminal_output_matches']=(status=='completed' and
+              "transport_outcome":"normal exit" if exitcode==0 else ("CLI stopped after observed model completion" if status in ("completed","model_failed") else "failed/incomplete"),
+              "isolation": "CONTROLLED_PACKET_FRESH_CONTEXT" if status in ("completed","model_failed") else "UNVERIFIED",
+              "output_hash": digest(output.read_bytes()) if status in ("completed","model_failed") and output.exists() else None}
+    record['terminal_output_matches']=(status in ("completed","model_failed") and output.exists() and
         output.read_text(encoding='utf-8')==completed_message(events))
     retries=sum(e.get('type')=='error' and 'Reconnecting' in e.get('message','') for e in events)
     record['transport_retries']=retries
