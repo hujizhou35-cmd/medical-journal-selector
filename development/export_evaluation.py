@@ -55,6 +55,9 @@ def export(corpus,development_runs,final_runs,output,checks):
                          license_urls=case.get('license_audit',{}).get('license_urls',answer.get('license_urls',[])),
                          license_basis=case.get('license_audit',{}).get('permission_basis',answer.get('permission_basis')),
                          paired_decision=ledger.get('paired_decision'),
+                         post_reveal_diagnosis={k:ledger.get('diagnosis',{}).get(k) for k in
+                                               ('diagnosis','no_change_reason','stratum_confirmed','classification_reason')}
+                                               if ledger.get('lesson_record') else None,
                          generation_seals=[{k:a.get(k) for k in ('variant','context_id','output_hash','sealed_at','model','effort')} for a in ledger['generations']],
                          review_seals=[{k:a.get(k) for k in ('context_id','output_hash','sealed_at','model','effort')} for a in ledger['reviews']],
                          changes=[{'decision':c['decision'],'reason':c['reason'],'at':c.get('at'),
