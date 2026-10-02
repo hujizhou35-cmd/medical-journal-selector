@@ -58,6 +58,8 @@ NON_RESEARCH_HEADING = re.compile(
     r"^(?:references?|bibliography|acknowledg\w*|author\w* contribut\w*|"
     r"competing\w*|conflict\w*|funding\w*|declaration\w*|disclosure\w*|"
     r"transparency statement|copyright\w*|publisher.?s note|article information)(?:\b|$)", re.I)
+DECLARATION_CONTAINER = re.compile(r'^(?:declarations?|transparency statement)(?:\b|$)',re.I)
+SCIENTIFIC_DECLARATION = re.compile(r'ethic|consent|data availab|availability of data|code availab|trial regist|helsinki|institutional review board',re.I)
 
 def remove_keep_tail(parent, child):
     """Removing an XML citation must not delete the research after </xref>."""
@@ -81,11 +83,13 @@ def research_text(node):
             tag = child.tag.rsplit('}',1)[-1]
             heading = text_of(child.find('title'))
             blocked = (tag in ('ref-list','ref','ack','permissions','history','article-meta',
-                               'journal-meta','contrib-group','author-notes','corresp','email')
+                               'journal-meta','contrib-group','author-notes','corresp','email','bio')
                        or (tag == 'xref' and child.get('ref-type')=='bibr')
-                       or (tag == 'sec' and (NON_RESEARCH_HEADING.search(heading)
+                       or (tag == 'sec' and ((NON_RESEARCH_HEADING.search(heading) and not DECLARATION_CONTAINER.search(heading))
                                             or child.get('sec-type','').lower() in
                                             ('references','ref-list','ack','author-contributions','conflict-of-interest'))))
+            if tag=='sec' and DECLARATION_CONTAINER.search(heading) and not SCIENTIFIC_DECLARATION.search(text_of(child)):
+                blocked=True
             # Short metadata notes, not paragraphs describing patients receiving
             # treatment or results being published by other researchers.
             if tag in ('p','fn') and len(text_of(child)) < 1800 and PUBLICATION_NOTE.search(text_of(child)):
@@ -158,6 +162,13 @@ def parse_article(xml, research_id_policy='preserve_public_accessions'):
         research.append("Abstract\n" + abstract)
     if body is not None:
         research.append(research_text(body))
+    # Ethics, patient consent, data/code availability and trial registration
+    # are often placed in back matter. They are scientific submission facts,
+    # not journal identifiers. Clean the back recursively rather than dropping
+    # it wholesale; references/author metadata remain excluded.
+    back=root.find('back')
+    if back is not None:
+        research.append(research_text(back))
     supplement_links = []
     for node in root.iter("supplementary-material"):
         for child in node.iter():

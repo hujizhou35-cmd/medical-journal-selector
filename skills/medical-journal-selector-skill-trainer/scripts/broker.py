@@ -19,7 +19,13 @@ class TextHTML(HTMLParser):
         self.hidden=0
         self.parts=[]
         self.links=[]
+        self.journal_metadata=[]
     def handle_starttag(self,tag,attrs):
+        if tag=='meta':
+            attributes=dict(attrs)
+            key=(attributes.get('name') or attributes.get('property') or '').casefold()
+            if key in ('citation_journal_title','citation_issn','prism.issn','prism.publicationname') and attributes.get('content'):
+                self.journal_metadata.append((key,attributes['content']))
         if tag=="a":
             href=dict(attrs).get("href")
             if href:
@@ -35,7 +41,9 @@ class TextHTML(HTMLParser):
         if not self.hidden:
             self.parts.append(data)
     def text(self):
-        return "\n".join(re.sub(r"\s+"," ",line).strip() for line in "".join(self.parts).splitlines() if line.strip())
+        visible="\n".join(re.sub(r"\s+"," ",line).strip() for line in "".join(self.parts).splitlines() if line.strip())
+        metadata='\n'.join(key+' = '+value for key,value in dict(self.journal_metadata).items())
+        return visible+('\nSelected explicit journal head metadata:\n'+metadata if metadata else '')
 
 def permitted_url(url):
     parsed=urllib.parse.urlparse(url)
@@ -164,14 +172,14 @@ def capture(url,answer):
         parser=TextHTML()
         parser.feed(raw.decode("utf-8",errors="replace"))
         text=strip_target_mentions(parser.text(),answer)
-        captured['read_extent']='Complete extracted visible page text'
+        captured['read_extent']='Complete extracted visible page text and selected explicit journal title/ISSN head metadata'
         if len(text)<200 or re.search(r"^(Access Denied|Just a moment|403 Forbidden|Checking your browser|Verify you are human)\b",text,re.I|re.M):
             raise ValueError("Page did not provide readable source content")
         # Preserve starts and relevant policy sections; never truncate before
         # extracting a scope sentence simply to satisfy a result.
         if len(text)>40000:
             text=policy_excerpt(text)
-            captured['read_extent']='Selected visible page sections, clipped to 40,000 characters; omitted text was not supplied to the model'
+            captured['read_extent']='Selected visible page sections and explicit journal title/ISSN head metadata, clipped to 40,000 characters; omitted text was not supplied to the model'
         links=[]
         for href in parser.links:
             absolute=canonical_url(urllib.parse.urljoin(final_url,href))
@@ -196,6 +204,7 @@ def policy_excerpt(text,limit=40000):
                       r'(?:do not|will not|cannot|not considered) accept',re.I)
     ordinary=re.compile(r'scope|article type|submission|publication fee|processing charge|'
                         r'impact factor|review time|case report|review article',re.I)
+    identity=re.compile(r'\bissn\b|citation_issn|citation_journal_title|prism\.publicationname',re.I)
     selected=set()
     used=0
     def add(indices):
@@ -206,13 +215,15 @@ def policy_excerpt(text,limit=40000):
                 selected.add(i)
                 used+=size
     add(range(min(15,len(lines))))
+    for i,line in enumerate(lines):
+        if identity.search(line):add(range(max(0,i-2),min(len(lines),i+4)))
     for pattern in (strong,ordinary):
         for i,line in enumerate(lines):
             if pattern.search(line):
                 add(range(max(0,i-2),min(len(lines),i+16)))
     return '\n'.join(lines[i] for i in sorted(selected))
 
-def capture_all(urls, answer, output):
+def capture_all(urls, answer, output, article_type=''):
     urls=list(dict.fromkeys(urls))[:18]
     with ThreadPoolExecutor(max_workers=3) as pool:
         records=list(pool.map(lambda u:capture(u,answer),urls))
@@ -227,13 +238,19 @@ def capture_all(urls, answer, output):
                 follow.append(link)
     def priority(url):
         path=urllib.parse.urlparse(url).path
-        if re.search(r'methodolog|policies-and-publication-ethics|editorial[-_]?polic',path,re.I):return (0,url)
-        if re.search(r'content[-_]?types|article[-_]?types|aims|scope',path,re.I):return (1,url)
-        if re.search(r'/journal[s]?/',path,re.I):return (2,url)
-        return (3,url)
+        if re.search(r'policies-and-publication-ethics|editorial[-_]?polic',path,re.I):return (0,url)
+        if re.search(r'case',article_type,re.I) and re.search(r'case[-_]?reports?',path,re.I):return (1,url)
+        if re.search(r'review|meta.?analys',article_type,re.I) and re.search(r'systematic[-_]?review|review[-_]?article',path,re.I):return (1,url)
+        if not re.search(r'case|review|meta.?analys',article_type,re.I) and re.search(r'/(?:research(?:[-_]article)?|original[-_](?:research|investigation))(?:/|$)',path,re.I):return (1,url)
+        if re.search(r'content[-_]?types|article[-_]?types|aims|scope',path,re.I):return (2,url)
+        # Methodology is often a separate submission type. Its page must not
+        # crowd out ordinary Research/Original Investigation instructions.
+        if re.search(r'methodolog',path,re.I):return (4,url)
+        if re.search(r'/journal[s]?/',path,re.I):return (3,url)
+        return (5,url)
     follow.sort(key=priority)
     with ThreadPoolExecutor(max_workers=3) as pool:
-        additional=list(pool.map(lambda u:capture(u,answer),follow[:30-len(records)]))
+        additional=list(pool.map(lambda u:capture(u,answer),follow[:min(12,30-len(records))]))
     for page in additional:
         page["retrieval_round"]=2
     records+=additional

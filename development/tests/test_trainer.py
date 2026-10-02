@@ -17,6 +17,15 @@ from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no
 from status import inspect as inspect_status
 
 class TrainerTests(unittest.TestCase):
+    def test_essential_declarations_and_back_matter_are_not_publication_metadata(self):
+        xml='''<article><front><journal-meta><journal-title-group><journal-title>Secret Journal</journal-title></journal-title-group></journal-meta><article-meta><title-group><article-title>Secret Paper Title</article-title></title-group><permissions><license><license-p>Creative Commons Attribution License CC BY</license-p></license></permissions></article-meta></front><body><sec><title>Methods</title><p>Two cohorts were analysed.</p></sec><sec><title>Declarations</title><sec><title>Ethics approval</title><p>Written informed consent was obtained.</p></sec><sec><title>Author contributions</title><p>Secret author workflow</p></sec></sec></body><back><sec><title>Data availability statement</title><p>Training used GSE26440; validation used GSE167363.</p></sec><sec><title>Consent for publication</title><p>Written publication consent was obtained from all patients.</p></sec><ref-list><ref>Secret Journal reference</ref></ref-list></back></article>'''
+        _,text=parse_article(xml)
+        self.assertIn('Written informed consent was obtained',text)
+        self.assertIn('Written publication consent was obtained',text)
+        self.assertIn('Training used GSE26440; validation used GSE167363',text)
+        self.assertNotIn('Secret author workflow',text)
+        self.assertNotIn('Secret Journal reference',text)
+
     def test_research_link_labels_survive_with_publication_clues_masked(self):
         import xml.etree.ElementTree as ET
         body=ET.fromstring('<body><p>Training used <ext-link>GSE26440</ext-link> and validation used <ext-link>GSE167363</ext-link>. Registry: <ext-link>NCT07098208</ext-link>. Repeated NCT07098208.</p><ref-list><ref>Secret publishing details</ref></ref-list></body>')
@@ -170,6 +179,26 @@ class TrainerTests(unittest.TestCase):
             records=capture_all([start],{'ids':{}},Path(folder)/'policies.json')
         self.assertEqual([p['url'] for p in records],[start,policy])
         self.assertEqual(records[-1]['retrieval_round'],2)
+
+    def test_identity_metadata_survives_a_long_policy_snapshot(self):
+        start='https://link.springer.com/journal/12933'
+        html=('<meta name="citation_journal_title" content="Clinical Journal"><meta name="citation_issn" content="1234-5679"><script>not source text</script><p>'+('Long methodology validation guidance. '*1800)+'</p><p>Electronic ISSN 1234-5679</p>').encode()
+        with patch('broker.fetch_page',return_value=(html,start,'text/html')):
+            page=capture(start,{'ids':{}})
+        self.assertIn('1234-5679',page['text'])
+        self.assertIn('citation_journal_title = Clinical Journal',page['text'])
+        self.assertLessEqual(len(page['text']),40000)
+        self.assertNotIn('not source text',page['text'])
+
+    def test_research_admission_links_are_not_displaced_by_methodology_type(self):
+        start='https://link.springer.com/journal/12933/submission-guidelines'
+        unrelated=['https://link.springer.com/journal/'+str(i)+'/submission-guidelines/methodology' for i in range(20)]
+        research='https://link.springer.com/journal/12933/submission-guidelines/original-investigation'
+        initial={'url':start,'status':'readable_snapshot','links':unrelated+[research],'text':'Guidelines'}
+        with tempfile.TemporaryDirectory() as folder,patch('broker.capture',side_effect=lambda u,a:initial if u==start else {'url':u,'status':'readable_snapshot','links':[],'text':'Rules'}):
+            records=capture_all([start],{'ids':{}},Path(folder)/'pages.json','Original observational research')
+        self.assertEqual(records[1]['url'],research)
+        self.assertLessEqual(len(records),30)
 
     def test_missing_xml_issn_can_be_reconciled_from_exact_article_metadata(self):
         target={'journal':'Clinical Journal','issns':[],'ids':{'doi':'10.1234/study'}}

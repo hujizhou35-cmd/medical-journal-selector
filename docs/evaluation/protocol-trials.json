@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-02T06:10:57.131258+00:00",
-  "distinct_protocol_cases": 9,
+  "exported_at": "2026-10-02T07:23:54.392016+00:00",
+  "distinct_protocol_cases": 11,
   "formal_case_count": 0,
   "interpretation": "Preserved workflow trials, excluded after preparation defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
-  "observed_model_calls": 68,
+  "observed_model_calls": 77,
   "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
   "cases": [
     {
@@ -296,6 +296,62 @@
       ],
       "pmcid": "PMC13342350",
       "original_outlet": "Irish Journal of Medical Science"
+    },
+    {
+      "case_id": "s1-clinical_nursing-003",
+      "stratum": "clinical_nursing",
+      "designation": "interrupted_essential_backmatter_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r13",
+          "status": "infrastructure_failed",
+          "lesson_status": null,
+          "scores": null,
+          "changes": [],
+          "calls": [
+            {
+              "context_id": "01a0fb4c-a2d2-7d82-88e1-fc068468f629",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 120.937,
+              "usage": {
+                "input_tokens": 18346,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2549,
+                "reasoning_output_tokens": 1418
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb4f-0164-7171-b9b1-21701463d8da",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 139.015,
+              "usage": {
+                "input_tokens": 29611,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2882,
+                "reasoning_output_tokens": 2361
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb51-8a5f-7321-9381-a37f57ce03fb",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 194.735,
+              "usage": null,
+              "transport_retries": 0
+            }
+          ]
+        }
+      ]
     },
     {
       "case_id": "s1-public_database-001",
@@ -991,6 +1047,219 @@
       ],
       "pmcid": "PMC13564308",
       "original_outlet": "Cureus"
+    },
+    {
+      "case_id": "s1-public_database-005",
+      "stratum": "public_database",
+      "designation": "exposed_essential_backmatter_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r13",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true,
+              "source_coverage": {
+                "identity": {
+                  "verified": 1,
+                  "unverified": 8,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 5,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 6,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 2,
+                  "unverified": 7,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 5,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 3,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 9,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": 5,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No new Skill rule is justified. Existing instructions already require applicable article-type policies, manuscript-grounded policy triggers, identity verification, authoritative alternate retrieval, bounded repair rounds and route-specific handling of missing evidence. The main repair belongs in retrieval planning and source delivery, rather than duplicated instructions, relaxed evidence standards or rules designed to recover the revealed journal.",
+              "at": "2026-10-02T06:28:17.605997+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Actual diagnosis identified scientific Research admission links displaced by separate Methodology submission pages and clipped ISSNs. Preserve explicit title/ISSN metadata and prioritize the current article type within the same source limits. Actual post-reveal source recapture is recorded; original negative result is unchanged and no improved recommendation is claimed.",
+              "at": "2026-10-02T07:15:58.288975+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fb49-b88d-7b22-aaf6-b454d0652afb",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 190.547,
+              "usage": {
+                "input_tokens": 207421,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3629,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb2d-03c0-7592-9cd4-c0c2cdb5fdaa",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 144.109,
+              "usage": {
+                "input_tokens": 26323,
+                "cached_input_tokens": 3072,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3126,
+                "reasoning_output_tokens": 1958
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb47-68e1-73f2-b9f0-806cf001634b",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 107.344,
+              "usage": {
+                "input_tokens": 192429,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1877,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb47-6989-7ef1-888b-f85155e9208a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 151.25,
+              "usage": {
+                "input_tokens": 192429,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2785,
+                "reasoning_output_tokens": 2437
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb2f-93b1-7e03-b4c0-1c14cd7fe0c6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 119.89,
+              "usage": {
+                "input_tokens": 37821,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2566,
+                "reasoning_output_tokens": 2017
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fb32-86d0-7e22-984e-f7f55669ca17",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 1371.61,
+              "usage": {
+                "input_tokens": 193790,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 14192,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": 1
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13366839",
+      "original_outlet": "Cardiovascular Diabetology"
     },
     {
       "case_id": "s1-network-001",

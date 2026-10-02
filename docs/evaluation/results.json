@@ -1,10 +1,10 @@
 {
-  "exported_at": "2026-10-02T05:49:38.581331+00:00",
+  "exported_at": "2026-10-02T07:23:56.297260+00:00",
   "status": "incomplete_or_failed",
-  "input_manifest_sha256": "4878dacbcfad24a9c7b8d426a667c0187a65b0e2608f80c117226bd70f3a0822",
+  "input_manifest_sha256": "f132e6b822fc51f1b48dada35c0e475cb464f93f3b0c6f98ec79aa8dd64029ce",
   "seed": 20261002,
   "as_of": "2026-10-02",
-  "protocol_revision": 6,
+  "protocol_revision": 7,
   "allocated_development": 100,
   "allocated_final": 50,
   "completed_development": 0,

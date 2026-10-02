@@ -126,10 +126,11 @@ Do not identify the target manuscript's publishing journal. DATA:\n'''+json.dump
     if policy_path.exists():
         policies=read(policy_path)
     else:
-        policies=capture_all([u for j in source_plan["journals"] for u in j["official_urls"]],answer,policy_path)
+        policies=capture_all([u for j in source_plan["journals"] for u in j["official_urls"]],answer,policy_path,profile.get('article_type',''))
     packet={"manuscript":masked,"profile":profile,"constraints":{"time_endpoint":"acceptance"},
             "literature":representatives,"retrieval_records":literature["records"],"policies":policies,
-            "source_plan":source_plan,"material_limits":["Published final manuscript; public-paper memory cannot be excluded",case["supplements"]],
+            "source_plan":source_plan,"material_limits":["Published final manuscript; public-paper memory cannot be excluded",case["supplements"],
+                "Research text, table text and captions are supplied; figure pixels and uninspected supplements are not independently reviewed. Publication links and study trial identifiers are masked; masked references do not prove missing registration, consent or data/code availability."],
             "started_at":min([r["checked_at"] for r in literature["records"]]+[p["checked_at"] for p in policies]),"as_of":as_of}
     # This packet is the only material supplied to selection/review models.
     write(work/"generator-packet.json",packet)
