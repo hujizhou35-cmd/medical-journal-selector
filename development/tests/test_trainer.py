@@ -318,7 +318,9 @@ class TrainerTests(unittest.TestCase):
             systems={label:{'hard_failures':[],'usable_journal_ids':[]} for label in ('A','B')}
             reviews=[{'systems':systems,'paired_decision':decision} for decision in ('A','A','B')]
             ledger={'identity_map':{'A':'v1','B':'v2'}}
-            r=reveal_case({'case_id':'case','split':'holdout'},root/'corpus',work,ledger,{'v1':output,'v2':output},reviews,{},None)
+            # This fixture isolates legacy adjudication precedence. New holdout
+            # preparation seals are exercised by test_preparation_seal instead.
+            r=reveal_case({'case_id':'case','split':'development'},root/'corpus',work,ledger,{'v1':output,'v2':output},reviews,{},None)
             self.assertEqual(r['paired_decision'],'v2')
 
     def test_release_requires_baselines_and_genuine_final_seals(self):

@@ -83,6 +83,15 @@ class ExportRevealContractTests(unittest.TestCase):
             with self.subTest(split=split), tempfile.TemporaryDirectory() as folder:
                 corpus, development, final, work, _ = self.make_case(folder, split)
                 original_ledger = (work/'ledger.json').read_bytes()
+                if split == 'holdout':
+                    # A one-case final fixture can no longer authorize answer
+                    # export. The full fifty-case success/read-order path is
+                    # covered in test_final_entry_gates.py with actual inputs.
+                    with self.assertRaisesRegex(ValueError, '50-case sealed batch'):
+                        self.export_case(corpus, development, final, folder)
+                    self.assertEqual((work/'ledger.json').read_bytes(), original_ledger)
+                    self.assertFalse((Path(folder)/'public.json').exists())
+                    continue
                 result = self.export_case(corpus, development, final, folder)
                 entry = result['cases'][0]
                 self.assertEqual(entry['original_outlet'], 'Synthetic Sealed Journal')

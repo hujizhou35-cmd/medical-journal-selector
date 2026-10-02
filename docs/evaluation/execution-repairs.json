@@ -1,0 +1,187 @@
+{
+  "generated_at": "2026-10-02T16:21:28.060378+00:00",
+  "kind": "execution-only source navigation regression",
+  "decision": "bounded navigation repair accepted for the next frozen execution epoch; active r19 wave remains unchanged",
+  "changes": [
+    "Exclude authentication redirects, unrelated utility navigation and article-list pagination from policy leads.",
+    "Record challenge-only responses as unreadable instead of substantive source snapshots.",
+    "Use actual anchor labels and journal-specific metric/timing links, within the existing thirty-endpoint ceiling."
+  ],
+  "regressions": [
+    {
+      "case_id": "s1-clinical_nursing-006",
+      "regression_id": "retrieval-regression-navigation-01",
+      "started_at": "2026-10-02T15:41:41.993866+00:00",
+      "completed_at": "2026-10-02T15:44:06.225557+00:00",
+      "broker_sha256": "a3b1eb7d454d635e6a49081b18ecf9e390123b02f3d4ae90a7bf2d92d34be80c",
+      "captured_source_records": 30,
+      "followed_source_records": 12,
+      "endpoint_ceiling": 30,
+      "category_attempts": {
+        "identity": {
+          "attempted": 6,
+          "readable": 4,
+          "failed": 2,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "scope": {
+          "attempted": 1,
+          "readable": 0,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "attempted_without_readable_snapshot"
+        },
+        "article_type": {
+          "attempted": 10,
+          "readable": 5,
+          "failed": 4,
+          "unreadable": 1,
+          "status": "readable_snapshot_available"
+        },
+        "method_policy": {
+          "attempted": 9,
+          "readable": 4,
+          "failed": 4,
+          "unreadable": 1,
+          "status": "readable_snapshot_available"
+        },
+        "journal_metrics": {
+          "attempted": 5,
+          "readable": 1,
+          "failed": 4,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "jcr": {
+          "attempted": 0,
+          "readable": 0,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "not_attempted"
+        },
+        "acceptance_time": {
+          "attempted": 1,
+          "readable": 1,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "indexing": {
+          "attempted": 6,
+          "readable": 1,
+          "failed": 5,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "open_access": {
+          "attempted": 6,
+          "readable": 1,
+          "failed": 5,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "fees": {
+          "attempted": 6,
+          "readable": 2,
+          "failed": 4,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        }
+      },
+      "original_artifacts_and_scores_preserved": true,
+      "new_case_increment": 0
+    },
+    {
+      "case_id": "s1-public_database-007",
+      "regression_id": "retrieval-regression-navigation-02",
+      "started_at": "2026-10-02T15:49:08.958400+00:00",
+      "completed_at": "2026-10-02T15:52:43.821459+00:00",
+      "broker_sha256": "dcccbf0e23faa375f3d7c9396e3fa81909a2cfa6387c43bf4a57d6f4973ec496",
+      "captured_source_records": 27,
+      "followed_source_records": 12,
+      "endpoint_ceiling": 30,
+      "category_attempts": {
+        "identity": {
+          "attempted": 5,
+          "readable": 5,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "scope": {
+          "attempted": 3,
+          "readable": 3,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "article_type": {
+          "attempted": 11,
+          "readable": 10,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "method_policy": {
+          "attempted": 14,
+          "readable": 10,
+          "failed": 1,
+          "unreadable": 3,
+          "status": "readable_snapshot_available"
+        },
+        "journal_metrics": {
+          "attempted": 4,
+          "readable": 3,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "jcr": {
+          "attempted": 0,
+          "readable": 0,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "not_attempted"
+        },
+        "acceptance_time": {
+          "attempted": 2,
+          "readable": 2,
+          "failed": 0,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "indexing": {
+          "attempted": 2,
+          "readable": 1,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "open_access": {
+          "attempted": 3,
+          "readable": 2,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        },
+        "fees": {
+          "attempted": 2,
+          "readable": 1,
+          "failed": 1,
+          "unreadable": 0,
+          "status": "readable_snapshot_available"
+        }
+      },
+      "original_artifacts_and_scores_preserved": true,
+      "new_case_increment": 0
+    }
+  ],
+  "limitations": [
+    "These are fresh source acquisition checks on already revealed development cases, not new blinded manuscript evaluations.",
+    "The clinical check used the earlier navigation repair hash; the public-database check used the final navigation repair hash.",
+    "No recommendations were regenerated, so these checks do not demonstrate improved usable-candidate coverage or outlet hit rate.",
+    "Neither check found a followable JCR lead. JCR has zero attempts, not an inaccessible-query result or verified quartile.",
+    "Readable timing leads do not by themselves prove that a model extracted or used a comparable acceptance statistic."
+  ]
+}

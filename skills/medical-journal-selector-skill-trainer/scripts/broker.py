@@ -21,6 +21,8 @@ class TextHTML(HTMLParser):
         self.hidden=0
         self.parts=[]
         self.links=[]
+        self.link_labels=[]
+        self.anchor=None
         self.journal_metadata=[]
     def handle_starttag(self,tag,attrs):
         if tag=='meta':
@@ -32,16 +34,21 @@ class TextHTML(HTMLParser):
             href=dict(attrs).get("href")
             if href:
                 self.links.append(href)
+                self.anchor={'href':href,'parts':[]}
         if tag in ("script","style","noscript","svg"):
             self.hidden+=1
         if tag in ("p","div","section","h1","h2","h3","li","tr","br") and not self.hidden:
             self.parts.append("\n")
     def handle_endtag(self,tag):
+        if tag=='a' and self.anchor:
+            self.link_labels.append((self.anchor['href'],' '.join(self.anchor['parts'])))
+            self.anchor=None
         if tag in ("script","style","noscript","svg"):
             self.hidden=max(0,self.hidden-1)
     def handle_data(self,data):
         if not self.hidden:
             self.parts.append(data)
+            if self.anchor:self.anchor['parts'].append(data)
     def text(self):
         visible="\n".join(re.sub(r"\s+"," ",line).strip() for line in "".join(self.parts).splitlines() if line.strip())
         metadata='\n'.join(key+' = '+value for key,value in dict(self.journal_metadata).items())
@@ -181,7 +188,7 @@ def capture(url,answer):
         parser.feed(raw.decode("utf-8",errors="replace"))
         text=strip_target_mentions(parser.text(),answer)
         captured['read_extent']='Complete extracted visible page text and selected explicit journal title/ISSN head metadata'
-        if len(text)<200 or re.search(r"^(Access Denied|Just a moment|403 Forbidden|Checking your browser|Verify you are human)\b",text,re.I|re.M):
+        if len(text)<200 or challenge_content(text,final_url):
             raise ValueError("Page did not provide readable source content")
         # Preserve starts and relevant policy sections; never truncate before
         # extracting a scope sentence simply to satisfy a result.
@@ -193,9 +200,15 @@ def capture(url,answer):
             absolute=canonical_url(urllib.parse.urljoin(final_url,href))
             if permitted_url(absolute) and not any(v and len(v)>5 and v.casefold() in urllib.parse.unquote(absolute).casefold() for v in answer.get("ids",{}).values()):
                 links.append(absolute)
+        labels={}
+        for href,label in parser.link_labels:
+            absolute=canonical_url(urllib.parse.urljoin(final_url,href))
+            if absolute in links:
+                labels[absolute]=strip_target_mentions(re.sub(r'\s+',' ',label).strip(),answer)[:300]
         # Link metadata is not article content. Keep real policy leads even
         # when long journal navigation precedes them in the document.
-        captured.update(status="readable_snapshot",text=text,content_hash=hashlib.sha256(raw).hexdigest(),links=list(dict.fromkeys(links)))
+        captured.update(status="readable_snapshot",text=text,content_hash=hashlib.sha256(raw).hexdigest(),links=list(dict.fromkeys(links)),
+                        link_metadata=[{'url':u,'label':labels.get(u,'')} for u in dict.fromkeys(links)])
         captured['retrieval_attempt']['status']='readable_snapshot'
     except Exception as exc:
         captured["failure"]=str(exc)
@@ -258,31 +271,58 @@ def capture_identity(journal_id):
         captured['failure']=str(exc)
     return captured
 
-def link_targets(url, article_type=''):
+def evidence_navigation(url):
+    """Exclude utility/navigation routes without inspecting redirect queries."""
+    parsed=urllib.parse.urlparse(url)
+    path=urllib.parse.unquote(parsed.path).casefold()
+    host=(parsed.hostname or '').casefold()
+    query_keys={key.casefold() for key,_ in urllib.parse.parse_qsl(parsed.query)}
+    return not (host.startswith(('idp.','auth.','login.'))
+                or bool(query_keys & {'page','offset','start','sort','searchtype'})
+                or (re.search(r'/research-articles/?$',path) and not re.search(r'guidelines?|instructions?|for-authors',path))
+                or re.search(r'/(?:auth|login|signin|sign-in|logout|sso)(?:/|$)',path)
+                or re.search(r'/(?:contact|contact-us|awards?|prizes?|frontiers-planet-prize|accessibility(?:-statement)?|annual-reports?|careers?|press-office|privacy(?:-policy)?|cookie(?:s|-policy)?|terms(?:-and-conditions)?)(?:/|$)',path))
+
+def challenge_content(text,url=''):
+    # Ordinary publisher navigation may contain Log in and JavaScript notices;
+    # those do not make an otherwise substantive journal page unreadable.
+    if not evidence_navigation(url):return True
+    if re.search(r'^(?:Client Challenge|Access Denied|Just a moment|403 Forbidden|Checking your browser|Verify you are human|Security verification|Robot Check)\b',text[:1500],re.I|re.M):return True
+    return len(text)<4000 and bool(re.search(r'a required part of this site couldn.t load|(?:please )?enable javascript and cookies to continue|verify (?:that )?you are (?:a )?human|performing security verification',text,re.I))
+
+def link_targets(url, article_type='', label=''):
     """Classify genuine URL leads, never the facts established by their pages."""
     parsed=urllib.parse.urlparse(url)
-    route=urllib.parse.unquote(parsed.path+('?'+parsed.query if parsed.query else '')).casefold()
+    # A redirect_uri containing a journal policy is not itself a policy lead.
+    route=urllib.parse.unquote(parsed.path).casefold()
     host=(parsed.hostname or '').casefold()
+    if not evidence_navigation(url):return [],False,9
+    lead_text=route+' '+label.casefold()
     targets=set()
     if re.search(r'aims|scope',route):targets.add('scope')
     if re.search(r'content[-_]?types|article[-_]?types|case[-_]?reports?|systematic[-_]?reviews?|review[-_]?articles?|/(?:research(?:[-_]articles?)?|original[-_](?:research|investigations?))(?:/|$)|methodolog',route):
         targets.add('article_type')
-    general_policy=bool(re.search(r'editorial[-_]?polic|submission[-_]?(guide|guideline)|author[-_]?(guide|instruction)|publishing[-_]?(polic|ethic)|policies-and-publication-ethics|submission-checklist',route))
+    general_policy=bool(re.search(r'editorial[-_]?polic|submission[-_]?(guide|guideline)|author[-_]?(guide|instruction)|guide[-_]for[-_]authors|authorsubmission|/(?:instructions|forauthors)(?:\.html)?/?$|publishing[-_]?(polic|ethic)|policies-and-publication-ethics|submission-checklist',route))
     specific_method=bool(re.search(r'data[-_]?(?:access|polic|sharing|availability)|public[-_]data|secondary[-_]analy|validation|statistic|reporting[-_]?guidelines?|clinical[-_]?trials?|research[-_]?ethics|computational[-_]research|network[-_]pharmacolog',route))
     if general_policy or specific_method:targets.add('method_policy')
     if general_policy:targets.add('article_type')
-    if re.search(r'journal[-_]?metrics|impact[-_]?factor|journal[-_]?insights|citation[-_]?metrics|/metrics(?:/|$)',route):
+    if re.search(r'journal[-_ ]?metrics|impact[-_ ]?factor|journal[-_ ]?insights|citation[-_ ]?metrics|/metrics(?:/|$)',lead_text):
         targets.add('journal_metrics')
-    if host.startswith('jcr.') or re.search(r'(?:^|[/_?=&-])jcr(?:$|[/_?=&-])|journal[-_]?citation[-_]?reports?',route):
+    if host.startswith('jcr.') or re.search(r'(?:^|[/_ ?=&-])jcr(?:$|[/_ ?=&-])|journal[-_ ]?citation[-_ ]?reports?',lead_text):
         targets.update(('jcr','journal_metrics'))
-    if host.startswith('mjl.') or re.search(r'indexing|abstracting|indexed|nlmcatalog|journal[-_]?catalog|master[-_]?journal[-_]?list',route) or host=='doaj.org' or host.endswith('.doaj.org'):
+    if host.startswith('mjl.') or re.search(r'indexing|indexation|abstracting|indexed|nlmcatalog|journal[-_ ]?catalog|master[-_ ]?journal[-_ ]?list',lead_text) or host=='doaj.org' or host.endswith('.doaj.org'):
         targets.add('indexing')
-    if re.search(r'open[-_]?access|/oa(?:/|$)',route):targets.add('open_access')
-    if re.search(r'processing[-_]?charges?|publication[-_]?(?:fees?|charges?)|publishing[-_]?(?:fees?|charges?)|/fees?(?:/|$)|/(?:apc|charges?)(?:/|$)',route):
+    if re.search(r'open[-_ ]?access|/oa(?:/|$)',lead_text):targets.add('open_access')
+    if re.search(r'processing[-_ ]?charges?|publication[-_ ]?(?:fees?|charges?)|publishing[-_ ]?(?:fees?|charges?)|fee[-_ ]?polic|/fees?(?:/|$)|/(?:apc|charges?)(?:/|$)',lead_text):
         targets.add('fees')
-    # A journal About page is a broad metrics/indexing/OA/fee lead, not proof
-    # that any particular field (or JCR category) is actually present.
-    if re.search(r'/about(?:[-_/]|$)',route):targets.update(('journal_metrics','indexing','open_access','fees'))
+    # Only a journal About root is broad; /about/contact and publisher-company
+    # About descendants are not journal metric/fee/indexing dossiers.
+    if re.search(r'/[^/]+/about(?:-this-journal)?/?$|/(?:journal|journals)/[^/]+/about/(?:overview|the-journal)/?$',route):
+        targets.update(('journal_metrics','indexing','open_access','fees'))
+    journal_home=bool(re.search(r'/(?:journal|journals)/[^/]+/?$',route))
+    if journal_home:targets.update(('journal_metrics','acceptance_time'))
+    if re.search(r'publishing[-_ ]?times?|publication[-_ ]?speed|time[-_ ]?to[-_ ]?accept|submission[-_ ]?to[-_ ]?accept|journal[-_ ]?(?:metrics|insights)|processing[-_ ]?times?',lead_text):
+        targets.add('acceptance_time')
     applicable=False
     if re.search(r'case',article_type,re.I):
         applicable=bool(re.search(r'case[-_]?reports?',route))
@@ -304,32 +344,44 @@ def journal_link_group(url):
 def plan_followed_links(records, initial_urls, answer, article_type='', source_journals=(), limit=12):
     """Balance real captured links while protecting specific admission/method leads."""
     associations={}
+    root_associations={}
     for journal in source_journals:
         for url in journal.get('official_urls',[]):
             associations.setdefault(canonical_url(url),set()).add(journal['journal_id'])
+            root_associations.setdefault(journal_link_group(url),set()).add(journal['journal_id'])
     already={canonical_url(u) for u in initial_urls}
     already.update(canonical_url(p['final_url']) for p in records if p.get('final_url'))
     candidates={}
     for page in records:
         groups=associations.get(canonical_url(page.get('url','')),set())
+        labels={p['url']:p.get('label','') for p in page.get('link_metadata',[])}
         for original in page.get('links',[]):
             url=canonical_url(original)
             path=urllib.parse.urlparse(url).path
             if (url in already or not permitted_url(url) or re.search(r'\.(pdf|docx?|xlsx?|zip)$',path,re.I)
                     or any(v and len(v)>5 and v.casefold() in urllib.parse.unquote(url).casefold() for v in answer.get('ids',{}).values())):
                 continue
-            targets,critical,priority=link_targets(url,article_type)
+            targets,critical,priority=link_targets(url,article_type,labels.get(original,labels.get(url,'')))
             if not targets:continue
             # Journal navigation can link to unrelated journals' submission
             # types. Prefer the originating journal's concrete policy lead.
             parent_url=page.get('final_url') or page.get('url',url)
-            if (re.search(r'/(?:journal|journals)/[^/]+',urllib.parse.urlparse(parent_url).path,re.I)
+            foreign_journal=(re.search(r'/(?:journal|journals)/[^/]+',urllib.parse.urlparse(parent_url).path,re.I)
                     and re.search(r'/(?:journal|journals)/[^/]+',path,re.I)
-                    and journal_link_group(url)!=journal_link_group(parent_url)):
+                    and journal_link_group(url)!=journal_link_group(parent_url))
+            if (foreign_journal and re.search(r'/(?:journal|journals)/[^/]+/?$',path,re.I)
+                    and journal_link_group(url) not in root_associations):
+                continue  # The publisher's all-journal menu is not a dossier.
+            if foreign_journal:
                 priority+=2
+            # Prefer journal-specific metrics to general publisher metric
+            # descriptions, and genuine JCR records to other metric leads.
+            if 'jcr' in targets:priority=0
+            elif re.search(r'/(?:journal|journals)/[^/]+/?$',path) and 'journal_metrics' in targets:priority=1
             lead=candidates.setdefault(url,{'url':url,'lead_categories':targets,'critical':critical,'priority':priority,'groups':set(),'lead_for_journal_ids':set()})
-            lead['groups'].update(groups or {journal_link_group(page.get('final_url') or page.get('url',url))})
-            lead['lead_for_journal_ids'].update(groups)
+            link_groups=root_associations.get(journal_link_group(url),groups)
+            lead['groups'].update(link_groups or {journal_link_group(page.get('final_url') or page.get('url',url))})
+            lead['lead_for_journal_ids'].update(link_groups)
     selected=[]
     counts={}
     def take(pool,number):
@@ -342,12 +394,12 @@ def plan_followed_links(records, initial_urls, answer, article_type='', source_j
     leads=list(candidates.values())
     critical=[p for p in leads if p['critical']]
     take(critical,limit)
-    # Up to four supplemental dossiers compete only after all specific
+    # Supplemental dossiers compete only after all specific
     # admission/method leads fit. Unused reservations return to policy links.
-    optional_categories=({'jcr','journal_metrics'},{'indexing'},{'open_access'},{'fees'})
+    optional_categories=({'jcr','journal_metrics'},{'acceptance_time'},{'indexing'},{'open_access'},{'fees'})
     general=[p for p in leads if not p['critical'] and set(p['lead_categories']) & {'scope','article_type','method_policy'}]
     optional=[p for p in leads if set(p['lead_categories']) & set().union(*optional_categories)]
-    reservation=min(4,len(optional),max(0,limit-len(selected)))
+    reservation=min(len(optional_categories),len(optional),max(0,limit-len(selected)))
     take(general,max(0,limit-len(selected)-reservation))
     for category in optional_categories:
         if len(selected)>=limit:break
@@ -360,7 +412,7 @@ def plan_followed_links(records, initial_urls, answer, article_type='', source_j
     return selected,leads
 
 def retrieval_coverage(records, planned_targets):
-    categories=('identity','scope','article_type','method_policy','journal_metrics','jcr','indexing','open_access','fees')
+    categories=('identity','scope','article_type','method_policy','journal_metrics','jcr','acceptance_time','indexing','open_access','fees')
     result={}
     for category in categories:
         pages=[p for p in records if category in p.get('lead_categories',[])]
@@ -390,24 +442,39 @@ def capture_all(urls, answer, output, article_type='', identity_journals=()):
         records.append(capture_identity(jid))
     # Only genuine links from captured official pages are followed. Specific
     # applicable admission/method pages precede optional metrics and fees.
-    follow,leads=plan_followed_links(records,urls,answer,article_type,identity_journals,min(12,30-len(records)))
     for page,url in zip(records[:len(urls)],urls):
         page['lead_categories']=link_targets(url,article_type)[0]
     for page in records[len(urls):]:page['lead_categories']=['identity']
-    with ThreadPoolExecutor(max_workers=3) as pool:
-        additional=list(pool.map(lambda lead:capture(lead['url'],answer),follow))
-    for page,lead in zip(additional,follow):
-        page["retrieval_round"]=2
-        page['lead_categories']=lead['lead_categories']
-        page['lead_for_journal_ids']=sorted(lead['lead_for_journal_ids'])
-    records+=additional
+    follow_ceiling=min(12,30-len(records))
+    followed=0
+    planned_leads={}
+    hop=2
+    while followed<follow_ceiling:
+        selected,leads=plan_followed_links(records,[p.get('url','') for p in records]+urls,answer,article_type,identity_journals,follow_ceiling-followed)
+        for lead in leads:planned_leads.setdefault(lead['url'],lead)
+        if not selected:break
+        # Fetch metrics early enough that their genuine JCR/timing links can
+        # use remaining slots. This changes order, not the chosen hard gates.
+        selected.sort(key=lambda p:(0 if p['critical'] else (1 if set(p['lead_categories']) & {'jcr','journal_metrics','acceptance_time'} else 2)))
+        burst=max(8,sum(p['critical'] for p in selected)) if hop==2 else len(selected)
+        batch=selected[:burst]
+        with ThreadPoolExecutor(max_workers=3) as pool:
+            additional=list(pool.map(lambda lead:capture(lead['url'],answer),batch))
+        for page,lead in zip(additional,batch):
+            page['retrieval_round']=2  # Same twelve-slot followed-source budget.
+            page['retrieval_hop']=hop
+            page['lead_categories']=lead['lead_categories']
+            page['lead_for_journal_ids']=sorted(lead['lead_for_journal_ids'])
+        records+=additional
+        followed+=len(additional)
+        hop+=1
     for page in records:
         if 'retrieval_attempt' not in page:
             failure=page.get('failure','')
             state='readable_snapshot' if page.get('status')=='readable_snapshot' else ('not_attempted' if 'not attempted' in failure.casefold() else 'failed')
             page['retrieval_attempt']={'status':state}
             if failure:page['retrieval_attempt']['reason']=failure
-    planned=[link_targets(u,article_type)[0] for u in planned_urls]+[['identity'] for _ in identities]+[p['lead_categories'] for p in leads]
+    planned=[link_targets(u,article_type)[0] for u in planned_urls]+[['identity'] for _ in identities]+[p['lead_categories'] for p in planned_leads.values()]
     coverage=retrieval_coverage(records,planned)
     if records:records[0]['retrieval_attempt_coverage']=coverage
     Path(output).write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding="utf-8")

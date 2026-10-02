@@ -11,7 +11,7 @@ The assessment is **current hypothetical unpublished-submission compatibility**.
 - One development case remains an ordered chain: eligibility and masking → profile and discovery → source capture → selection → two blind reviews (and adjudication when needed) → reveal → diagnosis. Its decision is recorded at the wave barrier.
 - A case is counted only after its diagnosis and an explicit accepted change, rejected change, retrieval repair, or no-change decision are sealed.
 - A diagnosed rule change is reviewed at the end of its wave. The next wave receives a newly frozen Skill snapshot; cases already running never receive that change.
-- The 50 holdout cases use one frozen candidate. All generations and reviews must be sealed before any answer is revealed.
+- The 50 holdout cases use one frozen candidate and require the authentic completed 100-case development root. Fixed rankings and shared preparation are sealed before recommendation; all fifty preparations, model generations and four-comparator blind reviews must pass their original hash/time bindings before the reveal/scoring role reads any final answer.
 
 ## What may run in parallel
 

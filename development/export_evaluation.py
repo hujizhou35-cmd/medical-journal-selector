@@ -11,6 +11,9 @@ sys.path.insert(0,str(ROOT/'skills/medical-journal-selector-skill-trainer/script
 from corpus import stamp
 from evaluation import require_reveal,promotion,summarize,evidence_coverage
 from runner import collect_call_records
+from parallel_campaign import require_development_complete,require_final_model_receipts
+from preparation_seal import require_final_preparation
+from review_bundle import require_final_review_bundles
 
 
 def read(path):
@@ -21,12 +24,18 @@ def export(corpus,development_runs,final_runs,output,checks):
     corpus=Path(corpus)
     manifest=read(corpus/'manifest.json')
     records={'development':[],'holdout':[]}
+    loaded={}
     public=[]
+    # First collect the complete batch without reading any answer. A per-case
+    # gate cannot authorize the first final answer before all fifty are sealed.
     for case in manifest['cases']:
         split=case['split']
         if split not in records:
             continue
-        runs=Path(development_runs if split=='development' else final_runs)
+        run_root=development_runs if split=='development' else final_runs
+        if run_root is None:
+            continue
+        runs=Path(run_root)
         file=runs/case['case_id']/'ledger.json'
         if not file.exists() and not file.parent.exists():
             continue
@@ -35,6 +44,34 @@ def export(corpus,development_runs,final_runs,output,checks):
         # regressions and unfinished-case preparation. Never mark them as a
         # completed case or rewrite the underlying ledger.
         ledger['calls']=collect_call_records(file.parent)
+        records[split].append(ledger)
+        loaded[case['case_id']]=(case,ledger)
+    revealed=[r for r in records['holdout'] if r.get('revealed_at')]
+    final_preparation_gate={'status':'not_revealed','interpretation':'Final identifiers and answers remain withheld; no final answer was read.'}
+    development_gate=None
+    if revealed:
+        allocated=[c for c in manifest['cases'] if c['split']=='holdout']
+        if (len(allocated)!=50 or len(records['holdout'])!=50 or
+                {r.get('case_id') for r in records['holdout']}!={c['case_id'] for c in allocated}):
+            raise ValueError('Final answer export requires the entire allocated 50-case sealed batch')
+        for case in allocated:
+            ledger=loaded[case['case_id']][1]
+            if (ledger.get('split')!='holdout' or ledger.get('stratum')!=case['stratum'] or
+                    not case.get('input_hash') or ledger.get('masked_input_hash')!=case['input_hash'] or
+                    ledger.get('parallel_snapshot_valid') is False):
+                raise ValueError('Final ledger differs from its sealed allocation')
+        require_reveal(records['holdout'],final=True)
+        require_final_model_receipts(records['holdout'],final_runs)
+        require_final_preparation(records['holdout'],corpus,final_runs,expected_count=50)
+        require_final_review_bundles(records['holdout'],final_runs,expected_count=50)
+        last_seal=max(datetime.fromisoformat(a['sealed_at']) for r in records['holdout'] for a in r['reviews'])
+        if any(datetime.fromisoformat(r['revealed_at'])<last_seal for r in revealed):
+            raise ValueError('Final answer revealed before the whole batch was sealed')
+        development_gate=require_development_complete(corpus,development_runs)
+        final_preparation_gate={'status':'passed','sealed_cases':50,'comparators':['keyword','abstract','v1','v2'],
+                                'interpretation':'All shared inputs and genuine model/review artifacts verified before the first answer read.'}
+    for case,ledger in loaded.values():
+        split=case['split']
         if ledger.get('revealed_at'):
             require_reveal([ledger],final=split=='holdout')
             last_review=max(datetime.fromisoformat(a['sealed_at']) for a in ledger['reviews'])
@@ -46,7 +83,6 @@ def export(corpus,development_runs,final_runs,output,checks):
                 score=ledger.get('scores',{}).get(artifact['variant'])
                 if score is not None:
                     score['source_coverage']=evidence_coverage(read(artifact['path'])['evidence'])
-        records[split].append(ledger)
         entry={'case_id':case['case_id'],'stratum':case['stratum'],'split':split,
                'status':ledger.get('status'),'lesson_status':ledger.get('lesson_status'),
                'failure':ledger.get('failure'),'scores':ledger.get('scores') if ledger.get('revealed_at') else None}
@@ -67,17 +103,8 @@ def export(corpus,development_runs,final_runs,output,checks):
                                    'files':[{'name':Path(f['path']).name,'sha256':f['sha256']} for f in c.get('files',[])],
                                    'regression_sha256':c.get('regression',{}).get('sha256')} for c in ledger.get('changes',[])])
         public.append(entry)
-    revealed=[r for r in records['holdout'] if r.get('revealed_at')]
-    if revealed:
-        allocated=sum(c['split']=='holdout' for c in manifest['cases'])
-        if len(records['holdout'])!=allocated:
-            raise ValueError('Refusing export of a partially exposed final test batch')
-        require_reveal(records['holdout'],final=True)
-        last_seal=max(datetime.fromisoformat(a['sealed_at']) for r in records['holdout'] for a in r['reviews'])
-        if any(datetime.fromisoformat(r['revealed_at'])<last_seal for r in revealed):
-            raise ValueError('Final answer revealed before the whole batch was sealed')
     decision=promotion(records['development'],records['holdout'],checks)
-    result={'exported_at':stamp(),'status':'passed' if decision['publish_allowed'] else 'incomplete_or_failed',
+    result={'export_schema_version':2,'exported_at':stamp(),'status':'passed' if decision['publish_allowed'] else 'incomplete_or_failed',
             'input_manifest_sha256':hashlib.sha256((corpus/'manifest.json').read_bytes()).hexdigest(),
             'seed':manifest['seed'],'as_of':manifest['as_of'],'protocol_revision':manifest.get('protocol_revision'),
             'allocated_development':sum(c['split']=='development' for c in manifest['cases']),
@@ -85,6 +112,8 @@ def export(corpus,development_runs,final_runs,output,checks):
             'completed_development':sum(r.get('status')=='completed' and r.get('lesson_status')=='completed' for r in records['development']),
             'completed_final':sum(r.get('status')=='completed' for r in records['holdout']),
             'development_summary':summarize(records['development']),'final_gate':decision,
+            'final_preparation_gate':final_preparation_gate,
+            'development_completion_gate':{key:value for key,value in development_gate.items() if key!='development_runs'} if development_gate else None,
             'interpretation':'AI workflow development; public-paper memory remains possible. Journal hits are not acceptance probabilities. Unrevealed final identifiers and answers are withheld.',
             'cases':public}
     output=Path(output)
@@ -97,7 +126,7 @@ if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--corpus',type=Path,required=True)
     p.add_argument('--development-runs',type=Path,required=True)
-    p.add_argument('--final-runs',type=Path,required=True)
+    p.add_argument('--final-runs',type=Path,help='Optional for development-progress-only exports; unrevealed final answers stay withheld')
     p.add_argument('--output',type=Path,required=True)
     p.add_argument('--checks',type=Path,help='Observed compatibility/check outcomes; absent checks stay unpassed')
     args=p.parse_args()

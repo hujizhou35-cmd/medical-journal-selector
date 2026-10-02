@@ -8,7 +8,7 @@ Run this script from a verified frozen Trainer snapshot, not its editable source
 from __future__ import annotations
 
 import argparse
-from collections import deque
+from collections import Counter, deque
 from concurrent.futures import ThreadPoolExecutor
 from contextlib import AbstractContextManager
 import hashlib
@@ -20,10 +20,13 @@ import socket
 import sys
 import threading
 import uuid
+from datetime import datetime
 
 import campaign
 import freeze
 import runner
+import preparation_seal
+import review_bundle
 from corpus import STRATA, stamp
 from evaluation import require_reveal, summarize
 
@@ -228,7 +231,7 @@ class FrozenInputs:
     def verify_loaded_trainer(self):
         if Path(__file__).resolve().parent != self.trainer / "scripts":
             raise SnapshotDrift("Launch parallel_campaign.py from the frozen Trainer snapshot")
-        for module in (campaign, runner, freeze, sys.modules["corpus"], sys.modules["broker"], sys.modules["evaluation"]):
+        for module in (campaign, runner, freeze, preparation_seal, review_bundle, sys.modules["corpus"], sys.modules["broker"], sys.modules["evaluation"]):
             if Path(module.__file__).resolve().parent != self.trainer / "scripts":
                 raise SnapshotDrift("Imported execution module is outside the frozen Trainer")
 
@@ -297,6 +300,185 @@ def failure_kind(message):
     return "other_or_unspecified" if text else None
 
 
+def _instant(value, label):
+    try:
+        result = datetime.fromisoformat(value)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(label + " has no valid timestamp") from exc
+    if result.tzinfo is None or result.utcoffset() is None:
+        raise ValueError(label + " needs a timezone-aware timestamp")
+    return result
+
+
+def verify_completed_artifact(artifact, work):
+    """Cross-check a ledger seal with its actual receipt and terminal events."""
+    work = Path(work).resolve()
+    path = Path(artifact.get("path", "")).resolve()
+    if path.parent != work:
+        raise ValueError("Sealed execution artifact is outside its allocated case")
+    record = read(path.with_suffix(path.suffix + ".record.json"))
+    if (artifact.get("status") != "completed" or artifact.get("isolation") != "CONTROLLED_PACKET_FRESH_CONTEXT" or
+            record.get("status") != "completed" or record.get("output_contract_status") == "failed" or
+            record.get("isolation") != "CONTROLLED_PACKET_FRESH_CONTEXT" or
+            record.get("terminal_output_matches") is not True):
+        raise ValueError("Artifact lacks a usable genuine completed receipt")
+    for artifact_key, record_key in (("context_id", "context_id"), ("output_hash", "output_hash"),
+                                     ("sealed_at", "completed_at"), ("model", "model"), ("effort", "effort")):
+        if not artifact.get(artifact_key) or artifact[artifact_key] != record.get(record_key):
+            raise ValueError("Artifact seal differs from its actual receipt: " + artifact_key)
+    if sha(path) != record["output_hash"]:
+        raise ValueError("Actual completed output changed after sealing")
+    events = runner.event_records(path.with_suffix(path.suffix + ".events.jsonl"))
+    message = runner.completed_message(events)
+    contexts = {event.get("thread_id") for event in events if event.get("type") == "thread.started"}
+    if contexts != {record["context_id"]} or message is None or message != path.read_text(encoding="utf-8"):
+        raise ValueError("Artifact does not match its genuine tool-free terminal context/message")
+    started = _instant(record.get("started_at"), "Actual call start")
+    completed = _instant(record.get("completed_at"), "Actual call completion")
+    if completed < started:
+        raise ValueError("Actual call completed before it started")
+    return record
+
+
+def require_final_model_receipts(records, runs):
+    """Keep artifact metadata consistent with the genuine whole-batch calls."""
+    configurations = set()
+    for ledger in records:
+        work = Path(runs) / safe_id(ledger["case_id"])
+        generated = [verify_completed_artifact(artifact, work) for artifact in ledger["generations"]]
+        reviewed = [verify_completed_artifact(artifact, work) for artifact in ledger["reviews"]]
+        if min(_instant(record["started_at"], "Actual review start") for record in reviewed) < max(
+                _instant(record["completed_at"], "Actual generation completion") for record in generated):
+            raise ValueError("Final review began before its original generations completed")
+        configurations.update((record.get("model"), record.get("effort")) for record in generated + reviewed)
+    if configurations != {(runner.MODEL, runner.EFFORT)}:
+        raise ValueError("Final actual model configuration changed or was not recorded")
+    return True
+
+
+def require_development_complete(corpus, development_runs):
+    """Gate final work on the allocated 100 real, decided development cases.
+
+    Old genuine development cases remain eligible without a retrofitted
+    preparation seal. Their narrower seal boundary is disclosed in the binding.
+    New protocols which include preparation_seal.py must carry the original seal.
+    This gate never opens holdout files or any answer.json.
+    """
+    if development_runs is None:
+        raise ValueError("Final work requires explicit --development-runs")
+    corpus, runs = Path(corpus).resolve(), Path(development_runs).resolve()
+    manifest = read(corpus / "manifest.json")
+    if manifest.get("status") != "input_allocation_frozen":
+        raise ValueError("Development allocation must be frozen before final work")
+    cases = [case for case in manifest.get("cases", []) if case.get("split") == "development"]
+    ids = [safe_id(case["case_id"]) for case in cases]
+    if len(cases) != 100 or len(set(ids)) != 100:
+        raise ValueError("Final work requires exactly 100 distinct allocated development cases")
+    input_hashes = [case.get("input_hash") for case in cases]
+    if not all(input_hashes) or len(set(input_hashes)) != 100:
+        raise ValueError("Distinct development case IDs cannot duplicate the same masked manuscript")
+    if Counter(case.get("stratum") for case in cases) != Counter({stratum: 10 for stratum in STRATA}):
+        raise ValueError("Final work requires ten completed development cases in each stratum")
+    # Validate the complete registered stage using metadata only, before any
+    # holdout manuscript/answer bytes are touched by FrozenInputs.
+    holdout = [case for case in manifest.get("cases", []) if case.get("split") == "holdout"]
+    holdout_ids = [safe_id(case["case_id"]) for case in holdout]
+    holdout_hashes = [case.get("input_hash") for case in holdout]
+    if (len(holdout) != 50 or len(set(holdout_ids)) != 50 or
+            Counter(case.get("stratum") for case in holdout) != Counter({stratum: 5 for stratum in STRATA})):
+        raise ValueError("Final work requires exactly fifty distinct holdout cases, five in each stratum")
+    if (set(ids) & set(holdout_ids) or not all(holdout_hashes) or
+            len(set(input_hashes + holdout_hashes)) != 150):
+        raise ValueError("Development and holdout allocations must contain distinct manuscripts and case IDs")
+    if (runs / ".parallel-scheduler-claim.json").exists():
+        raise ClaimBusy("Development scheduler is still claimed; final work cannot start")
+    records, hashes, legacy = [], {}, []
+    contexts = []
+    for case in cases:
+        case_id = case["case_id"]
+        work = runs / case_id
+        if (work / ".parallel-case-claim.json").exists():
+            raise ClaimBusy("A development worker is still claimed; final work cannot start")
+        path = work / "ledger.json"
+        if not path.is_file():
+            raise ValueError("Allocated development case has no completed ledger: " + case_id)
+        ledger = read(path)
+        if (ledger.get("case_id") != case_id or ledger.get("split") != "development" or
+                ledger.get("stratum") != case["stratum"] or ledger.get("status") != "completed" or
+                ledger.get("lesson_status") != "completed" or ledger.get("parallel_snapshot_valid") is False):
+            raise ValueError("Allocated development case is not genuinely decided and complete: " + case_id)
+        actual_input = hashlib.sha256((corpus / case_id / "masked.txt").read_text(encoding="utf-8").encode()).hexdigest()
+        if not case.get("input_hash") or ledger.get("masked_input_hash") != case["input_hash"] or actual_input != case["input_hash"]:
+            raise SnapshotDrift("Development manuscript does not match its allocated input: " + case_id)
+        if not isinstance(ledger.get("protocol_hashes"), dict) or not ledger["protocol_hashes"]:
+            raise ValueError("Development execution protocol was not recorded: " + case_id)
+        if not ledger.get("license_recorded"):
+            raise ValueError("Development license eligibility was not recorded: " + case_id)
+        require_reveal([ledger])
+        if "v2" not in {artifact.get("variant") for artifact in ledger["generations"]}:
+            raise ValueError("Development case has no selector candidate generation: " + case_id)
+        call_records = [verify_completed_artifact(artifact, work) for artifact in ledger["generations"] + ledger["reviews"]]
+        generated_count = len(ledger["generations"])
+        if min(_instant(record["started_at"], "Actual review start") for record in call_records[generated_count:]) < max(
+                _instant(record["completed_at"], "Actual generation completion") for record in call_records[:generated_count]):
+            raise ValueError("Development review began before its original generations completed: " + case_id)
+        last_review = max(_instant(artifact["sealed_at"], "Review seal") for artifact in ledger["reviews"])
+        revealed = _instant(ledger.get("revealed_at"), "Development reveal")
+        if revealed < last_review:
+            raise ValueError("Development answer was revealed before its reviews: " + case_id)
+        lesson = ledger.get("lesson_record")
+        if not isinstance(lesson, dict):
+            raise ValueError("Development case has no genuine post-reveal diagnosis: " + case_id)
+        lesson_record = verify_completed_artifact(lesson, work)
+        if (_instant(lesson_record["started_at"], "Actual lesson start") < revealed or
+                _instant(lesson["sealed_at"], "Lesson seal") < revealed):
+            raise ValueError("Development diagnosis began or was sealed before reveal: " + case_id)
+        if runner.parse_json_message(Path(lesson["path"]).read_text(encoding="utf-8")) != ledger.get("diagnosis"):
+            raise ValueError("Development diagnosis differs from its sealed model output: " + case_id)
+        decisions = ledger.get("changes")
+        if not isinstance(decisions, list) or not decisions:
+            raise ValueError("Development completion has no assessed decision: " + case_id)
+        for decision in decisions:
+            if (not isinstance(decision, dict) or decision.get("decision") not in
+                    ("no_change", "retrieval_repair", "rejected_change", "accepted_change") or
+                    not isinstance(decision.get("reason"), str) or not decision["reason"].strip()):
+                raise ValueError("Development decision is invalid: " + case_id)
+            if _instant(decision.get("at"), "Decision timestamp") < _instant(lesson["sealed_at"], "Lesson seal"):
+                raise ValueError("Development decision preceded its diagnosis: " + case_id)
+            if decision["decision"] == "accepted_change":
+                regression = decision.get("regression", {})
+                if not decision.get("files") or not regression.get("path") or sha(Path(regression["path"])) != regression.get("sha256"):
+                    raise ValueError("Accepted development change lacks its unchanged regression record: " + case_id)
+        if _instant(ledger.get("completed_at"), "Development completion") < max(_instant(d["at"], "Decision timestamp") for d in decisions):
+            raise ValueError("Development completion preceded its assessed decision: " + case_id)
+        if not {"v2", "keyword", "abstract"}.issubset(ledger.get("scores", {})):
+            raise ValueError("Development case lost its selector or baseline outcome: " + case_id)
+        protocols = ledger["protocol_hashes"]
+        if ledger.get("preparation_seal") or "preparation_seal.py" in protocols:
+            from preparation_seal import verify_preparation_seal
+            prepared = verify_preparation_seal(work, ledger.get("preparation_seal"), case_id=case_id,
+                                               source_case_dir=corpus / case_id, expected_masked_hash=case["input_hash"])
+            sealed = _instant(prepared["sealed_at"], "Preparation seal")
+            if any(_instant(record["started_at"], "Actual call start") < sealed for record in call_records):
+                raise ValueError("Development preparation was sealed after selection/review began: " + case_id)
+        else:
+            legacy.append(case_id)
+        contexts.extend(record["context_id"] for record in call_records + [lesson_record])
+        records.append(ledger)
+        hashes[case_id] = sha(path)
+    require_reveal(records)
+    if len(contexts) != len(set(contexts)):
+        raise ValueError("A development generation/review/lesson context was reused")
+    configurations = {(artifact.get("model"), artifact.get("effort")) for ledger in records
+                      for artifact in ledger["generations"] + ledger["reviews"] + [ledger["lesson_record"]]}
+    if configurations != {(runner.MODEL, runner.EFFORT)}:
+        raise ValueError("Development model configuration changed or was not recorded")
+    return {"status": "passed", "development_runs": str(runs), "allocated_cases": 100,
+            "corpus_manifest_sha256": sha(corpus / "manifest.json"),
+            "ledger_sha256": hashes, "legacy_preparation_cases": sorted(legacy),
+            "legacy_boundary": "Legacy development has genuine generation/review/diagnosis/decision records, but no independently pinned pre-generation shared-input seal; none was retrofitted."}
+
+
 def _execute_claimed(case, corpus, runs, skills, selector, as_of, guard, wave_id, execute):
     receipt = {"case_id": case["case_id"], "wave_id": wave_id, "started_at": stamp(), "executed": False,
                "status": "scheduler_failed", "failure": None}
@@ -340,13 +522,18 @@ def invalidate_wave(cases, runs, wave_id, reason, receipts):
 
 def run_campaign(corpus, runs, trainer, skills, selector, as_of, eval_version,
                  split="development", limit=10, case_ids=None, execute=None, require_loaded=True,
-                 case_workers=DEFAULT_CASE_WORKERS, model_call_limit=DEFAULT_MODEL_CALL_LIMIT):
+                 case_workers=DEFAULT_CASE_WORKERS, model_call_limit=DEFAULT_MODEL_CALL_LIMIT,
+                 development_runs=None):
     if split not in ("development", "holdout") or limit < 1:
         raise ValueError("A positive limit and valid split are required")
     if split == "holdout" and set(skills) != {"v1", "v2"}:
         raise ValueError("Holdout generation requires both frozen variants")
+    # Must precede FrozenInputs: it hashes holdout material/answer bytes.
+    development_gate = require_development_complete(corpus, development_runs) if split == "holdout" else None
     corpus, runs = Path(corpus).resolve(), Path(runs).resolve()
     guard = FrozenInputs(corpus, trainer, skills, as_of, split, case_workers, model_call_limit)
+    if development_gate is not None:
+        guard.bindings["development_completion"] = development_gate
     guard.verify()
     if require_loaded:
         guard.verify_loaded_trainer()
@@ -432,11 +619,14 @@ def run_campaign(corpus, runs, trainer, skills, selector, as_of, eval_version,
 
 
 def reveal_final(corpus, runs, trainer, skills, selector, as_of, eval_version, require_loaded=True,
-                 case_workers=DEFAULT_CASE_WORKERS, model_call_limit=DEFAULT_MODEL_CALL_LIMIT):
+                 case_workers=DEFAULT_CASE_WORKERS, model_call_limit=DEFAULT_MODEL_CALL_LIMIT,
+                 development_runs=None):
     """Preserve the existing all-50 seal gate; no per-wave holdout reveal."""
     if set(skills) != {"v1", "v2"}:
         raise ValueError("Final reveal requires both frozen variants")
+    development_gate = require_development_complete(corpus, development_runs)
     guard = FrozenInputs(corpus, trainer, skills, as_of, "holdout", case_workers, model_call_limit)
+    guard.bindings["development_completion"] = development_gate
     guard.verify()
     if require_loaded:
         guard.verify_loaded_trainer()
@@ -452,6 +642,10 @@ def reveal_final(corpus, runs, trainer, skills, selector, as_of, eval_version, r
         if any(record.get("parallel_snapshot_valid") is False for record in records):
             raise SnapshotDrift("A holdout wave was invalidated")
         require_reveal(records, final=True)
+        require_final_model_receipts(records, runs)
+        from preparation_seal import require_final_preparation
+        require_final_preparation(records, corpus, runs, expected_count=50)
+        review_bundle.require_final_review_bundles(records, runs, expected_count=50)
         # Additional drift checks cannot weaken require_reveal. All cases must
         # have used one frozen version/protocol/configuration before any answer
         # is read by the original reveal_case implementation.
@@ -483,6 +677,8 @@ def main():
     parser.add_argument("--trainer-snapshot", type=Path)
     parser.add_argument("--selector-skill", type=Path)
     parser.add_argument("--baseline-skill", type=Path)
+    parser.add_argument("--development-runs", type=Path,
+                        help="Authoritative completed 100-case development root; required for holdout generation/reveal")
     parser.add_argument("--eval-version")
     parser.add_argument("--date")
     parser.add_argument("--split", choices=("development", "holdout"), default="development")
@@ -503,6 +699,8 @@ def main():
         return
     if not all((args.corpus, args.trainer_snapshot, args.selector_skill, args.eval_version, args.date)):
         parser.error("Execution/reveal requires --corpus, --trainer-snapshot, --selector-skill, --eval-version and --date")
+    if args.split == "holdout" and args.development_runs is None:
+        parser.error("Holdout generation/reveal requires explicit --development-runs")
     sys.path.insert(0, str((args.selector_skill / "scripts").resolve()))
     import selector
     if Path(selector.__file__).resolve().parent != (args.selector_skill / "scripts").resolve():
@@ -514,11 +712,13 @@ def main():
         if args.split != "holdout":
             parser.error("Final reveal only applies to holdout")
         result = reveal_final(args.corpus, args.runs, args.trainer_snapshot, skills, selector, args.date, args.eval_version,
-                              case_workers=args.case_workers, model_call_limit=args.model_call_limit)
+                              case_workers=args.case_workers, model_call_limit=args.model_call_limit,
+                              development_runs=args.development_runs)
     else:
         result = run_campaign(args.corpus, args.runs, args.trainer_snapshot, skills, selector, args.date,
                               args.eval_version, args.split, args.limit, args.case_id,
-                              case_workers=args.case_workers, model_call_limit=args.model_call_limit)
+                              case_workers=args.case_workers, model_call_limit=args.model_call_limit,
+                              development_runs=args.development_runs)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result.get("status") in ("failed", "snapshot_drift"):
         raise SystemExit(1)

@@ -38,4 +38,6 @@ Python helpers collect permitted papers, prepare masked packets, execute fresh r
 
 The project uses AI reviewers, not medical experts. Public-paper model memory and the reviewed final manuscript remain limitations. Raw papers, answer maps and full logs are excluded from release packages.
 
-For a faster campaign, independent cases may be scheduled in two-case waves with a maximum of four model calls, while each case keeps its own serial generation, review, reveal and decision chain. Read the [parallel execution plan](evaluation/parallel-execution-plan.md) before enabling a scheduler; the existing public checkpoints remain serial until a synthetic isolation dry run passes.
+For a faster campaign, ten primary article-class queues can run one case per class, with a default ceiling of ten workers and ten simultaneous model calls. Each case retains its serial preparation, recommendation, blind review, reveal and decision chain. Actual two-case and five-case waves have passed their checks; a ten-case wave still needs observed receipts. Read the [parallel execution plan](evaluation/parallel-execution-plan.md) before enabling the scheduler.
+
+Final testing requires the completed development records. Seal both ranking baselines and shared inputs before recommendations; both final reviewers inspect all four anonymous comparator results. Validate the whole fifty-case batch before the reveal/scoring role sees its answers. These implemented guards have synthetic checks, while the real final evaluation remains unstarted.

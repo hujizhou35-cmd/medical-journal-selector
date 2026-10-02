@@ -66,6 +66,14 @@ class ParallelCampaignTests(unittest.TestCase):
     def invoke(self, execute, **kwargs):
         kwargs.setdefault("case_workers", 2)
         kwargs.setdefault("model_call_limit", 4)
+        if kwargs.get("split") == "holdout":
+            kwargs.setdefault("development_runs", self.root / "synthetic-development-complete")
+            # These short fixtures exercise queue scheduling only; the actual
+            # exact-100 entry gate is covered in test_final_entry_gates.py.
+            with patch("parallel_campaign.require_development_complete", return_value={"status": "passed", "fixture": True}):
+                return run_campaign(self.corpus, self.runs, self.trainer, self.skills, None,
+                                    "2026-10-02", "synthetic-epoch-1", execute=execute,
+                                    require_loaded=False, **kwargs)
         return run_campaign(self.corpus, self.runs, self.trainer, self.skills, None,
                             "2026-10-02", "synthetic-epoch-1", execute=execute,
                             require_loaded=False, **kwargs)
@@ -382,15 +390,19 @@ class ParallelCampaignTests(unittest.TestCase):
     def test_final_reveal_rejects_partial_set_and_failed_original_gate_before_answer_read(self):
         self.cases = self.allocate(4, split="holdout")
         self.skills = {"v1": self.v1, "v2": self.v2}
-        with patch("parallel_campaign.campaign.reveal_case") as reveal, self.assertRaises(ValueError):
-            reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False)
+        with patch("parallel_campaign.require_development_complete", return_value={"status": "passed", "fixture": True}), \
+             patch("parallel_campaign.campaign.reveal_case") as reveal, self.assertRaises(ValueError):
+            reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False,
+                         development_runs=self.root / "synthetic-development-complete")
         reveal.assert_not_called()
         self.cases = self.allocate(50, split="holdout")
         for case in self.cases:
             self.fake_ledger(case, "reviewed")
-        with patch("parallel_campaign.require_reveal", side_effect=ValueError("Unsealed original model turn")) as original_gate:
+        with patch("parallel_campaign.require_development_complete", return_value={"status": "passed", "fixture": True}), \
+             patch("parallel_campaign.require_reveal", side_effect=ValueError("Unsealed original model turn")) as original_gate:
             with patch("parallel_campaign.campaign.reveal_case") as reveal, self.assertRaises(ValueError):
-                reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False)
+                reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False,
+                             development_runs=self.root / "synthetic-development-complete")
             self.assertEqual(len(original_gate.call_args[0][0]), 50)
             self.assertTrue(original_gate.call_args.kwargs["final"])
             reveal.assert_not_called()
@@ -402,9 +414,15 @@ class ParallelCampaignTests(unittest.TestCase):
             ledger = self.fake_ledger(case, "reviewed")
             ledger["skill_hashes"] = {"v1": "same-but-wrong-version", "v2": "same-but-wrong-version"}
             atomic_write(self.runs / case["case_id"] / "ledger.json", ledger)
-        with patch("parallel_campaign.require_reveal", return_value=True), patch("parallel_campaign.campaign.reveal_case") as reveal:
+        with patch("parallel_campaign.require_development_complete", return_value={"status": "passed", "fixture": True}), \
+             patch("parallel_campaign.require_reveal", return_value=True), \
+             patch("parallel_campaign.require_final_model_receipts", return_value=True), \
+             patch("preparation_seal.require_final_preparation", return_value=True), \
+             patch("review_bundle.require_final_review_bundles", return_value=True), \
+             patch("parallel_campaign.campaign.reveal_case") as reveal:
             with self.assertRaises(SnapshotDrift):
-                reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False)
+                reveal_final(self.corpus, self.runs, self.trainer, self.skills, None, "2026-10-02", "holdout-epoch", require_loaded=False,
+                             development_runs=self.root / "synthetic-development-complete")
             reveal.assert_not_called()
 
 

@@ -73,19 +73,19 @@ python /private/run/trainer-r1/scripts/status.py --corpus /private/run/corpus --
 
 ## Untouched final comparison
 
-After development and regressions finish, freeze the final V2 candidate and final Trainer once. Run all fifty holdout cases with the same V1/V2, model, source limits and concurrency settings. Both model variants use the shared case preparation; the two fixed discovery baselines remain unchanged.
+After all 100 allocated development cases and required regressions finish, freeze the final V2 candidate and final Trainer once. Bind the authoritative development run directory explicitly; the final entry verifies actual per-case seals, terminal receipts and decisions rather than trusting a summary count. Run all fifty holdout cases with the same V1/V2, model, source limits and concurrency settings. Both model variants use the shared case preparation; the two fixed discovery baselines remain unchanged. Their ranking algorithms are fixed, while their shared preparation includes model-generated search concepts and a masked abstract summary.
 
 ```text
-python /private/run/final-trainer/scripts/parallel_campaign.py --corpus /private/run/corpus --runs /private/run/final --trainer-snapshot /private/run/final-trainer --selector-skill /private/run/final-v2 --baseline-skill /private/run/selector-v1 --eval-version final-10x10 --date YYYY-MM-DD --split holdout --limit 50 --case-workers 10 --model-call-limit 10
+python /private/run/final-trainer/scripts/parallel_campaign.py --corpus /private/run/corpus --runs /private/run/final --development-runs /private/run/development --trainer-snapshot /private/run/final-trainer --selector-skill /private/run/final-v2 --baseline-skill /private/run/selector-v1 --eval-version final-10x10 --date YYYY-MM-DD --split holdout --limit 50 --case-workers 10 --model-call-limit 10
 ```
 
-Holdout waves stop at reviewed, sealed outputs and never reveal their answers individually. Once **all fifty** have actual unchanged generations and independent review seals, run the separate global reveal command with identical bindings:
+Holdout waves stop at reviewed, sealed outputs and never reveal their answers individually. Before the first selection, each new case seals fixed-baselines and shared profile, literature, policies and source packets. Both final reviewers inspect all four comparators; ranking-only baselines do not pretend to contain complete reports. Once **all fifty** have actual unchanged preparation, generation and independent review seals, run the separate global reveal command with identical bindings:
 
 ```text
-python /private/run/final-trainer/scripts/parallel_campaign.py --corpus /private/run/corpus --runs /private/run/final --trainer-snapshot /private/run/final-trainer --selector-skill /private/run/final-v2 --baseline-skill /private/run/selector-v1 --eval-version final-10x10 --date YYYY-MM-DD --split holdout --reveal-final --case-workers 10 --model-call-limit 10
+python /private/run/final-trainer/scripts/parallel_campaign.py --corpus /private/run/corpus --runs /private/run/final --development-runs /private/run/development --trainer-snapshot /private/run/final-trainer --selector-skill /private/run/final-v2 --baseline-skill /private/run/selector-v1 --eval-version final-10x10 --date YYYY-MM-DD --split holdout --reveal-final --case-workers 10 --model-call-limit 10
 ```
 
-The reveal gate preserves the original all-case output/hash/context checks and additionally verifies the actual frozen Skill and execution-script hashes. A partial set or running worker cannot pass. Final results must not be used to tune the frozen candidate before reveal. Running these commands does not itself establish the publication gates; incomplete, contaminated or failed records remain visible.
+The reveal gate preserves the original all-case output/hash/context checks and additionally verifies the original preparation manifests, four-comparator review inputs and actual frozen Skill/execution-script hashes. It checks the whole batch before the reveal/scoring role reads any answer. A partial set, changed baseline or running worker cannot pass. Final results must not be used to tune the frozen candidate before reveal. Running these commands does not itself establish the publication gates; incomplete, contaminated or failed records remain visible. Earlier development records are not retroactively given preparation seals; their actual older seal boundary remains disclosed.
 
 ## Other helpers and manual hosts
 
