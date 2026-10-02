@@ -81,4 +81,6 @@ Deliver:
 4. Pending/excluded candidates and next actions, including failure reasons.
 5. A structured evidence record using [evidence-format.md](references/evidence-format.md) when file output is available. Set `run.report_language` to `en` or `zh-CN` to match the user, or pass `--language` to `scripts/selector.py`. The script validates structure, applies supported hard filters and renders Markdown. It cannot independently establish source truth or judge the manuscript. If scripts are unavailable, apply the same checks manually and deliver the report in chat.
 
+Keep the structured constraints limited to supported, actually supplied user conditions. Put explanatory comments in the report or profile limitations, never in a new constraint key such as `notes`. An unsupported real user condition requires manual handling and a recorded outcome; do not silently drop it to make validation pass.
+
 Only after the user chooses a journal, prepare a cover-letter handoff containing manuscript facts, chosen journal, scope quotation, fit explanation, policy sources, timestamps, and unresolved items. Do not invent author declarations or start writing/submitting a cover letter merely because selection finished.

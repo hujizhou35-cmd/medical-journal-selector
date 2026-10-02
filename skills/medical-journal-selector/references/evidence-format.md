@@ -20,6 +20,8 @@ Optional `run.report_language` is `en` or `zh-CN`, selected from the user's expl
 
 Supported hard constraints: `jcr_quartiles` (Q1–Q4 list), `jcr_category` (exact category), optional `jcr_year`, `scie_only`, `oa_required`, `max_fee` (`amount`, `currency`), `exclude_issns`, `exclude_warnings` with `warning_lists` (named list+year identifiers). `time_endpoint` is first_decision/acceptance/online/indexing. Omitted limits mean no hard limit. Do not encode preferences as hard constraints. Do not silently omit a user's condition the helper cannot represent: apply it manually and record the excluded/pending result before automated ranking, or deliver a manual report.
 
+Do not add narrative keys such as `constraints.notes`. Write explanations in report prose or `profile.limitations`; the constraints object is used to enforce requirements, so an extra key causes validation failure even if the text says there are no additional limits.
+
 ## Fact envelope
 
 Verified:

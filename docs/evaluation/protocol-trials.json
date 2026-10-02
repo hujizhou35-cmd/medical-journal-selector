@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-02T14:47:44.266768+00:00",
-  "distinct_protocol_cases": 17,
+  "exported_at": "2026-10-02T18:18:23.394598+00:00",
+  "distinct_protocol_cases": 18,
   "formal_case_count": 0,
   "interpretation": "Preserved workflow trials, excluded after preparation or task-scenario defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
-  "observed_model_calls": 118,
+  "observed_model_calls": 124,
   "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
   "cases": [
     {
@@ -871,6 +871,208 @@
       ],
       "pmcid": "PMC13207009",
       "original_outlet": "International Journal of Molecular Sciences"
+    },
+    {
+      "case_id": "s1-laboratory-003",
+      "stratum": "laboratory",
+      "designation": "material_eligibility_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "diagnosed",
+          "lesson_status": "change_review_pending",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true,
+              "source_coverage": {
+                "identity": {
+                  "verified": 5,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 1,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 5,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 6,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [],
+          "calls": [
+            {
+              "context_id": "01a0fda9-e34c-7143-8a08-2e141d5292c5",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 121.555,
+              "usage": {
+                "input_tokens": 107715,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2598,
+                "reasoning_output_tokens": 1548
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd9a-0635-7f62-84b4-d65b8339e418",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 100.787,
+              "usage": {
+                "input_tokens": 9381,
+                "cached_input_tokens": 7424,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2285,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fda8-92cf-7b90-a124-fcba8e186d9a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 78.054,
+              "usage": {
+                "input_tokens": 94992,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1596,
+                "reasoning_output_tokens": 1283
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fda8-9290-70c1-9aeb-af01c9813377",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 85.613,
+              "usage": {
+                "input_tokens": 94992,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1651,
+                "reasoning_output_tokens": 1217
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd9b-cdaa-7e32-9d0b-db8d65fea5aa",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 54.725,
+              "usage": {
+                "input_tokens": 28709,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1342,
+                "reasoning_output_tokens": 1028
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd9e-1945-74a1-8c74-de919b8c4788",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 685.606,
+              "usage": {
+                "input_tokens": 88244,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 22106,
+                "reasoning_output_tokens": 10471
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13514039",
+      "original_outlet": "PLOS One"
     },
     {
       "case_id": "s1-public_database-001",

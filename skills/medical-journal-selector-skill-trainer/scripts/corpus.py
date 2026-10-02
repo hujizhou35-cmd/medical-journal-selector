@@ -51,6 +51,40 @@ def search(query, size=100, cursor="*", result_type="core"):
 def text_of(node):
     return re.sub(r"\s+", " ", " ".join(node.itertext())).strip() if node is not None else ""
 
+# This is eligibility for the registered ten-class full-material benchmark,
+# not a claim that journals never accept editorials, letters or corrections.
+FULL_STUDY_GENRES = frozenset(("research-article", "review-article", "systematic-review",
+                              "case-report", "case-study", "methods-article", "brief-report"))
+NON_STUDY_GENRES = frozenset(("correction", "erratum", "corrigendum", "retraction",
+                             "expression-of-concern", "addendum", "withdrawal", "abstract",
+                             "editorial", "article-commentary", "commentary", "news", "book-review"))
+NOTICE_LABEL = re.compile(
+    r"^(?:correction|erratum|corrigendum|retraction|expression\s+of\s+concern|withdrawal|addendum)"
+    r"(?:\s+(?:to|of|for)\b|\s*:|$)", re.I)
+
+def study_material_eligibility(xml):
+    """Inspect source genre before masking or any model request; no answer needed.
+
+    A long correction, conference abstract or concern notice is not the full
+    original study. Unknown genres require preparation review rather than an
+    assumption based on a search query. Protocols and short full reports remain
+    eligible: having no Results section alone is not grounds for exclusion.
+    """
+    root = ET.fromstring(xml)
+    genre = root.get("article-type", "").strip().casefold().replace("_", "-")
+    meta = root.find("./front/article-meta")
+    title = text_of(meta.find("title-group/article-title")) if meta is not None else ""
+    subjects = [text_of(n) for n in root.findall("./front/article-meta/article-categories//subject")]
+    record = {"eligible": False, "source_article_type": genre or "not stated",
+              "basis": "source XML genre and material availability; not recommendation outcome"}
+    if genre in NON_STUDY_GENRES or NOTICE_LABEL.search(title) or any(NOTICE_LABEL.search(x) for x in subjects):
+        return {**record, "reason": "notice, abstract, editorial or commentary is not a complete study in this benchmark"}
+    if genre not in FULL_STUDY_GENRES:
+        return {**record, "reason": "source genre is unspecified or outside the registered full-study classes; manual preparation review required"}
+    if not text_of(root.find("body")):
+        return {**record, "reason": "source XML has no research body; do not treat abstract/back matter as full material"}
+    return {**record, "eligible": True, "reason": "supported full-study genre with a source body; scientific class still needs main-objective review"}
+
 PUBLICATION_NOTE = re.compile(
     r"how to cite (?:this|the) (?:article|paper)|"
     r"time of (?:primary|first|initial|peer) review|"
@@ -291,6 +325,12 @@ def prepare(output, seed=20261002, date="2026-10-02", development=10, holdout=5,
                 continue
             try:
                 xml = get(BASE + pmcid + "/fullTextXML")
+                material = study_material_eligibility(xml)
+                if not material['eligible']:
+                    state.setdefault('material_exclusions', []).append({"pmcid": pmcid, "stratum": stratum,
+                        **material, "checked_at": stamp()})
+                    save()
+                    continue
                 target, masked = parse_article(xml)
                 if not target["permitted"] or len(masked) < 2500:
                     continue
@@ -314,6 +354,7 @@ def prepare(output, seed=20261002, date="2026-10-02", development=10, holdout=5,
                         "source_url":BASE+pmcid+"/fullTextXML","retrieved_at":stamp(),"classification_status":"query_assigned_pending_fulltext_review",
                         "supplements":"links recorded; not yet inspected" if target["supplement_links"] else "none identified",
                         "jcr":"Not verified（未核到）","scie":"Not verified（未核到）","status":"prepared"}
+                case['material_eligibility'] = {**material, "checked_at": stamp()}
                 state["cases"].append(case)
                 existing.append(case)
                 seen.add(pmcid)
@@ -363,6 +404,11 @@ def extend_reserves(output, stratum, number=3, seed=20261002):
             seen.add(pmcid)
             try:
                 xml=get(BASE+pmcid+'/fullTextXML')
+                material=study_material_eligibility(xml)
+                if not material['eligible']:
+                    state.setdefault('material_exclusions',[]).append({'pmcid':pmcid,'stratum':stratum,
+                        **material,'checked_at':stamp()})
+                    continue
                 target,masked=parse_article(xml)
                 if not target['permitted'] or len(masked)<2500 or target['journal'].casefold() in capped:
                     continue
@@ -382,6 +428,7 @@ def extend_reserves(output, stratum, number=3, seed=20261002):
                       'source_url':BASE+pmcid+'/fullTextXML','retrieved_at':stamp(),'classification_status':'query_assigned_pending_fulltext_review',
                       'supplements':'links recorded; not yet inspected' if target['supplement_links'] else 'none identified',
                       'jcr':'Not verified（未核到）','scie':'Not verified（未核到）','status':'prepared','augmentation_seed':seed}
+                case['material_eligibility']={**material,'checked_at':stamp()}
                 state['cases'].append(case)
                 hashes.append(fp)
                 added.append(case_id)
@@ -394,10 +441,13 @@ def extend_reserves(output, stratum, number=3, seed=20261002):
         if not next_cursor or next_cursor==cursor:
             break
         cursor=next_cursor
-    amendment={'at':stamp(),'reason':'Additional unevaluated same-stratum reserves after license eligibility correction; no scored outcome used.',
+    amendment={'at':stamp(),'reason':'Additional unevaluated same-stratum reserves after corpus eligibility review; no recommendation outcome used.',
                'seed':seed,'added':added,'requested':number,'original_manifest_sha256':hashlib.sha256(original).hexdigest()}
     state.setdefault('reserve_augmentations',[]).append(amendment)
-    (root/f'manifest.before-reserves-{stratum}-{seed}.json').write_bytes(original)
+    backup=root/f'manifest.before-reserves-{stratum}-{seed}.json'
+    if backup.exists():
+        raise ValueError('Reserve augmentation registration already exists; do not overwrite its original manifest')
+    backup.write_bytes(original)
     file.write_text(json.dumps(state,ensure_ascii=False,indent=2),encoding='utf-8')
     if len(added)<number:
         raise RuntimeError(f'Only {len(added)} of {number} additional reserves acquired; retained actual records')

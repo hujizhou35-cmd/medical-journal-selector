@@ -39,6 +39,8 @@ If two sources conflict, check authority, year, category, ISSN and article/fee o
 
 Record time endpoints separately: submission→first decision, submission→acceptance, acceptance→online, submission→online, and indexing if available. Accepted-only cohorts exclude rejected manuscripts. Compare like definitions; do not add medians, estimate an indexing delay or promise a graduation deadline. Self-computed timings from a disclosed sample must be labelled estimates with sample definition and never masquerade as publisher statistics; V1.0 automated speed ranking only uses comparable official metrics.
 
+Match the endpoint named by the source. A statistic labelled acceptance→publication does not establish acceptance→online unless an authoritative source explicitly resolves that meaning. Otherwise keep the publication statistic, its period and definition in notes, and mark the online envelope unverified. A caveat or `ranking_usable: false` cannot repair a `verified` envelope whose endpoint is unsupported. Genuine evidence for an explicitly defined online endpoint remains usable subject to the other timing checks.
+
 Record OA model and payment option separately. Costs include amount, currency, tax treatment if stated, article type, optional/mandatory status, page/color charges, and waiver/discount conditions. A budget hard filter requires the applicable payable total or an explicitly documented no-fee route. Currency mismatch requires a newly verified conversion or manual review; the helper deliberately does not guess exchange rates.
 
 ## Warning coverage

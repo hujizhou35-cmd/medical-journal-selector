@@ -1,0 +1,43 @@
+{
+  "exported_at": "2026-10-02T18:18:17.921412+00:00",
+  "wave_id": "a38d55b15d1a4edd8d52d8bdd9ca87cb",
+  "original_wave_status": "failed",
+  "case_workers": 10,
+  "model_call_ceiling": 10,
+  "recorded_peak_model_operations": 10,
+  "actual_cli_interval_peak": 10,
+  "original_model_calls": 45,
+  "interpretation": "Seven diagnosed chains are not seven completed valid cases: one had notice-only input. Three pre-selection failures remain visible; renewals/replays add no distinct-case credit.",
+  "failures": [
+    {
+      "case_id": "s1-public_database-008",
+      "eval_version": "r20-wave10-01",
+      "wave_id": "a38d55b15d1a4edd8d52d8bdd9ca87cb",
+      "status": "input_ineligible",
+      "failure": "Pre-generation primary stratum mismatch: prediction versus public_database",
+      "sealed_at": "2026-10-02T17:13:34.662239+00:00",
+      "initial_call_count": 1,
+      "interpretation": "Original terminal failure before selection, preserved independently of any later resumed outcome."
+    },
+    {
+      "case_id": "s1-prediction-002",
+      "eval_version": "r20-wave10-01",
+      "wave_id": "a38d55b15d1a4edd8d52d8bdd9ca87cb",
+      "status": "model_failed",
+      "failure": "Completed model response broke the output contract: queries[2] exceeds the 18-word discovery limit",
+      "sealed_at": "2026-10-02T17:15:14.284396+00:00",
+      "initial_call_count": 1,
+      "interpretation": "Original terminal failure before selection, preserved independently of any later resumed outcome."
+    },
+    {
+      "case_id": "s1-network-003",
+      "eval_version": "r20-wave10-01",
+      "wave_id": "a38d55b15d1a4edd8d52d8bdd9ca87cb",
+      "status": "input_ineligible",
+      "failure": "Pre-generation primary stratum mismatch: laboratory versus network",
+      "sealed_at": "2026-10-02T17:14:29.518846+00:00",
+      "initial_call_count": 1,
+      "interpretation": "Original terminal failure before selection, preserved independently of any later resumed outcome."
+    }
+  ]
+}

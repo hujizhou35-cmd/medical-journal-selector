@@ -63,7 +63,7 @@ def make_case(root):
     corpus=Path(root)/"corpus"
     source=corpus/"synthetic-development-case"
     source.mkdir(parents=True)
-    xml=('''<article><front><journal-meta/><article-meta><title-group><article-title>'''
+    xml=('''<article article-type="research-article"><front><journal-meta/><article-meta><title-group><article-title>'''
          +TARGET_TITLE+'''</article-title></title-group><permissions><license><license-p>
          Creative Commons Attribution License CC BY
          </license-p></license></permissions></article-meta></front><body><sec><title>Methods</title>

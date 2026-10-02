@@ -81,6 +81,8 @@ Deliver:
 4. Pending/excluded candidates and next actions, including failure reasons.
 5. A structured evidence record using [evidence-format.md](references/evidence-format.md) when file output is available. Set `run.report_language` to `en` or `zh-CN` to match the user, or pass `--language` to `scripts/selector.py`. The script validates structure, applies supported hard filters and renders Markdown. It cannot independently establish source truth or judge the manuscript. If scripts are unavailable, apply the same checks manually and deliver the report in chat.
 
+Keep the structured constraints limited to supported, actually supplied user conditions. Put explanatory comments in the report or profile limitations, never in a new constraint key such as `notes`. An unsupported real user condition requires manual handling and a recorded outcome; do not silently drop it to make validation pass.
+
 Only after the user chooses a journal, prepare a cover-letter handoff containing manuscript facts, chosen journal, scope quotation, fit explanation, policy sources, timestamps, and unresolved items. Do not invent author declarations or start writing/submitting a cover letter merely because selection finished.
 
 
@@ -113,6 +115,8 @@ All timestamps include timezone. Record actual start/end/check times. `offline_f
 Optional `run.report_language` is `en` or `zh-CN`, selected from the user's explicit request or conversation language. Existing 1.0 records without this field remain readable and preserve the helper's legacy Chinese rendering. `--language en` or `--language zh-CN` overrides rendering only; it does not translate manuscript-specific evidence prose, which the host must write in the requested language. Official source quotations remain in their original language. English unknown fields say `Not verified（未核到）`.
 
 Supported hard constraints: `jcr_quartiles` (Q1–Q4 list), `jcr_category` (exact category), optional `jcr_year`, `scie_only`, `oa_required`, `max_fee` (`amount`, `currency`), `exclude_issns`, `exclude_warnings` with `warning_lists` (named list+year identifiers). `time_endpoint` is first_decision/acceptance/online/indexing. Omitted limits mean no hard limit. Do not encode preferences as hard constraints. Do not silently omit a user's condition the helper cannot represent: apply it manually and record the excluded/pending result before automated ranking, or deliver a manual report.
+
+Do not add narrative keys such as `constraints.notes`. Write explanations in report prose or `profile.limitations`; the constraints object is used to enforce requirements, so an extra key causes validation failure even if the text says there are no additional limits.
 
 ## Fact envelope
 
@@ -259,6 +263,8 @@ If two sources conflict, check authority, year, category, ISSN and article/fee o
 ## Speed and fees
 
 Record time endpoints separately: submission→first decision, submission→acceptance, acceptance→online, submission→online, and indexing if available. Accepted-only cohorts exclude rejected manuscripts. Compare like definitions; do not add medians, estimate an indexing delay or promise a graduation deadline. Self-computed timings from a disclosed sample must be labelled estimates with sample definition and never masquerade as publisher statistics; V1.0 automated speed ranking only uses comparable official metrics.
+
+Match the endpoint named by the source. A statistic labelled acceptance→publication does not establish acceptance→online unless an authoritative source explicitly resolves that meaning. Otherwise keep the publication statistic, its period and definition in notes, and mark the online envelope unverified. A caveat or `ranking_usable: false` cannot repair a `verified` envelope whose endpoint is unsupported. Genuine evidence for an explicitly defined online endpoint remains usable subject to the other timing checks.
 
 Record OA model and payment option separately. Costs include amount, currency, tax treatment if stated, article type, optional/mandatory status, page/color charges, and waiver/discount conditions. A budget hard filter requires the applicable payable total or an explicitly documented no-fee route. Currency mismatch requires a newly verified conversion or manual review; the helper deliberately does not guess exchange rates.
 

@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from datetime import date
 from pathlib import Path
 
-from corpus import stamp, parse_article, DATASET_ACCESSION, TRIAL_REGISTRY
+from corpus import stamp, parse_article, study_material_eligibility, DATASET_ACCESSION, TRIAL_REGISTRY
 from runner import run, collect_call_records, parse_json_message, mark_output_contract_failed
 from broker import discover, capture_all, canonical_url
 from evaluation import fixed_baselines, require_reveal, summarize, journal_match, candidate_handoff, evidence_coverage
@@ -241,6 +241,9 @@ def prepare_case(case,corpus,work,as_of):
         raise InputEligibilityError("Pre-generation license eligibility: "+rights["permission_basis"])
     if current_masked != masked:
         raise InputEligibilityError("Pre-generation text extraction changed; amend and freeze inputs before any model request")
+    material = study_material_eligibility((source/"source.xml").read_bytes())
+    if not material['eligible']:
+        raise InputEligibilityError("Pre-generation full-material eligibility: " + material['reason'])
     answer=read(source/"answer.json") # preparation role only; never in model packet
     if not answer.get('issns'):
         raise InputEligibilityError("Pre-generation answer identity lacks reconciled ISSNs; do not score unknown identifiers as a miss")
@@ -251,6 +254,7 @@ validation, limitations (list), keywords (6-10 short medical concepts),
 queries (3 concise Europe PMC query strings using TITLE_ABS terms: topic AND method; topic AND dataset/design; and a broader topic/readership query using ordinary synonyms without the narrowest method/dataset term),
 primary_stratum (one of clinical_nursing/laboratory/public_database/bioinformatics/prediction/network/systematic_meta/other_review/bibliometrics/case_report),
 medical_relevance (boolean), summary, and abstract_summary. Preserve actual methods; do not invent external validation.
+Each of the three queries must contain no more than 18 whitespace-delimited words, counting Boolean operators and words inside quoted phrases. Every quoted phrase must contain no more than six words. Count the final strings before returning them. If needed, use fewer ordinary concept synonyms while preserving each query's role; never meet the limit by shortening a manuscript title, distinctive sentence, trial registry identifier or dataset accession.
 Assign primary_stratum by the manuscript's main research objective; retain all secondary methods in method_labels. A network-pharmacology/toxicology mechanism study can use public omics data without becoming public_database by that fact alone. A prediction-model study is prediction when developing/validating a clinical prediction model is its primary objective. Use public_database when the main objective is secondary population/clinical-database association analysis, and bioinformatics when the main objective is an omics/computational biological analysis. Explain the primary objective and any mixed-method uncertainty in limitations.
 No paper-title or distinctive long-sentence search. Do not identify the publication or journal.
 Do not use trial registry identifiers or dataset accession codes to search for the manuscript's answer. Use ordinary database names such as GEO/NHANES and topic/design concepts for journal discovery.
