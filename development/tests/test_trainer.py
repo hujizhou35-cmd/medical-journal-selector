@@ -10,13 +10,23 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"skills/medical-journal-selector-skill-trainer/scripts"))
 from corpus import mask_text, near_duplicate, fingerprint, parse_article, license_eligibility, prepare, attach_journal_identity,research_text
-from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt,capture_identity
+from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt,capture_identity,discover
 from evaluation import fixed_baselines, require_reveal, wilson, summarize, promotion, journal_match,candidate_handoff,evidence_coverage
 from freeze import freeze,verify
 from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no_rule_reason,source_audit
 from status import inspect as inspect_status
 
 class TrainerTests(unittest.TestCase):
+    def test_registration_answer_searches_are_rejected_before_network_access(self):
+        identifiers=['NCT07098208','ISRCTN12345678','CRD42021234567','ChiCTR2400081234',
+                     'ACTRN12624001234567','UMIN000012345','DRKS00012345','IRCT20240101012345N1','KCT0001234']
+        with tempfile.TemporaryDirectory() as folder,patch('broker.search') as search:
+            for identifier in identifiers:
+                with self.subTest(identifier=identifier),self.assertRaises(ValueError):
+                    discover(['clinical outcomes '+identifier],{'title':'Hidden complete manuscript title'},
+                             'Masked research narrative','2024-10-02','2026-10-02',Path(folder)/'search.json')
+            search.assert_not_called()
+
     def test_study_registrations_mask_consistently_without_removing_registration_facts(self):
         ids=['CRD42021234567','ChiCTR2400081234','ACTRN12624001234567',
              'UMIN000012345','DRKS00012345','IRCT20240101012345N1','KCT0001234']

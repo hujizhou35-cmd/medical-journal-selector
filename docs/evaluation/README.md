@@ -1,6 +1,6 @@
 # V2 evaluation
 
-[简体中文](README.zh-CN.md) · [Trainer guide](../trainer-guide.md) · [Homepage](../../README.md)
+[简体中文](README.zh-CN.md) · [Trainer guide](../trainer-guide.md) · [Observed candidate checks](../validation-v2.md) · [Homepage](../../README.md)
 
 **Status: real workflow pilots are in progress. No final V2 accuracy result or stable V2 release is claimed.**
 

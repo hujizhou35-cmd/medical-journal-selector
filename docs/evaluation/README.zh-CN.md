@@ -1,6 +1,6 @@
 # V2 评测
 
-[English](README.md) · [Trainer 教程](../trainer-guide.zh-CN.md) · [中文主页](../README.zh-CN.md)
+[English](README.md) · [Trainer 教程](../trainer-guide.zh-CN.md) · [候选版实际检查](../validation-v2.zh-CN.md) · [中文主页](../README.zh-CN.md)
 
 前两篇正式开发案例都未能提供有证据支持的可用推荐，负面结果完整保留。后续限定范围的来源获取检查修复了官网域名、文章类型政策链接和刊名／ISSN 查询；最多六本期刊共用原定的十八个初始来源、十二个后续链接上限。Crossref 期刊记录只支持身份核对，不能证明投稿许可、收录或指标。这些获取检查不代表推荐得分提高，需要用后续新案例验证。
 
