@@ -1,5 +1,5 @@
 {
-  "exported_at": "2026-10-02T12:28:05.197240+00:00",
+  "exported_at": "2026-10-02T13:00:03.666309+00:00",
   "status": "incomplete_or_failed",
   "input_manifest_sha256": "13547eb604167696f86a26967810e43dfe5bfacfa0f9be1c5e413767ae136730",
   "seed": 20261002,
@@ -7,114 +7,114 @@
   "protocol_revision": 9,
   "allocated_development": 100,
   "allocated_final": 50,
-  "completed_development": 4,
+  "completed_development": 5,
   "completed_final": 0,
   "development_summary": {
     "cases": 6,
-    "completed": 4,
+    "completed": 5,
     "infrastructure_failed": 0,
     "contamination_failed": 0,
     "model_failed": 0,
     "variants": {
       "v2": {
-        "n": 4,
+        "n": 5,
         "hit3": 0,
         "hit5": 0,
         "hit10": 0,
         "usable": 1,
-        "usable_known": 4,
-        "discovered": 1,
-        "discovered_known": 4,
-        "hard_failures": 6,
-        "hard_failure_cases": 1,
-        "source_coverage_cases": 4,
+        "usable_known": 5,
+        "discovered": 2,
+        "discovered_known": 5,
+        "hard_failures": 7,
+        "hard_failure_cases": 2,
+        "source_coverage_cases": 5,
         "source_coverage": {
           "identity": {
-            "verified": 13,
+            "verified": 19,
             "unverified": 17,
             "invalid_status": 0
           },
           "scope": {
-            "verified": 9,
-            "unverified": 21,
+            "verified": 13,
+            "unverified": 23,
             "invalid_status": 0
           },
           "article_type": {
-            "verified": 8,
-            "unverified": 22,
+            "verified": 11,
+            "unverified": 25,
             "invalid_status": 0
           },
           "method_policy": {
-            "verified": 1,
-            "unverified": 29,
+            "verified": 2,
+            "unverified": 34,
             "invalid_status": 0
           },
           "indexing": {
             "verified": 1,
-            "unverified": 29,
+            "unverified": 35,
             "invalid_status": 0
           },
           "jcr": {
             "verified": 0,
-            "unverified": 30,
+            "unverified": 36,
             "invalid_status": 0
           },
           "jif": {
-            "verified": 0,
-            "unverified": 30,
+            "verified": 1,
+            "unverified": 35,
             "invalid_status": 0
           },
           "oa": {
-            "verified": 9,
-            "unverified": 21,
+            "verified": 12,
+            "unverified": 24,
             "invalid_status": 0
           },
           "fees": {
-            "verified": 3,
-            "unverified": 27,
+            "verified": 4,
+            "unverified": 32,
             "invalid_status": 0
           },
           "warnings": {
             "verified": 0,
-            "unverified": 30,
+            "unverified": 36,
             "invalid_status": 0
           },
           "timeline:first_decision": {
-            "verified": 1,
-            "unverified": 29,
+            "verified": 2,
+            "unverified": 34,
             "invalid_status": 0
           },
           "timeline:acceptance": {
-            "verified": 1,
-            "unverified": 29,
+            "verified": 2,
+            "unverified": 34,
             "invalid_status": 0
           },
           "timeline:online": {
             "verified": 0,
-            "unverified": 30,
+            "unverified": 36,
             "invalid_status": 0
           },
           "timeline:indexing": {
             "verified": 0,
-            "unverified": 30,
+            "unverified": 36,
             "invalid_status": 0
           }
         },
         "hit3_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit5_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit10_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ]
       },
       "keyword": {
-        "n": 4,
+        "n": 5,
         "hit3": 0,
         "hit5": 0,
         "hit10": 1,
@@ -128,22 +128,22 @@
         "source_coverage": {},
         "hit3_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit5_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit10_wilson95": [
-          0.04558726080970055,
-          0.6993581574175981
+          0.03622410863243014,
+          0.6244653702374747
         ]
       },
       "abstract": {
-        "n": 4,
+        "n": 5,
         "hit3": 0,
         "hit5": 0,
-        "hit10": 0,
+        "hit10": 1,
         "usable": 0,
         "usable_known": 0,
         "discovered": 0,
@@ -154,15 +154,15 @@
         "source_coverage": {},
         "hit3_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit5_wilson95": [
           0,
-          0.4898908364545973
+          0.43448246478317476
         ],
         "hit10_wilson95": [
-          0,
-          0.4898908364545973
+          0.03622410863243014,
+          0.6244653702374747
         ]
       }
     },
@@ -327,11 +327,161 @@
       },
       "laboratory": {
         "cases": 1,
-        "completed": 0,
+        "completed": 1,
         "states": {
-          "request_checkpoint": 1
+          "completed": 1
         },
-        "variants": {}
+        "variants": {
+          "v2": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 0,
+            "usable_known": 1,
+            "discovered": 1,
+            "discovered_known": 1,
+            "hard_failures": 1,
+            "hard_failure_cases": 1,
+            "source_coverage_cases": 1,
+            "source_coverage": {
+              "identity": {
+                "verified": 6,
+                "unverified": 0,
+                "invalid_status": 0
+              },
+              "scope": {
+                "verified": 4,
+                "unverified": 2,
+                "invalid_status": 0
+              },
+              "article_type": {
+                "verified": 3,
+                "unverified": 3,
+                "invalid_status": 0
+              },
+              "method_policy": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "indexing": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "jcr": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "jif": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "oa": {
+                "verified": 3,
+                "unverified": 3,
+                "invalid_status": 0
+              },
+              "fees": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "warnings": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:first_decision": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "timeline:acceptance": {
+                "verified": 1,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "timeline:online": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "timeline:indexing": {
+                "verified": 0,
+                "unverified": 6,
+                "invalid_status": 0
+              }
+            },
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0,
+              0.7934506856227626
+            ]
+          },
+          "keyword": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0,
+              0.7934506856227626
+            ]
+          },
+          "abstract": {
+            "n": 1,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 1,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit5_wilson95": [
+              0,
+              0.7934506856227626
+            ],
+            "hit10_wilson95": [
+              0.20654931437723745,
+              1
+            ]
+          }
+        }
       },
       "public_database": {
         "cases": 1,
@@ -816,23 +966,23 @@
         }
       }
     },
-    "elapsed_seconds": 9758.623,
+    "elapsed_seconds": 12054.358,
     "usage": {
-      "input_tokens": 2789135,
-      "cached_input_tokens": 247296,
+      "input_tokens": 3517796,
+      "cached_input_tokens": 429568,
       "cache_write_input_tokens": 0,
-      "output_tokens": 158276,
-      "reasoning_output_tokens": 80834
+      "output_tokens": 210480,
+      "reasoning_output_tokens": 120507
     },
-    "model_calls": 33,
+    "model_calls": 38,
     "call_outcomes": {
-      "completed": 30,
+      "completed": 35,
       "infrastructure_failed": 3
     },
-    "usage_reported_calls": 30,
+    "usage_reported_calls": 35,
     "usage_unavailable_calls": 3,
-    "request_checkpoint": 2,
-    "unscored": 2,
+    "request_checkpoint": 1,
+    "unscored": 1,
     "time_interpretation": "Sum of recorded model-call elapsed times, including parallel reviews; not end-to-end wall-clock runtime.",
     "usage_interpretation": "Available CLI usage only. Calls with unavailable usage are counted separately, not assumed to consume zero.",
     "interval_interpretation": "Conditional on completed, scored cases; unscored cases are separately retained, not claimed as successful runs.",
@@ -1066,10 +1216,170 @@
       "case_id": "s1-laboratory-001",
       "stratum": "laboratory",
       "split": "development",
-      "status": "request_checkpoint",
-      "lesson_status": null,
+      "status": "completed",
+      "lesson_status": "completed",
       "failure": null,
-      "scores": null
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [
+            {
+              "claim": "A lists 2211-3428 as usable for the supplied manuscript.",
+              "source": "https://link.springer.com/journal/13402/submission-guidelines; MANUSCRIPT AND SOURCE DATA.material_limits",
+              "reason": "Cellular Oncology requires submitted work to have not been published before or be under consideration elsewhere. The supplied packet identifies this text as a published final manuscript, so listing it as usable bypasses an explicit prior-publication prohibition absent evidence of a new unpublished version or authorized transfer."
+            }
+          ],
+          "discovered": true,
+          "delivered_to_selector": true,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": 9,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13207009",
+      "original_outlet": "International Journal of Molecular Sciences",
+      "revealed_at": "2026-10-02T12:53:17.850154+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "Cellular Oncology was placed in the fit route despite its official submission rule requiring unpublished work; the packet identifies the supplied text as a published final manuscript, with no transfer or republication permission. This is a gate-execution failure, not a fit disagreement.",
+          "The exact TM4SF1–ADC search returned zero hits because the query was narrow and title/abstract dependent. Broader searches returned hits, but most precedents were indirect abstracts and original methods were not inspected; zero hits do not establish absence.",
+          "Critical evidence remained missing: Clarivate JCR/MJL, NLM indexing, warning-list checks, fees, defined acceptance timelines, several journal policies blocked by 403/redirect/host restrictions, APR instruction PDFs, supplementary anesthesia/euthanasia and humane-endpoint details, and dossiers for 11 discovered journals.",
+          "The empty quartile and acceptance-time routes were appropriate because no verified usable metrics existed. The known publishing outlet, International Journal of Molecular Sciences, was not mandatory and remained unassessed rather than disproven."
+        ],
+        "no_change_reason": "Existing rules already require current-policy precedence, eligibility gates, pending treatment of unknowns, and cautious interpretation of search failures. Repair execution by applying the originality gate before fit ranking, clarifying whether the supplied publication is merely a reference or the intended submission, and completing authoritative retrieval. A new manuscript-specific rule is unnecessary.",
+        "stratum_confirmed": true,
+        "classification_reason": "The manuscript is controlled laboratory and murine preclinical experimental research using cell assays, animal toxicity studies, microscopy, and surrogate angiogenesis models, with no human cohort or clinical endpoint."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a0fc95-6494-7d31-97d3-5d76c574189d",
+          "output_hash": "f7c72f38f481246a5659e3d7203cb1cd027d1c627af533eeb6c7e758a023c9e7",
+          "sealed_at": "2026-10-02T12:42:38.461201+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a0fca3-5c4f-7f21-be65-e4699934902c",
+          "output_hash": "5e164d56531cd634d6c57e6ea9aa8957f3414b25d5d0f5ad874c316d939c81fc",
+          "sealed_at": "2026-10-02T12:49:46.065483+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a0fca3-5b8f-7c12-ae19-483b4f72fc96",
+          "output_hash": "3a07fa62215890d227742c42cb2de8cd3a40bfeb85d2fb07ef3145b5f92227c6",
+          "sealed_at": "2026-10-02T12:51:06.289397+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a0fcab-1bfe-7621-995a-a38f1d2bdd70",
+          "output_hash": "e201e2881afa47ff1a013720ed4bbc55552a1803eb32a198566fffa0868e5927",
+          "sealed_at": "2026-10-02T12:53:17.656890+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "The diagnosis found an execution failure: the selector should have applied the existing originality and unresolved-publication gate before ranking. The Skill already requires current policy precedence, hard-gate eligibility, pending treatment of unknown applicability, and separation of search/access failure from non-fit. We therefore adopt no new broad or journal-specific rule; retain the hard failure and use the case to audit gate execution and retrieval repair. The original score and the disagreement are preserved.",
+          "at": "2026-10-02T12:59:45.827499+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-public_database-006",
