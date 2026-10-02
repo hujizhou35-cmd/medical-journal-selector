@@ -1,11 +1,13 @@
-# 隐私与数据边界
+# Privacy and data handling
 
-本 Skill 没有自建服务器、账户系统或遥测。文件由你选择的 Agent 读取，其服务条款和隐私设置照常适用；本项目不额外上传稿件。
+[简体中文](privacy.zh-CN.md) · [Homepage](../README.md)
 
-检索只使用必要的非识别性主题／方法词。Europe PMC 辅助脚本会将你给出的查询词发送给 Europe PMC，因此不要把患者信息、身份信息或整篇未公开摘要放进查询参数。
+This project has no hosted manuscript store, account system or telemetry. Your chosen AI assistant reads the files you provide under its own service terms and privacy settings. Trainer helpers send masked research packets to the configured model through the host's existing access; they do not make model processing local or offline.
 
-默认不把未公开稿件上传到出版社的 Journal Finder。联网阅读公开页面不等于获准公开你的手稿。生成的报告和交接材料留在你的工作目录，除非你明确要求分享。
+Journal searches use only the necessary topic and method terms. The Europe PMC helper sends queries to Europe PMC. Keep patient details, identifying information and complete unpublished abstracts out of search parameters.
 
-公开仓库只包含虚构稿件、公开来源的少量引文和链接、开发测试及说明。不要提交真实未公开稿件、患者信息、作者私人联系方式、API 密钥、登录文件或无权再分发的数据库。
+The default workflow does not upload unpublished manuscripts to a publisher's Journal Finder. Reports and cover-letter handoff files stay in your working directory unless you request sharing.
 
-本项目不自动投稿、不发送邮件、不决定最终投稿期刊。作者确认目标后，可把必要证据交给投稿信工具。
+Public repository content includes fictional examples, short source quotations and links, tests, instructions and derived evaluation records. Raw papers, answer maps and full model logs are excluded from release packages. Do not commit unpublished manuscripts, patient information, private author contacts, credentials or data you cannot redistribute.
+
+You choose the submission journal. The workflow prepares recommendations and, after your choice, materials for the cover-letter tool; it does not submit a manuscript or send email.

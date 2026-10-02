@@ -96,4 +96,4 @@ V2 候选和 Trainer 正在评测；发布门槛通过前，稳定下载仍为 V
 
 ---
 
-作者：**Jizhou Hu** · [MIT 许可](../LICENSE) · [隐私说明](privacy.md) · [反馈问题](https://github.com/hujizhou35-cmd/medical-journal-selector/issues)
+作者：**Jizhou Hu** · [MIT 许可](../LICENSE) · [隐私说明](privacy.zh-CN.md) · [反馈问题](https://github.com/hujizhou35-cmd/medical-journal-selector/issues)
