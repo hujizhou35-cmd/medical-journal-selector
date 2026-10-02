@@ -9,14 +9,55 @@ from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/"skills/medical-journal-selector-skill-trainer/scripts"))
-from corpus import mask_text, near_duplicate, fingerprint, parse_article, license_eligibility, prepare, attach_journal_identity
+from corpus import mask_text, near_duplicate, fingerprint, parse_article, license_eligibility, prepare, attach_journal_identity,research_text
 from broker import excluded_paper, strip_target_mentions, permitted_url, capture, capture_all,policy_excerpt
-from evaluation import fixed_baselines, require_reveal, wilson, summarize, promotion, journal_match,candidate_handoff
+from evaluation import fixed_baselines, require_reveal, wilson, summarize, promotion, journal_match,candidate_handoff,evidence_coverage
 from freeze import freeze,verify
 from campaign import prepare_case,InputEligibilityError,reveal_case,automatic_no_rule_reason
 from status import inspect as inspect_status
 
 class TrainerTests(unittest.TestCase):
+    def test_research_link_labels_survive_with_publication_clues_masked(self):
+        import xml.etree.ElementTree as ET
+        body=ET.fromstring('<body><p>Training used <ext-link>GSE26440</ext-link> and validation used <ext-link>GSE167363</ext-link>. Registry: <ext-link>NCT07098208</ext-link>. Repeated NCT07098208.</p><ref-list><ref>Secret publishing details</ref></ref-list></body>')
+        text=mask_text(research_text(body),{'journal':'Medicine'})
+        self.assertIn('Training used GSE26440 and validation used GSE167363',text)
+        self.assertIn('[masked trial registry 1]',text)
+        self.assertEqual(text.count('[masked trial registry 1]'),2)
+        self.assertNotIn('NCT07098208',text)
+        self.assertNotIn('Secret publishing details',text)
+        self.assertNotIn('GSE26440',mask_text(research_text(body),{},'pseudonymize_accessions'))
+        linked=mask_text('Data: https://example.org/query?acc=GSE26440 Trial: https://clinicaltrials.gov/study/NCT07098208',{})
+        self.assertIn('GSE26440',linked)
+        self.assertIn('[masked trial registry 1]',linked)
+        self.assertNotIn('NCT07098208',linked)
+        self.assertNotIn('https://',linked)
+
+    def test_ambiguous_journal_names_do_not_erase_research_terms(self):
+        text=mask_text('Medicine research measured blood cells. Published in Medicine. Journal: Medicine.',{'journal':'Medicine'})
+        self.assertIn('Medicine research measured blood cells.',text)
+        self.assertNotIn('Published in Medicine',text)
+        self.assertNotIn('Journal: Medicine',text)
+        self.assertIn('blood cells',mask_text('blood cells',{'journal':'Blood','journal_aliases':['Cells']}))
+
+    def test_field_coverage_preserves_unknowns_and_does_not_certify_truth(self):
+        coverage=evidence_coverage({'journals':[
+            {'facts':{'scope':{'status':'verified'},'jcr':{'status':'unverified'},'fees':None},
+             'timelines':{'acceptance':{'status':'unverified'}}},
+            {'facts':{'scope':{'status':'unverified'}}}]})
+        self.assertEqual(coverage['scope'],{'verified':1,'unverified':1,'invalid_status':0})
+        self.assertEqual(coverage['jcr']['unverified'],1)
+        self.assertEqual(coverage['fees']['invalid_status'],1)
+        self.assertEqual(coverage['timeline:acceptance']['unverified'],1)
+        result=summarize([
+            {'status':'completed','stratum':'clinical','scores':{'v2':{'source_coverage':coverage,'hard_failures':['Unsupported scope claim']}}},
+            {'status':'completed','stratum':'clinical','scores':{'v2':{}}}])
+        summary=result['variants']['v2']
+        self.assertEqual(summary['source_coverage_cases'],1)
+        self.assertEqual(summary['n'],2)
+        self.assertEqual(summary['hard_failure_cases'],1)
+        self.assertEqual(summary['source_coverage'],coverage)
+
     def test_no_rule_bookkeeping_preserves_bad_outcomes_but_never_adopts_rules(self):
         ledger={'split':'development','status':'diagnosed','lesson_status':'change_review_pending',
                 'revealed_at':'actual-time','lesson_record':{'status':'completed'},
@@ -236,6 +277,8 @@ class TrainerTests(unittest.TestCase):
         self.assertTrue(near_duplicate(fingerprint(text),fingerprint(text+" added supplement")))
     def test_host_allowlist(self):
         self.assertTrue(permitted_url("https://journals.plos.org/plosone/s/journal-information"))
+        self.assertTrue(permitted_url("https://haematologica.org/about"))
+        self.assertFalse(permitted_url("https://haematologica.org.evil.example/about"))
         self.assertFalse(permitted_url("http://localhost:8000/answers"))
         self.assertFalse(permitted_url("https://plos.org.evil.example/"))
         self.assertFalse(permitted_url("https://user:password@plos.org/"))

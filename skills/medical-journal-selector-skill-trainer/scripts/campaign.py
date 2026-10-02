@@ -15,7 +15,7 @@ from pathlib import Path
 from corpus import stamp, parse_article
 from runner import run, collect_call_records
 from broker import discover, capture_all, canonical_url
-from evaluation import fixed_baselines, require_reveal, summarize, journal_match, candidate_handoff
+from evaluation import fixed_baselines, require_reveal, summarize, journal_match, candidate_handoff, evidence_coverage
 
 class InputEligibilityError(ValueError):
     pass
@@ -75,7 +75,7 @@ def prepare_case(case,corpus,work,as_of):
     masked=(source/"masked.txt").read_text(encoding="utf-8")
     if hashlib.sha256(masked.encode()).hexdigest()!=case["input_hash"]:
         raise InputEligibilityError("Masked input changed after allocation")
-    rights,current_masked=parse_article((source/"source.xml").read_bytes())
+    rights,current_masked=parse_article((source/"source.xml").read_bytes(),case.get('research_identifier_policy','preserve_public_accessions'))
     if not rights["permitted"]:
         raise InputEligibilityError("Pre-generation license eligibility: "+rights["permission_basis"])
     if current_masked != masked:
@@ -91,6 +91,7 @@ queries (3 concise Europe PMC query strings using TITLE_ABS terms: topic AND met
 primary_stratum (one of clinical_nursing/laboratory/public_database/bioinformatics/prediction/network/systematic_meta/other_review/bibliometrics/case_report),
 medical_relevance (boolean), summary, and abstract_summary. Preserve actual methods; do not invent external validation.
 No paper-title or distinctive long-sentence search. Do not identify the publication or journal.
+Do not use trial registry identifiers or dataset accession codes to search for the manuscript's answer. Use ordinary database names such as GEO/NHANES and topic/design concepts for journal discovery.
 Use English. Cite the manuscript section supporting important method distinctions in limitations.
 MANUSCRIPT DATA:\n'''+masked
     profile,profile_rec=model_json(prompt,profile_path)
@@ -296,7 +297,8 @@ def reveal_case(case,corpus,work,ledger,outputs,reviews,baselines,selector):
         for review_data in effective_reviews:
             usable&=set(review_data["systems"][label]["usable_journal_ids"])
         ledger["scores"][variant]={"true_rank":rank,"usable":bool(usable) and not hard,"hard_failures":hard,
-                                    "discovered":discovered,"delivered_to_selector":delivered_true,"assessed":any(matches(j) for j in byid)}
+                                    "discovered":discovered,"delivered_to_selector":delivered_true,"assessed":any(matches(j) for j in byid),
+                                    "source_coverage":evidence_coverage(value['evidence'])}
     for variant,seq in baselines.items():
         titles={p['journal_id']:p['journal'] for p in retrieved}
         rank=next((i for i,j in enumerate(seq,1) if journal_match(answer,j['journal_id'],titles.get(j['journal_id'],'')) is True),None)

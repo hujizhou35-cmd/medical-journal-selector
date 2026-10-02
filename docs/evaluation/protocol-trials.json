@@ -1,0 +1,1465 @@
+{
+  "exported_at": "2026-10-02T06:10:57.131258+00:00",
+  "distinct_protocol_cases": 9,
+  "formal_case_count": 0,
+  "interpretation": "Preserved workflow trials, excluded after preparation defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
+  "observed_model_calls": 68,
+  "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
+  "cases": [
+    {
+      "case_id": "s1-clinical_nursing-001",
+      "stratum": "clinical_nursing",
+      "designation": "exposed_scoring_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r2",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "The independent post-reveal diagnostic identified a real identity-scoring discrepancy: Frontiers in Medicine was discovered, delivered and assessed, but the XML target record omitted ISSNs and the scorer silently treated that as no match. This is a protocol defect, not a journal-selection rule. Preserve the sealed outputs, original scores and diagnosis; reconcile identity from an exact article-matched bibliographic record and restart formal counting on untouched pilot cases. Source-access omissions also require execution repair under existing rules; no manuscript-specific journal rule is adopted.",
+              "at": "2026-10-01T21:05:29.714253+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0f940-e4ce-7040-bc14-a5fa7ed10635",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 156.5,
+              "usage": {
+                "input_tokens": 150638,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3148,
+                "reasoning_output_tokens": 2070
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f913-d65e-7aa0-9043-9d1adb6c33e4",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 113.656,
+              "usage": {
+                "input_tokens": 19973,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2979,
+                "reasoning_output_tokens": 1791
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f93f-86fd-71f3-afef-1de9c943dc00",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 89.641,
+              "usage": {
+                "input_tokens": 144138,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2049,
+                "reasoning_output_tokens": 1479
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f93f-8602-7051-bae9-372cff7fc3a6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 87.438,
+              "usage": {
+                "input_tokens": 144138,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1880,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f916-1171-76c1-8274-71e18d341024",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 101.656,
+              "usage": {
+                "input_tokens": 34244,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2400,
+                "reasoning_output_tokens": 1888
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f925-ac8c-7ea0-9d4a-141469351629",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 900.203,
+              "usage": null,
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f935-00b5-7d73-8295-19300d983a13",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 689.391,
+              "usage": {
+                "input_tokens": 134932,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 21056,
+                "reasoning_output_tokens": 7768
+              },
+              "transport_retries": null
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13382537",
+      "original_outlet": "Frontiers in Medicine"
+    },
+    {
+      "case_id": "s1-clinical_nursing-002",
+      "stratum": "clinical_nursing",
+      "designation": "exposed_visible_research_label_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r6",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No new Skill rule is justified. Existing instructions already cover broader discovery, identity deduplication, alternate authoritative retrieval, bounded repair rounds, policy applicability, mandatory gates and honest unknowns. The supported repairs concern retrieval and handoff execution, plus missing manuscript information. The publishing journal is one historical outlet, not a required answer.",
+              "at": "2026-10-02T01:22:11.824104+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Post-reveal retrieval-only repair: verified Healio, Florence Nightingale, Alternative Therapies, Ovid and Wolters Kluwer official hosts are allowed. Fresh regression restored readable Florence Nightingale and publisher redirect pages; Healio and Alternative Therapies still return 403. Readability does not prove current admission policy. Original sealed outputs, empty routes, unusable outcome and non-hit are preserved; no Selector rule or answer-specific journal preference was added.",
+              "at": "2026-10-02T01:33:39.314407+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "The actual retrieved pool contained one Heliyon name-only identifier alongside its unambiguous ISSN. Generic exact-title normalization now groups this duplicate using retrieved bibliographic provenance, without reading target answers or fuzzy matching ambiguous titles. Regression preserves all papers and unchanged BM25/TF-IDF formulae, reducing 57 outlet identifiers to 56. This is a preparation execution repair; original sealed recommendations, reviews and non-hit remain unchanged.",
+              "at": "2026-10-02T01:41:02.170290+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fa1e-8ab3-7663-87e3-d83f542e5196",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 195.75,
+              "usage": {
+                "input_tokens": 137121,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4315,
+                "reasoning_output_tokens": 3106
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa0b-25f1-7bb3-9bae-e27407d0ccc0",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 107.312,
+              "usage": {
+                "input_tokens": 15838,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2459,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa1c-cb57-7723-b724-afa76dafe8a7",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 93.36,
+              "usage": {
+                "input_tokens": 124542,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2270,
+                "reasoning_output_tokens": 1765
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa1c-ca8d-7b53-b4d0-f41671ec2b23",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 114.61,
+              "usage": {
+                "input_tokens": 124542,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2430,
+                "reasoning_output_tokens": 1965
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa0d-2943-7e20-8ff7-5b446499e3af",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 113.703,
+              "usage": {
+                "input_tokens": 30029,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3026,
+                "reasoning_output_tokens": 2448
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa0f-b2b4-7820-ad77-555f6e4022f6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 857.782,
+              "usage": {
+                "input_tokens": 113128,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 27532,
+                "reasoning_output_tokens": 12322
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13342350",
+      "original_outlet": "Irish Journal of Medical Science"
+    },
+    {
+      "case_id": "s1-public_database-001",
+      "stratum": "public_database",
+      "designation": "exposed_protocol_check",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development",
+          "status": "infrastructure_failed",
+          "lesson_status": null,
+          "scores": null,
+          "changes": [],
+          "calls": [
+            {
+              "context_id": "01a0f8c2-41ef-71a0-b002-b6003909c37d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 116.719,
+              "usage": {
+                "input_tokens": 18025,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2322,
+                "reasoning_output_tokens": 1299
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8c4-4a95-7bf0-9a6a-a72f49ba4a79",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "infrastructure_failed",
+              "elapsed_seconds": 100.14,
+              "usage": null,
+              "transport_retries": null
+            }
+          ]
+        },
+        {
+          "protocol": "development-final-protocol",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "Both blinded reviews found zero unsupported claims. The empty shortlist is explained by upstream candidate coverage, blocked legitimate official hosts and missing item-level bibliography provenance. Existing Selector rules already require broadening and bounded source repair. Correct the Trainer broker and preserve this as an exposed protocol pilot; it will not count toward the formal 100 cases.",
+              "at": "2026-10-01T19:11:34.465704+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0f8d8-86da-7cb2-b44f-2b67af1b428e",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 209.015,
+              "usage": {
+                "input_tokens": 68906,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3675,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8c5-f3c9-78e2-93e7-ef331f582fb9",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 98.797,
+              "usage": {
+                "input_tokens": 17251,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1901,
+                "reasoning_output_tokens": 955
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8d7-2c53-7160-b142-86c39134a1e6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 78.86,
+              "usage": {
+                "input_tokens": 62655,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1376,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8d7-2ba5-72d3-b2b0-1239fcec6c6a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 88.797,
+              "usage": {
+                "input_tokens": 62655,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1501,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8c7-abc7-7cb1-9da7-3826c181a1e8",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 119.531,
+              "usage": {
+                "input_tokens": 16379,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2695,
+                "reasoning_output_tokens": 2070
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8ca-dda6-7bf1-bacf-c88f21485a0d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 806.61,
+              "usage": {
+                "input_tokens": 53436,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 25838,
+                "reasoning_output_tokens": 9322
+              },
+              "transport_retries": null
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13394037",
+      "original_outlet": "Annals of Clinical and Translational Neurology"
+    },
+    {
+      "case_id": "s1-public_database-002",
+      "stratum": "public_database",
+      "designation": "exposed_scoring_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r2",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "accepted_change",
+              "reason": "Actual post-reveal independent diagnostic found that a dataset routing label was being treated as the undefined publisher policy trigger. The general amendment requires proving applicability before checking compliance, preserves explicit exclusions and treats ambiguity as pending. Regression on the identical captured source packet retained the usable fit candidate, produced no source audit error and passed both independent blind reviews. Three separate fictional counterexamples correctly remained excluded, pending and allowed respectively; these probes are not counted as real article cases.",
+              "at": "2026-10-01T20:26:29.060888+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0f90f-1483-7642-9c37-e8ab227ad425",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 77.234,
+              "usage": {
+                "input_tokens": 41780,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1392,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f904-a05a-7f70-ab77-70f13a275a79",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 128.594,
+              "usage": {
+                "input_tokens": 178002,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2590,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f922-8496-79f3-be58-21fe13250368",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 30.421,
+              "usage": {
+                "input_tokens": 17770,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 419,
+                "reasoning_output_tokens": 292
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f920-47ef-72d3-88f7-3fec7e228065",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 63.079,
+              "usage": {
+                "input_tokens": 173477,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1256,
+                "reasoning_output_tokens": 943
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f920-472c-7cc0-848c-9c57afb7f306",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 146.5,
+              "usage": {
+                "input_tokens": 173477,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2999,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f912-e31e-7751-9f18-8c21728d9517",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 877.047,
+              "usage": {
+                "input_tokens": 161483,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 27233,
+                "reasoning_output_tokens": 11394
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8e3-3cc3-7071-9bfa-dcdb976805ea",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 110.515,
+              "usage": {
+                "input_tokens": 25621,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2174,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f902-c76b-7c61-8e75-de7ad2fe141a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 106.031,
+              "usage": {
+                "input_tokens": 171777,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1905,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f902-c7ed-7803-b607-560bd5c7aa55",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 121.469,
+              "usage": {
+                "input_tokens": 171777,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2195,
+                "reasoning_output_tokens": 1723
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8e5-4851-7b70-89e5-f6d56101b5be",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 124.875,
+              "usage": {
+                "input_tokens": 30659,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2762,
+                "reasoning_output_tokens": 2243
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f8e9-319a-78c0-a483-85e925dd14a5",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 900.14,
+              "usage": {
+                "input_tokens": 161230,
+                "cached_input_tokens": 161024,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 26122,
+                "reasoning_output_tokens": 8286
+              },
+              "transport_retries": null
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13612265",
+      "original_outlet": "Frontiers in Immunology"
+    },
+    {
+      "case_id": "s1-public_database-003",
+      "stratum": "public_database",
+      "designation": "exposed_text_extraction_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r4",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "Prioritize genuine methodology/editorial-policy links over generic navigation. The same source-plan leads were recaptured within 30 requests and a fresh generator plus two fresh blind reviewers reported no hard failures. The cited publisher policy was captured, but its clipped text still did not resolve admission; original zero usable candidates and non-hit are retained. No journal-specific rule or answer insertion was adopted. A later XML hygiene audit found a retained publishing-review-history note and loss of citation-tail narrative: this entire exposed case is a protocol pilot, not a valid formal blind result.",
+              "at": "2026-10-01T23:54:27.729849+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0f961-0c55-7eb2-a734-911635c0f4ec",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 165.109,
+              "usage": {
+                "input_tokens": 153399,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3689,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f972-bffb-7762-aa5a-3976b6243ac7",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 69.641,
+              "usage": {
+                "input_tokens": 159269,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1121,
+                "reasoning_output_tokens": 767
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f972-bf12-7613-822c-b1d17488d35b",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 78.641,
+              "usage": {
+                "input_tokens": 159269,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1341,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f968-13e8-7433-b91d-ac901b15c8f9",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 698.781,
+              "usage": {
+                "input_tokens": 152516,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 22450,
+                "reasoning_output_tokens": 11391
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f950-4439-7083-ab58-6e981b23d2e8",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 112.344,
+              "usage": {
+                "input_tokens": 23632,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2756,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f95f-b85b-72c2-ba59-cd783afb7042",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 81.188,
+              "usage": {
+                "input_tokens": 147109,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1638,
+                "reasoning_output_tokens": 1278
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f95f-b74b-7383-9680-09539703eb19",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 86.281,
+              "usage": {
+                "input_tokens": 147109,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1587,
+                "reasoning_output_tokens": 1230
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f952-52cb-76f2-b841-1ccf9cb980e8",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 95.266,
+              "usage": {
+                "input_tokens": 32322,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2496,
+                "reasoning_output_tokens": 1985
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f954-8e74-7281-b9a9-fc453acc4fef",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 731.422,
+              "usage": {
+                "input_tokens": 136966,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 23369,
+                "reasoning_output_tokens": 9322
+              },
+              "transport_retries": null
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13473969",
+      "original_outlet": "Cardiovascular Research"
+    },
+    {
+      "case_id": "s1-public_database-004",
+      "stratum": "public_database",
+      "designation": "exposed_visible_research_label_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r6",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "No Selector rule change. Both blind reviewers found no hard failures and one supported usable journal. The original outlet was discovered but falls outside both fixed top-ten baseline lists; recovering all baseline scores explains the omission without inserting or promoting it. Added a preparation-only handoff trace for every discovered outlet and supplied it only to post-reveal diagnosis. A deterministic check on the actual sealed inputs confirms identical baseline order, source plan and delivered pool, with only insignificant floating-point accumulation differences. Original recommendations, reviews and non-hit remain unchanged. Other blocked or unqueried facts stay Not verified; no unperformed source recovery is claimed.",
+              "at": "2026-10-02T00:37:01.447928+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fa03-c2e6-77f3-8bac-ee8dce33b4a5",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 119.812,
+              "usage": {
+                "input_tokens": 191439,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2658,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f9e8-4c1c-7961-b5bc-7365940ac203",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 100.735,
+              "usage": {
+                "input_tokens": 19291,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2588,
+                "reasoning_output_tokens": 1366
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0fa02-37ff-7e42-a629-37c964b9a97d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 100.781,
+              "usage": {
+                "input_tokens": 184774,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2109,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0fa02-372e-70d2-9e42-52391df40310",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 97.515,
+              "usage": {
+                "input_tokens": 184774,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2095,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f9ea-3059-79d0-bf5b-d10127f3c44d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 113.015,
+              "usage": {
+                "input_tokens": 24360,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2802,
+                "reasoning_output_tokens": 2269
+              },
+              "transport_retries": null
+            },
+            {
+              "context_id": "01a0f9ec-fb00-7f60-b2c2-c9aa78f03720",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 1391.719,
+              "usage": {
+                "input_tokens": 188150,
+                "cached_input_tokens": 172928,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 15477,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": null
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13564308",
+      "original_outlet": "Cureus"
+    },
+    {
+      "case_id": "s1-network-001",
+      "stratum": "network",
+      "designation": "exposed_visible_research_label_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r6",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No new skill rule is established by this case. Existing discovery, source-verification, policy-trigger, alternate-route and bounded-repair instructions already address the observed gaps. Repair retrieval and candidate handoff first; do not add an outlet-specific recommendation, a universal experimental-validation requirement, or speculative permission based on inaccessible policies.",
+              "at": "2026-10-02T02:24:39.770923+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fa6a-bf1e-7490-bddc-8ad8287a2901",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 185.953,
+              "usage": {
+                "input_tokens": 155759,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4250,
+                "reasoning_output_tokens": 3090
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa57-64de-7e23-bd1b-bc0e973df9ba",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 124.422,
+              "usage": {
+                "input_tokens": 22850,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3267,
+                "reasoning_output_tokens": 2070
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa69-4fb5-70e3-89a8-267502fce477",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 94.078,
+              "usage": {
+                "input_tokens": 138512,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2041,
+                "reasoning_output_tokens": 1526
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa69-4f49-70a3-a338-327105947207",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 83.719,
+              "usage": {
+                "input_tokens": 138512,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1767,
+                "reasoning_output_tokens": 1429
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa59-bbe8-7343-9f1d-a94ddbab3bff",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 100.062,
+              "usage": {
+                "input_tokens": 30284,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2490,
+                "reasoning_output_tokens": 1949
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa5c-1687-7e93-9715-b945038b2343",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 865.359,
+              "usage": {
+                "input_tokens": 128757,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 25144,
+                "reasoning_output_tokens": 11085
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13609487",
+      "original_outlet": "Metabolites"
+    },
+    {
+      "case_id": "s1-systematic_meta-001",
+      "stratum": "systematic_meta",
+      "designation": "exposed_visible_research_label_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r6",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [
+                {
+                  "claim": "The Cureus precedent is a case series, a design excluded from this manuscript's eligibility criteria.",
+                  "source": "Manuscript Section 2.1; https://europepmc.org/article/MED/39744272",
+                  "reason": "Section 2.1 explicitly excludes case reports, but does not establish a blanket exclusion of case series. The bibliographic record verifies a three-patient case series, not the asserted manuscript prohibition."
+                },
+                {
+                  "claim": "The selected precedent is a three-patient case series, a design excluded from this manuscript's eligibility criteria.",
+                  "source": "Manuscript Section 2.1; https://europepmc.org/article/MED/39744272",
+                  "reason": "Section 2.1 excludes case reports, but does not categorically exclude case series. The precedent's three-patient case-series design alone does not establish exclusion."
+                }
+              ],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "accepted_change",
+              "reason": "Both original blind reviewers identified the same unsupported extension from case-report exclusion to case-series exclusion. Added a general pre-delivery audit of consequential manuscript-method and eligibility comparisons against the cited manuscript section; no topic-to-journal rule or publishing answer was added. A real fresh generation on the unchanged packet and two new independent blinded reviews passed source audits without hard failures. The corrected regression still provides no fully verified usable journal; original non-hit, unusable score and original hard error remain in the record. The new paragraph is retained as a supported process clarification, not a proven causal performance gain. Retries/regression add zero cases.",
+              "at": "2026-10-02T02:00:12.352372+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fa45-3441-7fb1-86f6-5eabada0e8cc",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 93.562,
+              "usage": {
+                "input_tokens": 117263,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2656,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa34-64db-77e3-86fc-804eb3614680",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 90.188,
+              "usage": {
+                "input_tokens": 29040,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2159,
+                "reasoning_output_tokens": 1001
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa54-8736-7df3-9db6-8d996339cd16",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 83.093,
+              "usage": {
+                "input_tokens": 102659,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1402,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa54-88bf-7511-b16a-a3a9653583fc",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 111.125,
+              "usage": {
+                "input_tokens": 102659,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1819,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa4a-4c88-70b1-b483-bf44053048f4",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 669.765,
+              "usage": {
+                "input_tokens": 97918,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 20038,
+                "reasoning_output_tokens": 10658
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa43-b575-7b63-9c11-392dc4251113",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 97.781,
+              "usage": {
+                "input_tokens": 105183,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2052,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa43-b612-7771-b027-1e3e950bf47e",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 85.484,
+              "usage": {
+                "input_tokens": 105183,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1749,
+                "reasoning_output_tokens": 1331
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa36-298a-7083-b126-897a6340f16e",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 166.312,
+              "usage": {
+                "input_tokens": 27278,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4401,
+                "reasoning_output_tokens": 3888
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa39-1d92-7f40-a3b0-41c0ad344010",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 694.031,
+              "usage": {
+                "input_tokens": 97868,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 21341,
+                "reasoning_output_tokens": 9840
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13548425",
+      "original_outlet": "MicrobiologyOpen"
+    },
+    {
+      "case_id": "s1-case_report-001",
+      "stratum": "case_report",
+      "designation": "exposed_visible_research_label_protocol_pilot",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-protocol-r6",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": 1,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true
+            },
+            "keyword": {
+              "true_rank": 4,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 5,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Automatic no-change bookkeeping after genuine sealed generation, independent reviews and post-reveal diagnosis. The analyst proposed no new rule and confirmed the primary stratum; source/review audits report no hard failure. No Skill edit or unperformed retrieval repair is accepted. Original scores, including negative outcomes, are retained. Analyst reason: No new Skill instruction is justified by this case. Existing rules already require explicit article-type admission, current-policy precedence, claim-specific evidence, specialist candidate discovery, alternate authoritative retrieval and pending status for unresolved gates. The sealed output largely followed those rules. Repair evidence acquisition and upstream coverage without memorizing the publishing journal or converting access failures into journal restrictions.",
+              "at": "2026-10-02T02:58:58.428451+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "The original independently discovered Haematologica URLs were blocked by the host list. Its current official About page established the journal identity and Foundation ownership. Added the verified host and ran an actual post-reveal transport regression: About and linked canonical author guidelines were readable, while the guessed about/author-guidelines URL remained 404. This permits source retrieval only; no candidate has been inserted, no original recommendation or score changed, and no fresh selection is claimed.",
+              "at": "2026-10-02T03:06:01.484327+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fa8b-42ce-7d03-8cae-be5c326e9153",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 113.328,
+              "usage": {
+                "input_tokens": 147768,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2215,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa70-2d1a-7712-80d3-9cab7f4b07d0",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 89.109,
+              "usage": {
+                "input_tokens": 16710,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2019,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa89-1919-7d03-b33c-2821f17b65eb",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 123.094,
+              "usage": {
+                "input_tokens": 134055,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2299,
+                "reasoning_output_tokens": 1856
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa89-1818-7a81-a183-556f367bc855",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 141.797,
+              "usage": {
+                "input_tokens": 134055,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3255,
+                "reasoning_output_tokens": 2848
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa71-e6b9-7353-95a9-a35f80052451",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 84.109,
+              "usage": {
+                "input_tokens": 27463,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2071,
+                "reasoning_output_tokens": 1550
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fa74-0c31-7820-9ed8-d81e0ba4b7f8",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 1379.75,
+              "usage": {
+                "input_tokens": 137494,
+                "cached_input_tokens": 123264,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 14792,
+                "reasoning_output_tokens": 0
+              },
+              "transport_retries": 1
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13590347",
+      "original_outlet": "Frontiers in Oncology"
+    }
+  ]
+}

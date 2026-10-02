@@ -11,7 +11,7 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
 from pathlib import Path
-from corpus import get, search, stamp, fingerprint, near_duplicate
+from corpus import get, search, stamp, fingerprint, near_duplicate, DATASET_ACCESSION, TRIAL_REGISTRY
 
 class TextHTML(HTMLParser):
     def __init__(self):
@@ -45,7 +45,7 @@ def permitted_url(url):
     suffixes=("plos.org","biomedcentral.com","springer.com","springernature.com","frontiersin.org","mdpi.com","wiley.com","elsevier.com","sciencedirect.com","tandfonline.com","sagepub.com","lww.com","bmj.com","oup.com","nature.com","karger.com","thieme.com","liebertpub.com","clarivate.com","nlm.nih.gov","ncbi.nlm.nih.gov","doaj.org","casjournals.cn","cell.com","thelancet.com","aacrjournals.org","asm.org","rsc.org","acs.org","hindawi.com","scipress.com","journalofnursingstudies.com","onlinelibrary.wiley.com","cambridge.org","jstage.jst.go.jp","jsmrm.jp","endocrine.org")
     # Verified publisher/journal hosts exposed by genuine development runs.
     # These allow evidence retrieval, never a recommendation or endorsement.
-    suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com")
+    suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com","haematologica.org")
     return any(host==s or host.endswith("."+s) for s in suffixes)
 
 def canonical_url(url):
@@ -124,7 +124,7 @@ def discover(queries, answer, masked, from_date, to_date, output):
     papers={}
     for query in queries[:3]:
         # A query is a short concept combination, never a copied long sentence.
-        if len(query.split())>18 or answer.get("title","").casefold() in query.casefold() or any(len(phrase.split())>6 for phrase in re.findall(r'"([^"]+)"',query)):
+        if len(query.split())>18 or answer.get("title","").casefold() in query.casefold() or any(len(phrase.split())>6 for phrase in re.findall(r'"([^"]+)"',query)) or DATASET_ACCESSION.search(query) or TRIAL_REGISTRY.search(query):
             raise ValueError("Rejected answer-bearing or long manuscript search")
         q=f'({query}) AND FIRST_PDATE:[{from_date} TO {to_date}]'
         data,url=search(q,size=70)

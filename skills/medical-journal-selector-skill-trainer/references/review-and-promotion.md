@@ -12,6 +12,8 @@ Compute Hit@k against the evaluation-only fit sequence and record whether the ta
 
 Keep repeated source/reviewer error flags separately from affected-case counts; do not call two reports of one claim two distinct errors. Include actual retry/regression and unfinished-case receipts in observed resource totals, deduplicating copied receipts by context/input/start time. They never increase distinct completed cases. Preserve original development scores after repair and label regressions separately.
 
+Report verified, unverified and invalid-status envelope counts for each fact/timeline field in the original sealed output. A model's verified label is not an independent correctness result; source and reviewer failures remain separate. Missing coverage records are unknown, not zero missing facts.
+
 Stage promotion gates: 100 completed development and 50 untouched final records; every final V1/V2 generation and two blind reviews sealed before reveal; zero unresolved V2 hard failures; V2 paired wins >= losses; V2 usable coverage >= V1; protected behavior/language/package/installation checks passed. No statistical-improvement claim follows from a non-inferiority gate alone. The model/provider and AI-only judgments limit external validity.
 
 Failure at stage one permits exactly one authorized extension (100 new development + 50 new final). Exposed test cases can diagnose defects but are not new blind evidence. Failure at stage two stops with `GATES_NOT_PASSED`; model connectivity exhaustion stops with `RUNNER_UNAVAILABLE`; no publication claims either outcome succeeded. General Trainer use may have other user-agreed bounds recorded in its manifest.

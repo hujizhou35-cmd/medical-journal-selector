@@ -119,6 +119,22 @@ def require_reveal(records, final=False):
         raise ValueError("A generator/reviewer context was reused")
     return True
 
+def evidence_coverage(evidence):
+    """Count original fact envelopes, not independent verification successes."""
+    fields={}
+    for journal in evidence.get('journals',[]):
+        for block in ('facts','timelines'):
+            values=journal.get(block,{})
+            if not isinstance(values,dict):
+                continue # Schema failures are reported by the source audit.
+            for field,envelope in values.items():
+                key=field if block=='facts' else 'timeline:'+field
+                counts=fields.setdefault(key,{'verified':0,'unverified':0,'invalid_status':0})
+                status=envelope.get('status') if isinstance(envelope,dict) else None
+                counts[status if status in ('verified','unverified') else 'invalid_status']+=1
+    return fields
+
+
 def summarize(records):
     out={"cases":len(records),"completed":0,"infrastructure_failed":0,"contamination_failed":0,"model_failed":0,"variants":{},"strata":{},"elapsed_seconds":0,"usage":{},"model_calls":0,"usage_reported_calls":0,"usage_unavailable_calls":0}
     def add_score(aggregate,value):
@@ -132,8 +148,15 @@ def summarize(records):
         aggregate["discovered"]+=int(value.get("discovered") is True)
         aggregate["hard_failures"]+=len(value.get("hard_failures",[]))
         aggregate['hard_failure_cases']+=int(bool(value.get('hard_failures',[])))
+        coverage=value.get('source_coverage')
+        if coverage is not None:
+            aggregate['source_coverage_cases']+=1
+            for field,counts in coverage.items():
+                target=aggregate['source_coverage'].setdefault(field,{'verified':0,'unverified':0,'invalid_status':0})
+                for status,count in counts.items():
+                    target[status]=target.get(status,0)+count
     def blank():
-        return {"n":0,"hit3":0,"hit5":0,"hit10":0,"usable":0,"usable_known":0,"discovered":0,"discovered_known":0,"hard_failures":0,'hard_failure_cases':0}
+        return {"n":0,"hit3":0,"hit5":0,"hit10":0,"usable":0,"usable_known":0,"discovered":0,"discovered_known":0,"hard_failures":0,'hard_failure_cases':0,'source_coverage_cases':0,'source_coverage':{}}
     for r in records:
         state=r.get("status","incomplete")
         out[state]=out.get(state,0)+1
@@ -168,6 +191,7 @@ def summarize(records):
     out["usage_interpretation"]="Available CLI usage only. Calls with unavailable usage are counted separately, not assumed to consume zero."
     out["interval_interpretation"]="Conditional on completed, scored cases; unscored cases are separately retained, not claimed as successful runs."
     out['hard_failure_interpretation']='hard_failures counts retained source/reviewer flags, which can repeat one underlying error. hard_failure_cases counts affected cases out of n; original development errors remain after regression.'
+    out['source_coverage_interpretation']='Counts of original model fact/timeline envelopes by field and declared status; verified labels remain subject to source/reviewer audits. They are not independent proof of correctness. Cases without recorded envelopes are not assumed fully verified or fully missing.'
     return out
 
 def promotion(development, final, checks):

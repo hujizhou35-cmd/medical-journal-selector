@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'skills/medical-journal-selector-skill-trainer/scripts'))
 from corpus import stamp
-from evaluation import require_reveal,promotion,summarize
+from evaluation import require_reveal,promotion,summarize,evidence_coverage
 from runner import collect_call_records
 
 
@@ -35,6 +35,14 @@ def export(corpus,development_runs,final_runs,output,checks):
         # regressions and unfinished-case preparation. Never mark them as a
         # completed case or rewrite the underlying ledger.
         ledger['calls']=collect_call_records(file.parent)
+        if ledger.get('revealed_at'):
+            require_reveal([ledger],final=split=='holdout')
+            # Read only the original sealed generations, never regressions.
+            # Enrich the exported copy; do not change historical ledger scores.
+            for artifact in ledger['generations']:
+                score=ledger.get('scores',{}).get(artifact['variant'])
+                if score is not None:
+                    score['source_coverage']=evidence_coverage(read(artifact['path'])['evidence'])
         records[split].append(ledger)
         entry={'case_id':case['case_id'],'stratum':case['stratum'],'split':split,
                'status':ledger.get('status'),'lesson_status':ledger.get('lesson_status'),

@@ -93,8 +93,10 @@ def research_text(node):
             if blocked:
                 remove_keep_tail(parent,child)
             elif tag in ('ext-link','uri'):
-                # External bibliographic links can reveal answers. Keep their
-                # following narrative; their visible label is not needed here.
+                # Unwrap the link: its visible label can be a dataset accession,
+                # measurement or method. mask_text removes publication clues
+                # and actual URLs after research extraction.
+                child.tail = text_of(child) + (child.tail or '')
                 remove_keep_tail(parent,child)
             else:
                 clean(child)
@@ -129,7 +131,7 @@ def attach_journal_identity(target, item, pmcid, url, checked_at):
                                        'matched_pmcid':pmcid,'issns':issns,'title':journal.get('title')}
     return target
 
-def parse_article(xml):
+def parse_article(xml, research_id_policy='preserve_public_accessions'):
     root = ET.fromstring(xml)
     meta = root.find("./front/article-meta")
     journal = root.find("./front/journal-meta")
@@ -168,19 +170,52 @@ def parse_article(xml):
               "license_text":license_text,"license_urls":license_urls,"permitted":permitted,
               "permission_basis":permission_basis,
               "supplement_links":supplement_links}
-    masked = mask_text("\n\n".join(research), target)
+    masked = mask_text("\n\n".join(research), target, research_id_policy)
     return target, masked
 
-def mask_text(text, target):
+AMBIGUOUS_JOURNAL_WORDS = frozenset(('medicine','cancer','cancers','blood','cells','genes','rna',
+    'life','brain','diagnostics','biology','nutrients','vaccines','molecules','metabolites',
+    'toxins','toxics','healthcare','foods','insects','proteomes','antioxidants','microorganisms',
+    'pharmaceuticals','pathogens','pharmaceutics','biomolecules'))
+DATASET_ACCESSION = re.compile(r'\b(?:GSE\d+|GSM\d+|E-[A-Z]{4}-\d+|SRP\d+|PRJNA\d+)\b',re.I)
+TRIAL_REGISTRY = re.compile(r'\b(?:NCT\d{8}|ISRCTN\d+)\b',re.I)
+
+def mask_text(text, target, research_id_policy='preserve_public_accessions'):
+    if research_id_policy not in ('preserve_public_accessions','pseudonymize_accessions'):
+        raise ValueError('Unknown research identifier policy')
+    # Preserve an accession that appeared only as a visible research URL, while
+    # hiding the URL itself. Do this before adding multiword masked labels.
+    def hide_url(match):
+        codes=DATASET_ACCESSION.findall(match.group(0))+TRIAL_REGISTRY.findall(match.group(0))
+        return '[masked research link; '+', '.join(dict.fromkeys(codes))+']' if codes else '[masked identifier]'
+    text=re.sub(r'https?://\S+',hide_url,text,flags=re.I)
     # Do not strip an ordinary biomedical word just because a surname matches it.
     secrets = [target.get("title", ""), target.get("journal", "")]
     secrets += target.get('journal_aliases',[])
-    secrets += [v for k,v in target.get("ids", {}).items() if k in ("doi", "pmid", "pmc", "publisher-id") and len(v) > 4]
+    secrets += [v for k,v in target.get("ids", {}).items() if k in ("doi", "pmid", "pmc", "pmcid", "publisher-id") and len(v) > 4]
     secrets += [a for a in target.get("authors", []) if len(a.split()) > 1]
     for secret in sorted(set(secrets), key=len, reverse=True):
         if secret:
-            text = re.sub(re.escape(secret), "[masked publication metadata]", text, flags=re.I)
-    text = re.sub(r"https?://\S+|\b10\.\d{4,9}/\S+|\bPM(?:ID|CID)\s*[:=]?\s*\w+", "[masked identifier]", text, flags=re.I)
+            if secret.casefold() in AMBIGUOUS_JOURNAL_WORDS:
+                # Headers and references are already removed. A journal named
+                # Cells/Blood/Medicine must not erase cells/blood/medicine from
+                # the methods. Mask explicit publishing contexts instead.
+                pattern=r'((?:journal(?:\s+(?:named|called))?|published\s+in|publishing\s+journal|publication\s+in)\s*[:=]?\s*[\"\u201c]?)'+re.escape(secret)+r'\b'
+                text=re.sub(pattern,lambda m:m.group(1)+'[masked publication metadata]',text,flags=re.I)
+            else:
+                text = re.sub(re.escape(secret), "[masked publication metadata]", text, flags=re.I)
+    trial_names={}
+    def trial_label(match):
+        key=match.group(0).upper()
+        return '[masked trial registry '+str(trial_names.setdefault(key,len(trial_names)+1))+']'
+    text=TRIAL_REGISTRY.sub(trial_label,text)
+    if research_id_policy=='pseudonymize_accessions':
+        dataset_names={}
+        def dataset_label(match):
+            key=match.group(0).upper()
+            return '[dataset accession '+str(dataset_names.setdefault(key,len(dataset_names)+1))+']'
+        text=DATASET_ACCESSION.sub(dataset_label,text)
+    text = re.sub(r"\b10\.\d{4,9}/\S+|\bPM(?:ID|CID)\s*[:=]?\s*\w+", "[masked identifier]", text, flags=re.I)
     text = re.sub(r"\b[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}\b", "[masked contact]", text)
     return text
 
