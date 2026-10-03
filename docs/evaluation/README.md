@@ -50,6 +50,8 @@ The [sealed r22 ten-class wave](waves/r22-wave10-03.json) completed 61 actual CL
 
 A uniform family check inspected all 150 allocated sources and 36 existing development retrieval records, independently of scores; only that nursing case was affected. The earliest unused clinical reserve restored the allocation, and final50 metadata/source bytes are unchanged. The generic own-registration filter, URL/redirect/link guards and cached-source rejection passed **261 full offline tests**, **50 independent checks**, and a real retained-source regression removing one same-study record while retaining66 independent records. Independent verification semantically reparsed100 development sources and only hashed final files. [Repair records](execution-repairs.json) preserve the initial rejected fixes and limitations. This repair adds zero model calls or blind cases; it cannot detect every registry-less companion paper. Selector r17 is unchanged; tested execution r23 is frozen for the next wave. The allocation change passed99 independent checks.
 
+The registered `r23-wave10-04` has actually started with ten primary classes and a global ten-call ceiling. Running records add no completed cases; the [current state](current-wave.json) records actual observation.
+
 ## Evidence and interpretation
 
 Published-outlet discovery and Hit@3/5/10 are separate from today's usable recommendations. Unknown JCR/SCIE data remains unverified. Similar papers do not prove current article admission. Journal identities, scope quotations, method policy and every changing field are checked against the captured sources; Crossref journal metadata supports identity only.
