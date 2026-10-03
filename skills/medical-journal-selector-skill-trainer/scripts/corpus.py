@@ -222,6 +222,7 @@ def parse_article(xml, research_id_policy='preserve_public_accessions'):
               "issns":[text_of(x) for x in journal.findall("issn")],"ids":ids,"authors":authors,
               "license_text":license_text,"license_urls":license_urls,"permitted":permitted,
               "permission_basis":permission_basis,
+              "study_registration_ids":own_study_registrations(root),
               "supplement_links":supplement_links}
     masked = mask_text("\n\n".join(research), target, research_id_policy)
     return target, masked
@@ -234,6 +235,43 @@ DATASET_ACCESSION = re.compile(r'\b(?:GSE\d+|GSM\d+|E-[A-Z]{4}-\d+|SRP\d+|PRJNA\
 TRIAL_REGISTRY = re.compile(
     r'\b(?:NCT\d{8}|ISRCTN\d+|CRD420\d+|ChiCTR[A-Za-z]*\d+|ACTRN\d+|'
     r'UMIN\d+|DRKS\d+|IRCT\d+(?:N\d+)?|KCT\d+)\b', re.I)
+
+def own_study_registrations(root):
+    """Preparation-only same-study keys; never expose them in model packets.
+
+    Read explicit registration blocks and self-registration statements, not
+    reference lists or every mentioned trial. A cited study or a shared public
+    dataset does not make two articles the same study. Ambiguous statements
+    with multiple registry keys need manual preparation review rather than an
+    inferred relationship.
+    """
+    identifiers=set()
+    registration_heading=re.compile(r'^(?:(?:(?:clinical\s+)?trial|study|review|protocol)\s+)?registration(?:\s+(?:number|details|information|identifier))?$|^prospero(?:\s+registration)?$',re.I)
+    own_statement=re.compile(r'\b(?:this|our)\s+(?:study|trial|review|protocol)\b[^.;]{0,250}\bregist|\bthe\s+(?:study|trial|review|protocol)\s+(?:was|is|has\s+been)\b[^.;]{0,250}\bregist|^\s*(?:(?:clinical\s+)?trial\s+)?registration\s*:',re.I)
+    independent_study=re.compile(r'\b(?:previous|prior|independent|earlier|included|cited|other|external)\s+(?:study|trial|review|protocol)\b',re.I)
+    no_registration=re.compile(r'\b(?:not|never)\s+(?:prospectively\s+)?regist|\b(?:no|without)\s+(?:trial\s+)?registration\b',re.I)
+    for container in [*root.findall('./front/article-meta/abstract'),root.find('body'),root.find('back')]:
+        if container is None:continue
+        container=copy.deepcopy(container)
+        def remove_citations(parent):
+            for child in list(parent):
+                if (child.tag in ('ref-list','ref','mixed-citation','element-citation') or
+                        (child.tag=='sec' and re.match(r'^(?:references?|bibliography)\b',text_of(child.find('title')),re.I))):
+                    parent.remove(child)
+                else:remove_citations(child)
+        remove_citations(container)
+        for section in container.iter('sec'):
+            if registration_heading.search(text_of(section.find('title'))):
+                text=research_text(section)
+                if not independent_study.search(text) and not no_registration.search(text):
+                    identifiers.update(x.upper() for x in TRIAL_REGISTRY.findall(text))
+        for paragraph in container.iter('p'):
+            text=research_text(paragraph)
+            for sentence in re.split(r'(?<=[.!?;])\s+',text):
+                keys={x.upper() for x in TRIAL_REGISTRY.findall(sentence)}
+                if len(keys)==1 and own_statement.search(sentence) and not independent_study.search(sentence) and not no_registration.search(sentence):
+                    identifiers.update(keys)
+    return sorted(identifiers)
 
 def mask_text(text, target, research_id_policy='preserve_public_accessions'):
     if research_id_policy not in ('preserve_public_accessions','pseudonymize_accessions'):

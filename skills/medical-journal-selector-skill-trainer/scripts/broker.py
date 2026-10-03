@@ -72,13 +72,25 @@ def canonical_url(url):
     return urllib.parse.urlunsplit((parsed.scheme,parsed.netloc,parsed.path,urllib.parse.urlencode(pairs),""))
 
 class OfficialRedirect(urllib.request.HTTPRedirectHandler):
+    def __init__(self,answer=None):
+        super().__init__()
+        self.answer=answer or {}
     def redirect_request(self,request,fp,code,msg,headers,newurl):
+        if contains_protected_identifier(newurl,self.answer):
+            raise ValueError('Excluded study-family redirect')
         if not permitted_url(newurl):
             raise ValueError("Redirect leaves the permitted official-source hosts: "+(urllib.parse.urlparse(newurl).hostname or "unknown host"))
         return super().redirect_request(request,fp,code,msg,headers,newurl)
 
-def fetch_page(url):
-    opener=urllib.request.build_opener(OfficialRedirect())
+def protected_identity_values(answer):
+    return [v for v in [*answer.get('ids',{}).values(),*answer.get('study_registration_ids',[])] if isinstance(v,str) and len(v)>5]
+
+def contains_protected_identifier(value,answer):
+    return any(v.casefold() in urllib.parse.unquote(value).casefold() for v in protected_identity_values(answer))
+
+def fetch_page(url,answer=None):
+    if contains_protected_identifier(url,answer or {}):raise ValueError('Excluded study-family source')
+    opener=urllib.request.build_opener(OfficialRedirect(answer))
     request=urllib.request.Request(url,headers={"User-Agent":"MedicalJournalSelectorResearch/2.0 (+https://github.com/hujizhou35-cmd/medical-journal-selector)"})
     with request_slot(url):
         with opener.open(request,timeout=25) as response:
@@ -92,11 +104,15 @@ def excluded_paper(paper, answer, masked):
     for name in ("id","pmid","pmcid","doi"):
         if str(paper.get(name,"")).lower() in ids:
             return True
+    own_registry={x.upper() for x in answer.get('study_registration_ids',[])}
+    candidate_text=paper.get('title','')+' '+(paper.get('abstractText') or paper.get('abstract') or '')
+    if own_registry & {x.upper() for x in TRIAL_REGISTRY.findall(candidate_text)}:
+        return True
     title=re.sub(r"\W+"," ",paper.get("title","").lower()).strip()
     target=re.sub(r"\W+"," ",answer.get("title","").lower()).strip()
     if title and target and (title==target or len(set(title.split()) & set(target.split()))/max(1,len(set(target.split())))>.85):
         return True
-    abstract=paper.get("abstractText","")
+    abstract=paper.get("abstractText") or paper.get("abstract","")
     if abstract and near_duplicate(fingerprint(abstract),fingerprint(masked),.65):
         return True
     return False
@@ -104,7 +120,7 @@ def excluded_paper(paper, answer, masked):
 def strip_target_mentions(text, answer):
     # Filter complete result/paragraph lines, not merely DOI strings, since
     # nearby journal text could reveal the answer.
-    secrets=[answer.get("title","")]+[v for k,v in answer.get("ids",{}).items() if k in ("doi","pmid","pmc")]
+    secrets=[answer.get("title","")]+[v for k,v in answer.get("ids",{}).items() if k in ("doi","pmid","pmc")]+answer.get('study_registration_ids',[])
     return "\n".join(line for line in text.splitlines() if not any(secret and len(secret)>5 and secret.casefold() in line.casefold() for secret in secrets))
 
 def normalize_journal_ids(papers):
@@ -173,7 +189,7 @@ def discover(queries, answer, masked, from_date, to_date, output):
 def capture(url,answer):
     captured={"url":url,"checked_at":stamp(),"status":"unverified","text":"","source_type":"official",
               "retrieval_attempt":{"status":"not_attempted"}}
-    if any(value and len(value)>5 and value.casefold() in urllib.parse.unquote(url).casefold() for value in answer.get("ids",{}).values()):
+    if contains_protected_identifier(url,answer):
         return {"url":"[filtered publication URL]","checked_at":stamp(),"status":"unverified","text":"",
                 "failure":"Excluded target-publication source","retrieval_attempt":{"status":"not_attempted","reason":"Excluded target-publication source"}}
     if not permitted_url(url):
@@ -182,7 +198,9 @@ def capture(url,answer):
         return captured
     try:
         captured['retrieval_attempt']['status']='attempted'
-        raw,final_url,mime=fetch_page(url)
+        raw,final_url,mime=fetch_page(url,answer) if answer.get('study_registration_ids') else fetch_page(url)
+        if contains_protected_identifier(final_url,answer):
+            raise ValueError('Excluded study-family final URL')
         captured.update(final_url=final_url,content_type=mime)
         parser=TextHTML()
         parser.feed(raw.decode("utf-8",errors="replace"))
@@ -198,7 +216,7 @@ def capture(url,answer):
         links=[]
         for href in parser.links:
             absolute=canonical_url(urllib.parse.urljoin(final_url,href))
-            if permitted_url(absolute) and not any(v and len(v)>5 and v.casefold() in urllib.parse.unquote(absolute).casefold() for v in answer.get("ids",{}).values()):
+            if permitted_url(absolute) and not contains_protected_identifier(absolute,answer):
                 links.append(absolute)
         labels={}
         for href,label in parser.link_labels:
@@ -359,7 +377,7 @@ def plan_followed_links(records, initial_urls, answer, article_type='', source_j
             url=canonical_url(original)
             path=urllib.parse.urlparse(url).path
             if (url in already or not permitted_url(url) or re.search(r'\.(pdf|docx?|xlsx?|zip)$',path,re.I)
-                    or any(v and len(v)>5 and v.casefold() in urllib.parse.unquote(url).casefold() for v in answer.get('ids',{}).values())):
+                    or contains_protected_identifier(url,answer)):
                 continue
             targets,critical,priority=link_targets(url,article_type,labels.get(original,labels.get(url,'')))
             if not targets:continue

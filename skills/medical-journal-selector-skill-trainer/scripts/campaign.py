@@ -14,7 +14,7 @@ from pathlib import Path
 
 from corpus import stamp, parse_article, study_material_eligibility, DATASET_ACCESSION, TRIAL_REGISTRY
 from runner import run, collect_call_records, parse_json_message, mark_output_contract_failed
-from broker import discover, capture_all, canonical_url
+from broker import discover, capture_all, canonical_url, excluded_paper, contains_protected_identifier
 from evaluation import fixed_baselines, require_reveal, summarize, journal_match, candidate_handoff, evidence_coverage
 from preparation_seal import (PreparationSealError, assert_preparation_unstarted,
                               seal_preparation, verify_preparation_seal)
@@ -244,7 +244,8 @@ def prepare_case(case,corpus,work,as_of):
     material = study_material_eligibility((source/"source.xml").read_bytes())
     if not material['eligible']:
         raise InputEligibilityError("Pre-generation full-material eligibility: " + material['reason'])
-    answer=read(source/"answer.json") # preparation role only; never in model packet
+    answer={**read(source/"answer.json"),
+            'study_registration_ids':rights['study_registration_ids']} # preparation role only; never in model packet
     if not answer.get('issns'):
         raise InputEligibilityError("Pre-generation answer identity lacks reconciled ISSNs; do not score unknown identifiers as a miss")
     profile_path=work/"profile.json"
@@ -269,6 +270,8 @@ MANUSCRIPT DATA:\n'''+masked
     search_path=work/"literature.json"
     if search_path.exists():
         literature=read(search_path)
+        if any(excluded_paper(p,answer,masked) for p in literature['papers']):
+            raise InputEligibilityError('Retained literature contains same-study material; preserve exposed records and amend allocation before formal reuse')
     else:
         try:
             literature=discover(queries,answer,masked,window(as_of,case["stratum"] in ("public_database","bioinformatics","network")),as_of,search_path)
@@ -308,6 +311,8 @@ Do not identify the target manuscript's publishing journal. DATA:\n'''+json.dump
     policy_path=work/"policies.json"
     if policy_path.exists():
         policies=read(policy_path)
+        if contains_protected_identifier(json.dumps(policies),answer):
+            raise InputEligibilityError('Retained policies contain study identity; preserve exposed records and amend allocation before formal reuse')
     else:
         policies=capture_all([u for j in source_plan["journals"] for u in j["official_urls"]],answer,policy_path,profile.get('article_type',''),source_plan['journals'])
     packet={"manuscript":masked,"profile":profile,"constraints":{"time_endpoint":"acceptance"},

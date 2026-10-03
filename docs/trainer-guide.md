@@ -24,7 +24,7 @@ One distinct manuscript completes selection, blind review, reveal, diagnosis and
 
 ## Project V2 campaign
 
-The first stage uses 100 development papers and 50 untouched tests across ten article classes; 26/100 development cases are complete and final testing remains 0/50. If gates fail, one extension adds 100 development papers and 50 new tests. No stable V2 is published while gates fail. See the [protocol and actual results](evaluation/README.md).
+The first stage uses 100 development papers and 50 untouched tests across ten article classes; 35/100 development cases are complete and final testing remains 0/50. If gates fail, one extension adds 100 development papers and 50 new tests. No stable V2 is published while gates fail. See the [protocol and actual results](evaluation/README.md).
 
 ## Installation
 
@@ -38,6 +38,6 @@ Python helpers collect permitted papers, prepare masked packets, execute fresh r
 
 The project uses AI reviewers, not medical experts. Public-paper model memory and the reviewed final manuscript remain limitations. Raw papers, answer maps and full logs are excluded from release packages.
 
-Ten primary article-class queues can run one case per class, with a default ceiling of ten workers and ten simultaneous model calls. Each case retains its serial preparation, recommendation, blind review, reveal and decision chain. The failed ten-class wave remains preserved. Its two incomplete chains and three new cases passed the [five-worker recovery barrier](evaluation/waves/r22-recovery-5.json), bringing development to 26/100. The next registered wave restores ten-class scheduling; [current state](evaluation/current-wave.json) distinguishes registration, running work and genuine completion. Running cases receive no completion credit. Read the [parallel execution plan](evaluation/parallel-execution-plan.md) before enabling the scheduler.
+Ten primary article-class queues can run one case per class, with a default ceiling of ten workers and ten simultaneous model calls. Each case retains its serial preparation, recommendation, blind review, reveal and decision chain. The failed ten-class wave remains preserved. Its two incomplete chains and three new cases passed the [five-worker recovery barrier](evaluation/waves/r22-recovery-5.json), bringing development to26/100. Nine valid cases from the subsequent ten-class wave raised it to35/100; one contaminated same-study protocol remains a preserved trial. The next wave uses the tested family filter; [current state](evaluation/current-wave.json) distinguishes registration, running work and genuine completion. Running cases receive no completion credit. Read the [parallel execution plan](evaluation/parallel-execution-plan.md) before enabling the scheduler.
 
 Final testing requires the completed development records. Seal both ranking baselines and shared inputs before recommendations; both final reviewers inspect all four anonymous comparator results. Validate the whole fifty-case batch before the reveal/scoring role sees its answers. These implemented guards have synthetic checks, while the real final evaluation remains unstarted.

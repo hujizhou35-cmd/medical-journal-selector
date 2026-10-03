@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Twenty-six distinct valid development loops have passed central decisions: **26/100 development cases and 0/50 final cases**. Original negative results, scores and failed-wave records remain intact; later repairs do not replace them. These development checks do not establish V2 accuracy or improvement over V1.
+Thirty-five distinct valid development loops have passed central decisions: **35/100 development cases and 0/50 final cases**. Original negative results, scores and failed-wave records remain intact; later repairs do not replace them. These development checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -18,7 +18,7 @@ Generation and two AI reviewer contexts receive masked research content and cont
 
 ## Preserved protocol trials
 
-**Eighteen distinct protocol trials are retained outside the required 100.** The original seventeen exposed preparation defects and an ambiguous published-final task definition. Their original results remain intact. One additional diagnosed chain used a notice rather than a complete study; it is preserved as a protocol trial instead of receiving development credit.
+**Nineteen distinct protocol trials are retained outside the required 100.** The original seventeen exposed preparation defects and an ambiguous published-final task definition. Their original results remain intact. One additional diagnosed chain used a notice rather than a complete study; it is preserved as a protocol trial instead of receiving development credit.
 
 [Protocol trials](protocol-trials.json) retain original negative recommendations, source-classification errors, review disagreements, partial executions, adopted lessons and actual model receipts. Corrected regressions do not overwrite those scores or increase distinct-case counts. [Formal records and release gates](results.json) report the fresh campaign separately.
 
@@ -38,13 +38,17 @@ The r21 workflow, including material-eligibility and profile prompt guards, pass
 
 [Two preparation renewals](preparation-renewals.json) passed fresh profile requests and 42 file-hash checks. Original failures, profiles and usage are retained; validated new profiles can be resumed in the next ordinary wave. These two preparation calls add no completed-case credit.
 
-The latest ten-class wave, [`r21-wave10-02`](waves/r21-wave10-02.json), ended and remains recorded as failed. It used 52 fresh CLI contexts: 50 calls reached terminal completion and two failed. Eight distinct cases completed selection, blind review, reveal, diagnosis and sealed central decisions. Those decisions added **zero new Selector rules**; original poor results and scores remain unchanged.
+An earlier ten-class wave, [`r21-wave10-02`](waves/r21-wave10-02.json), ended and remains recorded as failed. It used 52 fresh CLI contexts: 50 calls reached terminal completion and two failed. Eight distinct cases completed selection, blind review, reveal, diagnosis and sealed central decisions. Those decisions added **zero new Selector rules**; original poor results and scores remain unchanged.
 
 The two previously incomplete chains have now passed recovery and central decisions. The [sealed primary-objective classification correction](execution-repairs.json) assigns `s1-public_database-009` to laboratory research, retaining its original cached profile. The ten-class quotas remain balanced, and all fifty final source files are byte-identical across that amendment. Both original blind-review calls for `s1-other_review-002` logged 22 internal reconnects each and failed at the 1,800-second limit; their unreported usage remains unknown. Those original failures remain archived. Classification repair alone adds no completed manuscript case.
 
 A tested transport-stop guard bounded recovery requests. Its initial version passed the full 249-check synthetic suite; the subsequent race fix passed nine focused checks and seven independent checks. The 249-check result is not a full-suite rerun of the final fix. A fresh, tool-free `gpt-6.1-sol/xhigh` connection check completed in 24.844 seconds and added zero manuscript-case credit. The frozen r22 execution keeps Selector r17 unchanged.
 
-The [five-case recovery wave](waves/r22-recovery-5.json), `r22-recovery-5`, is sealed: 26 new CLI calls completed in 26 fresh contexts, with an actual peak of five simultaneous calls. Six older calls remain separate, including the two original failures with unknown usage. Source and central-decision checks passed for all five cases, raising the total to **26/100**. Four had conditional usable candidates; the scoping-review case retained its empty routes and negative result. No new Selector rule or untested retrieval repair was adopted. This validates the observed five-call recovery, without proving future ten-call reliability or failed-process cleanup. The registered `r22-wave10-03` wave has actually started with ten primary-class workers and a global ten-call ceiling; [current wave](current-wave.json) records its observed state.
+The [five-case recovery wave](waves/r22-recovery-5.json), `r22-recovery-5`, is sealed: 26 new CLI calls completed in 26 fresh contexts, with an actual peak of five simultaneous calls. Six older calls remain separate, including the two original failures with unknown usage. Source and central-decision checks passed for all five cases, raising the total to **26/100**. Four had conditional usable candidates; the scoping-review case retained its empty routes and negative result. No new Selector rule or untested retrieval repair was adopted. This validates the observed five-call recovery, without proving future ten-call reliability or failed-process cleanup. The next ten-class wave is described below; [current wave](current-wave.json) records its observed state.
+
+The [sealed r22 ten-class wave](waves/r22-wave10-03.json) completed 61 actual CLI calls in 61 fresh contexts, with an actual peak of ten and no transport failure. Nine source-audited cases passed central decisions, bringing valid development to **35/100**. One same-study protocol restored a masked trial ID and contaminated discovery/baselines; its unchanged original non-hit and scores are preserved as the nineteenth protocol trial. The prediction case retains an adjudicated unsupported adult-population detail and its unusable result; it remains a bad valid-input case in the denominator.
+
+A uniform family check inspected all 150 allocated sources and 36 existing development retrieval records, independently of scores; only that nursing case was affected. The earliest unused clinical reserve restored the allocation, and final50 metadata/source bytes are unchanged. The generic own-registration filter, URL/redirect/link guards and cached-source rejection passed **261 full offline tests**, **50 independent checks**, and a real retained-source regression removing one same-study record while retaining66 independent records. Independent verification semantically reparsed100 development sources and only hashed final files. [Repair records](execution-repairs.json) preserve the initial rejected fixes and limitations. This repair adds zero model calls or blind cases; it cannot detect every registry-less companion paper. Selector r17 is unchanged; tested execution r23 is frozen for the next wave. The allocation change passed99 independent checks.
 
 ## Evidence and interpretation
 

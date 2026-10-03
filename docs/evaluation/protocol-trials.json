@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-02T18:18:23.394598+00:00",
-  "distinct_protocol_cases": 18,
+  "exported_at": "2026-10-03T01:25:16.078246+00:00",
+  "distinct_protocol_cases": 19,
   "formal_case_count": 0,
   "interpretation": "Preserved workflow trials, excluded after preparation or task-scenario defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
-  "observed_model_calls": 124,
+  "observed_model_calls": 130,
   "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
   "cases": [
     {
@@ -642,6 +642,214 @@
           ]
         }
       ]
+    },
+    {
+      "case_id": "s1-clinical_nursing-009",
+      "stratum": "clinical_nursing",
+      "designation": "same_study_family_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 6,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": 1,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 1,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "Reject this exposed loop as valid blind credit: same-study protocol restored the masked trial registration and publication clue. Uniform score-independent audit found only this affected case. Generic own-study family filtering, URL/link/redirect/cache guards passed261 full offline tests,50 independent checks and real retained-source regression removing1 same-study record while retaining66 independent records. Registry-less companion detection remains incomplete. Original non-hit, favorable/negative recommendations, scores and all receipts are unchanged; unexposed same-class reserve restores allocation. This is a tested evaluation acquisition/isolation repair, not an improved recommendation or new blind replay.",
+              "at": "2026-10-03T01:24:20.866640+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0ff29-a480-79a1-bb7f-01a24663b279",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 156.313,
+              "usage": {
+                "input_tokens": 169655,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3663,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff17-450e-70c0-99af-68830890a448",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 175.949,
+              "usage": {
+                "input_tokens": 21805,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 4536,
+                "reasoning_output_tokens": 2538
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff27-ea7a-7ae3-84c4-a3200590e417",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 77.268,
+              "usage": {
+                "input_tokens": 157371,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1554,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff28-0deb-73a0-b197-cfc8de129fce",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 104.29,
+              "usage": {
+                "input_tokens": 157371,
+                "cached_input_tokens": 3968,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2312,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff1a-7c5d-77e0-9d60-ede26da06113",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 69.742,
+              "usage": {
+                "input_tokens": 30288,
+                "cached_input_tokens": 3072,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1825,
+                "reasoning_output_tokens": 1459
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff1d-86a9-7af3-bf4b-5b5040ea0a4b",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 657.394,
+              "usage": {
+                "input_tokens": 150592,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 21304,
+                "reasoning_output_tokens": 9322
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13581808",
+      "original_outlet": "Frontiers in Public Health"
     },
     {
       "case_id": "s1-laboratory-001",

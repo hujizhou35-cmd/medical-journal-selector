@@ -236,6 +236,37 @@
         "global_model_call_limit": 5,
         "logical_class_queues": 10
       }
+    },
+    {
+      "at": "2026-10-03T01:27:44.390858+00:00",
+      "kind": "same-study registration family isolation repair",
+      "decision": "tested_execution_repair",
+      "affected_original_case": "s1-clinical_nursing-009",
+      "affected_original_case_credit": 0,
+      "reserve_promotion": "s1-clinical_nursing-023",
+      "criterion": "Uniform own-study registry matching, independently of recommendation score; independent trials and shared public datasets are retained.",
+      "uniform_allocated_source_checks": 150,
+      "independently_reparsed_development_sources": 100,
+      "ordinary_development_literature_checked": 36,
+      "affected_cases": 1,
+      "same_study_records_removed_in_retained_source_regression": 1,
+      "independent_records_retained": 66,
+      "full_offline_tests": 261,
+      "independent_repair_checks": 50,
+      "new_model_calls": 0,
+      "new_blind_case_credit": 0,
+      "original_negative_scores_and_failed_records_preserved": true,
+      "final50_metadata_and_bytes_unchanged": true,
+      "manifest_revision": 13,
+      "manifest_sha256": "b46c69320043cfbf71f7cf2cd83280793c3cde2f72ae0aeac7a76bbe899d9908",
+      "uniform_audit_sha256": "6aa06756c8550bd9e463038be333466ad4fa26c3043e71d0cc876f709afe8399",
+      "independent_code_review_seal_sha256": "5deaabe67e3391ecf2e7ed67b3cc5c52450b97effedf5da0b1bb72f789daa03c",
+      "offline_test_log_sha256": "5afabbd9198098b6bf6b9fa11332a2a33a7d0fb0f3c790a4ae73e4e245a8b529",
+      "limitations": "Only explicit own registrations supplement title/ID/text checks. Registry-less companion papers can evade automation. Holdout source semantics were checked by preparation audit, while independent code review only hashed holdout files. No new model replay, blind accuracy improvement or perfect isolation is claimed.",
+      "independent_allocation_checks": 99,
+      "independent_allocation_seal_sha256": "dcdc5eb07bcb163bf1c2f7ed07e65741106ef6877c86a969898f7e265f2c3803",
+      "execution_snapshot": "execution-protocol-r23",
+      "execution_manifest_sha256": "9867c014ee0ac627eb07d9b37f514bd77b99a2a0224869d8609f50fd5f42811f"
     }
   ],
   "latest_objective_based_preselection_amendment": {
@@ -255,5 +286,5 @@
     "independent_verification_seal_sha256": "dd4432d3451d163449ef2329dbc33a466fddf8f7d790c5c4a83bb39464943fc0",
     "interpretation": "Fixed selection-order metadata repair before selection, independent of recommendation scores. Secondary method labels and all original failure/usage records remain."
   },
-  "latest_exported_at": "2026-10-02T22:58:55.577622+00:00"
+  "latest_exported_at": "2026-10-03T01:27:44.390858+00:00"
 }
