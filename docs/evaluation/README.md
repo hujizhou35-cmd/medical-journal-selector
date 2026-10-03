@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Formal valid development completion is **72/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The ten r28 central decisions are complete after the three required exposed-input regressions passed: **three accepted-change and seven no-change decisions**. Three general Step 5 checks were adopted in frozen Selector **r18**; execution **r24** is unchanged. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. The replays add zero blind-case credit and show no accuracy improvement. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
+Formal valid development completion is **82/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The ten r31 central decisions are sealed: **one accepted software change and nine no-change decisions**. The bibliography-only inline-format source matcher is adopted in frozen execution **r25**; Selector **r18** and its rules are unchanged. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. The software checks add zero blind-case credit and establish no accuracy improvement. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
 
 ## Registered experiment
 
@@ -134,9 +134,19 @@ The final wrapper passed **six author checks and 16 independent offline checks**
 
 Available new-call terminal usage is **557,554 input tokens, 25,998 output tokens, 40,576 cached input tokens and 13,308 reasoning output tokens**. The three cached calls are excluded from new usage and concurrency. Earlier failed or disconnected-attempt usage remains unknown, so these are not complete billed totals. OS exit 0, passed automatic gates and recommendation quality are reported separately.
 
-## Current execution: r31-wave10-09 (3 October 2026)
+## Completed development barrier: r31-wave10-09 (3 October 2026)
 
-The next ten-class wave actually started at **17:11:43 UTC** and is running with **ten article-class workers and a global five-model-call ceiling**, using frozen Selector **r18** and unchanged execution **r24**. Actual scheduler identity and all ten class claims were observed. Whole-wave reviews and central decisions remain required; formal totals stay **72/100 development, 0/50 final and 24 separate protocol trials**, with no early case credit. [Current observed state](current-wave.json)
+The wave actually started at **17:11:43 UTC** with **ten article-class workers and a global five-model-call ceiling**, using frozen Selector **r18** and execution **r24**. It ended and was sealed at **18:12:49 UTC**. Its ten central decisions are now sealed: **one accepted software change and nine no-change decisions**, giving **72 + 10 = 82/100 development, 0/50 final and 24 separate protocol trials**. Original grades remain **five cases with usable candidates, five without and one hard-failure case**. That hard failure and every negative result remain recorded; no original grade is rewritten. [Sealed wave record](waves/r31-wave10-09.json) · [Current observed state](current-wave.json)
+
+The source-free runtime audit passed **1,922 actual checks**. It confirmed **61 newly completed model terminals in 61 fresh contexts and zero final failed calls**, with an actual interval peak of **five** and one adjudication call. All **61 actual CLI processes returned exit code 1**; those receipts are retained rather than relabelled exit 0. Genuine model completion and OS/CLI exit codes are separate observations. The whole scheduler's tool exit was 0. The audit retained **six response-decode errors and six reconnects**; interrupted-attempt usage remains unknown.
+
+Available new terminal usage is **5,315,993 input tokens, 275,846 output tokens, 377,088 cached input tokens and 130,447 reasoning output tokens**. These terminal totals do not establish full billed cost because disconnected-attempt usage is unavailable.
+
+The adopted software repair adds a bibliography-precedent fallback only after strict literal matching fails: it removes only balanced, attribute-free `i`, `b`, `em` and `strong` formatting within one captured line. Strict matching, words, entities, source classifications, URLs, timestamps, official facts and discovery gates remain unchanged. Evidence comprises **58 author synthetic checks, 155 independent software checks, 27 actual same-source paired software checks and 80 related unit tests**, all passed. The same-source checks preserve the original results and scores; they are not a new scientific or blind review. This repair adds **zero new blind-case credit**, changes no Selector rule and establishes no accuracy improvement. Execution **r25** is frozen for subsequent work; Selector **r18** remains unchanged. [Software repair regression](regressions/r31-inline-matcher.json)
+
+## Planned execution: r32
+
+Laboratory, bioinformatics and prediction have each completed ten development cases. The next unexposed queue head in each of the remaining **seven classes** is planned to run in parallel, with at most **five simultaneous model calls**. **r32 has not started**; formal completion remains **82/100**, with no early credit for the planned cases.
 
 ## Evidence and interpretation
 

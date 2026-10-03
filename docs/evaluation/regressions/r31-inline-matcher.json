@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-10-03T19:17:46.148001+00:00",
+  "status": "accepted execution source-format comparison repair after actual checks",
+  "comparison_version": "captured-inline-visible-v1",
+  "decision_scope": "Bibliographic precedent strict literal mismatch fallback only; Selector-r18 rules unchanged",
+  "allowed_format_tags": [
+    "i",
+    "b",
+    "em",
+    "strong"
+  ],
+  "conditions": "Attribute-free balanced inline tags within one captured line; raw support and source remain unchanged.",
+  "unchanged_legacy_path": "Old whitespace/casefold literal matching remains first and unchanged; this patch does not repair existing raw hidden/cross-line literal acceptance.",
+  "rejected_fallbacks": [
+    "changed words/numbers/punctuation",
+    "unknown or attributed markup",
+    "sub/sup/script/style",
+    "malformed or crossed tags",
+    "cross-paragraph or title-abstract joins",
+    "entity decoding",
+    "fuzzy matching"
+  ],
+  "other_source_gates_unchanged": true,
+  "author_synthetic_checks": 58,
+  "independent_synthetic_checks": 155,
+  "root_actual_same_source_checks": 27,
+  "paired_original_development_cases": 10,
+  "actual_post_adoption_unit_tests": 80,
+  "post_adoption_test_groups": [
+    {
+      "pattern": "test_bibliographic_inline_matcher.py",
+      "exit_code": 0,
+      "actual_tests": 20,
+      "log_sha256": "925ed66cb64b50512a630a12fd194bdc4699df090c1e08140e8dea4388a5d978"
+    },
+    {
+      "pattern": "test_trainer.py",
+      "exit_code": 0,
+      "actual_tests": 46,
+      "log_sha256": "112a2308ac6808355ebfda6406f05413ef1cec6c61ab227c00479c8de43f7e09"
+    },
+    {
+      "pattern": "test_export_and_source_contracts.py",
+      "exit_code": 0,
+      "actual_tests": 14,
+      "log_sha256": "d52565681d63937badae966d147f8612cb3204b9e731d4421c26ee78b86befed"
+    }
+  ],
+  "original_source_hard_failure_cases": 1,
+  "original_scores_rewritten": false,
+  "original_results_unchanged": true,
+  "new_model_calls": 0,
+  "new_network_calls": 0,
+  "new_blind_case_credit": 0,
+  "independent_counteraudit_sha256": "4e8f64fc1bdd1a2fefb1d8a46dc1b9bf7615a0869dfa346c188c4734a78280ef",
+  "root_same_source_regression_sha256": "eac486bdf55a016767819266d094f93c3dd89fb131dcdcef3e6cde5e0f8662d4",
+  "validated_software_adoption_sha256": "38591d760b786ff4887ee0a77670c16cc32abe7c2b4917c68984f3fae5324fb2",
+  "candidate_campaign_sha256": "a709736426ccbb6295388c9317d4fdeddaaa5ffe6978f45ff1d7d387c347f7af",
+  "next_execution_snapshot": "execution-protocol-r25",
+  "next_execution_manifest_sha256": "cf0d81ca2b34551364d9aa32b6eba59355139f2e412436475a98fc743dfcf18e",
+  "retained_initial_draft_setup_failures": 2,
+  "limits": "Deterministic source comparison only. No rule/answer memory, retrieval repair, new scientific validation, usable-candidate improvement or acceptance probability is established. Original laboratory009 hard failure remains in its original grade; future phases may use the newly frozen auditor uniformly."
+}

@@ -342,6 +342,47 @@ SKILL:\n'''+skill+'\nNOW: '+request_time.read_text(encoding="utf-8")+"\nDATA:\n"
     value,rec=model_json(prompt,output,contract=selection_contract)
     return value,rec
 
+BIBLIOGRAPHIC_PRECEDENT_COMPARISON_VERSION = "captured-inline-visible-v1"
+
+def bibliographic_precedent_inline_support(support, raw_passages):
+    """Fallback only: exact captured words, four attribute-free inline tags.
+
+    Keep raw source/support unchanged. Never merge captured lines, decode
+    entities, render general HTML, or infer unread full-text/identity facts.
+    """
+    def norm(text):
+        return re.sub(r"\s+", " ", text).strip().casefold()
+    # The support remains literal; do not normalize invented support markup.
+    tag_like = re.compile(r"<\s*(?:/?\s*[A-Za-z]|[!?])")
+    if not norm(support) or tag_like.search(support):
+        return False
+    tokens = {"<" + tag + ">": (tag, False) for tag in ("i", "b", "em", "strong")}
+    tokens.update({"</" + tag + ">": (tag, True) for tag in ("i", "b", "em", "strong")})
+    for raw in raw_passages:
+        for passage in raw.splitlines():
+            stack, visible, changed = [], [], False
+            index = 0
+            while index < len(passage):
+                token = next((token for token in tokens if passage.startswith(token, index)), None)
+                if token is not None:
+                    tag, closing = tokens[token]
+                    if closing:
+                        if not stack or stack.pop() != tag:
+                            break
+                    else:
+                        stack.append(tag)
+                    changed = True
+                    index += len(token)
+                elif tag_like.match(passage, index):
+                    break  # unknown, malformed, hidden, attributed or block markup
+                else:
+                    visible.append(passage[index])
+                    index += 1
+            else:
+                if changed and not stack and norm(support) in norm("".join(visible)):
+                    return True
+    return False
+
 def source_audit(value,packet,selector):
     b=value["evidence"]
     try:
@@ -366,6 +407,8 @@ def source_audit(value,packet,selector):
         # API acquisition is the inspected bibliographic provenance.
         if p.get("record_url"):
             source={"text":p["title"]+" "+p["abstract"]+"\n"+json.dumps(p,ensure_ascii=False,indent=2),"checked_at":p["checked_at"],"record_url":p["record_url"],"read_extent":p["read_extent"],"source_type":"bibliographic"}
+            source["_precedent_raw_passages"]=(p["title"],p["abstract"])
+            source["_precedent_comparison_version"]=BIBLIOGRAPHIC_PRECEDENT_COMPARISON_VERSION
             add_page(p["record_url"],source)
             # This URL identifies a paper in the inspected bibliographic API;
             # it does not authorize claims about its unread full methods.
@@ -378,7 +421,9 @@ def source_audit(value,packet,selector):
                 continue
             for ev in f.get("evidence",[]):
                 candidates=pages.get(ev["url"],pages.get(canonical_url(ev["url"]),[]))
-                supported=[p for p in candidates if norm(ev["support"]) and norm(ev["support"]) in norm(p["text"])]
+                supported=[p for p in candidates if norm(ev["support"]) and (norm(ev["support"]) in norm(p["text"]) or
+                    (key=="precedent" and p.get("source_type")=="bibliographic" and
+                     bibliographic_precedent_inline_support(ev["support"],p.get("_precedent_raw_passages",()))))]
                 if not supported:
                     failures.append(j["id"]+"/"+key+": supporting passage absent from captured source")
                 elif key!="precedent" and not any(p.get("source_type")=="official" for p in supported):
