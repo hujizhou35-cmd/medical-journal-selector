@@ -211,6 +211,31 @@ def parse_article(xml, research_id_policy='preserve_public_accessions'):
     back=root.find('back')
     if back is not None:
         research.append(research_text(back))
+    # JATS may store table bodies and figure captions beside, rather than in,
+    # <body>. Their readable scientific text belongs in the masked manuscript;
+    # external figure pixels and supplementary files remain uninspected.
+    floats=root.find('floats-group')
+    floating_chunks=[]
+    def floated_items(group):
+        for child in group:
+            if child.tag.rsplit('}',1)[-1] in ('fig-group','table-wrap-group'):
+                # Keep group labels/captions, but compare each scientific item
+                # inside standard grouping wrappers independently.
+                yield from floated_items(child)
+            else:
+                yield child
+    if floats is not None:
+        for child in floated_items(floats):
+            wrapper=ET.Element('floats-group')
+            wrapper.append(copy.deepcopy(child))
+            chunk=research_text(wrapper)
+            # A floated group can repeat one inline table while adding another.
+            # Compare each complete item's scientific text, not a whole-group
+            # substring or an ID alone that might hide conflicting contents.
+            if chunk and chunk not in '\n\n'.join(research+floating_chunks):
+                floating_chunks.append(chunk)
+    if floating_chunks:
+        research.append('Floated tables and captions\n'+'\n\n'.join(floating_chunks))
     supplement_links = []
     for node in root.iter("supplementary-material"):
         for child in node.iter():
@@ -282,11 +307,18 @@ def mask_text(text, target, research_id_policy='preserve_public_accessions'):
         codes=DATASET_ACCESSION.findall(match.group(0))+TRIAL_REGISTRY.findall(match.group(0))
         return '[masked research link; '+', '.join(dict.fromkeys(codes))+']' if codes else '[masked identifier]'
     text=re.sub(r'https?://\S+',hide_url,text,flags=re.I)
+    # Credit paragraphs may render an initial as "H." although structured
+    # metadata says "H". Match full multi-token author aliases across normal
+    # punctuation/spacing; never remove a surname or initial by itself.
+    for author in sorted(set(target.get('authors',[])),key=len,reverse=True):
+        tokens=re.findall(r'[^\W_]+',author)
+        if len(tokens)>=2:
+            pattern=r'(?<!\w)'+r'[\W_]+'.join(re.escape(t) for t in tokens)+r'(?!\w)'
+            text=re.sub(pattern,'[masked publication metadata]',text,flags=re.I)
     # Do not strip an ordinary biomedical word just because a surname matches it.
     secrets = [target.get("title", ""), target.get("journal", "")]
     secrets += target.get('journal_aliases',[])
     secrets += [v for k,v in target.get("ids", {}).items() if k in ("doi", "pmid", "pmc", "pmcid", "publisher-id") and len(v) > 4]
-    secrets += [a for a in target.get("authors", []) if len(a.split()) > 1]
     for secret in sorted(set(secrets), key=len, reverse=True):
         if secret:
             if secret.casefold() in AMBIGUOUS_JOURNAL_WORDS:

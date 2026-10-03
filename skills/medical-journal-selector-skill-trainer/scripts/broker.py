@@ -64,6 +64,10 @@ def permitted_url(url):
     # These allow evidence retrieval, never a recommendation or endorsement.
     suffixes+=("healio.com","fnjn.org","alternative-therapies.com","ovid.com","wolterskluwer.com","haematologica.org",
                "amegroups.org","amegroups.com","jmir.org")
+    # Ownership and migration links were checked at the r23 whole-wave barrier.
+    # Access permission alone supplies no scope, indexing or ranking fact.
+    suffixes+=("cureus.com","westjem.com","egms.de","journals.publisso.de",
+               "journalpub.escholarship.org")
     return any(host==s or host.endswith("."+s) for s in suffixes)
 
 def canonical_url(url):

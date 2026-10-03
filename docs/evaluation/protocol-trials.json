@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-03T01:25:16.078246+00:00",
-  "distinct_protocol_cases": 19,
+  "exported_at": "2026-10-03T03:12:11.169892+00:00",
+  "distinct_protocol_cases": 24,
   "formal_case_count": 0,
   "interpretation": "Preserved workflow trials, excluded after preparation or task-scenario defects under the agreed pilot rule. Historical recommendation errors, negative results and partial executions remain visible. These scores are not formal accuracy results; legacy scoring may precede identity repair. No final test answer is included.",
-  "observed_model_calls": 130,
+  "observed_model_calls": 160,
   "call_count_basis": "Deduplicated context/start/input hash across copied protocol logs; per-run histories are retained.",
   "cases": [
     {
@@ -850,6 +850,214 @@
       ],
       "pmcid": "PMC13581808",
       "original_outlet": "Frontiers in Public Health"
+    },
+    {
+      "case_id": "s1-clinical_nursing-010",
+      "stratum": "clinical_nursing",
+      "designation": "input_integrity_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": false,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 3,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "Preserve this original exposed case and all favorable/negative scores as a zero-credit protocol trial. Uniform score-independent source/mask audit found either full author-format leakage or scientific floated-table omission; five exposed cases are removed from formal allocation, including three previously counted. Generic author-boundary and recursive floated-item extraction repairs passed276 full tests and41 independent checks; independent actual corpus verification binds same-class unexposed reserves, unchanged original scientific source/answer bytes and original exposed masks/results. Nine unexposed final masked inputs are corrected before any final model use; final papers/answers are unchanged, not every input byte. Verified specific official-host repair retained5 readable and2 failed endpoints. No model replay, new blind case, repaired score or new Selector instruction is claimed. Original completed-case credit is superseded only by the current immutable manifest allocation.",
+              "at": "2026-10-03T03:10:27.633481+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0ff6f-71b1-79d3-b603-7b25ea3697bf",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 119.259,
+              "usage": {
+                "input_tokens": 53057,
+                "cached_input_tokens": 3072,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2683,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff64-f286-7510-91ee-efc212eaf723",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 122.311,
+              "usage": {
+                "input_tokens": 14461,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3138,
+                "reasoning_output_tokens": 1816
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff6d-7ae8-78c3-9e37-104337fde1fc",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 62.997,
+              "usage": {
+                "input_tokens": 40506,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1211,
+                "reasoning_output_tokens": 875
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff6e-72a2-7d02-89ee-da2aa2d7f279",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 65.582,
+              "usage": {
+                "input_tokens": 40506,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1371,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff67-237a-7f03-b509-517b83beaafc",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 42.059,
+              "usage": {
+                "input_tokens": 24661,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 930,
+                "reasoning_output_tokens": 706
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff68-2d14-77b2-a71e-42ae534cb107",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 347.9,
+              "usage": {
+                "input_tokens": 40716,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 10309,
+                "reasoning_output_tokens": 4660
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13375388",
+      "original_outlet": "Cureus"
     },
     {
       "case_id": "s1-laboratory-001",
@@ -3004,6 +3212,853 @@
       ],
       "pmcid": "PMC13526724",
       "original_outlet": "Journal of Neurology"
+    },
+    {
+      "case_id": "s1-systematic_meta-003",
+      "stratum": "systematic_meta",
+      "designation": "input_integrity_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": false,
+              "delivered_to_selector": false,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 3,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 3,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Central wave-barrier review plus an additional read-only source/receipt audit supports no new Skill instruction. All six real calls have matching prompt/model/effort identities, terminal outputs and hashes, independent contexts, two reviews before reveal and diagnosis after reveal. Retain usable=false, original-outlet non-hit and three pending dossiers. Only identity records were readable; four policy 403 responses and two host-restricted non-attempts do not establish review admission. Sparse searches and absent result-level exclusion logs limit causal diagnosis of the missing outlet. Its absence alone does not prove a ranking error or justify forcing it into recommendations. Existing rules already require current policy gates, varied discovery, authoritative alternatives, method-trigger checks and honest unknowns. Retrieval and curation deficits are retained as execution findings. Separate generic navigation regressions on two earlier revealed cases support a future execution repair; they are not reruns or improved scores for this case. No answer-specific exception or unperformed repair is adopted.",
+              "at": "2026-10-02T16:40:54.017825+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Preserve this original exposed case and all favorable/negative scores as a zero-credit protocol trial. Uniform score-independent source/mask audit found either full author-format leakage or scientific floated-table omission; five exposed cases are removed from formal allocation, including three previously counted. Generic author-boundary and recursive floated-item extraction repairs passed276 full tests and41 independent checks; independent actual corpus verification binds same-class unexposed reserves, unchanged original scientific source/answer bytes and original exposed masks/results. Nine unexposed final masked inputs are corrected before any final model use; final papers/answers are unchanged, not every input byte. Verified specific official-host repair retained5 readable and2 failed endpoints. No model replay, new blind case, repaired score or new Selector instruction is claimed. Original completed-case credit is superseded only by the current immutable manifest allocation.",
+              "at": "2026-10-03T03:10:27.913186+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fd57-af55-7b01-a33c-e15534ae8f42",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 111.836,
+              "usage": {
+                "input_tokens": 45214,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2017,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd4a-4232-71f3-98df-ade80ead2dc5",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 136.007,
+              "usage": {
+                "input_tokens": 19061,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2467,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd56-4b47-7f21-9a02-6a13b730a88a",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 78.258,
+              "usage": {
+                "input_tokens": 37865,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1122,
+                "reasoning_output_tokens": 759
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd56-4a88-7213-8e08-a5c893ea9e2d",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 85.707,
+              "usage": {
+                "input_tokens": 37865,
+                "cached_input_tokens": 8192,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1352,
+                "reasoning_output_tokens": 909
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd4c-e702-7672-8a17-4c2d0c22722c",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 65.949,
+              "usage": {
+                "input_tokens": 11352,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 871,
+                "reasoning_output_tokens": 698
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fd4e-9e3a-7301-9f81-92212301972e",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 501.057,
+              "usage": {
+                "input_tokens": 36082,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 13235,
+                "reasoning_output_tokens": 6097
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13490914",
+      "original_outlet": "Anemia"
+    },
+    {
+      "case_id": "s1-systematic_meta-005",
+      "stratum": "systematic_meta",
+      "designation": "input_integrity_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": false,
+              "source_coverage": {
+                "identity": {
+                  "verified": 5,
+                  "unverified": 1,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 3,
+                  "unverified": 3,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 10,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Current sources support conditional Frontiers in Pediatrics and PLOS ONE systematic-review consideration. Prospective registration, PRISMA arithmetic, quality scoring versus risk-of-bias assessment and grey-literature coverage stay explicit conditions rather than invented permission. Captured fee currencies/table identity and labelled historical2023 PLOS medians retain their qualifications; they do not establish current comparable acceptance endpoints. Original usable result and ranking remain unchanged. No new evidence-backed instruction amendment is identified.",
+              "at": "2026-10-02T22:52:40.066341+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Preserve this original exposed case and all favorable/negative scores as a zero-credit protocol trial. Uniform score-independent source/mask audit found either full author-format leakage or scientific floated-table omission; five exposed cases are removed from formal allocation, including three previously counted. Generic author-boundary and recursive floated-item extraction repairs passed276 full tests and41 independent checks; independent actual corpus verification binds same-class unexposed reserves, unchanged original scientific source/answer bytes and original exposed masks/results. Nine unexposed final masked inputs are corrected before any final model use; final papers/answers are unchanged, not every input byte. Verified specific official-host repair retained5 readable and2 failed endpoints. No model replay, new blind case, repaired score or new Selector instruction is claimed. Original completed-case credit is superseded only by the current immutable manifest allocation.",
+              "at": "2026-10-03T03:10:27.937355+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0fe06-5f1e-73b1-8c16-9d708a5d5bda",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 115.716,
+              "usage": {
+                "input_tokens": 190981,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2721,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fdf3-e871-79f1-acc2-cd3f08ef95f1",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 134.647,
+              "usage": {
+                "input_tokens": 20993,
+                "cached_input_tokens": 7424,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3656,
+                "reasoning_output_tokens": 2070
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fe04-7100-77f1-aaaa-5db476a25371",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 101.203,
+              "usage": {
+                "input_tokens": 178883,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2533,
+                "reasoning_output_tokens": 2024
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fe04-a01b-73f1-929e-3290c896baea",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 114.459,
+              "usage": {
+                "input_tokens": 174620,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2382,
+                "reasoning_output_tokens": 1544
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fdf6-bbd7-7311-9311-fec598f4b612",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 70.326,
+              "usage": {
+                "input_tokens": 34516,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1532,
+                "reasoning_output_tokens": 1211
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0fdf9-a131-7563-a7b6-193319288927",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 703.179,
+              "usage": {
+                "input_tokens": 170741,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 21571,
+                "reasoning_output_tokens": 8286
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13565276",
+      "original_outlet": "Animals : an Open Access Journal from MDPI"
+    },
+    {
+      "case_id": "s1-other_review-003",
+      "stratum": "other_review",
+      "designation": "input_integrity_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": false,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true,
+              "source_coverage": {
+                "identity": {
+                  "verified": 6,
+                  "unverified": 0,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 2,
+                  "unverified": 4,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": 5,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "no_change",
+              "reason": "Keep the original all-pending, unusable and non-hit. This is descriptive PCC/JBI scoping evidence mapping without critical appraisal or patient-level computational research. Current journal subtype/method gates remain unresolved; included studies methods do not become this manuscripts methods. Source extraction/access and dossier allocation remain untested hypotheses. No new rule or assumed subtype admission is adopted.",
+              "at": "2026-10-03T01:24:21.146548+00:00"
+            },
+            {
+              "decision": "retrieval_repair",
+              "reason": "Preserve this original exposed case and all favorable/negative scores as a zero-credit protocol trial. Uniform score-independent source/mask audit found either full author-format leakage or scientific floated-table omission; five exposed cases are removed from formal allocation, including three previously counted. Generic author-boundary and recursive floated-item extraction repairs passed276 full tests and41 independent checks; independent actual corpus verification binds same-class unexposed reserves, unchanged original scientific source/answer bytes and original exposed masks/results. Nine unexposed final masked inputs are corrected before any final model use; final papers/answers are unchanged, not every input byte. Verified specific official-host repair retained5 readable and2 failed endpoints. No model replay, new blind case, repaired score or new Selector instruction is claimed. Original completed-case credit is superseded only by the current immutable manifest allocation.",
+              "at": "2026-10-03T03:10:27.884215+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0ff28-be8e-7e51-8daf-abda25da813f",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 124.595,
+              "usage": {
+                "input_tokens": 176120,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2729,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff17-4514-7f92-a545-68f9e2af3b78",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 135.674,
+              "usage": {
+                "input_tokens": 21193,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3570,
+                "reasoning_output_tokens": 2070
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff27-72dc-70a1-bd48-b89fba11fb08",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 80.046,
+              "usage": {
+                "input_tokens": 163303,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1823,
+                "reasoning_output_tokens": 1384
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff27-8fac-73a0-91a9-9fa32800dd72",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 67.8,
+              "usage": {
+                "input_tokens": 163303,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1519,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff19-fb02-7591-a54b-58d35428c787",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 78.083,
+              "usage": {
+                "input_tokens": 27395,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1901,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff1d-5140-7b02-9548-6ce4be11291c",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 631.118,
+              "usage": {
+                "input_tokens": 157739,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 19586,
+                "reasoning_output_tokens": 8804
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13606419",
+      "original_outlet": "Healthcare"
+    },
+    {
+      "case_id": "s1-other_review-004",
+      "stratum": "other_review",
+      "designation": "input_integrity_protocol_trial",
+      "formal_case_count": 0,
+      "runs": [
+        {
+          "protocol": "development-parallel-r19",
+          "status": "completed",
+          "lesson_status": "completed",
+          "scores": {
+            "v2": {
+              "true_rank": null,
+              "usable": true,
+              "hard_failures": [],
+              "discovered": true,
+              "delivered_to_selector": true,
+              "assessed": true,
+              "source_coverage": {
+                "identity": {
+                  "verified": 5,
+                  "unverified": 1,
+                  "invalid_status": 0
+                },
+                "scope": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "article_type": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "method_policy": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jcr": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "jif": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "oa": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "fees": {
+                  "verified": 1,
+                  "unverified": 5,
+                  "invalid_status": 0
+                },
+                "warnings": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:first_decision": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:acceptance": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:online": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                },
+                "timeline:indexing": {
+                  "verified": 0,
+                  "unverified": 6,
+                  "invalid_status": 0
+                }
+              }
+            },
+            "keyword": {
+              "true_rank": null,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            },
+            "abstract": {
+              "true_rank": 2,
+              "usable": null,
+              "hard_failures": [],
+              "interpretation": "Discovery comparator; not policy-audited production report"
+            }
+          },
+          "changes": [
+            {
+              "decision": "retrieval_repair",
+              "reason": "Preserve this original exposed case and all favorable/negative scores as a zero-credit protocol trial. Uniform score-independent source/mask audit found either full author-format leakage or scientific floated-table omission; five exposed cases are removed from formal allocation, including three previously counted. Generic author-boundary and recursive floated-item extraction repairs passed276 full tests and41 independent checks; independent actual corpus verification binds same-class unexposed reserves, unchanged original scientific source/answer bytes and original exposed masks/results. Nine unexposed final masked inputs are corrected before any final model use; final papers/answers are unchanged, not every input byte. Verified specific official-host repair retained5 readable and2 failed endpoints. No model replay, new blind case, repaired score or new Selector instruction is claimed. Original completed-case credit is superseded only by the current immutable manifest allocation.",
+              "at": "2026-10-03T03:10:27.813277+00:00"
+            }
+          ],
+          "calls": [
+            {
+              "context_id": "01a0ff76-eae3-7152-9631-049bcfe100c6",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 158.067,
+              "usage": {
+                "input_tokens": 137746,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3743,
+                "reasoning_output_tokens": 2588
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff64-f4b4-7c52-ba91-5230664aca87",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 117.251,
+              "usage": {
+                "input_tokens": 13679,
+                "cached_input_tokens": 7424,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 3182,
+                "reasoning_output_tokens": 2028
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff75-796d-7ff1-b2a5-784fa61940cd",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 81.877,
+              "usage": {
+                "input_tokens": 126753,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1502,
+                "reasoning_output_tokens": 1034
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff75-7e4d-7a00-afee-95f3872fe92c",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 93.504,
+              "usage": {
+                "input_tokens": 126753,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 2031,
+                "reasoning_output_tokens": 1552
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff67-41b9-74a0-bd31-439788ab0da1",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 71.403,
+              "usage": {
+                "input_tokens": 25284,
+                "cached_input_tokens": 11136,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 1805,
+                "reasoning_output_tokens": 1432
+              },
+              "transport_retries": 0
+            },
+            {
+              "context_id": "01a0ff6a-350f-7573-a292-87462797f838",
+              "model": "gpt-6.1-sol",
+              "effort": "xhigh",
+              "status": "completed",
+              "elapsed_seconds": 724.058,
+              "usage": {
+                "input_tokens": 121416,
+                "cached_input_tokens": 0,
+                "cache_write_input_tokens": 0,
+                "output_tokens": 21329,
+                "reasoning_output_tokens": 10755
+              },
+              "transport_retries": 0
+            }
+          ]
+        }
+      ],
+      "pmcid": "PMC13246184",
+      "original_outlet": "Western Journal of Emergency Medicine"
     },
     {
       "case_id": "s1-case_report-001",

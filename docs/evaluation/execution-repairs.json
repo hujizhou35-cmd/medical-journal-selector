@@ -267,6 +267,116 @@
       "independent_allocation_seal_sha256": "dcdc5eb07bcb163bf1c2f7ed07e65741106ef6877c86a969898f7e265f2c3803",
       "execution_snapshot": "execution-protocol-r23",
       "execution_manifest_sha256": "9867c014ee0ac627eb07d9b37f514bd77b99a2a0224869d8609f50fd5f42811f"
+    },
+    {
+      "at": "2026-10-03T03:12:11.650458+00:00",
+      "kind": "generic official-host retrieval and source-input fidelity repair",
+      "decision": "tested_execution_repair",
+      "execution_snapshot": "execution-protocol-r24",
+      "selector_snapshot": "selector-candidate-r17",
+      "manifest_revision": 14,
+      "manifest_sha256": "300cb75590e56d6451e92bad08493621b480a8625846f82b7c3e74aa8cece18a",
+      "execution_manifest_sha256": "e65121ed0e6cac42ba37dc776328e990956d4a6c121e3de27141cc7b6593e83f",
+      "uniform_allocated_input_checks": 150,
+      "affected_exposed_cases": [
+        "s1-clinical_nursing-010",
+        "s1-other_review-003",
+        "s1-other_review-004",
+        "s1-systematic_meta-003",
+        "s1-systematic_meta-005"
+      ],
+      "protocol_trials_added": 5,
+      "distinct_protocol_trials": 24,
+      "previously_reported_development": 35,
+      "retrospective_credit_removed": 3,
+      "current_wave_valid_added": 8,
+      "completed_development": 40,
+      "completed_final": 0,
+      "criteria": "Full multi-token author aliases surviving punctuation/name-order differences, or nonempty scientific floated tables absent from supplied text. Uniform raw-source and masked-input checks independent of journal matches or output scores. Poor valid-input recommendations remain counted.",
+      "reserve_promotions": [
+        {
+          "case_id": "s1-clinical_nursing-024",
+          "stratum": "clinical_nursing",
+          "split": "development",
+          "eligibility": "source genre/license/fullscientifictext checked; primaryclass must pass fresh profile beforeselection"
+        },
+        {
+          "case_id": "s1-systematic_meta-019",
+          "stratum": "systematic_meta",
+          "split": "development",
+          "eligibility": "source genre/license/fullscientifictext checked; primaryclass must pass fresh profile beforeselection"
+        },
+        {
+          "case_id": "s1-systematic_meta-020",
+          "stratum": "systematic_meta",
+          "split": "development",
+          "eligibility": "source genre/license/fullscientifictext checked; primaryclass must pass fresh profile beforeselection"
+        },
+        {
+          "case_id": "s1-other_review-016",
+          "stratum": "other_review",
+          "split": "development",
+          "eligibility": "source genre/license/fullscientifictext checked; primaryclass must pass fresh profile beforeselection"
+        },
+        {
+          "case_id": "s1-other_review-017",
+          "stratum": "other_review",
+          "split": "development",
+          "eligibility": "source genre/license/fullscientifictext checked; primaryclass must pass fresh profile beforeselection"
+        }
+      ],
+      "original_exposed_masks_and_output_scores_unchanged": true,
+      "actual_mask_changes_unexposed": 13,
+      "final_corrected_masked_inputs": 9,
+      "final_paper_identity_and_original_source_answer_bytes_unchanged": true,
+      "final_all_masked_input_bytes_unchanged": false,
+      "final_model_generation_review_reveal_started": false,
+      "validation": {
+        "full_offline_tests": 276,
+        "full_suite_elapsed_seconds": 138.82,
+        "full_test_log_sha256": "5e25f78203fa42f6e1822645af1a3e741592ea74cfbd72fdb5c135b8573ed784",
+        "independent_software_checks": 41,
+        "independent_allocation_checks": 619,
+        "independent_allocation_failed_checks": 0,
+        "independent_allocation_seal_sha256": "a33ae11ae0a680f4fcb5c2539030b54eef8a4f9f834523d8dffed60085e0ba19",
+        "independent_software_seal_sha256": "af4ce7d0841ba063e835a11f9edcac29fd95acbf78d824cd4c8b3414b44eb072",
+        "actual_live_official_url_requests": 7,
+        "actual_live_readable_pages": 5,
+        "actual_live_failed_pages": 2,
+        "failed_endpoints": "Both direct Cureus requests returned403 and remain unverified in those captured records; separate official-browser ownership discovery does not relabel those requests."
+      },
+      "verified_specific_hosts_added": [
+        "cureus.com",
+        "westjem.com",
+        "egms.de",
+        "journals.publisso.de",
+        "journalpub.escholarship.org"
+      ],
+      "guards": "HTTPS, credentials/port/deceptive-suffix checks, redirect/content and journal-identity gates remain; no wildcard host or inferred journal fact/admission.",
+      "actual_current_wave_cli_calls": 60,
+      "actual_fresh_contexts": 60,
+      "actual_interval_peak": 10,
+      "actual_current_wave_transport_failures": 0,
+      "auxiliary_coordinator_service_refusals": 2,
+      "auxiliary_refusal_case_credit": 0,
+      "new_model_regression_calls": 0,
+      "new_blind_case_credit_from_repairs": 0,
+      "new_selector_instruction_changes": 0,
+      "retained_rejected_attempts": [
+        "Initial surname-prefix author boundary failure.",
+        "Direct floated-group extraction duplicated existing items; nested-group duplication found independently, then recursive item extraction verified.",
+        "Initial allocation verifier34false negatives due newline-normalized versus CRLF archive hash scope and sorted score serialization; corrected auditor assumptions without modifying actual inputs or scores."
+      ],
+      "audit_incident": "Audit metadata probes displayed17 opaque internal final case-folder labels. They displayed no bibliographic paper identifier, title, journal answer, scientific contents or final model result. Exact events retained privately; not described as zero internal-label display or as demonstrated answer contamination.",
+      "limits": [
+        "Model memory of public papers and registry-less companions remain possible.",
+        "Figure captions and available tables are represented; image pixels and separately inaccessible supplements remain uninspected.",
+        "Source-only reserve genre checks still require fresh primary-purpose profile before selection.",
+        "Two diagnosis receipts have wall/monotonic duration differences around4.52seconds; cause unproven, original timings kept.",
+        "Observed completed ten-call wave does not prove future reliability.",
+        "No improved-accuracy, independent-human-expert or acceptance-probability claim.",
+        "Development packaging checks do not satisfy final installation/public-download release gates."
+      ]
     }
   ],
   "latest_objective_based_preselection_amendment": {
@@ -286,5 +396,5 @@
     "independent_verification_seal_sha256": "dd4432d3451d163449ef2329dbc33a466fddf8f7d790c5c4a83bb39464943fc0",
     "interpretation": "Fixed selection-order metadata repair before selection, independent of recommendation scores. Secondary method labels and all original failure/usage records remain."
   },
-  "latest_exported_at": "2026-10-03T01:27:44.390858+00:00"
+  "latest_exported_at": "2026-10-03T03:12:11.650965+00:00"
 }
