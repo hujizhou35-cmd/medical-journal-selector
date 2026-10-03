@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The next wave is pending. These checks do not establish V2 accuracy or improvement over V1.
+Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The next ten-class wave is running with a global ceiling of ten model calls. These checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -78,7 +78,7 @@ The interrupted auxiliary coordinator source audit remains recorded as **partial
 
 A source-backed, independently sealed primary-purpose amendment corrects class/quota metadata and restores the registered ten-class allocation. A rejected reserve remains recorded, and replacement material must pass the same main-purpose gate before use. The amendment adds no blind-case credit. **Across this amendment only**, the same 50 final sources, answers and masked inputs remain byte-identical. The nine masked-input corrections made earlier in r24 before any final model call remain in place; this does not claim that those inputs never changed.
 
-No new Selector rule or change to the execution software was adopted. Frozen execution **r24** and Selector **r17** continue; the retained results of **276 offline tests** and other earlier checks keep their original scope and are not new r25 test runs. The next wave is **pending and has not started**. Real final evaluation still requires 100 distinct valid development loops to complete and all final preparation and sealing gates to pass. The stable download remains **V1.0.0**.
+No new Selector rule or change to the execution software was adopted. Frozen execution **r24** and Selector **r17** continue; the retained results of **276 offline tests** and other earlier checks keep their original scope and are not new r25 test runs. The registered `r26-wave10-07` has actually started, resuming one corrected cached profile and the fixed-order unexposed queues, one case per primary class. Running work adds no completion credit. Real final evaluation still requires 100 distinct valid development loops to complete and all final preparation and sealing gates to pass. The stable download remains **V1.0.0**.
 
 ## Evidence and interpretation
 

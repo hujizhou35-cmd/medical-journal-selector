@@ -24,7 +24,7 @@ One distinct manuscript completes selection, blind review, reveal, diagnosis and
 
 ## Project V2 campaign
 
-The first stage uses 100 development papers and 50 sealed tests across ten article classes; **57/100 valid development cases are complete, final testing remains 0/50, and 24 protocol trials are retained separately**. Original scores and valid-input poor results remain intact. The next wave is pending. If gates fail, one extension adds 100 development papers and 50 new tests. The stable download remains **V1.0.0** until the gates pass. See the [protocol and actual results](evaluation/README.md).
+The first stage uses 100 development papers and 50 sealed tests across ten article classes; **57/100 valid development cases are complete, final testing remains 0/50, and 24 protocol trials are retained separately**. Original scores and valid-input poor results remain intact. The registered `r26-wave10-07` is running, one case per primary class, with a global ceiling of ten model calls and one corrected cached profile. Running work adds no completion credit. If gates fail, one extension adds 100 development papers and 50 new tests. The stable download remains **V1.0.0** until the gates pass. See the [protocol and actual results](evaluation/README.md).
 
 ## Installation
 
