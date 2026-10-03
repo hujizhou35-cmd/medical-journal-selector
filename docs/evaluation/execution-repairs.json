@@ -629,5 +629,34 @@
         "Reviewer disagreements and genuine preference-to-mandatory policy error remain visible. No accuracy, significance or acceptance-probability improvement is claimed."
       ]
     }
+  ],
+  "subsequent_transport_repair_observations": [
+    {
+      "observed_at": "2026-10-03T11:33:28.189567+00:00",
+      "eval_version": "r27-recovery-5",
+      "new_production_software_changes": 0,
+      "change": "Explicit proxy environment only in registered launcher and descendants; no global settings/auth/model/API change.",
+      "runtime_audit_sha256": "01f6180c983813dcda76b38c68f0dfab5419ae07deb1bfa3c46e13e5dadff6f7",
+      "actual_runtime_checks": 1256,
+      "code_audit_sha256": "ceac234d496275e91a47ed9b2b9e64c91ce10469afa5b3577946880b5af2cfbf",
+      "actual_static_checks": 34,
+      "actual_offline_tests": 15,
+      "probe_summary_sha256": "eaa40505dd966e9b66c044694b64f85ca56de267c0ed557dfa57a7b2a7199d0b",
+      "actual_new_probe_calls": 1,
+      "new_case_credit": 0,
+      "probe_elapsed_seconds": 26.853,
+      "probe_available_terminal_usage": {
+        "input_tokens": 7928,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 60,
+        "reasoning_output_tokens": 21
+      },
+      "proxy_inference_available": true,
+      "scope": "One tiny tool-free packet only; no full-case or concurrent reliability claim. Failed/interrupted earlier usage unknown.",
+      "original_failed_wave": "waves/r26-wave10-07.json",
+      "running_case_credit": 0,
+      "limits": "Historical failure cause remains unproven; small probe does not establish full-case reliability. Original source snapshots, retry failures and negative results retained."
+    }
   ]
 }

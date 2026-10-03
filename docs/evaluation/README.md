@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The r26 ten-class wave ended after repeated request errors and added no completed cases; the cause remains under review. These checks do not establish V2 accuracy or improvement over V1.
+Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The r26 ten-class wave ended after repeated request errors and added no completed cases; the historical cause remains under review. A separately registered five-case recovery is running after a verified process-scoped connection change. These checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -86,9 +86,17 @@ The actual `r26-wave10-07` wave ended and was sealed on **3 October 2026 at 06:5
 
 The wave made **47 new logical model calls: 29 completed and 18 failed**. One older cached profile is retained separately and excluded from the new-call total. Each failed call stopped after **three HTTP request or network errors of the same cause**; further retries of those failed calls were stopped. Completed calls are retained as partial execution evidence, not completed manuscript loops. A configured ceiling of ten simultaneous calls does not itself establish actual concurrency; concurrency must be taken from the sealed runtime audit.
 
-The failure cause remains under review. The account status available during review allowed ordinary usage. The observed request failures do not establish **quota exhaustion** or a **provider safety refusal**. Sanitized connectivity and runtime evidence must be checked before describing the cause or any recovery. The existing evidence does not establish a permanent block or successful recovery.
+At the r26 seal, the failure cause remained unresolved and the available account status allowed ordinary usage. The observed request failures did not establish **quota exhaustion** or a **provider safety refusal**. Runtime and connectivity evidence were required before any cause or recovery claim. The later small-call availability evidence and current r27 recovery are described below; the historical r26 fault location remains unproven.
 
-Original grades and negative results from earlier completed development cases remain intact. Frozen execution **r24**, Selector **r17**, the earlier nine final masked-input corrections, and the final-test sealing requirements remain. No new Selector rule, software change, final evaluation or release follows from this failed wave. Further execution awaits the runtime and connectivity review; the stable release remains **V1.0.0**.
+Original grades and negative results from earlier completed development cases remain intact. Frozen execution **r24**, Selector **r17**, the earlier nine final masked-input corrections, and the final-test sealing requirements remain. No new Selector rule, software change, final evaluation or release follows from this failed wave. At that r26 barrier, further execution was held pending runtime and connectivity review. The subsequent r27 recovery is now running as described below; the stable release remains **V1.0.0**.
+
+## Current recovery: r27-recovery-5 (3 October 2026)
+
+At **11:29 UTC**, the original first five incomplete cases resumed with **five workers and a five-model-call ceiling**; the other five incomplete cases remain next in line. Actual process identity, scheduler claim, five class claims and immutable wave were observed. The inputs, source snapshots, frozen execution **r24**, Selector **r17** and **6.1 Sol / xhigh** configuration remain unchanged. Existing completed calls are reused; original failed calls and ledgers are archived before identical-input retries. No case is replaced because of its result.
+
+A read-only comparison reached the Codex endpoint through the existing local proxy while direct connection timed out. **34 static checks and 15 synthetic offline tests passed**; then exactly one paper-free, tool-free authenticated nonce call completed in **26.853 seconds**, without observed connection errors. Proxy variables apply only to the registered launcher and its children. This demonstrates one small successful call, not full-case or concurrent reliability, and does not establish the historical fault location. The initial offline Windows environment-key fixture error and all original r26 failures remain preserved. The stopped auxiliary source-audit refusal operation is not retried.
+
+Running work adds no completion credit: **57/100 development, 0/50 final and 24 separately retained protocol trials** remain. Recovery must reach its own whole-wave barrier before central decisions or higher concurrency. [Current observed state](current-wave.json) · [Original failed wave](waves/r26-wave10-07.json)
 
 ## Evidence and interpretation
 
