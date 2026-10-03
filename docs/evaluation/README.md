@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The next ten-class wave is running with a global ceiling of ten model calls. These checks do not establish V2 accuracy or improvement over V1.
+Fifty-seven distinct valid development loops have passed sealed central decisions: **57/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r25 barrier adds nine valid loops to the historical 48; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The r26 ten-class wave ended after repeated request errors and added no completed cases; the cause remains under review. These checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -66,7 +66,7 @@ Source checks support honest pending treatment where current scope, article admi
 
 At the r24 barrier, no new Selector rule or untested repair was adopted. Execution **r24** and Selector **r17** were retained. The registered r25 wave subsequently resumed the two corrected preselection profiles and eight fixed-queue cases, one per primary class. Its results are recorded separately below; this historical barrier remains **48/100**.
 
-## Latest development barrier: r25-wave10-06 (3 October 2026)
+## Historical development barrier: r25-wave10-06 (3 October 2026)
 
 The actual `r25-wave10-06` wave ended and was sealed on **3 October 2026 at 05:08 UTC**, retaining scheduler status **failed**. One chain stopped before selection because its main research purpose disagreed with its assigned class label. The other nine valid chains completed selection, their two genuine blind reviews, reveal, diagnosis and sealed central decisions, giving **48 + 9 = 57/100 valid development cases**. Final testing remains **0/50** and retained protocol trials remain **24**. A class-label correction itself adds no completed-case or blind-review credit.
 
@@ -78,7 +78,17 @@ The interrupted auxiliary coordinator source audit remains recorded as **partial
 
 A source-backed, independently sealed primary-purpose amendment corrects class/quota metadata and restores the registered ten-class allocation. A rejected reserve remains recorded, and replacement material must pass the same main-purpose gate before use. The amendment adds no blind-case credit. **Across this amendment only**, the same 50 final sources, answers and masked inputs remain byte-identical. The nine masked-input corrections made earlier in r24 before any final model call remain in place; this does not claim that those inputs never changed.
 
-No new Selector rule or change to the execution software was adopted. Frozen execution **r24** and Selector **r17** continue; the retained results of **276 offline tests** and other earlier checks keep their original scope and are not new r25 test runs. The registered `r26-wave10-07` has actually started, resuming one corrected cached profile and the fixed-order unexposed queues, one case per primary class. Running work adds no completion credit. Real final evaluation still requires 100 distinct valid development loops to complete and all final preparation and sealing gates to pass. The stable download remains **V1.0.0**.
+At the r25 barrier, no new Selector rule or change to the execution software was adopted. Frozen execution **r24** and Selector **r17** continued; the retained results of **276 offline tests** and other earlier checks keep their original scope and are not new r25 or r26 test runs. The subsequent r26 wave is recorded below. The stable download remains **V1.0.0**.
+
+## Latest execution barrier: r26-wave10-07 (3 October 2026)
+
+The actual `r26-wave10-07` wave ended and was sealed on **3 October 2026 at 06:50:37 UTC**, with status **failed**. All **ten case chains** ended as **infrastructure_failed**. Partial outputs and failed-call records are retained; no chain earned completed-case credit, and no answers were revealed in this wave. Formal totals remain **57/100 valid development cases**, **0/50 final cases** and **24 separately retained protocol trials**.
+
+The wave made **47 new logical model calls: 29 completed and 18 failed**. One older cached profile is retained separately and excluded from the new-call total. Each failed call stopped after **three HTTP request or network errors of the same cause**; further retries of those failed calls were stopped. Completed calls are retained as partial execution evidence, not completed manuscript loops. A configured ceiling of ten simultaneous calls does not itself establish actual concurrency; concurrency must be taken from the sealed runtime audit.
+
+The failure cause remains under review. The account status available during review allowed ordinary usage. The observed request failures do not establish **quota exhaustion** or a **provider safety refusal**. Sanitized connectivity and runtime evidence must be checked before describing the cause or any recovery. The existing evidence does not establish a permanent block or successful recovery.
+
+Original grades and negative results from earlier completed development cases remain intact. Frozen execution **r24**, Selector **r17**, the earlier nine final masked-input corrections, and the final-test sealing requirements remain. No new Selector rule, software change, final evaluation or release follows from this failed wave. Further execution awaits the runtime and connectivity review; the stable release remains **V1.0.0**.
 
 ## Evidence and interpretation
 

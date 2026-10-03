@@ -1,6 +1,6 @@
 {
   "export_schema_version": 2,
-  "exported_at": "2026-10-03T06:25:48.849734+00:00",
+  "exported_at": "2026-10-03T11:12:39.028409+00:00",
   "status": "incomplete_or_failed",
   "input_manifest_sha256": "9a7bfbe09dc9039310ed27d778e360e9ee79e29f144cb73f3ad46009521b4324",
   "seed": 20261002,
@@ -11,9 +11,9 @@
   "completed_development": 57,
   "completed_final": 0,
   "development_summary": {
-    "cases": 58,
+    "cases": 67,
     "completed": 57,
-    "infrastructure_failed": 0,
+    "infrastructure_failed": 10,
     "contamination_failed": 0,
     "model_failed": 0,
     "variants": {
@@ -169,10 +169,11 @@
     },
     "strata": {
       "clinical_nursing": {
-        "cases": 5,
+        "cases": 6,
         "completed": 5,
         "states": {
-          "completed": 5
+          "completed": 5,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -327,10 +328,11 @@
         }
       },
       "laboratory": {
-        "cases": 7,
+        "cases": 8,
         "completed": 7,
         "states": {
-          "completed": 7
+          "completed": 7,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -485,10 +487,11 @@
         }
       },
       "public_database": {
-        "cases": 5,
+        "cases": 6,
         "completed": 5,
         "states": {
-          "completed": 5
+          "completed": 5,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -643,10 +646,11 @@
         }
       },
       "bioinformatics": {
-        "cases": 7,
+        "cases": 8,
         "completed": 7,
         "states": {
-          "completed": 7
+          "completed": 7,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -801,10 +805,11 @@
         }
       },
       "prediction": {
-        "cases": 7,
+        "cases": 8,
         "completed": 7,
         "states": {
-          "completed": 7
+          "completed": 7,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -963,7 +968,7 @@
         "completed": 6,
         "states": {
           "completed": 6,
-          "input_ineligible": 1
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -1118,10 +1123,11 @@
         }
       },
       "systematic_meta": {
-        "cases": 5,
+        "cases": 6,
         "completed": 5,
         "states": {
-          "completed": 5
+          "completed": 5,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -1276,10 +1282,11 @@
         }
       },
       "other_review": {
-        "cases": 4,
+        "cases": 5,
         "completed": 4,
         "states": {
-          "completed": 4
+          "completed": 4,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -1434,10 +1441,11 @@
         }
       },
       "bibliometrics": {
-        "cases": 6,
+        "cases": 7,
         "completed": 6,
         "states": {
-          "completed": 6
+          "completed": 6,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -1592,10 +1600,11 @@
         }
       },
       "case_report": {
-        "cases": 5,
+        "cases": 6,
         "completed": 5,
         "states": {
-          "completed": 5
+          "completed": 5,
+          "infrastructure_failed": 1
         },
         "variants": {
           "v2": {
@@ -1750,23 +1759,22 @@
         }
       }
     },
-    "elapsed_seconds": 76552.38200000004,
+    "elapsed_seconds": 85572.63200000003,
     "usage": {
-      "input_tokens": 33436123,
-      "cached_input_tokens": 3125888,
+      "input_tokens": 34980256,
+      "cached_input_tokens": 3232896,
       "cache_write_input_tokens": 0,
-      "output_tokens": 1866193,
-      "reasoning_output_tokens": 994305
+      "output_tokens": 2077295,
+      "reasoning_output_tokens": 1097277
     },
-    "model_calls": 351,
+    "model_calls": 398,
     "call_outcomes": {
-      "completed": 349,
-      "infrastructure_failed": 2
+      "completed": 378,
+      "infrastructure_failed": 20
     },
-    "usage_reported_calls": 349,
-    "usage_unavailable_calls": 2,
-    "input_ineligible": 1,
-    "unscored": 1,
+    "usage_reported_calls": 378,
+    "usage_unavailable_calls": 20,
+    "unscored": 10,
     "time_interpretation": "Sum of recorded model-call elapsed times, including parallel reviews; not end-to-end wall-clock runtime.",
     "usage_interpretation": "Available CLI usage only. Calls with unavailable usage are counted separately, not assumed to consume zero.",
     "interval_interpretation": "Conditional on completed, scored cases; unscored cases are separately retained, not claimed as successful runs.",
@@ -2482,6 +2490,15 @@
           "regression_sha256": null
         }
       ]
+    },
+    {
+      "case_id": "s1-clinical_nursing-018",
+      "stratum": "clinical_nursing",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
     },
     {
       "case_id": "s1-laboratory-002",
@@ -5048,6 +5065,15 @@
       ]
     },
     {
+      "case_id": "s1-bioinformatics-007",
+      "stratum": "bioinformatics",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
       "case_id": "s1-prediction-001",
       "stratum": "prediction",
       "split": "development",
@@ -6178,6 +6204,15 @@
       ]
     },
     {
+      "case_id": "s1-prediction-010",
+      "stratum": "prediction",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
       "case_id": "s1-network-002",
       "stratum": "network",
       "split": "development",
@@ -7291,9 +7326,18 @@
       "case_id": "s1-network-009",
       "stratum": "laboratory",
       "split": "development",
-      "status": "input_ineligible",
+      "status": "infrastructure_failed",
       "lesson_status": null,
-      "failure": "Pre-generation primary stratum mismatch: laboratory versus network",
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
+      "case_id": "s1-network-010",
+      "stratum": "network",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
       "scores": null
     },
     {
@@ -8100,6 +8144,15 @@
       ]
     },
     {
+      "case_id": "s1-systematic_meta-010",
+      "stratum": "systematic_meta",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
       "case_id": "s1-other_review-001",
       "stratum": "other_review",
       "split": "development",
@@ -8733,6 +8786,15 @@
           "regression_sha256": null
         }
       ]
+    },
+    {
+      "case_id": "s1-other_review-007",
+      "stratum": "other_review",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
     },
     {
       "case_id": "s1-bibliometrics-001",
@@ -9700,6 +9762,15 @@
       ]
     },
     {
+      "case_id": "s1-bibliometrics-008",
+      "stratum": "bibliometrics",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
       "case_id": "s1-case_report-003",
       "stratum": "case_report",
       "split": "development",
@@ -10650,6 +10721,15 @@
       ]
     },
     {
+      "case_id": "s1-case_report-016",
+      "stratum": "case_report",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
+    },
+    {
       "case_id": "s1-public_database-019",
       "stratum": "bioinformatics",
       "split": "development",
@@ -10966,6 +11046,15 @@
           "regression_sha256": null
         }
       ]
+    },
+    {
+      "case_id": "s1-public_database-021",
+      "stratum": "public_database",
+      "split": "development",
+      "status": "infrastructure_failed",
+      "lesson_status": null,
+      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
+      "scores": null
     }
   ]
 }
