@@ -73,6 +73,13 @@ Before delivery, trace each number/status/quotation to its supporting source, ch
 
 Audit consequential manuscript-method and eligibility comparisons against the specific manuscript section too. Preserve the stated design boundaries: an unmentioned design is not proven excluded, and a weaker methodological precedent is not automatically an ineligible study.
 
+Run this source audit on the **final serialized evidence file**, not just the working notes:
+
+- Copy captured URLs unchanged and quoted support verbatim; reopen the final file and compare them with the capture. Do not rebuild or re-encode URLs or paraphrase quoted support. Use separate exact excerpts for noncontiguous passages; keep explanations outside quotations.
+- For a relative precedent claim, check the compared dimension against evidence for **both** the manuscript and comparator. If either side is unknown, leave that comparison unknown. Use the available material that supports the dimension; full text is not a universal prerequisite.
+- When article-type admission is delegated to a specialty section, verify the chosen section's applicable admission before eligibility. Unresolved admission stays pending. Apply the stated policy; do not invent novelty or validation requirements.
+
+
 Deliver:
 
 1. Manuscript profile and stated constraints.
