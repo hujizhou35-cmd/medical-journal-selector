@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-10-03T12:16:17.447408+00:00",
+  "observed_at": "2026-10-03T13:17:50.139346+00:00",
   "eval_version": "r28-wave10-08",
   "wave_id": "de37e4de8d7e4ede8128db046edb902e",
-  "status": "running",
+  "status": "sealed; regressions and central decisions pending",
   "started_at": "2026-10-03T12:13:54.518026+00:00",
   "case_workers": 10,
   "model_call_limit": 10,
@@ -38,5 +38,39 @@
   "exact_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
   "reusable_development_launcher_offline_checks": 15,
   "route_scope": "Only this process and descendants; no global/VPN/auth/model change",
-  "interpretation": "Actual live Python identity, immutable registered phase/wave, scheduler and all ten class claims observed. Reliable five-case recovery reached genuine barrier with16new completed calls/peak5/zero new errors and five actual no-change decisions,57to62; three usable/two unusable original grades preserved. Ten-class ramp now includes five original incomplete cases and five next unexposed cases. Fresh restricted Sol/xhigh contexts and globalten cap preserve original same-case sources/cached calls/failures. Process-only proxy applies to launcher and children; global settings/auth/model unchanged. Reusable development-only launcher passed15mockedchecks but adds no casecredit and rejects final mode. Actual ten-class proxy reliability is pending receipts. Original failedr26wave47/18 and stoppedauxiliarysource-refusaloperation remain. Running cases addzero completioncredit; final0/50 requires100real loops and every publication gate."
+  "interpretation": "Actual ten-class wave sealed and independently audited:45 new completed fresh calls, peak10, one genuine retained decode/reconnect, sixteen cached checkpoints and nine old failures excluded. Original4usable/6unusable/3valid-output hardfailurecases remain; no bad outcome replaced or regraded. Three exposed-input source-serialization/comparison regressions are planned, unrun and add no blind credit. No change adopted and no ten decisions sealed yet:formal62/100,final0/50,24protocoltrials. Publication gates remain pending.",
+  "sealed_at": "2026-10-03T12:49:08.001056+00:00",
+  "actual_cli_calls": 45,
+  "actual_unique_contexts": 45,
+  "transport_completed_calls": 45,
+  "failed_current_wave_calls": 0,
+  "transport_failure_counts": {
+    "response_decode_failure": 1
+  },
+  "transport_retries": 1,
+  "cached_completed_calls_excluded_from_new_counts": 16,
+  "preserved_failed_old_calls_excluded": 9,
+  "actual_interval_peak": 10,
+  "actual_auxiliary_overlap": 0,
+  "actual_scheduler_exit_code": 0,
+  "centrally_decided_valid_cases": 0,
+  "completed_development_after_decisions": 62,
+  "original_usable_count": 4,
+  "original_unusable_count": 6,
+  "original_valid_output_hard_failure_cases": 3,
+  "original_scores_unchanged": true,
+  "runtime_audit_checks": 1048,
+  "runtime_original_files_unchanged": 5295,
+  "runtime_audit_seal_sha256": "a763fb54273617d89051e528f4837339b7a6e3ead4c01935bf3ad443c281d5be",
+  "root_source_administrative_seal_sha256": "6fd2ca5ccb426f62554c6328a4b2c49b128180beceba445f7a9c339bfffd171f",
+  "available_terminal_usage_current_wave": {
+    "input_tokens": 4306171,
+    "cached_input_tokens": 180096,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 186454,
+    "reasoning_output_tokens": 97297
+  },
+  "wave_wall_seconds": 2113.48303,
+  "sum_overlapping_new_elapsed_seconds": 9590.297,
+  "usage_limit": "Available completed terminal usage only. One disconnected attempt has unknown usage. Sixteen cached completed checkpoints and nine old failed calls excluded from new usage/concurrency; overlapping elapsed sum is not wall time or full cost."
 }

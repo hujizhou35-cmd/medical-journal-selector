@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Sixty-two distinct valid development loops have passed sealed central decisions: **62/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The r27 recovery adds five valid loops to the historical 57; poor valid-input results and genuine output hard failures remain in the denominator. Original scores, negative results and failed-wave records remain. The failed r26 wave added no completed cases, and its historical fault location remains unproven. The registered wave r28-wave10-08 is now running with 10 workers, a 10-model-call ceiling and 10 primary article classes; running work adds no completed-case credit. These checks do not establish V2 accuracy or improvement over V1.
+Formal valid development completion is **62/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The latest ten-class wave is sealed; three required exposed-input regressions and central decisions remain pending. It adds no completed-case credit yet. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
 
 ## Registered experiment
 
@@ -80,7 +80,7 @@ A source-backed, independently sealed primary-purpose amendment corrects class/q
 
 At the r25 barrier, no new Selector rule or change to the execution software was adopted. Frozen execution **r24** and Selector **r17** continued; the retained results of **276 offline tests** and other earlier checks keep their original scope and are not new r25 or r26 test runs. The subsequent r26 wave is recorded below. The stable download remains **V1.0.0**.
 
-## Latest execution barrier: r26-wave10-07 (3 October 2026)
+## Historical execution barrier: r26-wave10-07 (3 October 2026)
 
 The actual `r26-wave10-07` wave ended and was sealed on **3 October 2026 at 06:50:37 UTC**, with status **failed**. All **ten case chains** ended as **infrastructure_failed**. Partial outputs and failed-call records are retained; no chain earned completed-case credit, and no answers were revealed in this wave. Formal totals remain **57/100 valid development cases**, **0/50 final cases** and **24 separately retained protocol trials**.
 
@@ -90,7 +90,7 @@ At the r26 seal, the failure cause remained unresolved and the available account
 
 Original grades and negative results from earlier completed development cases remain intact. Frozen execution **r24**, Selector **r17**, the earlier nine final masked-input corrections, and the final-test sealing requirements remain. No new Selector rule, software change, final evaluation or release follows from this failed wave. At that r26 barrier, further execution was held pending runtime and connectivity review. The subsequent r27 recovery has ended and passed central decisions as described below; the stable release remains **V1.0.0**.
 
-## Latest development barrier: r27-recovery-5 (3 October 2026)
+## Historical development barrier: r27-recovery-5 (3 October 2026)
 
 At **11:29 UTC**, the original first five incomplete cases resumed with **five workers and a five-model-call ceiling**; the other five incomplete cases remain next in line. Actual process identity, scheduler claim, five class claims and immutable wave were observed. The inputs, source snapshots, frozen execution **r24**, Selector **r17** and **6.1 Sol / xhigh** configuration remain unchanged. Existing completed calls are reused; original failed calls and ledgers are archived before identical-input retries. No case is replaced because of its result.
 
@@ -102,11 +102,21 @@ No new Selector instruction or change to the execution software was adopted at t
 
 A separate clinical-case annotation distinguishes journals with the same title by their different ISSNs and explains the false flags. The original incorrect diagnostic inference and original scores remain unchanged.
 
-The planned next recovery covers **ten primary article classes**, with a planned ceiling of **ten workers and ten model calls**, using the same launcher-only proxy configuration. The five original remaining incomplete cases have priority; each of the other five classes takes its next unexposed case from the frozen queue. The registered wave r28-wave10-08 is now running with 10 workers, a 10-model-call ceiling and 10 primary article classes; running work adds no completed-case credit. Registration alone will not establish that it is running; actual process identity, scheduler and class claims, and wave receipts must be observed. [Current observed state](current-wave.json) · [Original failed wave](waves/r26-wave10-07.json)
+After r27, r28 covered ten classes: the original five incomplete cases had priority, and each other class took its next unexposed case from the frozen queue. The wave actually started at 12:13 UTC and subsequently ended and was sealed, as recorded below. [Current observed state](current-wave.json) · [Original failed wave](waves/r26-wave10-07.json)
 
-## Current execution: r28-wave10-08 (3 October 2026)
+## Latest sealed execution: r28-wave10-08, awaiting development decisions (3 October 2026)
 
-At **12:13 UTC**, the ten-class ramp actually started with **ten workers and a global ten-model-call ceiling**. Actual Python identity, scheduler and all ten class claims, and the immutable phase/wave were observed. Five original incomplete cases resume their same sealed inputs and completed checkpoints; the other five classes take their next untouched development case. The same frozen **r24 / r17** and **6.1 Sol / xhigh** configuration continue. The reusable development-only launcher passed **15 mocked checks**, preserves the existing isolation/recovery/review gates and rejects final mode. Proxy variables affect its process and descendants only. Running work adds no completion credit; ten-call route reliability still requires genuine receipts. [Previous completed recovery](waves/r27-recovery-5.json) · [Current observed state](current-wave.json)
+At **12:13 UTC**, the ten-class ramp actually started with **ten workers and a global ten-model-call ceiling**. Actual Python identity, scheduler and all ten class claims, and the immutable phase/wave were observed. Five original incomplete cases resume their same sealed inputs and completed checkpoints; the other five classes take their next untouched development case. The same frozen **r24 / r17** and **6.1 Sol / xhigh** configuration continue. The reusable development-only launcher passed **15 mocked checks**, preserves the existing isolation/recovery/review gates and rejects final mode. Proxy variables affect its process and descendants only. This execution history remains; genuine receipts are reported in the sealed audit below, without treating mocked checks as real wave calls. [Previous completed recovery](waves/r27-recovery-5.json) · [Current observed state](current-wave.json)
+
+
+The wave ended and was sealed on **3 October 2026 at 12:49:08 UTC**; all ten cases reached diagnosis. Three registered exposed-input regressions and ten genuine central decisions remain pending. Formal totals stay **62/100 development, 0/50 final and 24 protocol trials**. Diagnosed cases are not yet completed development loops and receive no early case credit.
+
+The sealed runtime audit passed **1,048 checks** and retained **5,295 original files unchanged**. It records **45 newly completed CLI calls**, excluding **16 older cached completed calls** and **nine archived older failed calls**, with an observed peak of **ten** simultaneous calls. One genuine `response_decode_failure` reconnect ultimately completed; the interrupted attempt's usage remains unknown. Completed transport is distinct from completed development credit, and the available usage does not establish complete cost.
+
+All ten inputs are valid diagnosed development cases. Their original grades remain **four with usable candidates, six unusable and three cases with hard failures**. Two hard-failure cases concern quotation/URL checks; one semantic comparison error was confirmed by adjudication. These poor valid-input outcomes are retained, not relabelled as infrastructure failures. Original historical rankings and negative results remain; no rate is inferred. Original scores, negative recommendations, blind reviews and diagnoses remain intact.
+
+The narrow final-evidence checklist remains an unadopted candidate under registered regressions and an explicit adoption/rejection gate. No repair has been accepted, and no regression is described as passed. Original errors, negative grades and unknown fields remain. Real final testing has not started, and there is no stable V2 release.
+
 
 ## Evidence and interpretation
 
