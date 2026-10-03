@@ -124,5 +124,7 @@
   },
   "no_case_reveal_diagnosis_score_or_central_decision": true,
   "next_action": "Await genuinely new external-state evidence, then an exact one-use recovery registration for these same incomplete cases. Preserve sealed preparations, genuine checkpoints and every failed attempt; no fresh-case bypass, old probe reuse or consumed launch repeat.",
-  "failure_record": "waves/r32b-wave7-10.json"
+  "failure_record": "waves/r32b-wave7-10.json",
+  "record_kind": "Sealed interrupted-wave derived metadata",
+  "previous_running_observation_is_historical": true
 }

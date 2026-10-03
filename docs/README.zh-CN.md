@@ -58,7 +58,7 @@
 
 **Medical Journal Selector Skill Trainer** 先对脱敏稿件选刊、封存推荐和独立评审，再揭晓真实发表期刊，将有依据的问题变成可复用规则，并用未参与修改的文章验收。
 
-V2 候选版和 Trainer 正在评测：**开发案例已完成 82／100，最终测试为 0／50。**剩余七类文章各有一篇正在并行处理，同时最多运行五个模型调用。通过发布检查前，稳定下载仍为 **V1.0.0**。[Trainer 教程](trainer-guide.zh-CN.md) · [评测状态](evaluation/README.zh-CN.md)
+V2 候选版和 Trainer 正在评测：**开发案例已完成 82／100，最终测试为 0／50。**最近七篇案例因模型连接反复出错而停止。已保留完成的步骤和断点，等待连接环境发生变化的依据后再续跑。通过发布检查前，稳定下载仍为 **V1.0.0**。[Trainer 教程](trainer-guide.zh-CN.md) · [评测状态](evaluation/README.zh-CN.md)
 
 ## 常见问题
 
