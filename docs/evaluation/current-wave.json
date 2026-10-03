@@ -38,7 +38,7 @@
   "exact_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
   "reusable_development_launcher_offline_checks": 15,
   "route_scope": "Only this process and descendants; no global/VPN/auth/model change",
-  "interpretation": "Actual ten-class wave sealed and independently audited:45 new completed fresh calls, peak10, one genuine retained decode/reconnect, sixteen cached checkpoints and nine old failures excluded. Original4usable/6unusable/3valid-output hardfailurecases remain; no bad outcome replaced or regraded. Three exposed-input source-serialization/comparison regressions are planned, unrun and add no blind credit. No change adopted and no ten decisions sealed yet:formal62/100,final0/50,24protocoltrials. Publication gates remain pending.",
+  "interpretation": "Ten-class r28 wave genuinely sealed:45 new completed calls/peak10/one retained decode retry,16 cached checkpoints and9 old failed calls excluded. Original4usable/6unusable/3hardfailurecases stay unchanged. Three exposed-input auxiliary regressions are now actually running at cap3; no central decisions, adoption or new blind credit yet. Formal62/100,final0/50,24protocoltrials. Full publication gates remain pending.",
   "sealed_at": "2026-10-03T12:49:08.001056+00:00",
   "actual_cli_calls": 45,
   "actual_unique_contexts": 45,
@@ -72,5 +72,24 @@
   },
   "wave_wall_seconds": 2113.48303,
   "sum_overlapping_new_elapsed_seconds": 9590.297,
-  "usage_limit": "Available completed terminal usage only. One disconnected attempt has unknown usage. Sixteen cached completed checkpoints and nine old failed calls excluded from new usage/concurrency; overlapping elapsed sum is not wall time or full cost."
+  "usage_limit": "Available completed terminal usage only. One disconnected attempt has unknown usage. Sixteen cached completed checkpoints and nine old failed calls excluded from new usage/concurrency; overlapping elapsed sum is not wall time or full cost.",
+  "auxiliary_regression": {
+    "status": "running",
+    "observed_at": "2026-10-03T14:13:03.442978+00:00",
+    "exposed_case_count": 3,
+    "model_call_limit": 3,
+    "observed_initial_fresh_selection_contexts": 3,
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "original_captured_sources_refetched": false,
+    "candidate_instruction_adopted": false,
+    "new_blind_case_credit": 0,
+    "software_only_independent_checks": 8,
+    "corrective_offline_checks": 5,
+    "old_prelaunch_software_failure_and_unlaunched_registration_retained": true,
+    "independent_software_seal_sha256": "44f66a588dacdbcb4b775ece1284dc99faa986b7271b3d6ad18e183430ea066e",
+    "registration_sha256": "be737b1079af5618a064865eb630222469f94f0829f4891a7648d963125598d0",
+    "running_observation_sha256": "7c418bfc7bce5c3dade9a1b54cbd575af3ab8294546effde05c4e7be3cfdbb7e",
+    "interpretation": "Three exposed-input regressions actually started after independent software checks. Initial fresh selection event headers and genuine process creation/claim/start were observed. No completed regression, accepted instruction, repaired original score, new blind case or final-set result is claimed. Next gate requires genuine new selections, two independent anonymous reviews each, adjudication when needed, source/semantic inspection and administrative receipts. Old software-test failure remains; no original papers/answers/full logs are published."
+  }
 }
