@@ -455,32 +455,32 @@
     }
   ],
   "latest_objective_based_preselection_amendment": {
-    "at": "2026-10-03T04:26:31.991627+00:00",
+    "recorded_at": "2026-10-03T06:19:13.631937+00:00",
     "kind": "primary-objective preselection metadata correction",
     "decision": "verified_preparation_amendment",
-    "manifest_revision": 15,
-    "manifest_sha256": "4da66b8ccf8c00f3a743d986e6b3905df542d82aec40d0ae9af2674fa0082277",
+    "manifest_revision": 16,
+    "manifest_sha256": "9a7bfbe09dc9039310ed27d778e360e9ee79e29f144cb73f3ad46009521b4324",
     "execution_snapshot": "execution-protocol-r24",
     "selector_snapshot": "selector-candidate-r17",
     "class_corrections": {
-      "s1-public_database-019": [
-        "public_database",
-        "bioinformatics"
-      ],
-      "s1-case_report-009": [
-        "case_report",
-        "clinical_nursing"
+      "s1-network-009": [
+        "network",
+        "laboratory"
+      ]
+    },
+    "additional_rejected_reserve_class_correction": {
+      "s1-network-020": [
+        "network",
+        "laboratory"
       ]
     },
     "unexecuted_quota_demotions": {
-      "bioinformatics": "s1-bioinformatics-010",
-      "clinical_nursing": "s1-clinical_nursing-024"
+      "laboratory": "s1-laboratory-010"
     },
-    "earliest_unexecuted_quota_promotions": {
-      "public_database": "s1-public_database-025",
-      "case_report": "s1-case_report-020"
+    "earliest_eligible_unexecuted_quota_promotions": {
+      "network": "s1-network-021"
     },
-    "criterion": "Classify by main scientific objective with secondary methods retained. Before recommendation, correct computational molecular-prioritization and systematic clinical-cohort labels; preserve valid profiles and original failed receipts. Fixed serial-order, never recommendation score/outlet preference.",
+    "criterion": "Main scientific purpose, fixed highest unexecuted destination serial and earliest eligible unexecuted reserve. Earlier wrong-primary reserve retained and recorded; no recommendation score/outlet selection. Fresh profile gates replacement.",
     "actual_active_development": 100,
     "actual_active_final": 50,
     "per_class_development": 10,
@@ -493,41 +493,141 @@
     "fresh_profile_required_for_promoted_reserves": true,
     "validated_existing_profiles_reused_without_new_call": [
       {
-        "case_id": "s1-public_database-019",
-        "context_id": "01a0ffc2-4fa1-7d32-b1fc-7e3028e00464",
-        "input_identity": "b8da2e0d67af2fd77abf7c36658f0ade4d910bec3f5ae43cd91eab257b2bc5ca",
-        "profile_sha256": "7902139a9c46d52614d383505005c40d8af9a04d165c507e954feb1ee0d65b4e",
-        "original_failed_ledger_sha256": "62b139bd8702772727c9ec27aabcfc180aba1a7d64c7232011c091575c627c22"
-      },
-      {
-        "case_id": "s1-case_report-009",
-        "context_id": "01a0ffc2-5256-7ea0-aad3-e942d8b4e9fa",
-        "input_identity": "29dbf06f21788d64a72ab654ac381e1d6cbe8aba9e9fcbca9073f8cc397f0f8d",
-        "profile_sha256": "b38213bd62044ffc111be1aab64b8adde80b9684bca1cf6a6089b8b0a956572b",
-        "original_failed_ledger_sha256": "6d791fa116ebd1252546160b4800d80bc7c9798038db0452436bfcc93585d711"
+        "case_id": "s1-network-009",
+        "context_id": "01a1000d-375d-7960-8437-e48261577454",
+        "input_identity": "474a3e7d383b425fed74671f8ddb6fd7ecb1565dd1acb6d96670dd57780efee4",
+        "profile_sha256": "9a98c106dd28860acf5ee86f960aca34de6ef7ee26bee7a5594a3e32c2886cff",
+        "original_failed_ledger_sha256": "e94963a1c57cc94482dd6a00540d2fa0ea7e081867c326d7abf3d0f5ae212569"
       }
     ],
     "actual_eligibility_genre_input_hash_checks": 150,
-    "identity_caps": {
+    "identity_max_family_count": {
       "development": 5,
-      "final": 3
+      "holdout": 3
     },
     "near_duplicate_pairs": 0,
     "new_model_calls": 0,
     "new_blind_credit": 0,
     "new_selector_instruction_changes": 0,
-    "amendment_seal_sha256": "48887bb8fc32bd0f140654c7d9eb456b61cbd205e12ece699cd0fd740938df3d",
-    "independent_verification_seal_sha256": "0dd82b861da9ece5de6f76864dfe1022c527e1711d740da77b5f3af95994934f",
-    "source_audit_seal_sha256": "bd71b375c5a7f02c50d392c958faeaaea133ff2bfff7fc234d77811b0fd5fd51",
-    "static_revised_helper_review_seal_sha256": "bcd86fce905f40f2a197b084e77278ad2ba40e148dc69f13b634031212018887",
+    "amendment_seal_sha256": "638f88d2fb278119ee6134d00b7d2b6edaf5f46563cceccc1e3fb6447fa0a09a",
+    "independent_verification_seal_sha256": "c41a7714e3a66bfc150420d9bb55e4b6e0bfba09cb3d66d7c1e155a3007c87fb",
+    "actual_independent_administrative_checks": 978,
+    "source_administrative_seal_sha256": "da1d539b926ac0a468680516f31b06d4343e1aa593c0e8fe05bc80f7519a2bea",
+    "source_audit_role": "Root safe administrative verification after auxiliary source audit refusal; no claim that interrupted independent coordinator completed",
+    "interrupted_coordinator_completed": false,
     "preparation_boundary": "Automated eligibility/fingerprint/identity-cap pass parses allocated sources and ISSNs privately, including final; only aggregate results emitted. No final scientific or answer values enter any model/context/report or tune rules. Independent verification may hash final files only.",
     "limits": [
-      "Cached profiles are genuine completed preparation, not new blind cases or replacement recommendations. Both stopped papers still require actual new generation, two blind reviews, reveal, diagnosis and central decisions.",
-      "The metadata correction adds no software change or new full-suite test claim. Current tested execution r24 remains frozen;276full tests and earlier619input repair checks retain their original dated scope.",
-      "Independent coordinator source audits use the same model; they are not human experts or independent-model validation.",
-      "Current class amendment does not undo nine earlier final masked-input repairs; final model evaluation remains0/50.",
-      "Reviewer disagreements and genuine preference-to-mandatory policy error remain visible. No accuracy, significance or acceptance-probability improvement is claimed."
-    ]
+      "Original network-labelled valid profile resumes in laboratory; preselection failure receives zero completion credit until actual full chain.",
+      "No production software or Selector instruction changes, new test run, model call or blind-case credit from metadata correction.",
+      "Completed coordinator administrative checks and root administrative verification are separately labelled; partial auxiliary source audit remains interrupted after third same-cause refusal, no retry. Neither replaces the original two sealed blind reviews or claims human expert validation.",
+      "Final current bytes unchanged across this amendment only; nine earlier mask repairs retained.",
+      "Original poor valid-input outcomes, historical non-hits and actual decode/retry record remain unchanged; interrupted usage unknown. No accuracy/acceptance improvement claim.",
+      "Two administrative precommit assertions stopped before any mutation: inactive rejected reserve parser drift and an overstrong parity assertion against a previously registered exposed caption-only limitation. Both stops/disposition remain; old inputs/scores and scope of prior619checks are unchanged."
+    ],
+    "inactive_rejected_reserve_preparation_limits": [
+      {
+        "case_id": "s1-network-020",
+        "status": "inactive rejected reserve retained; parser version drift",
+        "source_and_original_mask_unchanged": true,
+        "original_mask_input_hash_matches": true,
+        "current_parser_length": 44685,
+        "retained_mask_length": 39873,
+        "eligible_for_model_without_preparation_repair": false,
+        "new_case_credit": 0
+      }
+    ],
+    "previously_registered_exposed_caption_limit": [
+      {
+        "case_id": "s1-network-003",
+        "status": "Previously registered exposed figure-caption-only limitation; unchanged input/score retained",
+        "before_sha256": "918e896eef2f190c1a061b4a058f02c333624356e2867ed65082621f53376d7c",
+        "proposed_sha256": "5500d055eed4c3ba667f57f22f8441b9731ad090b14bfe0b69386c5789a80530",
+        "missing_table_audit_affected": false,
+        "prior_independent_seal_sha256": "a33ae11ae0a680f4fcb5c2539030b54eef8a4f9f834523d8dffed60085e0ba19",
+        "prior_proposals_sha256": "eb183bd40d708ff16aa112ad02bccbfcf55bc90f914f87052e195e09b4a10f40",
+        "new_model_calls": 0,
+        "new_case_credit": 0
+      }
+    ],
+    "actual_precommit_stops_preserved": 2,
+    "latest_static_delta_seal_sha256": "70f251f6d10d1b17792fb94098194b1c59b10a92225d174df699c08c852bf279"
   },
-  "latest_exported_at": "2026-10-03T04:26:31.992033+00:00"
+  "latest_exported_at": "2026-10-03T06:19:13.631937+00:00",
+  "primary_objective_amendment_history": [
+    {
+      "at": "2026-10-03T04:26:31.991627+00:00",
+      "kind": "primary-objective preselection metadata correction",
+      "decision": "verified_preparation_amendment",
+      "manifest_revision": 15,
+      "manifest_sha256": "4da66b8ccf8c00f3a743d986e6b3905df542d82aec40d0ae9af2674fa0082277",
+      "execution_snapshot": "execution-protocol-r24",
+      "selector_snapshot": "selector-candidate-r17",
+      "class_corrections": {
+        "s1-public_database-019": [
+          "public_database",
+          "bioinformatics"
+        ],
+        "s1-case_report-009": [
+          "case_report",
+          "clinical_nursing"
+        ]
+      },
+      "unexecuted_quota_demotions": {
+        "bioinformatics": "s1-bioinformatics-010",
+        "clinical_nursing": "s1-clinical_nursing-024"
+      },
+      "earliest_unexecuted_quota_promotions": {
+        "public_database": "s1-public_database-025",
+        "case_report": "s1-case_report-020"
+      },
+      "criterion": "Classify by main scientific objective with secondary methods retained. Before recommendation, correct computational molecular-prioritization and systematic clinical-cohort labels; preserve valid profiles and original failed receipts. Fixed serial-order, never recommendation score/outlet preference.",
+      "actual_active_development": 100,
+      "actual_active_final": 50,
+      "per_class_development": 10,
+      "per_class_final": 5,
+      "distinct_preserved_protocol_trials": 24,
+      "original_corpus_source_masked_answer_bytes_unchanged_across_this_amendment": true,
+      "original_failed_wave_and_case_calls_scores_preserved": true,
+      "final50_metadata_and_current_bytes_unchanged_across_this_amendment": true,
+      "final9earlier_r24_masked_input_corrections_remain_recorded": true,
+      "fresh_profile_required_for_promoted_reserves": true,
+      "validated_existing_profiles_reused_without_new_call": [
+        {
+          "case_id": "s1-public_database-019",
+          "context_id": "01a0ffc2-4fa1-7d32-b1fc-7e3028e00464",
+          "input_identity": "b8da2e0d67af2fd77abf7c36658f0ade4d910bec3f5ae43cd91eab257b2bc5ca",
+          "profile_sha256": "7902139a9c46d52614d383505005c40d8af9a04d165c507e954feb1ee0d65b4e",
+          "original_failed_ledger_sha256": "62b139bd8702772727c9ec27aabcfc180aba1a7d64c7232011c091575c627c22"
+        },
+        {
+          "case_id": "s1-case_report-009",
+          "context_id": "01a0ffc2-5256-7ea0-aad3-e942d8b4e9fa",
+          "input_identity": "29dbf06f21788d64a72ab654ac381e1d6cbe8aba9e9fcbca9073f8cc397f0f8d",
+          "profile_sha256": "b38213bd62044ffc111be1aab64b8adde80b9684bca1cf6a6089b8b0a956572b",
+          "original_failed_ledger_sha256": "6d791fa116ebd1252546160b4800d80bc7c9798038db0452436bfcc93585d711"
+        }
+      ],
+      "actual_eligibility_genre_input_hash_checks": 150,
+      "identity_caps": {
+        "development": 5,
+        "final": 3
+      },
+      "near_duplicate_pairs": 0,
+      "new_model_calls": 0,
+      "new_blind_credit": 0,
+      "new_selector_instruction_changes": 0,
+      "amendment_seal_sha256": "48887bb8fc32bd0f140654c7d9eb456b61cbd205e12ece699cd0fd740938df3d",
+      "independent_verification_seal_sha256": "0dd82b861da9ece5de6f76864dfe1022c527e1711d740da77b5f3af95994934f",
+      "source_audit_seal_sha256": "bd71b375c5a7f02c50d392c958faeaaea133ff2bfff7fc234d77811b0fd5fd51",
+      "static_revised_helper_review_seal_sha256": "bcd86fce905f40f2a197b084e77278ad2ba40e148dc69f13b634031212018887",
+      "preparation_boundary": "Automated eligibility/fingerprint/identity-cap pass parses allocated sources and ISSNs privately, including final; only aggregate results emitted. No final scientific or answer values enter any model/context/report or tune rules. Independent verification may hash final files only.",
+      "limits": [
+        "Cached profiles are genuine completed preparation, not new blind cases or replacement recommendations. Both stopped papers still require actual new generation, two blind reviews, reveal, diagnosis and central decisions.",
+        "The metadata correction adds no software change or new full-suite test claim. Current tested execution r24 remains frozen;276full tests and earlier619input repair checks retain their original dated scope.",
+        "Independent coordinator source audits use the same model; they are not human experts or independent-model validation.",
+        "Current class amendment does not undo nine earlier final masked-input repairs; final model evaluation remains0/50.",
+        "Reviewer disagreements and genuine preference-to-mandatory policy error remain visible. No accuracy, significance or acceptance-probability improvement is claimed."
+      ]
+    }
+  ]
 }

@@ -168,7 +168,92 @@
         "reasoning_output_tokens": 147637
       },
       "interpretation": "Failed scheduling wave is retained: all53 actual CLI calls completed in fresh contexts, observed peak10 and zero transport failures; two papers stopped before recommendation because valid profiles disagreed with source-purpose allocation labels. Eight genuine diagnosed loops are credited only after central source/decision audit; original unusable outcomes and one adjudicated preference-to-mandatory policy error remain. Two preselection cases receive zero completion credit until genuinely resumed. No new Selector instruction or blind replay. Final evaluation remains unstarted."
+    },
+    {
+      "observed_at": "2026-10-03T06:25:18.324507+00:00",
+      "eval_version": "r25-wave10-06",
+      "wave_id": "2f3f66dedb07479c9d997e24b1a40f25",
+      "status": "failed",
+      "started_at": "2026-10-03T04:37:03.795342+00:00",
+      "sealed_at": "2026-10-03T05:08:18.912207+00:00",
+      "case_workers": 10,
+      "model_call_limit": 10,
+      "actual_interval_peak": 10,
+      "actual_cli_calls": 53,
+      "actual_unique_contexts": 53,
+      "cached_old_profiles_excluded_from_new_calls": 2,
+      "transport_completed_calls": 53,
+      "transport_retries": 1,
+      "transport_failure_counts": {
+        "response_decode_failure": 1
+      },
+      "failed_current_wave_calls": 0,
+      "extra_adjudication_calls": 0,
+      "completed_development_before_wave": 48,
+      "completed_development_after_decisions": 57,
+      "completed_final": 0,
+      "centrally_decided_valid_cases": 9,
+      "incomplete_preselection_cases": 1,
+      "new_selector_instruction_changes": 0,
+      "original_scores_unchanged": true,
+      "original_usable_count": 8,
+      "original_unusable_count": 1,
+      "original_valid_output_hard_failures": 0,
+      "original_historical_rank_one_count": 4,
+      "preselection_model_classification_errors": 0,
+      "source_purpose_allocation_mismatches": 1,
+      "new_model_regression_credit": 0,
+      "model": "gpt-6.1-sol",
+      "reasoning_effort": "xhigh",
+      "execution_snapshot": "execution-protocol-r24",
+      "selector_snapshot": "selector-candidate-r17",
+      "wave_sha256": "705d371650dd65c12f45c3f764ac558115ac0bc49c071f3bdaf8efb1790b361e",
+      "runtime_audit_sha256": "34b0a86a11e6b3da39dec56a280ee87d0a44aedf2734640f9aaa50b0ffb1ad0d",
+      "source_audit_seals_sha256": [
+        "7a1848e56a3c90f2274ba42b0601bdda10b37f836c7c0e1fd5f1463eb6a7c9b4",
+        "d40f507d2a6548121cdf9fa32229378a19515fa79e95c03e85eddf980aca04a5",
+        "da1d539b926ac0a468680516f31b06d4343e1aa593c0e8fe05bc80f7519a2bea"
+      ],
+      "source_audit_roles": [
+        "completed independent coordinator administrative audit; not blind/expert review",
+        "completed independent coordinator administrative audit; not blind/expert review",
+        "root administrative verification; interrupted coordinator remains partial"
+      ],
+      "interrupted_auxiliary_coordinator_completed": false,
+      "same_cause_auxiliary_refusals_total": 3,
+      "affected_auxiliary_retry_stopped": true,
+      "central_decision_sha256": "82ae1eaf2251c400f83215bdca56054fd3bbc61ed07b54a8422f412994da29ff",
+      "available_terminal_usage_current_wave": {
+        "input_tokens": 5514094,
+        "cached_input_tokens": 421248,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 281018,
+        "reasoning_output_tokens": 143787
+      },
+      "usage_limit": "Successful terminal turns only; interrupted retry-attempt usage and auxiliary provider usage are Not verified（未核到）. Overlapping call elapsed sums are not wall time or complete cost.",
+      "interpretation": "Original failed scheduling wave remains: all53 new logical CLI calls completed in53 fresh contexts, observed peak10; one real response decode error/reconnect is preserved. Two old cached profiles are excluded from new counts. Nine genuine full loops with two original blind reviews each received no-change decisions, raising48+9=57. Original8usable/1unusable/0hardfailures/four historical rank-one hits remain, without improvement or acceptance claims. One valid preselection paper receives zero credit pending resumed completion after main-objective metadata correction. Two completed coordinator source/runtime audits and safe root administrative verification are separately labelled; the interrupted third coordinator remains partial and further same-cause retry stopped. No new Selector instruction, benchmark replay or final evaluation."
     }
   ],
-  "latest_exported_at": "2026-10-03T04:26:15.820612+00:00"
+  "latest_exported_at": "2026-10-03T06:25:18.369923+00:00",
+  "auxiliary_provider_observations": [
+    {
+      "recorded_at": "2026-10-03T05:24:41.704930+00:00",
+      "kind": "Retained auxiliary coordinator provider refusal; not a manuscript-case CLI or blind-review failure",
+      "wave_id": "2f3f66dedb07479c9d997e24b1a40f25",
+      "task": "post-seal population source audit and primary-purpose reserve check",
+      "status": "service_refusal",
+      "reason": "Invalid prompt: we've limited access to this content for safety reasons. This type of information may be used to benefit or to harm people.",
+      "prior_same_provider_cause_observations": 2,
+      "same_cause_observed_total": 3,
+      "new_case_cli_calls": 0,
+      "new_blind_case_credit": 0,
+      "provider_usage": "Not verified（未核到）",
+      "disposition": "No further retry or resubmission of this interrupted auxiliary source-audit operation after the third same-cause refusal. Preserve partial exact checks and original inventories. Continue safe administrative verification of already-produced records and journal-policy sources without inventing completion or substituting for the genuine sealed blind reviewers.",
+      "limits": [
+        "The interrupted coordinator is not reported as a completed independent source audit.",
+        "All genuine generation/review/diagnosis CLI receipts remain original; this coordinator observation is separate.",
+        "No new model context, changed provider or altered authentication is used to retry the blocked operation."
+      ]
+    }
+  ]
 }
