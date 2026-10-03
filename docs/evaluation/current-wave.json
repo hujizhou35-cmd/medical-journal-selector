@@ -1,151 +1,65 @@
 {
-  "observed_at": "2026-10-03T19:17:46.151025+00:00",
-  "eval_version": "r31-wave10-09",
-  "wave_id": "01517ec4cf8848ba8e7c967b49eae304",
-  "status": "sealed; ten original valid development loops centrally decided",
-  "started_at": "2026-10-03T17:11:43.741637+00:00",
+  "observed_at": "2026-10-03T20:14:56.573973+00:00",
+  "eval_version": "r32b-wave7-10",
+  "wave_id": "fcbc06b7c14b45459afcccdf9e3d1d53",
+  "status": "running",
+  "started_at": "2026-10-03T20:14:22.093462+00:00",
   "case_workers": 10,
+  "actual_cases_in_wave": 7,
   "model_call_limit": 5,
   "logical_class_queues": 10,
+  "unfinished_primary_classes": 7,
+  "completed_primary_classes": [
+    "laboratory",
+    "bioinformatics",
+    "prediction"
+  ],
   "one_case_per_primary_class": true,
   "primary_classes": [
     "clinical_nursing",
-    "laboratory",
     "public_database",
-    "bioinformatics",
-    "prediction",
     "network",
     "systematic_meta",
     "other_review",
     "bibliometrics",
     "case_report"
   ],
-  "completed_development_before_wave": 72,
+  "completed_development_before_wave": 82,
   "completed_development": 82,
   "completed_final": 0,
   "preserved_protocol_trials": 24,
-  "new_blind_case_credit": 10,
+  "new_blind_case_credit": 0,
   "model": "gpt-6.1-sol",
   "reasoning_effort": "xhigh",
   "as_of_date": "2026-10-04",
-  "execution_snapshot": "execution-protocol-r24",
+  "execution_snapshot": "execution-protocol-r25",
   "selector_snapshot": "selector-candidate-r18",
-  "phase_sha256": "2a8cbd705dab07e305f8b6f7163256b3acd3d81ebf6b2336a172f00f8d568505",
+  "phase_sha256": "6e7b0482da63f272684fb79ded06a13950e619ed228c80539161e5f2e36a462e",
   "selector_manifest_sha256": "201617d201120ad3165e418347ba0d2519ae7e6009ed745bce2f3fb1943a72f4",
+  "execution_manifest_sha256": "cf0d81ca2b34551364d9aa32b6eba59355139f2e412436475a98fc743dfcf18e",
   "corpus_manifest_sha256": "9a7bfbe09dc9039310ed27d778e360e9ee79e29f144cb73f3ad46009521b4324",
   "corpus_files_sha256": "9713460517aab72fb869cb701ee0c7dab8d7135d61d0bf9e48146c9a8a7db2b3",
-  "exact_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
-  "root_request_sha256": "b383b6593df4b749999ce76e9b58b8dd3b8fd7f429934db32cbca195bc2178e3",
+  "exact_launcher_sha256": "25a5f20f5dc6edbca8dac3762b3193ea0d329aea401da2515c6e36aefa981f02",
   "root_registration_dry_run": {
-    "actual_tool_chunk": "4aee21",
+    "actual_tool_chunk": "414517",
     "exit_code": 0,
-    "verified_completed_ledger_frames": 72
+    "verified_completed_ledger_frames": 82
   },
   "root_actual_registration": {
-    "actual_tool_chunk": "3b1281",
+    "actual_tool_chunk": "2a96e5",
     "exit_code": 0,
     "adds_case_credit": 0
   },
   "actual_process_identity_and_creation_verified": true,
-  "actual_class_claims_observed": 10,
-  "running_observation_sha256": "ec65812e0116194da636b8443f21afed159a8d48f13d1a8773edb1ddb1ec3632",
-  "previous_wave": "waves/r28-wave10-08.json",
-  "completed_exposed_regression_record": "regressions/r30-step5-resume.json",
+  "actual_class_claims_observed": 7,
+  "running_observation_sha256": "6a43a1fdf387b464d8ea85899f641ded6c7d47039eb45c16fcdb02d341863b83",
+  "previous_wave": "waves/r31-wave10-09.json",
+  "completed_software_regression_record": "regressions/r31-inline-matcher.json",
+  "preserved_unlaunched_predecessor": "r32-wave10-10",
   "original_negative_grades_and_failed_attempts_retained": true,
   "affected_auxiliary_source_refusal_retry_stopped": true,
-  "route_scope": "Registered local proxy only inside launcher and descendants; no global/auth/model/API-key change.",
-  "interpretation": "All ten original r31 loops have genuine sealed outputs/reviews/diagnoses and explicit central decisions, raising72to82. Five have usable candidates, five do not; the original laboratory literal-source hard failure and all scores remain unchanged. All61model turns completed while all61CLIexit1 receipts remain;6decodeerrors/reconnects and unknown interrupted usage are preserved. A narrow deterministic formatting matcher passed actual tests, adds zero blind/accuracy credit and changes no selector rules. Next seven unfinished-class queue heads are planned, not running. Final remains0/50; stable release remainsv1.0.0.",
-  "sealed_at": "2026-10-03T18:12:49.245373+00:00",
-  "completed_development_after_decisions": 82,
-  "centrally_decided_valid_cases": 10,
-  "central_decision_counts": {
-    "accepted_change": 1,
-    "no_change": 9
-  },
-  "central_decision_seal_sha256": "044aa67e5acebba77ca8e20796e1f12a6d11c069b694c1d4c6df24fdc2335cdd",
-  "original_usable_cases": 5,
-  "original_unusable_cases": 5,
-  "original_hard_failure_cases": 1,
-  "completed_by_primary_class": {
-    "clinical_nursing": 8,
-    "laboratory": 10,
-    "public_database": 8,
-    "bioinformatics": 10,
-    "prediction": 10,
-    "network": 8,
-    "systematic_meta": 7,
-    "other_review": 6,
-    "bibliometrics": 8,
-    "case_report": 7
-  },
-  "actual_new_cli_calls": 61,
-  "new_model_terminal_completed": 61,
-  "new_failed_calls": 0,
-  "genuine_CLI_exit_counts": {
-    "1": 61
-  },
-  "new_unique_contexts": 61,
-  "actual_shared_interval_peak": 5,
-  "actual_auxiliary_overlap": 0,
-  "new_transport_failure_counts": {
-    "response_decode_failure": 6
-  },
-  "new_observed_reconnects": 6,
-  "available_terminal_usage": {
-    "input_tokens": 5315993,
-    "cached_input_tokens": 377088,
-    "cache_write_input_tokens": 0,
-    "output_tokens": 275846,
-    "reasoning_output_tokens": 130447
-  },
-  "usage_limit": "Interrupted retry usage is unavailable; terminal usage totals do not establish full cost.",
-  "wave_wall_seconds": 3665.001511,
-  "sum_overlapping_call_elapsed_seconds": 17002.443,
-  "wall_monotonic_discrepancies": [
-    {
-      "record": "private/v2-run/development-parallel-r19/s1-clinical_nursing-020/profile.json.record.json",
-      "wall_seconds": 156.051548,
-      "elapsed_seconds": 154.739,
-      "delta_seconds": 1.3125479999999925,
-      "new_epoch_call": true
-    },
-    {
-      "record": "private/v2-run/development-parallel-r19/s1-public_database-023/profile.json.record.json",
-      "wall_seconds": 198.520031,
-      "elapsed_seconds": 197.207,
-      "delta_seconds": 1.3130309999999952,
-      "new_epoch_call": true
-    },
-    {
-      "record": "private/v2-run/development-parallel-r19/s1-prediction-019/profile.json.record.json",
-      "wall_seconds": 167.764308,
-      "elapsed_seconds": 166.451,
-      "delta_seconds": 1.3133080000000064,
-      "new_epoch_call": true
-    },
-    {
-      "record": "private/v2-run/development-parallel-r19/s1-network-018/profile.json.record.json",
-      "wall_seconds": 175.266303,
-      "elapsed_seconds": 173.953,
-      "delta_seconds": 1.3133029999999906,
-      "new_epoch_call": true
-    },
-    {
-      "record": "private/v2-run/development-parallel-r19/s1-systematic_meta-016/profile.json.record.json",
-      "wall_seconds": 153.260737,
-      "elapsed_seconds": 151.948,
-      "delta_seconds": 1.3127369999999985,
-      "new_epoch_call": true
-    }
-  ],
-  "wall_monotonic_difference_cause": "Not verified（未核到）",
-  "independent_runtime_checks": 1922,
-  "independent_runtime_seal_sha256": "da7b19121575f454d6ff9dcdc91a1dc3e848e7319cc2cf14ede5dc1723f544e3",
-  "root_original_source_schema_constraint_checks": 30,
-  "source_comparison_repair": "regressions/r31-inline-matcher.json",
-  "new_selector_instruction_changes_after_barrier": 0,
-  "new_production_execution_repairs_after_barrier": 1,
-  "next_execution_snapshot": "execution-protocol-r25",
-  "next_planned_active_primary_classes": 7,
-  "next_planned_model_call_limit": 5
+  "route_scope": "Existing local proxy only inside exact registered launcher and descendants; no global/auth/model/API-key change.",
+  "interpretation": "Seven next unexposed unfinished-class queue heads are actually running with up to five model calls under frozenr25/unchangedr18. Three classes already completed ten each. A tested launcher-only cardinality repair permits partial waves; the old ten-only registration remains unlaunched and preserved. Launch adds no completed-case credit: formal82/100 and final0/50. Actual runtime peaks, scientific results, reviews and decisions await the whole-wave barrier. No active scientific output or final answer was read for this observation.",
+  "partial_wave_software_record": "regressions/r32-partial-wave-launcher.json",
+  "root_request_sha256": "7f6c9f7ab3f4246e17031fc1cf27e65794542d172902f5329ce4fa4626f03a3c"
 }

@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Formal valid development completion is **82/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The ten r31 central decisions are sealed: **one accepted software change and nine no-change decisions**. The bibliography-only inline-format source matcher is adopted in frozen execution **r25**; Selector **r18** and its rules are unchanged. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. The software checks add zero blind-case credit and establish no accuracy improvement. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
+Formal valid development completion is **82/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The ten r31 central decisions are sealed: **one accepted software change and nine no-change decisions**. **r32b-wave7-10 is running seven cases from the seven unfinished queues**, configured with **ten case workers and a global five-model-call cap**; running work adds no completed-case credit. The bibliography-only inline-format source matcher is adopted in frozen execution **r25**; Selector **r18** and its rules are unchanged. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. The software checks add zero blind-case credit and establish no accuracy improvement. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
 
 ## Registered experiment
 
@@ -144,9 +144,11 @@ Available new terminal usage is **5,315,993 input tokens, 275,846 output tokens,
 
 The adopted software repair adds a bibliography-precedent fallback only after strict literal matching fails: it removes only balanced, attribute-free `i`, `b`, `em` and `strong` formatting within one captured line. Strict matching, words, entities, source classifications, URLs, timestamps, official facts and discovery gates remain unchanged. Evidence comprises **58 author synthetic checks, 155 independent software checks, 27 actual same-source paired software checks and 80 related unit tests**, all passed. The same-source checks preserve the original results and scores; they are not a new scientific or blind review. This repair adds **zero new blind-case credit**, changes no Selector rule and establishes no accuracy improvement. Execution **r25** is frozen for subsequent work; Selector **r18** remains unchanged. [Software repair regression](regressions/r31-inline-matcher.json)
 
-## Planned execution: r32
+## Running development: r32b-wave7-10
 
-Laboratory, bioinformatics and prediction have each completed ten development cases. The next unexposed queue head in each of the remaining **seven classes** is planned to run in parallel, with at most **five simultaneous model calls**. **r32 has not started**; formal completion remains **82/100**, with no early credit for the planned cases.
+Laboratory, bioinformatics and prediction have each completed ten development cases. **r32b-wave7-10 is running seven cases**, one next unexposed frozen queue head from each of the other **seven primary classes**, with **ten configured case workers and a global cap of five simultaneous model calls**. Frozen execution **r25**, unchanged Selector **r18**, and the existing process-only proxy route remain in use. Formal completion remains **82/100**, final testing remains **0/50**, and **24 protocol trials** remain separate; running work adds no completion credit. [Current observed state](current-wave.json)
+
+The original **r32-wave10-10** registration remains preserved as **unlaunched**. Its launcher required the number of selected IDs to equal the worker count. The narrow successor launcher changes only that predicate to allow **one through the configured worker count**, retaining unique IDs and every other binding, model/cap, route, claim and once-only guard. This software-only change adds **zero case credit** and establishes no accuracy or concurrency-reliability improvement. Earlier r31 grades, all 61 completed model terminals with actual CLI exit code 1, and six response-decode/reconnect histories remain unchanged above. [Partial-wave software checks](regressions/r32-partial-wave-launcher.json)
 
 ## Evidence and interpretation
 

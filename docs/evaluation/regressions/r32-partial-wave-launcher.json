@@ -1,0 +1,84 @@
+{
+  "recorded_at": "2026-10-03T20:17:02.895323+00:00",
+  "kind": "Development-only partial-wave orchestration software correction",
+  "eval_version": "r32b-wave7-10",
+  "formal_development": 82,
+  "completed_final": 0,
+  "new_blind_case_credit": 0,
+  "change": "Exact one-predicate change from len(ids)==workers to 1<=len(ids)<=workers; uniqueness and all other launcher bytes/guards unchanged. Seven unfinished-class cases use ten configured worker slots and a five-model-call ceiling.",
+  "original_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
+  "registered_launcher_sha256": "25a5f20f5dc6edbca8dac3762b3193ea0d329aea401da2515c6e36aefa981f02",
+  "phase_sha256": "6e7b0482da63f272684fb79ded06a13950e619ed228c80539161e5f2e36a462e",
+  "root_request_sha256": "7f6c9f7ab3f4246e17031fc1cf27e65794542d172902f5329ce4fa4626f03a3c",
+  "launcher_author_actual_unittest_methods": 22,
+  "launcher_independent_actual_unittest_methods": 13,
+  "registration_author_actual_unittest_methods": 23,
+  "registration_independent_actual_unittest_methods": 15,
+  "total_successful_actual_unittest_methods": 73,
+  "launcher_author_seal_sha256": "14fb24c7aec8ed0335e85c9e607df58c24ab5d983f09710acca7cb8b7a0e1b09",
+  "launcher_independent_seal_sha256": "421c07b3ef477876e5abac5d4d141197541236f9c2eaab04a0a2060876981f71",
+  "registration_author_seal_sha256": "2e35c51c0a13f86d935e718a1f3d3efdf0c7600e8272e18161fedebcd11310f4",
+  "registration_independent_seal_sha256": "6699624061d7140e1b592821420b2bd095b7aef688664bbbbfc8f93f78f7cc5b",
+  "actual_test_tools": {
+    "launcher_independent": {
+      "terminal_chunk": "57cb7a",
+      "exit_code": 0
+    },
+    "registration_author": {
+      "terminal_chunk": "d02fec",
+      "exit_code": 0
+    },
+    "registration_independent": {
+      "terminal_chunk": "b1269a",
+      "exit_code": 0
+    }
+  },
+  "initial_registration_author_test_attempt_retained": {
+    "tests_run": 21,
+    "failures": 0,
+    "errors": 1,
+    "exit_code": 1,
+    "classification": "Synthetic fixture missing administrative ledger; not a model or infrastructure call failure."
+  },
+  "old_r32_registration": {
+    "epoch": "r32-wave10-10",
+    "phase_sha256": "74626e74c87b20eb9b1c74fe1cc14b5d85df59941e6f7ad415f4149fb08a4ca4",
+    "status": "Preserved registered but unlaunched; cardinality mismatch detected before any inference.",
+    "actual_start": false,
+    "benchmark_model_calls": 0
+  },
+  "actual_genuine82_preflight": {
+    "terminal_chunk": "414517",
+    "exit_code": 0,
+    "verified_completed_original_loops": 82
+  },
+  "actual_immutable_registration": {
+    "terminal_chunk": "2a96e5",
+    "exit_code": 0,
+    "case_credit": 0
+  },
+  "actual_seven_case_launcher_preflight": {
+    "terminal_chunk": "71fe01",
+    "exit_code": 0,
+    "proof_sha256": "264d29109a86d6f093ac41d4ef8a19d8d5813514934fe8ec1ace09f13db8e861"
+  },
+  "actual_running_observation": {
+    "terminal_chunk": "049bf5",
+    "exit_code": 0,
+    "proof_sha256": "6a43a1fdf387b464d8ea85899f641ded6c7d47039eb45c16fcdb02d341863b83",
+    "actual_class_claims": 7,
+    "process_identity_and_creation_verified": true,
+    "started_at": "2026-10-03T20:14:22.093462+00:00"
+  },
+  "case_workers": 10,
+  "model_call_limit": 5,
+  "execution_snapshot": "execution-protocol-r25",
+  "selector_snapshot": "selector-candidate-r18",
+  "selector_rules_changed": false,
+  "corpus_or_sealed_input_bytes_changed": false,
+  "original_grades_or_failures_rewritten": false,
+  "benchmark_model_calls_by_offline_tests": 0,
+  "administrative_ai_author_and_auditor_contexts_used": true,
+  "independence_scope": "Separate same-model administrative author/auditor contexts and deterministic software tests; not a human medical review or additional scientific blind test. Parameterized countercases are separate from unittest method counts.",
+  "interpretation": "This correction permits partial waves and preserves the original unlaunched r32 registration, original r31 scores/hard failure, all earlier failed attempts and usage. Actual r32b wave is running with unchanged seven next queue heads/configuration; no scientific outputs were read to publish this running record. No accuracy improvement or completion beyond82 is claimed. Final0/50 and stablev1.0.0 remain."
+}
