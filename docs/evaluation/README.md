@@ -4,7 +4,7 @@
 
 **Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
 
-Forty-eight distinct valid development loops have passed central decisions: **48/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The latest barrier adds eight valid loops to the prior forty; poor valid-input results and genuine output hard failures remain in the denominator. Original scores and failed-wave records are unchanged. The next development wave has not started. These checks do not establish V2 accuracy or improvement over V1.
+Forty-eight distinct valid development loops have passed central decisions: **48/100 development cases and 0/50 final cases**, with **24 protocol trials retained separately**. The latest barrier adds eight valid loops to the prior forty; poor valid-input results and genuine output hard failures remain in the denominator. Original scores and failed-wave records are unchanged. The next ten-class wave is running with a global ten-model-call ceiling. These checks do not establish V2 accuracy or improvement over V1.
 
 ## Registered experiment
 
@@ -64,7 +64,7 @@ The two stopped profiles correctly identify the main research purposes: `s1-publ
 
 Source checks support honest pending treatment where current scope, article admission or applicable method compliance remain unresolved. Retrieved policy and unknown manuscript compliance must be distinguished; readable pages alone do not establish field coverage. Unrequested sources, failed access and readable-but-insufficient pages remain separate. Crossref confirms journal identity only; PubMed discovery does not establish SCIE, and first decision is not acceptance. Administrative captured-source checks replace neither blind reviewers nor human expert validation.
 
-No new Selector rule or untested repair was adopted. The latest execution remains **r24** and Selector remains **r17**. Original negative results, disagreements and resource receipts are retained. The next wave has not started, and final execution still requires 100 genuinely completed valid development loops.
+No new Selector rule or untested repair was adopted. The latest execution remains **r24** and Selector remains **r17**. Original negative results, disagreements and resource receipts are retained. The registered `r25-wave10-06` has actually started, resuming the two corrected preselection profiles and eight fixed-queue cases, one per primary class. Running work adds no completion credit, and final execution still requires 100 genuinely completed valid development loops.
 
 ## Evidence and interpretation
 
