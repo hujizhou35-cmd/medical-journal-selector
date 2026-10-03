@@ -126,6 +126,12 @@ The independent administrative audit passed **188 actual checks**, confirming th
 
 Available completed terminal usage is **450,299 input tokens, 31,292 output tokens, 152,832 cached input tokens and 11,395 reasoning output tokens**. Failed and disconnected-attempt usage remains **Not verified（未核到）**; these are not complete billed totals. The original ten-case wave's grades and pending central decisions remain intact: formal totals stay **62/100 development and 0/50 final**, with **24 protocol trials** separately retained. [Derived interruption record](regressions/r29-step5-incomplete.json) · [Current state](current-wave.json)
 
+## Missing-step recovery: r30 (3 October 2026)
+
+After the user reported connection recovery, a new single-use checkpoint-resume registration actually started at **15:55:49 UTC**. It reuses the **three genuine completed checkpoints** unchanged and requests only missing generation or review steps in fresh restricted sessions, with the same **gpt-6.1-sol/xhigh** configuration and a **three-call ceiling**. Original failed attempts, sources and scores remain intact. Reported recovery does not establish the technical cause or future full-case reliability.
+
+The final wrapper passed **six author checks and 16 independent offline checks**; earlier failed draft checks remain retained. Those software checks do not establish scientific success. The whole-run source, review and receipt gates remain pending; **no candidate rule has been adopted and no case credit is added**. Formal counts remain **62/100 development and 0/50 final**. [Recovery registration record](regressions/r30-step5-resume.json) · [Current state](current-wave.json)
+
 ## Evidence and interpretation
 
 Published-outlet discovery and Hit@3/5/10 are separate from today's usable recommendations. Unknown JCR/SCIE data remains unverified. Similar papers do not prove current article admission. Journal identities, scope quotations, method policy and every changing field are checked against the captured sources; Crossref journal metadata supports identity only.

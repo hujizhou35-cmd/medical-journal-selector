@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-10-03T14:51:58.923686+00:00",
+  "observed_at": "2026-10-03T15:57:47.011051+00:00",
   "eval_version": "r28-wave10-08",
   "wave_id": "de37e4de8d7e4ede8128db046edb902e",
-  "status": "sealed original wave; regression review interrupted; decisions pending",
+  "status": "sealed original wave; missing regression steps running; central decisions pending",
   "started_at": "2026-10-03T12:13:54.518026+00:00",
   "case_workers": 10,
   "model_call_limit": 10,
@@ -38,7 +38,7 @@
   "exact_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
   "reusable_development_launcher_offline_checks": 15,
   "route_scope": "Only this process and descendants; no global/VPN/auth/model change",
-  "interpretation": "Original ten-class r28 wave remains sealed with unchanged4usable/6unusable/3hardfailuregrades. Its r29-b exposed-input regression check terminated with5 launched calls,3 completed checkpoints and2 infrastructure failures after repeated request errors; no regression/adoption/central decision/credit. Formal62/100,final0/50,24protocoltrials. Requests await genuinely changed external state; all checkpoints and failures retained.",
+  "interpretation": "Original r28 remains sealed with unchanged4usable/6unusable/3hardfailuregrades. After a new human-reported connection recovery and an independent16-check software gate, the registered r30 auxiliary actually resumed missing roles at cap3. Three genuine old checkpoints and all failed attempts are retained. No rule adoption or central decision or credit; formal62/100,final0/50,24protocoltrials. The whole-run source/review/receipt barrier is pending.",
   "sealed_at": "2026-10-03T12:49:08.001056+00:00",
   "actual_cli_calls": 45,
   "actual_unique_contexts": 45,
@@ -74,6 +74,31 @@
   "sum_overlapping_new_elapsed_seconds": 9590.297,
   "usage_limit": "Available completed terminal usage only. One disconnected attempt has unknown usage. Sixteen cached completed checkpoints and nine old failed calls excluded from new usage/concurrency; overlapping elapsed sum is not wall time or full cost.",
   "auxiliary_regression": {
+    "status": "running; whole-run source, review and receipt gates pending",
+    "started_at": "2026-10-03T15:55:49.378261+00:00",
+    "model": "gpt-6.1-sol",
+    "reasoning_effort": "xhigh",
+    "configured_call_cap": 3,
+    "observed_active_calls": 3,
+    "cached_completed_calls": 3,
+    "cached_usage_and_concurrency_charged_as_new": 0,
+    "author_final_offline_checks": 6,
+    "independent_final_offline_checks": 16,
+    "independent_software_seal_sha256": "4db76d63ace4f55b732a1e6dbe32990aa3487d3133bad9258c72fe139f1be22c",
+    "registration_sha256": "f8fbd9a7cd23643c63df1828856976130058f2a1c938b2fa8f3490efb30a4d8a",
+    "driver_sha256": "2be3c051de2a03a2f42d70429a17a7b044001bb842aadc0d96a409bf70ea62e9",
+    "transport_launcher_sha256": "92b3dd6288e28e3f48adddec70400532de7674b1e1ae5d7e8d0441c62bfaa92f",
+    "root_running_observation_sha256": "087c343f2c6c819abf0b64541269f0ce5933e64fab4c95d8521f92a7ed9dec18",
+    "candidate_adopted": false,
+    "new_blind_case_credit": 0,
+    "semantic_decision": "Pending whole terminal barrier, complete review pairs and root/independent receipt inspection.",
+    "record": "regressions/r30-step5-resume.json",
+    "observed_at": "2026-10-03T15:57:47.011051+00:00",
+    "exposed_case_count": 3
+  },
+  "model_requests_stopped": false,
+  "requires_changed_external_state": false,
+  "prior_interrupted_auxiliary_regression": {
     "status": "terminal infrastructure interruption; no successful regression; waiting for changed external state",
     "observed_at": "2026-10-03T14:51:58.923686+00:00",
     "exposed_case_count": 3,
@@ -107,7 +132,5 @@
     "independent_receipt_seal_sha256": "49ca0fa763e03992a1e97ddf12c9974b835a9734274d4f07bc50d3a3ce084715",
     "root_partial_source_check_seal_sha256": "bcab6b483be848fe0f2eb59aabd88da4e41ccceff54cb5aaa9a5c4fa3201ebd0",
     "record": "regressions/r29-step5-incomplete.json"
-  },
-  "model_requests_stopped": true,
-  "requires_changed_external_state": true
+  }
 }
