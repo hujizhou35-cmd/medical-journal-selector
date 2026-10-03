@@ -657,6 +657,25 @@
       "original_failed_wave": "waves/r26-wave10-07.json",
       "running_case_credit": 0,
       "limits": "Historical failure cause remains unproven; small probe does not establish full-case reliability. Original source snapshots, retry failures and negative results retained."
+    },
+    {
+      "observed_at": "2026-10-03T12:16:17.447408+00:00",
+      "eval_version": "r28-wave10-08",
+      "new_production_software_changes": 0,
+      "change": "Adopt reusable root development-only registered launcher after genuine five-case recovery barrier; exact frozen execution/Selector unchanged.",
+      "actual_offline_tests": 15,
+      "launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
+      "draft_seal_sha256": "8213e13d3fdfb7b949f9c2f0a48ded683659fe3fcb0b613b4a0c98405cab1ce3",
+      "actual_preceding_recovery_calls": 16,
+      "actual_preceding_peak": 5,
+      "preceding_new_errors_or_reconnects": 0,
+      "preceding_valid_decisions": 5,
+      "previous_completed_wave": "waves/r27-recovery-5.json",
+      "case_workers": 10,
+      "model_call_limit": 10,
+      "route_scope": "Only this process and descendants; no global/VPN/auth/model change",
+      "running_case_credit": 0,
+      "limits": "Ten-class performance pending original receipts; global/VPN/auth/model unchanged; original failures, cached usage and negative outcomes retained. No source-retrieval/instruction repair or final execution is adopted."
     }
   ]
 }
