@@ -134,7 +134,9 @@ The final wrapper passed **six author checks and 16 independent offline checks**
 
 Available new-call terminal usage is **557,554 input tokens, 25,998 output tokens, 40,576 cached input tokens and 13,308 reasoning output tokens**. The three cached calls are excluded from new usage and concurrency. Earlier failed or disconnected-attempt usage remains unknown, so these are not complete billed totals. OS exit 0, passed automatic gates and recommendation quality are reported separately.
 
-The next ten-class wave is **planned only**, with **ten article-class workers and a global five-model-call ceiling**, using frozen Selector **r18** and unchanged execution **r24**. It awaits registration and has not started.
+## Current execution: r31-wave10-09 (3 October 2026)
+
+The next ten-class wave actually started at **17:11:43 UTC** and is running with **ten article-class workers and a global five-model-call ceiling**, using frozen Selector **r18** and unchanged execution **r24**. Actual scheduler identity and all ten class claims were observed. Whole-wave reviews and central decisions remain required; formal totals stay **72/100 development, 0/50 final and 24 separate protocol trials**, with no early case credit. [Current observed state](current-wave.json)
 
 ## Evidence and interpretation
 
