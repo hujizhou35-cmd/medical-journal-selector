@@ -118,6 +118,14 @@ All ten inputs are valid diagnosed development cases. Their original grades rema
 The narrow final-evidence checklist remains an unadopted candidate under registered regressions and an explicit adoption/rejection gate. No repair has been accepted, and no regression is described as passed. Original errors, negative grades and unknown fields remain. Real final testing has not started, and there is no stable V2 release.
 
 
+## Interrupted regression checks: r29-b (3 October 2026)
+
+The three exposed-input regression chains stopped at **14:26:15 UTC** after repeated connection errors. They launched **five calls in five fresh contexts: three genuine completed terminals and two infrastructure failures**, with an observed concurrency peak of **three**. The completed checkpoints are two selections and one anonymous review. Neither selection has its required pair of completed reviews, and the case-report selection failed. **No regression passed, no candidate rule was adopted, and no development or final case credit was added.** Further requests are stopped pending evidence of a changed connection state; completed checkpoints and failed attempts are retained for recovery.
+
+The independent administrative audit passed **188 actual checks**, confirming the original inputs, sources, scores, registration and frozen snapshots were unchanged. No new call started after the receipt-backed stop boundary; two already active selections terminated later. The original case-report summary says `skipped`, but its receipt proves that a selection call started and failed; the derived record preserves both facts. Separate read-only checks found no schema, source-support or constraint errors in the two completed selections. These partial checks do not replace the missing blind reviews or establish that the proposed change works.
+
+Available completed terminal usage is **450,299 input tokens, 31,292 output tokens, 152,832 cached input tokens and 11,395 reasoning output tokens**. Failed and disconnected-attempt usage remains **Not verified（未核到）**; these are not complete billed totals. The original ten-case wave's grades and pending central decisions remain intact: formal totals stay **62/100 development and 0/50 final**, with **24 protocol trials** separately retained. [Derived interruption record](regressions/r29-step5-incomplete.json) · [Current state](current-wave.json)
+
 ## Evidence and interpretation
 
 Published-outlet discovery and Hit@3/5/10 are separate from today's usable recommendations. Unknown JCR/SCIE data remains unverified. Similar papers do not prove current article admission. Journal identities, scope quotations, method policy and every changing field are checked against the captured sources; Crossref journal metadata supports identity only.

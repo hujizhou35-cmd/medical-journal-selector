@@ -1,8 +1,8 @@
 {
-  "observed_at": "2026-10-03T13:17:50.139346+00:00",
+  "observed_at": "2026-10-03T14:51:58.923686+00:00",
   "eval_version": "r28-wave10-08",
   "wave_id": "de37e4de8d7e4ede8128db046edb902e",
-  "status": "sealed; regressions and central decisions pending",
+  "status": "sealed original wave; regression review interrupted; decisions pending",
   "started_at": "2026-10-03T12:13:54.518026+00:00",
   "case_workers": 10,
   "model_call_limit": 10,
@@ -38,7 +38,7 @@
   "exact_launcher_sha256": "e90953b7e4a4162547da2a76242eadea40a4687657d6b097dbcb56c14d2b8802",
   "reusable_development_launcher_offline_checks": 15,
   "route_scope": "Only this process and descendants; no global/VPN/auth/model change",
-  "interpretation": "Ten-class r28 wave genuinely sealed:45 new completed calls/peak10/one retained decode retry,16 cached checkpoints and9 old failed calls excluded. Original4usable/6unusable/3hardfailurecases stay unchanged. Three exposed-input auxiliary regressions are now actually running at cap3; no central decisions, adoption or new blind credit yet. Formal62/100,final0/50,24protocoltrials. Full publication gates remain pending.",
+  "interpretation": "Original ten-class r28 wave remains sealed with unchanged4usable/6unusable/3hardfailuregrades. Its r29-b exposed-input regression check terminated with5 launched calls,3 completed checkpoints and2 infrastructure failures after repeated request errors; no regression/adoption/central decision/credit. Formal62/100,final0/50,24protocoltrials. Requests await genuinely changed external state; all checkpoints and failures retained.",
   "sealed_at": "2026-10-03T12:49:08.001056+00:00",
   "actual_cli_calls": 45,
   "actual_unique_contexts": 45,
@@ -74,8 +74,8 @@
   "sum_overlapping_new_elapsed_seconds": 9590.297,
   "usage_limit": "Available completed terminal usage only. One disconnected attempt has unknown usage. Sixteen cached completed checkpoints and nine old failed calls excluded from new usage/concurrency; overlapping elapsed sum is not wall time or full cost.",
   "auxiliary_regression": {
-    "status": "running",
-    "observed_at": "2026-10-03T14:13:03.442978+00:00",
+    "status": "terminal infrastructure interruption; no successful regression; waiting for changed external state",
+    "observed_at": "2026-10-03T14:51:58.923686+00:00",
     "exposed_case_count": 3,
     "model_call_limit": 3,
     "observed_initial_fresh_selection_contexts": 3,
@@ -90,6 +90,24 @@
     "independent_software_seal_sha256": "44f66a588dacdbcb4b775ece1284dc99faa986b7271b3d6ad18e183430ea066e",
     "registration_sha256": "be737b1079af5618a064865eb630222469f94f0829f4891a7648d963125598d0",
     "running_observation_sha256": "7c418bfc7bce5c3dade9a1b54cbd575af3ab8294546effde05c4e7be3cfdbb7e",
-    "interpretation": "Three exposed-input regressions actually started after independent software checks. Initial fresh selection event headers and genuine process creation/claim/start were observed. No completed regression, accepted instruction, repaired original score, new blind case or final-set result is claimed. Next gate requires genuine new selections, two independent anonymous reviews each, adjudication when needed, source/semantic inspection and administrative receipts. Old software-test failure remains; no original papers/answers/full logs are published."
-  }
+    "interpretation": "Two genuine selections and one anonymous review are retained checkpoints, not completed regressions. Clinical reviews did not start after the global stop, bibliometrics review2 failed, and case-report generation actually launched and failed despite the original skipped summary label. No candidate was adopted, no original grade changed and no formal credit added; missing roles await evidence of changed connection state and a new immutable checkpoint-resume registration.",
+    "completed_at": "2026-10-03T14:26:15.535092+00:00",
+    "actual_launched_calls": 5,
+    "actual_distinct_fresh_contexts": 5,
+    "genuine_completed_calls": 3,
+    "infrastructure_failed_calls": 2,
+    "actual_interval_peak": 3,
+    "successful_regressions": 0,
+    "transport_failure_counts": {
+      "http_request_failure": 6,
+      "response_decode_failure": 2
+    },
+    "further_requests_stopped": true,
+    "independent_receipt_checks": 188,
+    "independent_receipt_seal_sha256": "49ca0fa763e03992a1e97ddf12c9974b835a9734274d4f07bc50d3a3ce084715",
+    "root_partial_source_check_seal_sha256": "bcab6b483be848fe0f2eb59aabd88da4e41ccceff54cb5aaa9a5c4fa3201ebd0",
+    "record": "regressions/r29-step5-incomplete.json"
+  },
+  "model_requests_stopped": true,
+  "requires_changed_external_state": true
 }
