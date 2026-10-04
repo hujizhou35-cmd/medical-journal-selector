@@ -1,6 +1,6 @@
 {
   "export_schema_version": 2,
-  "exported_at": "2026-10-03T23:10:45.376543+00:00",
+  "exported_at": "2026-10-04T04:39:51.653727+00:00",
   "status": "incomplete_or_failed",
   "input_manifest_sha256": "9a7bfbe09dc9039310ed27d778e360e9ee79e29f144cb73f3ad46009521b4324",
   "seed": 20261002,
@@ -8,117 +8,117 @@
   "protocol_revision": 16,
   "allocated_development": 100,
   "allocated_final": 50,
-  "completed_development": 82,
+  "completed_development": 89,
   "completed_final": 0,
   "development_summary": {
     "cases": 89,
-    "completed": 82,
-    "infrastructure_failed": 7,
+    "completed": 89,
+    "infrastructure_failed": 0,
     "contamination_failed": 0,
     "model_failed": 0,
     "variants": {
       "v2": {
-        "n": 82,
+        "n": 89,
         "hit3": 11,
         "hit5": 12,
         "hit10": 12,
-        "usable": 48,
-        "usable_known": 82,
-        "discovered": 45,
-        "discovered_known": 82,
-        "hard_failures": 10,
-        "hard_failure_cases": 8,
-        "source_coverage_cases": 82,
+        "usable": 49,
+        "usable_known": 89,
+        "discovered": 47,
+        "discovered_known": 89,
+        "hard_failures": 11,
+        "hard_failure_cases": 9,
+        "source_coverage_cases": 89,
         "source_coverage": {
           "identity": {
-            "verified": 399,
-            "unverified": 51,
+            "verified": 438,
+            "unverified": 53,
             "invalid_status": 0
           },
           "scope": {
-            "verified": 142,
-            "unverified": 308,
+            "verified": 157,
+            "unverified": 334,
             "invalid_status": 0
           },
           "article_type": {
-            "verified": 134,
-            "unverified": 316,
-            "invalid_status": 0
-          },
-          "method_policy": {
-            "verified": 100,
+            "verified": 141,
             "unverified": 350,
             "invalid_status": 0
           },
+          "method_policy": {
+            "verified": 111,
+            "unverified": 380,
+            "invalid_status": 0
+          },
           "indexing": {
-            "verified": 53,
-            "unverified": 397,
+            "verified": 62,
+            "unverified": 429,
             "invalid_status": 0
           },
           "jcr": {
-            "verified": 3,
-            "unverified": 447,
+            "verified": 4,
+            "unverified": 487,
             "invalid_status": 0
           },
           "jif": {
-            "verified": 62,
-            "unverified": 388,
+            "verified": 69,
+            "unverified": 422,
             "invalid_status": 0
           },
           "oa": {
-            "verified": 142,
-            "unverified": 308,
+            "verified": 158,
+            "unverified": 333,
             "invalid_status": 0
           },
           "fees": {
-            "verified": 39,
-            "unverified": 411,
+            "verified": 45,
+            "unverified": 446,
             "invalid_status": 0
           },
           "warnings": {
             "verified": 0,
-            "unverified": 450,
+            "unverified": 491,
             "invalid_status": 0
           },
           "timeline:first_decision": {
-            "verified": 55,
-            "unverified": 395,
+            "verified": 60,
+            "unverified": 431,
             "invalid_status": 0
           },
           "timeline:acceptance": {
-            "verified": 17,
-            "unverified": 433,
+            "verified": 18,
+            "unverified": 473,
             "invalid_status": 0
           },
           "timeline:online": {
             "verified": 1,
-            "unverified": 449,
+            "unverified": 490,
             "invalid_status": 0
           },
           "timeline:indexing": {
             "verified": 0,
-            "unverified": 450,
+            "unverified": 491,
             "invalid_status": 0
           }
         },
         "hit3_wilson95": [
-          0.07658691429563845,
-          0.2244501274288252
+          0.07043517008332338,
+          0.20790447633048464
         ],
         "hit5_wilson95": [
-          0.08574162210230579,
-          0.23859418489800904
+          0.07884271200737804,
+          0.22103903451348056
         ],
         "hit10_wilson95": [
-          0.08574162210230579,
-          0.23859418489800904
+          0.07884271200737804,
+          0.22103903451348056
         ]
       },
       "keyword": {
-        "n": 82,
-        "hit3": 8,
-        "hit5": 15,
-        "hit10": 20,
+        "n": 89,
+        "hit3": 9,
+        "hit5": 17,
+        "hit10": 22,
         "usable": 0,
         "usable_known": 0,
         "discovered": 0,
@@ -128,23 +128,23 @@
         "source_coverage_cases": 0,
         "source_coverage": {},
         "hit3_wilson95": [
-          0.05026868828269794,
-          0.1808720576142121
+          0.054118546891964145,
+          0.1811368993077429
         ],
         "hit5_wilson95": [
-          0.1141102185364291,
-          0.2801218842914394
+          0.1228195648849351,
+          0.28477268217117596
         ],
         "hit10_wilson95": [
-          0.16379885088671692,
-          0.34692707832040764
+          0.16928236444786654,
+          0.3460203831434971
         ]
       },
       "abstract": {
-        "n": 82,
-        "hit3": 12,
-        "hit5": 19,
-        "hit10": 27,
+        "n": 89,
+        "hit3": 14,
+        "hit5": 21,
+        "hit10": 29,
         "usable": 0,
         "usable_known": 0,
         "discovered": 0,
@@ -154,127 +154,126 @@
         "source_coverage_cases": 0,
         "source_coverage": {},
         "hit3_wilson95": [
-          0.08574162210230579,
-          0.23859418489800904
+          0.09607809666620552,
+          0.24688785006875402
         ],
         "hit5_wilson95": [
-          0.15365463849380123,
-          0.33377252543747216
+          0.1598243870081069,
+          0.3339362604762063
         ],
         "hit10_wilson95": [
-          0.23720116686677445,
-          0.43661611927130867
+          0.2374397245029349,
+          0.4286577238377822
         ]
       }
     },
     "strata": {
       "clinical_nursing": {
         "cases": 9,
-        "completed": 8,
+        "completed": 9,
         "states": {
-          "completed": 8,
-          "infrastructure_failed": 1
+          "completed": 9
         },
         "variants": {
           "v2": {
-            "n": 8,
+            "n": 9,
             "hit3": 1,
             "hit5": 1,
             "hit10": 1,
             "usable": 2,
-            "usable_known": 8,
+            "usable_known": 9,
             "discovered": 6,
-            "discovered_known": 8,
+            "discovered_known": 9,
             "hard_failures": 1,
             "hard_failure_cases": 1,
-            "source_coverage_cases": 8,
+            "source_coverage_cases": 9,
             "source_coverage": {
               "identity": {
-                "verified": 40,
-                "unverified": 6,
+                "verified": 45,
+                "unverified": 7,
                 "invalid_status": 0
               },
               "scope": {
-                "verified": 6,
-                "unverified": 40,
+                "verified": 8,
+                "unverified": 44,
                 "invalid_status": 0
               },
               "article_type": {
-                "verified": 6,
-                "unverified": 40,
+                "verified": 8,
+                "unverified": 44,
                 "invalid_status": 0
               },
               "method_policy": {
                 "verified": 3,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "indexing": {
                 "verified": 3,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "jcr": {
                 "verified": 0,
-                "unverified": 46,
+                "unverified": 52,
                 "invalid_status": 0
               },
               "jif": {
-                "verified": 2,
-                "unverified": 44,
+                "verified": 4,
+                "unverified": 48,
                 "invalid_status": 0
               },
               "oa": {
-                "verified": 6,
-                "unverified": 40,
+                "verified": 8,
+                "unverified": 44,
                 "invalid_status": 0
               },
               "fees": {
-                "verified": 1,
-                "unverified": 45,
+                "verified": 3,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "warnings": {
                 "verified": 0,
-                "unverified": 46,
+                "unverified": 52,
                 "invalid_status": 0
               },
               "timeline:first_decision": {
-                "verified": 3,
-                "unverified": 43,
+                "verified": 5,
+                "unverified": 47,
                 "invalid_status": 0
               },
               "timeline:acceptance": {
                 "verified": 2,
-                "unverified": 44,
+                "unverified": 50,
                 "invalid_status": 0
               },
               "timeline:online": {
                 "verified": 0,
-                "unverified": 46,
+                "unverified": 52,
                 "invalid_status": 0
               },
               "timeline:indexing": {
                 "verified": 0,
-                "unverified": 46,
+                "unverified": 52,
                 "invalid_status": 0
               }
             },
             "hit3_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit5_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit10_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ]
           },
           "keyword": {
-            "n": 8,
+            "n": 9,
             "hit3": 4,
             "hit5": 4,
             "hit10": 4,
@@ -287,20 +286,20 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.21521606221387757,
-              0.7847839377861224
+              0.18877852109766452,
+              0.733348706504507
             ],
             "hit5_wilson95": [
-              0.21521606221387757,
-              0.7847839377861224
+              0.18877852109766452,
+              0.733348706504507
             ],
             "hit10_wilson95": [
-              0.21521606221387757,
-              0.7847839377861224
+              0.18877852109766452,
+              0.733348706504507
             ]
           },
           "abstract": {
-            "n": 8,
+            "n": 9,
             "hit3": 3,
             "hit5": 4,
             "hit10": 4,
@@ -313,16 +312,16 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.13684428582359742,
-              0.6942576053973727
+              0.1205838183869109,
+              0.6457978644196036
             ],
             "hit5_wilson95": [
-              0.21521606221387757,
-              0.7847839377861224
+              0.18877852109766452,
+              0.733348706504507
             ],
             "hit10_wilson95": [
-              0.21521606221387757,
-              0.7847839377861224
+              0.18877852109766452,
+              0.733348706504507
             ]
           }
         }
@@ -487,111 +486,110 @@
       },
       "public_database": {
         "cases": 9,
-        "completed": 8,
+        "completed": 9,
         "states": {
-          "completed": 8,
-          "infrastructure_failed": 1
+          "completed": 9
         },
         "variants": {
           "v2": {
-            "n": 8,
+            "n": 9,
             "hit3": 1,
             "hit5": 1,
             "hit10": 1,
             "usable": 8,
-            "usable_known": 8,
+            "usable_known": 9,
             "discovered": 5,
-            "discovered_known": 8,
+            "discovered_known": 9,
             "hard_failures": 0,
             "hard_failure_cases": 0,
-            "source_coverage_cases": 8,
+            "source_coverage_cases": 9,
             "source_coverage": {
               "identity": {
-                "verified": 41,
+                "verified": 47,
                 "unverified": 2,
                 "invalid_status": 0
               },
               "scope": {
                 "verified": 23,
-                "unverified": 20,
+                "unverified": 26,
                 "invalid_status": 0
               },
               "article_type": {
                 "verified": 23,
-                "unverified": 20,
+                "unverified": 26,
                 "invalid_status": 0
               },
               "method_policy": {
                 "verified": 17,
-                "unverified": 26,
+                "unverified": 32,
                 "invalid_status": 0
               },
               "indexing": {
                 "verified": 5,
-                "unverified": 38,
+                "unverified": 44,
                 "invalid_status": 0
               },
               "jcr": {
                 "verified": 0,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "jif": {
                 "verified": 11,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "oa": {
                 "verified": 23,
-                "unverified": 20,
+                "unverified": 26,
                 "invalid_status": 0
               },
               "fees": {
                 "verified": 8,
-                "unverified": 35,
+                "unverified": 41,
                 "invalid_status": 0
               },
               "warnings": {
                 "verified": 0,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "timeline:first_decision": {
                 "verified": 7,
-                "unverified": 36,
+                "unverified": 42,
                 "invalid_status": 0
               },
               "timeline:acceptance": {
                 "verified": 2,
-                "unverified": 41,
+                "unverified": 47,
                 "invalid_status": 0
               },
               "timeline:online": {
                 "verified": 0,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               },
               "timeline:indexing": {
                 "verified": 0,
-                "unverified": 43,
+                "unverified": 49,
                 "invalid_status": 0
               }
             },
             "hit3_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit5_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit10_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ]
           },
           "keyword": {
-            "n": 8,
+            "n": 9,
             "hit3": 0,
             "hit5": 1,
             "hit10": 1,
@@ -605,19 +603,19 @@
             "source_coverage": {},
             "hit3_wilson95": [
               0,
-              0.32440756488388023
+              0.2991450484195441
             ],
             "hit5_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit10_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ]
           },
           "abstract": {
-            "n": 8,
+            "n": 9,
             "hit3": 1,
             "hit5": 1,
             "hit10": 3,
@@ -630,16 +628,16 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit5_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit10_wilson95": [
-              0.13684428582359742,
-              0.6942576053973727
+              0.1205838183869109,
+              0.6457978644196036
             ]
           }
         }
@@ -962,10 +960,167 @@
       },
       "network": {
         "cases": 9,
+        "completed": 9,
+        "states": {
+          "completed": 9
+        },
+        "variants": {
+          "v2": {
+            "n": 9,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 0,
+            "usable": 5,
+            "usable_known": 9,
+            "discovered": 4,
+            "discovered_known": 9,
+            "hard_failures": 1,
+            "hard_failure_cases": 1,
+            "source_coverage_cases": 9,
+            "source_coverage": {
+              "identity": {
+                "verified": 44,
+                "unverified": 6,
+                "invalid_status": 0
+              },
+              "scope": {
+                "verified": 18,
+                "unverified": 32,
+                "invalid_status": 0
+              },
+              "article_type": {
+                "verified": 18,
+                "unverified": 32,
+                "invalid_status": 0
+              },
+              "method_policy": {
+                "verified": 12,
+                "unverified": 38,
+                "invalid_status": 0
+              },
+              "indexing": {
+                "verified": 11,
+                "unverified": 39,
+                "invalid_status": 0
+              },
+              "jcr": {
+                "verified": 0,
+                "unverified": 50,
+                "invalid_status": 0
+              },
+              "jif": {
+                "verified": 8,
+                "unverified": 42,
+                "invalid_status": 0
+              },
+              "oa": {
+                "verified": 18,
+                "unverified": 32,
+                "invalid_status": 0
+              },
+              "fees": {
+                "verified": 4,
+                "unverified": 46,
+                "invalid_status": 0
+              },
+              "warnings": {
+                "verified": 0,
+                "unverified": 50,
+                "invalid_status": 0
+              },
+              "timeline:first_decision": {
+                "verified": 9,
+                "unverified": 41,
+                "invalid_status": 0
+              },
+              "timeline:acceptance": {
+                "verified": 2,
+                "unverified": 48,
+                "invalid_status": 0
+              },
+              "timeline:online": {
+                "verified": 0,
+                "unverified": 50,
+                "invalid_status": 0
+              },
+              "timeline:indexing": {
+                "verified": 0,
+                "unverified": 50,
+                "invalid_status": 0
+              }
+            },
+            "hit3_wilson95": [
+              0,
+              0.2991450484195441
+            ],
+            "hit5_wilson95": [
+              0,
+              0.2991450484195441
+            ],
+            "hit10_wilson95": [
+              0,
+              0.2991450484195441
+            ]
+          },
+          "keyword": {
+            "n": 9,
+            "hit3": 1,
+            "hit5": 2,
+            "hit10": 2,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0.019890887638544907,
+              0.434999705576656
+            ],
+            "hit5_wilson95": [
+              0.06322510711784671,
+              0.5474110308930111
+            ],
+            "hit10_wilson95": [
+              0.06322510711784671,
+              0.5474110308930111
+            ]
+          },
+          "abstract": {
+            "n": 9,
+            "hit3": 0,
+            "hit5": 0,
+            "hit10": 1,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0,
+              0.2991450484195441
+            ],
+            "hit5_wilson95": [
+              0,
+              0.2991450484195441
+            ],
+            "hit10_wilson95": [
+              0.019890887638544907,
+              0.434999705576656
+            ]
+          }
+        }
+      },
+      "systematic_meta": {
+        "cases": 8,
         "completed": 8,
         "states": {
-          "completed": 8,
-          "infrastructure_failed": 1
+          "completed": 8
         },
         "variants": {
           "v2": {
@@ -975,257 +1130,98 @@
             "hit10": 0,
             "usable": 5,
             "usable_known": 8,
-            "discovered": 4,
+            "discovered": 1,
             "discovered_known": 8,
-            "hard_failures": 0,
-            "hard_failure_cases": 0,
+            "hard_failures": 2,
+            "hard_failure_cases": 1,
             "source_coverage_cases": 8,
             "source_coverage": {
               "identity": {
-                "verified": 38,
-                "unverified": 6,
+                "verified": 39,
+                "unverified": 7,
                 "invalid_status": 0
               },
               "scope": {
-                "verified": 14,
-                "unverified": 30,
+                "verified": 12,
+                "unverified": 34,
                 "invalid_status": 0
               },
               "article_type": {
-                "verified": 14,
-                "unverified": 30,
+                "verified": 9,
+                "unverified": 37,
                 "invalid_status": 0
               },
               "method_policy": {
                 "verified": 9,
-                "unverified": 35,
-                "invalid_status": 0
-              },
-              "indexing": {
-                "verified": 8,
-                "unverified": 36,
-                "invalid_status": 0
-              },
-              "jcr": {
-                "verified": 0,
-                "unverified": 44,
-                "invalid_status": 0
-              },
-              "jif": {
-                "verified": 5,
-                "unverified": 39,
-                "invalid_status": 0
-              },
-              "oa": {
-                "verified": 14,
-                "unverified": 30,
-                "invalid_status": 0
-              },
-              "fees": {
-                "verified": 2,
-                "unverified": 42,
-                "invalid_status": 0
-              },
-              "warnings": {
-                "verified": 0,
-                "unverified": 44,
-                "invalid_status": 0
-              },
-              "timeline:first_decision": {
-                "verified": 7,
                 "unverified": 37,
                 "invalid_status": 0
               },
-              "timeline:acceptance": {
-                "verified": 2,
-                "unverified": 42,
-                "invalid_status": 0
-              },
-              "timeline:online": {
-                "verified": 0,
-                "unverified": 44,
-                "invalid_status": 0
-              },
-              "timeline:indexing": {
-                "verified": 0,
-                "unverified": 44,
-                "invalid_status": 0
-              }
-            },
-            "hit3_wilson95": [
-              0,
-              0.32440756488388023
-            ],
-            "hit5_wilson95": [
-              0,
-              0.32440756488388023
-            ],
-            "hit10_wilson95": [
-              0,
-              0.32440756488388023
-            ]
-          },
-          "keyword": {
-            "n": 8,
-            "hit3": 1,
-            "hit5": 2,
-            "hit10": 2,
-            "usable": 0,
-            "usable_known": 0,
-            "discovered": 0,
-            "discovered_known": 0,
-            "hard_failures": 0,
-            "hard_failure_cases": 0,
-            "source_coverage_cases": 0,
-            "source_coverage": {},
-            "hit3_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
-            ],
-            "hit5_wilson95": [
-              0.071479212752109,
-              0.5907245696898311
-            ],
-            "hit10_wilson95": [
-              0.071479212752109,
-              0.5907245696898311
-            ]
-          },
-          "abstract": {
-            "n": 8,
-            "hit3": 0,
-            "hit5": 0,
-            "hit10": 1,
-            "usable": 0,
-            "usable_known": 0,
-            "discovered": 0,
-            "discovered_known": 0,
-            "hard_failures": 0,
-            "hard_failure_cases": 0,
-            "source_coverage_cases": 0,
-            "source_coverage": {},
-            "hit3_wilson95": [
-              0,
-              0.32440756488388023
-            ],
-            "hit5_wilson95": [
-              0,
-              0.32440756488388023
-            ],
-            "hit10_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
-            ]
-          }
-        }
-      },
-      "systematic_meta": {
-        "cases": 8,
-        "completed": 7,
-        "states": {
-          "completed": 7,
-          "infrastructure_failed": 1
-        },
-        "variants": {
-          "v2": {
-            "n": 7,
-            "hit3": 0,
-            "hit5": 0,
-            "hit10": 0,
-            "usable": 4,
-            "usable_known": 7,
-            "discovered": 1,
-            "discovered_known": 7,
-            "hard_failures": 2,
-            "hard_failure_cases": 1,
-            "source_coverage_cases": 7,
-            "source_coverage": {
-              "identity": {
-                "verified": 34,
-                "unverified": 6,
-                "invalid_status": 0
-              },
-              "scope": {
-                "verified": 8,
-                "unverified": 32,
-                "invalid_status": 0
-              },
-              "article_type": {
-                "verified": 8,
-                "unverified": 32,
-                "invalid_status": 0
-              },
-              "method_policy": {
-                "verified": 5,
-                "unverified": 35,
-                "invalid_status": 0
-              },
               "indexing": {
-                "verified": 5,
-                "unverified": 35,
+                "verified": 9,
+                "unverified": 37,
                 "invalid_status": 0
               },
               "jcr": {
                 "verified": 0,
-                "unverified": 40,
+                "unverified": 46,
                 "invalid_status": 0
               },
               "jif": {
                 "verified": 5,
-                "unverified": 35,
+                "unverified": 41,
                 "invalid_status": 0
               },
               "oa": {
-                "verified": 8,
-                "unverified": 32,
+                "verified": 12,
+                "unverified": 34,
                 "invalid_status": 0
               },
               "fees": {
                 "verified": 3,
-                "unverified": 37,
+                "unverified": 43,
                 "invalid_status": 0
               },
               "warnings": {
                 "verified": 0,
-                "unverified": 40,
+                "unverified": 46,
                 "invalid_status": 0
               },
               "timeline:first_decision": {
-                "verified": 7,
-                "unverified": 33,
+                "verified": 8,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "timeline:acceptance": {
-                "verified": 2,
-                "unverified": 38,
+                "verified": 3,
+                "unverified": 43,
                 "invalid_status": 0
               },
               "timeline:online": {
                 "verified": 1,
-                "unverified": 39,
+                "unverified": 45,
                 "invalid_status": 0
               },
               "timeline:indexing": {
                 "verified": 0,
-                "unverified": 40,
+                "unverified": 46,
                 "invalid_status": 0
               }
             },
             "hit3_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit5_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit10_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ]
           },
           "keyword": {
-            "n": 7,
+            "n": 8,
             "hit3": 0,
             "hit5": 0,
             "hit10": 0,
@@ -1238,20 +1234,20 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit5_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit10_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ]
           },
           "abstract": {
-            "n": 7,
+            "n": 8,
             "hit3": 0,
             "hit5": 0,
             "hit10": 0,
@@ -1264,130 +1260,129 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit5_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ],
             "hit10_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
+              0,
+              0.32440756488388023
             ]
           }
         }
       },
       "other_review": {
         "cases": 7,
-        "completed": 6,
+        "completed": 7,
         "states": {
-          "completed": 6,
-          "infrastructure_failed": 1
+          "completed": 7
         },
         "variants": {
           "v2": {
-            "n": 6,
+            "n": 7,
             "hit3": 1,
             "hit5": 1,
             "hit10": 1,
             "usable": 4,
-            "usable_known": 6,
-            "discovered": 3,
-            "discovered_known": 6,
+            "usable_known": 7,
+            "discovered": 4,
+            "discovered_known": 7,
             "hard_failures": 0,
             "hard_failure_cases": 0,
-            "source_coverage_cases": 6,
+            "source_coverage_cases": 7,
             "source_coverage": {
               "identity": {
-                "verified": 31,
+                "verified": 37,
                 "unverified": 1,
                 "invalid_status": 0
               },
               "scope": {
-                "verified": 10,
-                "unverified": 22,
+                "verified": 12,
+                "unverified": 26,
                 "invalid_status": 0
               },
               "article_type": {
                 "verified": 9,
-                "unverified": 23,
+                "unverified": 29,
                 "invalid_status": 0
               },
               "method_policy": {
-                "verified": 10,
-                "unverified": 22,
+                "verified": 11,
+                "unverified": 27,
                 "invalid_status": 0
               },
               "indexing": {
-                "verified": 3,
-                "unverified": 29,
+                "verified": 5,
+                "unverified": 33,
                 "invalid_status": 0
               },
               "jcr": {
                 "verified": 2,
-                "unverified": 30,
+                "unverified": 36,
                 "invalid_status": 0
               },
               "jif": {
-                "verified": 4,
-                "unverified": 28,
+                "verified": 5,
+                "unverified": 33,
                 "invalid_status": 0
               },
               "oa": {
-                "verified": 12,
-                "unverified": 20,
+                "verified": 14,
+                "unverified": 24,
                 "invalid_status": 0
               },
               "fees": {
                 "verified": 1,
-                "unverified": 31,
+                "unverified": 37,
                 "invalid_status": 0
               },
               "warnings": {
                 "verified": 0,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "timeline:first_decision": {
                 "verified": 2,
-                "unverified": 30,
+                "unverified": 36,
                 "invalid_status": 0
               },
               "timeline:acceptance": {
                 "verified": 0,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "timeline:online": {
                 "verified": 0,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "timeline:indexing": {
                 "verified": 0,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               }
             },
             "hit3_wilson95": [
-              0.030053369748306635,
-              0.5635028221864702
+              0.02567962434474355,
+              0.5131278292743189
             ],
             "hit5_wilson95": [
-              0.030053369748306635,
-              0.5635028221864702
+              0.02567962434474355,
+              0.5131278292743189
             ],
             "hit10_wilson95": [
-              0.030053369748306635,
-              0.5635028221864702
+              0.02567962434474355,
+              0.5131278292743189
             ]
           },
           "keyword": {
-            "n": 6,
+            "n": 7,
             "hit3": 0,
-            "hit5": 0,
-            "hit10": 0,
+            "hit5": 1,
+            "hit10": 1,
             "usable": 0,
             "usable_known": 0,
             "discovered": 0,
@@ -1397,23 +1392,23 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              2.7755575615628914e-17,
-              0.3903342879021653
+              5.551115123125783e-17,
+              0.35433043506668743
             ],
             "hit5_wilson95": [
-              2.7755575615628914e-17,
-              0.3903342879021653
+              0.02567962434474355,
+              0.5131278292743189
             ],
             "hit10_wilson95": [
-              2.7755575615628914e-17,
-              0.3903342879021653
+              0.02567962434474355,
+              0.5131278292743189
             ]
           },
           "abstract": {
-            "n": 6,
-            "hit3": 1,
-            "hit5": 2,
-            "hit10": 2,
+            "n": 7,
+            "hit3": 2,
+            "hit5": 3,
+            "hit10": 3,
             "usable": 0,
             "usable_known": 0,
             "discovered": 0,
@@ -1423,127 +1418,126 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.030053369748306635,
-              0.5635028221864702
+              0.08221892400405678,
+              0.6410655481673808
             ],
             "hit5_wilson95": [
-              0.09677141110578041,
-              0.700006684861608
+              0.15821985525146975,
+              0.7495416354723428
             ],
             "hit10_wilson95": [
-              0.09677141110578041,
-              0.700006684861608
+              0.15821985525146975,
+              0.7495416354723428
             ]
           }
         }
       },
       "bibliometrics": {
         "cases": 9,
-        "completed": 8,
+        "completed": 9,
         "states": {
-          "completed": 8,
-          "infrastructure_failed": 1
+          "completed": 9
         },
         "variants": {
           "v2": {
-            "n": 8,
+            "n": 9,
             "hit3": 2,
             "hit5": 2,
             "hit10": 2,
             "usable": 4,
-            "usable_known": 8,
+            "usable_known": 9,
             "discovered": 4,
-            "discovered_known": 8,
+            "discovered_known": 9,
             "hard_failures": 3,
             "hard_failure_cases": 2,
-            "source_coverage_cases": 8,
+            "source_coverage_cases": 9,
             "source_coverage": {
               "identity": {
-                "verified": 35,
+                "verified": 41,
                 "unverified": 2,
                 "invalid_status": 0
               },
               "scope": {
-                "verified": 13,
-                "unverified": 24,
+                "verified": 15,
+                "unverified": 28,
                 "invalid_status": 0
               },
               "article_type": {
                 "verified": 11,
-                "unverified": 26,
+                "unverified": 32,
                 "invalid_status": 0
               },
               "method_policy": {
-                "verified": 9,
-                "unverified": 28,
+                "verified": 11,
+                "unverified": 32,
                 "invalid_status": 0
               },
               "indexing": {
                 "verified": 8,
-                "unverified": 29,
+                "unverified": 35,
                 "invalid_status": 0
               },
               "jcr": {
-                "verified": 1,
-                "unverified": 36,
+                "verified": 2,
+                "unverified": 41,
                 "invalid_status": 0
               },
               "jif": {
-                "verified": 7,
-                "unverified": 30,
+                "verified": 8,
+                "unverified": 35,
                 "invalid_status": 0
               },
               "oa": {
-                "verified": 13,
-                "unverified": 24,
+                "verified": 16,
+                "unverified": 27,
                 "invalid_status": 0
               },
               "fees": {
-                "verified": 1,
-                "unverified": 36,
+                "verified": 2,
+                "unverified": 41,
                 "invalid_status": 0
               },
               "warnings": {
                 "verified": 0,
-                "unverified": 37,
+                "unverified": 43,
                 "invalid_status": 0
               },
               "timeline:first_decision": {
                 "verified": 5,
-                "unverified": 32,
+                "unverified": 38,
                 "invalid_status": 0
               },
               "timeline:acceptance": {
                 "verified": 0,
-                "unverified": 37,
+                "unverified": 43,
                 "invalid_status": 0
               },
               "timeline:online": {
                 "verified": 0,
-                "unverified": 37,
+                "unverified": 43,
                 "invalid_status": 0
               },
               "timeline:indexing": {
                 "verified": 0,
-                "unverified": 37,
+                "unverified": 43,
                 "invalid_status": 0
               }
             },
             "hit3_wilson95": [
-              0.071479212752109,
-              0.5907245696898311
+              0.06322510711784671,
+              0.5474110308930111
             ],
             "hit5_wilson95": [
-              0.071479212752109,
-              0.5907245696898311
+              0.06322510711784671,
+              0.5474110308930111
             ],
             "hit10_wilson95": [
-              0.071479212752109,
-              0.5907245696898311
+              0.06322510711784671,
+              0.5474110308930111
             ]
           },
           "keyword": {
-            "n": 8,
+            "n": 9,
             "hit3": 1,
             "hit5": 1,
             "hit10": 1,
@@ -1556,20 +1550,20 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit5_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ],
             "hit10_wilson95": [
-              0.02241749145005667,
-              0.4708881822128535
+              0.019890887638544907,
+              0.434999705576656
             ]
           },
           "abstract": {
-            "n": 8,
+            "n": 9,
             "hit3": 3,
             "hit5": 3,
             "hit10": 4,
@@ -1582,8 +1576,166 @@
             "source_coverage_cases": 0,
             "source_coverage": {},
             "hit3_wilson95": [
-              0.13684428582359742,
-              0.6942576053973727
+              0.1205838183869109,
+              0.6457978644196036
+            ],
+            "hit5_wilson95": [
+              0.1205838183869109,
+              0.6457978644196036
+            ],
+            "hit10_wilson95": [
+              0.18877852109766452,
+              0.733348706504507
+            ]
+          }
+        }
+      },
+      "case_report": {
+        "cases": 8,
+        "completed": 8,
+        "states": {
+          "completed": 8
+        },
+        "variants": {
+          "v2": {
+            "n": 8,
+            "hit3": 1,
+            "hit5": 1,
+            "hit10": 1,
+            "usable": 3,
+            "usable_known": 8,
+            "discovered": 4,
+            "discovered_known": 8,
+            "hard_failures": 1,
+            "hard_failure_cases": 1,
+            "source_coverage_cases": 8,
+            "source_coverage": {
+              "identity": {
+                "verified": 41,
+                "unverified": 5,
+                "invalid_status": 0
+              },
+              "scope": {
+                "verified": 7,
+                "unverified": 39,
+                "invalid_status": 0
+              },
+              "article_type": {
+                "verified": 4,
+                "unverified": 42,
+                "invalid_status": 0
+              },
+              "method_policy": {
+                "verified": 7,
+                "unverified": 39,
+                "invalid_status": 0
+              },
+              "indexing": {
+                "verified": 3,
+                "unverified": 43,
+                "invalid_status": 0
+              },
+              "jcr": {
+                "verified": 0,
+                "unverified": 46,
+                "invalid_status": 0
+              },
+              "jif": {
+                "verified": 2,
+                "unverified": 44,
+                "invalid_status": 0
+              },
+              "oa": {
+                "verified": 7,
+                "unverified": 39,
+                "invalid_status": 0
+              },
+              "fees": {
+                "verified": 4,
+                "unverified": 42,
+                "invalid_status": 0
+              },
+              "warnings": {
+                "verified": 0,
+                "unverified": 46,
+                "invalid_status": 0
+              },
+              "timeline:first_decision": {
+                "verified": 2,
+                "unverified": 44,
+                "invalid_status": 0
+              },
+              "timeline:acceptance": {
+                "verified": 0,
+                "unverified": 46,
+                "invalid_status": 0
+              },
+              "timeline:online": {
+                "verified": 0,
+                "unverified": 46,
+                "invalid_status": 0
+              },
+              "timeline:indexing": {
+                "verified": 0,
+                "unverified": 46,
+                "invalid_status": 0
+              }
+            },
+            "hit3_wilson95": [
+              0.02241749145005667,
+              0.4708881822128535
+            ],
+            "hit5_wilson95": [
+              0.02241749145005667,
+              0.4708881822128535
+            ],
+            "hit10_wilson95": [
+              0.02241749145005667,
+              0.4708881822128535
+            ]
+          },
+          "keyword": {
+            "n": 8,
+            "hit3": 2,
+            "hit5": 2,
+            "hit10": 4,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0.071479212752109,
+              0.5907245696898311
+            ],
+            "hit5_wilson95": [
+              0.071479212752109,
+              0.5907245696898311
+            ],
+            "hit10_wilson95": [
+              0.21521606221387757,
+              0.7847839377861224
+            ]
+          },
+          "abstract": {
+            "n": 8,
+            "hit3": 1,
+            "hit5": 3,
+            "hit10": 4,
+            "usable": 0,
+            "usable_known": 0,
+            "discovered": 0,
+            "discovered_known": 0,
+            "hard_failures": 0,
+            "hard_failure_cases": 0,
+            "source_coverage_cases": 0,
+            "source_coverage": {},
+            "hit3_wilson95": [
+              0.02241749145005667,
+              0.4708881822128535
             ],
             "hit5_wilson95": [
               0.13684428582359742,
@@ -1595,183 +1747,24 @@
             ]
           }
         }
-      },
-      "case_report": {
-        "cases": 8,
-        "completed": 7,
-        "states": {
-          "completed": 7,
-          "infrastructure_failed": 1
-        },
-        "variants": {
-          "v2": {
-            "n": 7,
-            "hit3": 1,
-            "hit5": 1,
-            "hit10": 1,
-            "usable": 3,
-            "usable_known": 7,
-            "discovered": 3,
-            "discovered_known": 7,
-            "hard_failures": 1,
-            "hard_failure_cases": 1,
-            "source_coverage_cases": 7,
-            "source_coverage": {
-              "identity": {
-                "verified": 36,
-                "unverified": 5,
-                "invalid_status": 0
-              },
-              "scope": {
-                "verified": 6,
-                "unverified": 35,
-                "invalid_status": 0
-              },
-              "article_type": {
-                "verified": 4,
-                "unverified": 37,
-                "invalid_status": 0
-              },
-              "method_policy": {
-                "verified": 6,
-                "unverified": 35,
-                "invalid_status": 0
-              },
-              "indexing": {
-                "verified": 3,
-                "unverified": 38,
-                "invalid_status": 0
-              },
-              "jcr": {
-                "verified": 0,
-                "unverified": 41,
-                "invalid_status": 0
-              },
-              "jif": {
-                "verified": 2,
-                "unverified": 39,
-                "invalid_status": 0
-              },
-              "oa": {
-                "verified": 6,
-                "unverified": 35,
-                "invalid_status": 0
-              },
-              "fees": {
-                "verified": 3,
-                "unverified": 38,
-                "invalid_status": 0
-              },
-              "warnings": {
-                "verified": 0,
-                "unverified": 41,
-                "invalid_status": 0
-              },
-              "timeline:first_decision": {
-                "verified": 2,
-                "unverified": 39,
-                "invalid_status": 0
-              },
-              "timeline:acceptance": {
-                "verified": 0,
-                "unverified": 41,
-                "invalid_status": 0
-              },
-              "timeline:online": {
-                "verified": 0,
-                "unverified": 41,
-                "invalid_status": 0
-              },
-              "timeline:indexing": {
-                "verified": 0,
-                "unverified": 41,
-                "invalid_status": 0
-              }
-            },
-            "hit3_wilson95": [
-              0.02567962434474355,
-              0.5131278292743189
-            ],
-            "hit5_wilson95": [
-              0.02567962434474355,
-              0.5131278292743189
-            ],
-            "hit10_wilson95": [
-              0.02567962434474355,
-              0.5131278292743189
-            ]
-          },
-          "keyword": {
-            "n": 7,
-            "hit3": 1,
-            "hit5": 1,
-            "hit10": 3,
-            "usable": 0,
-            "usable_known": 0,
-            "discovered": 0,
-            "discovered_known": 0,
-            "hard_failures": 0,
-            "hard_failure_cases": 0,
-            "source_coverage_cases": 0,
-            "source_coverage": {},
-            "hit3_wilson95": [
-              0.02567962434474355,
-              0.5131278292743189
-            ],
-            "hit5_wilson95": [
-              0.02567962434474355,
-              0.5131278292743189
-            ],
-            "hit10_wilson95": [
-              0.15821985525146975,
-              0.7495416354723428
-            ]
-          },
-          "abstract": {
-            "n": 7,
-            "hit3": 0,
-            "hit5": 2,
-            "hit10": 3,
-            "usable": 0,
-            "usable_known": 0,
-            "discovered": 0,
-            "discovered_known": 0,
-            "hard_failures": 0,
-            "hard_failure_cases": 0,
-            "source_coverage_cases": 0,
-            "source_coverage": {},
-            "hit3_wilson95": [
-              5.551115123125783e-17,
-              0.35433043506668743
-            ],
-            "hit5_wilson95": [
-              0.08221892400405678,
-              0.6410655481673808
-            ],
-            "hit10_wilson95": [
-              0.15821985525146975,
-              0.7495416354723428
-            ]
-          }
-        }
       }
     },
-    "elapsed_seconds": 120551.57200000013,
+    "elapsed_seconds": 125953.45900000013,
     "usage": {
-      "input_tokens": 47691700,
-      "cached_input_tokens": 4069888,
+      "input_tokens": 51480656,
+      "cached_input_tokens": 4420736,
       "cache_write_input_tokens": 0,
-      "output_tokens": 2713450,
-      "reasoning_output_tokens": 1419882
+      "output_tokens": 2851437,
+      "reasoning_output_tokens": 1497148
     },
-    "model_calls": 549,
+    "model_calls": 574,
     "call_outcomes": {
-      "completed": 518,
+      "completed": 543,
       "infrastructure_failed": 31
     },
-    "usage_reported_calls": 518,
+    "usage_reported_calls": 543,
     "usage_unavailable_calls": 31,
-    "unscored": 7,
+    "unscored": 0,
     "time_interpretation": "Sum of recorded model-call elapsed times, including parallel reviews; not end-to-end wall-clock runtime.",
     "usage_interpretation": "Available CLI usage only. Calls with unavailable usage are counted separately, not assumed to consume zero.",
     "interval_interpretation": "Conditional on completed, scored cases; unscored cases are separately retained, not claimed as successful runs.",
@@ -10165,10 +10158,159 @@
       "case_id": "s1-systematic_meta-017",
       "stratum": "systematic_meta",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": true,
+          "hard_failures": [],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 5,
+              "unverified": 1,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13433828",
+      "original_outlet": "International Journal of Methods in Psychiatric Research",
+      "revealed_at": "2026-10-04T04:05:13.141097+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "No demonstrated journal-fit hard failure was found. Both sealed reviews accepted PLOS One as a supported conditional recommendation. The hypothetical unpublished submission was assessed appropriately; publication of the evaluation source alone was not treated as disqualification.",
+          "The publishing-outlet non-hit occurred upstream of eligibility assessment: scores report discovered=false, delivered_to_selector=false and assessed=false. International Journal of Methods in Psychiatric Research is absent from the supplied candidate handoff, literature and six-dossier source plan. No current official evidence establishes its admission or comparative suitability, so its historical publication cannot make it a mandatory recommendation.",
+          "Discovery coverage is incomplete. The direct systematic-review query returned one hit whose record was not supplied; the broad query returned 344 hits with a 70-record limit and no documented pagination. Fixed top-ten baseline curation and the six-dossier ceiling further restricted coverage, but top-ten pruning alone cannot explain an outlet absent from the supplied baseline universe. The exact loss point needs raw-result and handoff tracing.",
+          "Most specialist alternatives were withheld because eligibility evidence was missing, not because substantive incompatibility was established. PLOS Mental Health lacked official title–ISSN corroboration and operative unsolicited-review admission; both Frontiers titles lacked selected-section admission; BMC Psychology pages were unreadable; European Psychiatry policy requests returned HTTP 429. Several decision-changing official links remained unattempted while follow-up requests covered generic or repeated pages.",
+          "Empty quartile and acceptance-time routes were justified by the available evidence. JCR checks were not attempted; Frontiers impact-factor displays lacked metric years; PLOS fee and current metrics extraction lost journal-to-value associations. Historical PLOS One timing was correctly excluded from current speed ranking. Warning checks were unperformed. These are retrieval and coverage gaps, not evidence of adverse journal status.",
+          "Substantive concerns remain: high heterogeneity, reliability replacement, geographic/instrument confounding, unresolved sample overlap and mixed clinical/community eligibility. They were appropriately distinguished from confirmed journal bans. The omitted single-hit record leaves the claimed first synthesis unverified; identify it before assessing originality, and do not count the evaluation source itself as independent competing work. The final serialized-file source audit was also reported as unperformed."
+        ],
+        "no_change_reason": "No new instruction is justified by this case. Existing rules already require specialist discovery, manuscript-grounded policy triggers, unsolicited-review and section-level admission checks, authoritative evidence, bounded retrieval repair and final-file auditing. The recommendation was usable; the main weaknesses concern discovery coverage, retrieval priorities and extraction quality. Repair those processes without memorizing the revealed outlet or inventing its policies.",
+        "stratum_confirmed": true,
+        "classification_reason": "Sections 2 and 3 describe systematic searching, dual-reviewer selection and extraction, bias assessment and random-effects pooling of eight published studies. The primary design is systematic review/meta-analysis. Included cross-sectional studies, literature databases and psychometric corrections do not make this primary survey research, public-database analysis or prediction-model development."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a10507-4daa-7073-b31b-1be63e1e2a32",
+          "output_hash": "7c7a83c94f1be6dcccf588d6663d01b400240283801040afd2778af15e0e433f",
+          "sealed_at": "2026-10-04T04:02:36.946937+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10513-fabe-75f3-9ee8-e048edfa3447",
+          "output_hash": "4ffdb8255c5d36c14662a551bd448178cd5d81f3a71fac3299cf06204c3e0ed5",
+          "sealed_at": "2026-10-04T04:05:13.053711+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10513-fa7b-7223-be3a-bda551a0a727",
+          "output_hash": "015f5adf46cfda1d513431ad25cb49f3f21957516152db99e4fee0180864ca2f",
+          "sealed_at": "2026-10-04T04:04:38.145046+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. Captured PLOS ONE sources explicitly support systematic-review admission, technical rigor and reproducible data, conditional on comprehensive sampling and adequate reporting. High heterogeneity, reliability imputation, overlap and mixed populations are substantive limitations rather than automatic journal bans. Other current section/review permissions remain pending; unknown JCR, fee association and acceptance times remain unknown. A benchmark-source paper is not a competing prior publication under the hypothetical unpublished assessment. No manual-audit completion or actual source repair is invented. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.901517+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-other_review-001",
@@ -11125,10 +11267,161 @@
       "case_id": "s1-other_review-009",
       "stratum": "other_review",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [],
+          "discovered": true,
+          "delivered_to_selector": true,
+          "assessed": true,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": 4,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": 1,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13357186",
+      "original_outlet": "Frontiers in Pediatrics",
+      "revealed_at": "2026-10-04T03:51:59.535540+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "The result has a practical-utility failure, not an established journal-fit or factual failure: all six dossiers remain pending, fit_sequence is empty, and usable is false. Both sealed reviews identify no hard failures and accept the unresolved eligibility gates.",
+          "The known publishing outlet was discovered, delivered and assessed. Frontiers in Pediatrics ranked fourth in the keyword comparator and first in the abstract comparator. Its absence from the final recommendations therefore reflects incomplete eligibility verification, not discovery failure. Those comparator ranks do not prove current submission permission or make that outlet a mandatory recommendation.",
+          "The most consequential missing source is Frontiers' selected specialty-section admission evidence. The retrieved journal-wide article-types policy explicitly delegates availability to the chosen section, but the linked Neonatology section was not retrieved. Documented neonatal scope, compatible Review requirements and a 2024 narrative-review precedent cannot close that gate.",
+          "Translational Pediatrics has a specific retrieval-repair opportunity: the attempted /pages/view/author-instructions page was unreadable, whereas the readable About page links to /pages/view/guidelines-for-authors, which was not attempted. Retrieved ethics, editorial and data-sharing policies do not establish unsolicited narrative-review admission.",
+          "Other policy gaps are actual access failures: Children, Nutrition in Clinical Practice and Advances in Nutrition returned HTTP 403; Journal of Perinatology encountered redirect loops. The supplied packet contains no successful alternate admission evidence for them. These failures justify pending status, not a claim that the journals reject narrative reviews.",
+          "Route-specific sources are also incomplete. JCR retrieval had zero attempts, not a demonstrated access barrier. No candidate has a fully defined submission-to-acceptance statistic. Journal-specific fee pages and warning checks are missing or unattempted. Empty quartile and time routes are consequently defensible; missing metrics, fees or warning coverage were correctly not converted into additional hard exclusions for fit.",
+          "Coverage limits reduced opportunities to find another eligible outlet: the broad search had 2426 hits but a 70-record limit, the retained pool covered 15 journal IDs, and only six received policy dossiers. Nine delivered journals had no journal-specific policy requests. Their omission is a coverage limitation, not confirmed incompatibility, and their precedents do not establish unsolicited-review permission.",
+          "The manuscript assessment is appropriately calibrated. This is a narrative literature review, not original computational public-data research requiring independent experimental validation. Overlapping reviews, the search-cutoff inconsistency and interpretation of mixed evidence warrant clarification or revision, but do not establish an automatic prohibition. The evaluation source's publication history is not a failure under the hypothetical unpublished-submission assumption."
+        ],
+        "no_change_reason": "No new Skill rule is supported by this case. Existing instructions already require current official admission evidence, section-specific verification, policy-trigger matching, authoritative retrieval alternatives, bounded repair rounds, and separation of eligibility from metric-dependent rankings. The supported repair is better retrieval targeting and source-budget allocation, while preserving honest pending results when evidence remains unavailable. Adding a narrative-review prohibition, extra-validation mandate, or instruction to recommend the known publishing journal would duplicate existing safeguards or invent unsupported requirements.",
+        "stratum_confirmed": true,
+        "classification_reason": "other_review is supported by the abstract's descriptive-review objective and Sections 1–4: one reviewer searches six bibliographic databases and narratively compares fortifier classes using published studies and descriptive tables. A complete systematic-review workflow is not reported, and there is no new quantitative pooling or original clinical or laboratory investigation. Database searching alone does not establish a systematic review; cited trial, meta-analysis and experimental methods belong to the supporting publications, not this manuscript."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a1036c-489a-7e13-977a-66c5daefb1a2",
+          "output_hash": "ffdf863772582c2886f3db5c8fb4eabe6f88476d3c08071f8c0c81c0406a8eef",
+          "sealed_at": "2026-10-03T20:31:51.632820+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10508-e3c4-7850-9d25-d1ed9a00c7df",
+          "output_hash": "ace56c2284c31a9305b23e41fce81d2b4b483b953c5c1723e6690b05e965d711",
+          "sealed_at": "2026-10-04T03:51:59.418566+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10508-d34b-76e2-a131-a6d68a87c993",
+          "output_hash": "18276d2cb849aec1906e55a5342e2feab7f75c2cf3aaf9609f281d7a027e301f",
+          "sealed_at": "2026-10-04T03:51:51.395291+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. A narrative review does not trigger computational-original-data validation rules. Frontiers specialty-section Review admission and Translational Pediatrics' discovered alternative guidelines remain uninspected, while other access failures remain distinct. All six candidates stay pending and original unusable scores remain. Existing section-specific and alternate-source retrieval instructions cover the execution gaps; the revealed outlet is not used as permission or a permanent query rule. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.946575+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-bibliometrics-001",
@@ -12432,10 +12725,160 @@
       "case_id": "s1-bibliometrics-016",
       "stratum": "bibliometrics",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 1,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13549630",
+      "original_outlet": "Medicine",
+      "revealed_at": "2026-10-04T03:50:55.870470+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "The sealed reviews identify no hard failure. Empty recommendation routes are justified by the supplied evidence, but the run did not produce a usable journal recommendation because current eligibility sources were incomplete.",
+          "Medicine was absent from the supplied literature, candidate handoff and source plan; it was never assessed or excluded. This is an upstream discovery non-hit, not an incorrect fit decision. No current official dossier establishes whether Medicine would qualify, and its publication of the evaluation source does not make it a mandatory recommendation.",
+          "Discovery coverage was limited: the broad query returned 1,315 hits with a 70-record limit, omitted the bibliometric method terms, and fed a fixed top-ten baseline union. Searches used five years without first retaining the preferred 24-month window. These limitations could reduce recall, but the exact cause of Medicine's absence requires the upstream result and filtering logs.",
+          "Retrieval left article-type admission unverified for all six dossiers and scope and method permission unverified for four. TBM and Australian Journal of Psychology requests returned 403; Digital Health requests failed with SSL errors. JMIR's requested scope URL returned a not-found page, while its discovered correct scope and submission-policy links remained unrequested. The 30-record and 12-followed-endpoint ceilings constrained repair.",
+          "The two Frontiers exclusions are supported by the supplied current policies and manuscript methods. Internal clustering scores and dual screening do not demonstrate independent validation of the mapped conclusions. Public Health additionally rejects simple bibliometric studies. These findings do not justify a universal multi-database requirement.",
+          "Missing acceptance statistics legitimately prevent time ranking; individual acceptance dates cannot supply turnaround durations. Missing indexing, warning coverage and most metrics remain evidence gaps, rather than additional user-imposed exclusions.",
+          "Policy chronology needs a wording repair: the snapshots establish the captured current requirements, not their effective dates. Historical precedents cannot prove current permission, but the report should not imply that a policy was introduced after those papers without dated evidence. The novelty concern and numerical reporting problems were otherwise appropriately identified."
+        ],
+        "no_change_reason": "No additional Skill instruction is justified. Existing rules already require method-aware discovery, official-source alternatives, current-policy gates, bounded retrieval repair and source auditing. Repair execution and upstream retrieval allocation; do not hardcode Medicine, infer inaccessible policies or duplicate existing instructions.",
+        "stratum_confirmed": true,
+        "classification_reason": "Sections 2–3 analyze 451 publication records using CiteSpace collaboration networks, keyword clustering and burst detection. JITAIs, micro-randomized trials and adaptive algorithms are subjects of the mapped literature. The manuscript performs bibliometric science mapping, without participant-level intervention testing, prediction-model development or clinical effect synthesis."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a1036c-ca68-7453-b392-a98f2799a4e3",
+          "output_hash": "0042125fd451928e31d483d3fac8adda8dbd89995d3d20db8f7b35f786155431",
+          "sealed_at": "2026-10-03T20:32:26.972666+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10507-48eb-77e2-a6db-4c6c4bfed23f",
+          "output_hash": "53d514a48baafa0083dee702240366633d0c005979d2cee3f6499429160b4a90",
+          "sealed_at": "2026-10-04T03:50:55.653528+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10507-4ba0-76c3-900d-ac3360160d69",
+          "output_hash": "6cf2a13e64c709b45bab3a742d3fce26e4b53c20b7727e054cf648960a2cfca8",
+          "sealed_at": "2026-10-04T03:50:22.782792+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. Captured current Frontiers validation policy and Public Health's explicit simple-bibliometrics restriction support the two exclusions; internal clustering and duplicate screening do not establish independent validation. The other four identities lack inspected admission evidence and stay pending. No universal multi-database mandate, blanket 24-month window or policy introduction date is inferred: current undated snapshots cannot establish historical policy chronology. Root records these narrative limitations separately, preserving original reviews and scores. Targeted alternative retrieval is still unperformed. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.993282+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-case_report-003",
@@ -13727,10 +14170,160 @@
       "case_id": "s1-case_report-018",
       "stratum": "case_report",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [],
+          "discovered": true,
+          "delivered_to_selector": true,
+          "assessed": true,
+          "source_coverage": {
+            "identity": {
+              "verified": 5,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 1,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 1,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 1,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 1,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 5,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": 3,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": 2,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13581637",
+      "original_outlet": "Frontiers in Oncology",
+      "revealed_at": "2026-10-04T03:50:30.881833+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "No hard recommendation failure was identified by either reviewer. All five candidates remain pending because current admission evidence is incomplete. The empty routes are defensible given the supplied evidence, but the result provides no actionable submission sequence.",
+          "The publishing journal, Frontiers in Oncology, was discovered, delivered and assessed. Its non-hit occurred at eligibility verification: journal-wide Case Report guidance was retrieved, but admission in the proposed Cancer Immunity and Immunotherapy section was not checked. The section URL was available in captured links; no failed section request or confirmed prohibition is documented.",
+          "Missing policies for the other candidates have different causes. Karger and Cureus requests returned HTTP 403. Spandidos and American Journal of Case Reports requests were never attempted because their hosts were outside the permitted list. These are retrieval and infrastructure limitations, not evidence of journal incompatibility. Crossref records establish identity only.",
+          "The quartile and acceptance-time routes lack their required evidence. No JCR request was recorded; the Frontiers 3.4 Impact Factor display lacks a metric year. Its homepage supplies individual acceptance dates, not submission-to-acceptance statistics. Journal-specific authoritative indexing and named warning checks are also missing. These gaps must not become additional fit exclusions when the user supplied no corresponding hard condition.",
+          "Candidate coverage was limited by the fixed baseline top-ten union and the five-dossier source plan. Other delivered clinical case-report leads lacked policy dossiers. Searches reporting 97 and 293 hits retrieved at most 70 records each. This limits coverage but does not prove that a better eligible journal exists; targeted refinement, pagination or replacement dossiers could investigate that possibility.",
+          "The manuscript and policy interpretation were appropriately calibrated. This is a descriptive three-patient clinical case series. The computational/public-data validation restriction is not triggered. Substantive originality, educational contribution, applicable ethics documentation and article-type requirements still matter, but neither publication of the evaluation source nor absence of an external validation cohort establishes a fit failure.",
+          "A separate audit limitation remains: the output reports manual checking without final-file serialization and reopening, and its completion timestamp was borrowed from the packet. Actual delivery-time provenance and any available final artifact should be checked under the existing audit instructions. This does not explain the journal non-hit."
+        ],
+        "no_change_reason": "No new skill rule is justified. Existing instructions already cover section-specific admission, policy triggers, authoritative alternate retrieval, missing-evidence classification, route-specific requirements and final evidence auditing. The repair is to execute those checks and improve retrieval coverage. Frontiers in Oncology is one plausible outlet, not a mandatory recommendation or ranking target.",
+        "stratum_confirmed": true,
+        "classification_reason": "The central contribution is retrospective reporting of treatment responses, duration and safety in three individual patients, confirming the case_report stratum. Pathology, PD-L1 testing, imaging and renal measurements support those clinical narratives; they do not constitute separate experimental, prediction-model or computational research objectives."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a1036d-5564-7672-9af6-e9338c1bfd63",
+          "output_hash": "e388b6738bacf8c5627ef5cb65e74da1e486e3e242ae9f9ec2b42ccd081f629a",
+          "sealed_at": "2026-10-03T20:32:05.959514+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10507-4c13-79e2-8b9f-0959be866bdc",
+          "output_hash": "84dc0d2856b73a99ebddb053b536c7340f1112bcb0ad7d1f4bd5d9f48981637f",
+          "sealed_at": "2026-10-04T03:50:30.792193+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10507-4a10-70c2-94a4-d5afbc7eda33",
+          "output_hash": "54c61daf8e7dcee65f78f4f5daac8e4f2a564c12cef34d9e7149d904b4c44b09",
+          "sealed_at": "2026-10-04T03:50:26.618326+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. Three individual clinical reports do not trigger computational/public-database validation policy. Frontiers requires specialty admission, CARE, originality and ethics/consent conditions; the linked specialty page remains uninspected, so the general Case Report listing cannot close admission. Karger/Cureus access failures differ from unattempted host-restricted sources. No invented exact patient-count rule, acceptance duration or completed final-source audit is accepted. Five pending journals and the original unusable result remain; existing section/provenance/retrieval provisions cover the omissions. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:02.034042+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-prediction-019",
@@ -14855,10 +15448,195 @@
       "case_id": "s1-clinical_nursing-022",
       "stratum": "clinical_nursing",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 5,
+              "unverified": 1,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13294845",
+      "original_outlet": "Actas Españolas de Psiquiatría",
+      "revealed_at": "2026-10-04T04:06:22.476339+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          {
+            "category": "Outcome versus factual failure",
+            "finding": "The run produced no usable recommendation, but both sealed reviews found no hard failures. All six dossiers remained pending at identity, scope, article-type or applicable method-policy gates. This is an incomplete recommendation outcome, not evidence that all six journals would reject the manuscript.",
+            "evidence": "outputs.v2.fit_sequence is empty; both reviews report usable_journal_ids=[] and hard_failures=[]. Source coverage shows two verified scopes, two verified article-type admissions and zero verified method-policy envelopes.",
+            "repair": "Repair the decision-changing eligibility evidence first. Do not manufacture a fit ranking or weaken the existing verification gates merely to populate the routes."
+          },
+          {
+            "category": "Publishing-journal non-hit",
+            "finding": "Actas Españolas de Psiquiatría is absent from the supplied discovery handoff, retained literature, source plan and assessed dossiers. Its non-hit therefore occurs before journal-policy assessment. The packet does not establish whether the initial absence arose from query coverage, available records or upstream journal identification. It cannot be attributed specifically to the top-ten cutoff because no baseline position for this journal is supplied.",
+            "evidence": "publishing_journal names Actas Españolas de Psiquiatría, while scores.v2 reports discovered=false, delivered_to_selector=false and assessed=false. No official source for that outlet is supplied.",
+            "repair": "Improve general cross-specialty discovery and inspect upstream retrieval and identity mapping. Retrieve current official evidence before judging this outlet's eligibility. Its publication of the evaluation source does not make it a mandatory recommendation, and its omission alone does not demonstrate incorrect journal-fit reasoning."
+          },
+          {
+            "category": "Candidate-handoff coverage",
+            "finding": "Fixed similarity cutoffs and the six-dossier source plan limited the candidates available for verification. Some nursing readership leads were discovered but not delivered, while several delivered journals had no official-source dossier. This creates a coverage bottleneck, although it does not prove that any omitted candidate is eligible.",
+            "evidence": "International Journal of Orthopaedic and Trauma Nursing had keyword/abstract positions 20/25 and zero delivered papers; Pain Management Nursing had positions 13/11 and zero delivered papers. The retained packet contains 12 journal IDs, but the source plan covers six. One query returned 82 hits with a 70-record limit, and no subsequent-page request is recorded.",
+            "repair": "Execute the existing specialist-and-broad-journal discovery guidance rather than treating the fixed top-ten union as exhaustive. Consider additional result pages and readership-diverse leads when they can change the answer; verify their policies before promotion."
+          },
+          {
+            "category": "Official-policy retrieval",
+            "finding": "Several strong topic leads lacked actual policy content. Orthopaedic Nursing and LWW Medicine policy URLs redirected to issue homepages; Hip International requests failed with SSL errors; Minerva Surgery URLs were not attempted because of the permitted-host restriction. These are different retrieval outcomes, not substantive journal exclusions.",
+            "evidence": "The resolved LWW URLs were https://www.ovid.com/jnls/orthopaedicnursing and https://www.ovid.com/jnls/md-journal. The SAGE records contain SSL UNEXPECTED_EOF_WHILE_READING failures. The Minerva records explicitly say not_attempted. The bounded retrieval also fetched case-report, case-study and comment pages unrelated to the intended original-research submission.",
+            "repair": "Prioritize actual scope, research instructions and applicable policy definitions over unrelated branches. Use a permitted alternate authoritative route where available, recognize redirects that do not supply the requested content, and preserve unresolved failures without bypassing access restrictions."
+          },
+          {
+            "category": "Policy applicability and originality",
+            "finding": "BMC Geriatrics and Perioperative Medicine have supported scope and research-category admission, but the supplied registration wording is not resolved against the retrospective routine-care design. Keeping them pending is defensible. BMC Geriatrics' conditional restriction on descriptive local studies also cannot be applied automatically to this comparative cohort.",
+            "evidence": "The applicable Research pages contain healthcare-intervention registration wording, while the supplied BMC editorial-policy extraction is clipped and does not provide a complete definition resolving this design. General Information states that departmental protocols during different periods determined care. Masked identifiers do not prove absent registration. Independent ERAS nursing precedents establish related existing work, not duplication of this hypothetical submission.",
+            "repair": "Retrieve the missing registration definition or obtain an authoritative interpretation, and request author clarification only for remaining decision-changing facts. Assess the study's incremental contribution using its actual outcomes and design. Do not assume either a blanket retrospective exemption or a universal registration requirement, and do not use the evaluation source's publication history as an originality failure."
+          },
+          {
+            "category": "Upstream journal identity collision",
+            "finding": "The discovery identifier attached to Medicine belongs to a different journal from the intended LWW dossier. The selector correctly quarantined the conflict, but the upstream mapping was not repaired, leaving a clinically relevant lead unusable.",
+            "evidence": "https://api.crossref.org/journals/0304-5412 identifies Medicine - Programa de Formación Médica Continuada Acreditado, published by Elsevier. The supplied LWW Medicine masthead identifies online ISSN 1536-5964, and the delivered precedents have 10.1097/md DOIs.",
+            "repair": "Reconcile the intended venue through article DOI metadata, publisher identity and authoritative title/ISSN records. Preserve a traceable mapping from the discovery identifier to the verified journal rather than silently combining the two outlets."
+          },
+          {
+            "category": "Missing ranking and status sources",
+            "finding": "The empty quartile and acceptance-time routes are justified. JCR was not attempted because no matching official lead was selected; authoritative indexing and named warning checks were not performed. The two timing leads supplied first-decision medians, not acceptance statistics. These gaps should not be mislabeled as universal web inaccessibility or journal-fit failures.",
+            "evidence": "Coverage records zero JCR attempts. No exact MJL, NLM or named warning-list check is supplied. BMC Geriatrics and Perioperative Medicine snapshots report first-decision medians of 10 and 23 days. Their verified JIFs and standard APCs do not establish quartiles or acceptance speed.",
+            "repair": "Attempt the relevant authoritative records and endpoint-specific statistics within the existing bounded repair process. Keep unresolved fields unverified. Missing JCR blocks quartile ordering, and missing acceptance data blocks acceptance-speed ordering; neither alone excludes an otherwise eligible fit candidate."
+          }
+        ],
+        "no_change_reason": "No Skill instruction change is justified by this case. The existing rules already cover candidate diversification, exact journal identity, current article-type and method gates, policy-trigger matching, alternate authoritative retrieval, separate timing endpoints and bounded repair. The demonstrated weaknesses are upstream discovery/handoff coverage and insufficiently targeted retrieval, while the selector's uncertainty handling is supported by both reviews. Repair execution and retrieval rather than adding journal-specific rules, forcing the revealed publishing outlet into recommendations or inventing policies from inaccessible sources.",
+        "stratum_confirmed": true,
+        "classification_reason": "clinical_nursing is supported by the study's main question: comparing ERAS-based and routine perioperative nursing in older hip arthroplasty patients. Education, mobilization, pain management and psychological support are components of the nursing pathway. Anxiety, depression and kinesiophobia are outcomes, not sufficient grounds to reclassify the study as primarily psychiatric research. Hospital-record extraction and same-sample reliability calculations do not make it a public-database, prediction or mixed-methods study."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a10508-c461-7ef1-9130-3ff34bc3f7e6",
+          "output_hash": "8118c61abe5b38535756a4e2f78d101d0a4814f7d4e0f574f40eb21fe8aca228",
+          "sealed_at": "2026-10-04T04:04:53.135210+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10516-0d76-72d3-a396-fffc5c6b7265",
+          "output_hash": "bd1f43e6cdc126f7b70c3b36e73d38bbce5481343e299f456b80e9f39b78338e",
+          "sealed_at": "2026-10-04T04:06:16.627917+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10516-0e66-7d41-baca-c3c3cfbed788",
+          "output_hash": "f7cfe1185b7991032a63f0fbe4dc15bc6520cf5e88011038a39c012ea6023b11",
+          "sealed_at": "2026-10-04T04:06:22.377053+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. The actual retrospective routine-care protocol-period comparison leaves registration applicability unresolved, without assuming either prospective-trial status or blanket exemption. Six pending journals preserve missing current method/admission evidence. Medicine identity collision stays quarantined. Redirect/SSL failures and host-restricted unattempted retrieval are distinct; missing JCR and first-decision timing do not prove acceptance speed. Existing identity, applicability and targeted-retrieval provisions already cover the gaps; no retrieval repair was executed. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.762730+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-public_database-023",
@@ -15021,19 +15799,331 @@
       "case_id": "s1-public_database-024",
       "stratum": "public_database",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13475095",
+      "original_outlet": "BMJ Public Health",
+      "revealed_at": "2026-10-04T03:53:26.928440+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "The result is unusable because no candidate has verified current scope, article-type admission and applicable method policies. Keeping all six candidates pending was correct; both reviews found no hard failures. This is an evidence-acquisition failure, not evidence that the manuscript has no suitable journal.",
+          "BMJ Public Health was neither discovered, delivered nor assessed according to the scores, and it is absent from the literature, source plan and candidate handoff. Its non-hit occurred before eligibility assessment. The packet cannot establish whether query coverage, incomplete pagination or another upstream omission caused it. Its publishing history does not make it a mandatory recommendation.",
+          "Policy retrieval produced eight unreadable journal pages and four HTTP 403 failures. Six readable Crossref records support identity only. No readable alternate authoritative policy route is supplied, so no current method restriction, article-type refusal or scope exclusion is established.",
+          "JCR, journal metrics, acceptance timing, indexing, OA and fees had no selected field-specific leads and no recorded attempts. Warning checks and the other timeline checks are also absent. These are missing retrieval coverage, not demonstrated source-access failures. Missing JCR prevents quartile ranking; missing acceptance statistics prevents acceptance-time ranking.",
+          "Discovery relied on three disease-centred queries, a fixed top-ten baseline union and six detailed dossiers. Searches reporting 230 and 149 hits returned at most 70 each, with no further pagination evidenced. These limits may miss relevant public-health and social-epidemiology outlets, but they do not prove that any particular omitted outlet fits.",
+          "The hypothetical unpublished study retains substantive originality and methodological questions: closely related social-determinant mortality analyses exist, exposure definitions differ across cohorts, and outcome-derived weights may overfit. These warrant supported comparison and current policy checks. They do not establish a universal external-validation requirement or a reason to exclude all secondary-database studies."
+        ],
+        "no_change_reason": "No new skill instruction is justified by this case. Existing rules already require specialist and broad discovery, current official eligibility evidence, an alternate authoritative retrieval route, bounded repair rounds and explicit pending states. Repair discovery and source retrieval while preserving the generator's calibrated uncertainty. Do not add BMJ Public Health as a required answer, relax eligibility gates or invent policies to fill the gaps.",
+        "stratum_confirmed": true,
+        "classification_reason": "The primary contribution is secondary longitudinal association research using UK Biobank and NHANES with linked outcomes, so public_database is appropriate. Weighted scores, survival models and life-expectancy estimates do not make this prediction-model development. Separate cohort analyses support cross-context consistency without establishing transported-model validation. This classification does not determine whether a journal's specific public-data restriction applies."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a1036d-0532-7980-bcc8-e4aac823aec0",
+          "output_hash": "d13524c88f18a96480dd340c6a55a5b0225c0d23e6aa54f9f5abfaa32ffd5458",
+          "sealed_at": "2026-10-03T20:33:25.503137+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a1050a-3e62-7cc3-86a2-c85b7669ccf5",
+          "output_hash": "dd2c8481e75de4ab9cf51eb4ea64533e237bbe1cc9fd129d7e8058ee456079c5",
+          "sealed_at": "2026-10-04T03:53:26.849040+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10509-453c-70c0-8b8a-c47e714388ea",
+          "output_hash": "11698aa6d6441b2cd9f59a42e76cda0c9d699f3d3115e133566802f6fc2abe75",
+          "sealed_at": "2026-10-04T03:52:20.536943+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. Identity registries alone cannot establish current secondary-database admission; all six journals remain pending and both blind reviews retain an unusable result without hard failure. Unreadable/403 sources differ from unattempted metrics, fees and JCR. Cohort definitions, weighted outcomes and originality need scrutiny without inventing universal external-validation bans. Narrow discovery and unresolved policy retrieval are execution omissions covered by existing rules; no revealed outlet or new permission is inserted. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.806121+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     },
     {
       "case_id": "s1-network-019",
       "stratum": "network",
       "split": "development",
-      "status": "infrastructure_failed",
-      "lesson_status": null,
-      "failure": "infrastructure_failed: Repeated transport failure: http_request_failure; observed 3 same-cause errors (limit 3). Further retries paused.",
-      "scores": null
+      "status": "completed",
+      "lesson_status": "completed",
+      "failure": null,
+      "scores": {
+        "v2": {
+          "true_rank": null,
+          "usable": false,
+          "hard_failures": [
+            {
+              "claim": "Translational Cancer Research has verified method_policy permission, allowed=true, and is eligible.",
+              "source": "https://tcr.amegroups.org/about; https://tcr.amegroups.org/pages/view/author-instructions; https://tcr.amegroups.org/page/about/data-sharing-policy; https://tcr.amegroups.org/page/about/research-ethics-policy",
+              "reason": "The readable snapshots establish laboratory-intervention scope, recognition of Original Articles, and data-sharing and ethics obligations. They do not establish the applicable methodological admission requirements for this mixed network-pharmacology, prognostic-modeling and MR study. The requested author instructions were unreadable, and the actual guidelines-for-authors alternative was not inspected. A correctly discloses that gap, but marking method permission verified and including the journal in the eligible sequence still exceeds the evidence. The kaempferol precedent cannot close this current-policy gate."
+            }
+          ],
+          "discovered": false,
+          "delivered_to_selector": false,
+          "assessed": false,
+          "source_coverage": {
+            "identity": {
+              "verified": 6,
+              "unverified": 0,
+              "invalid_status": 0
+            },
+            "scope": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "article_type": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "method_policy": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "indexing": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "jcr": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "jif": {
+              "verified": 3,
+              "unverified": 3,
+              "invalid_status": 0
+            },
+            "oa": {
+              "verified": 4,
+              "unverified": 2,
+              "invalid_status": 0
+            },
+            "fees": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "warnings": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:first_decision": {
+              "verified": 2,
+              "unverified": 4,
+              "invalid_status": 0
+            },
+            "timeline:acceptance": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:online": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            },
+            "timeline:indexing": {
+              "verified": 0,
+              "unverified": 6,
+              "invalid_status": 0
+            }
+          }
+        },
+        "keyword": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        },
+        "abstract": {
+          "true_rank": null,
+          "usable": null,
+          "hard_failures": [],
+          "interpretation": "Discovery comparator; not policy-audited production report"
+        }
+      },
+      "pmcid": "PMC13510106",
+      "original_outlet": "Chemical Biology & Drug Design",
+      "revealed_at": "2026-10-04T04:11:56.746219+00:00",
+      "license_urls": [
+        "https://creativecommons.org/licenses/by/4.0/"
+      ],
+      "license_basis": "CC_BY_or_CC0_recorded",
+      "paired_decision": "single",
+      "post_reveal_diagnosis": {
+        "diagnosis": [
+          "The confirmed hard failure is Translational Cancer Research's verified method_policy.allowed=true and first-place eligibility. Its readable scope, article-type, ethics and data-sharing sources do not resolve the applicable method gate. Disclosing unread author instructions does not repair the categorical verified claim. Move it to pending, inspect the discovered official alternative, and rerank.",
+          "Chemical Biology & Drug Design was absent from the recorded candidate handoff, delivered literature, six-journal source plan and final assessment. Its non-hit occurred before selector assessment; the evidence does not show rejection for scope or methods, nor merely exclusion by the top-ten cutoff.",
+          "Discovery coverage was narrow: all three queries retained oral-cancer terms, and the delivered pool included reviews, a bibliometric study and a comment. Complementary mechanism and pharmacology searches could improve specialist discovery under the existing workflow, without forcing the revealed outlet into recommendations.",
+          "Verification resources left consequential sources uninspected: TCR's actual author-guidelines link, Chinese Medicine's required guidelines/checklist, and several fee pages. MDPI's HTTP 403 failures are different from these unattempted sources. JCR and warning checks were not performed; no paywall or access failure should be invented for them.",
+          "Discover Oncology remains supported. The final adjudicated review also supports a weaker, conditional general Research route at Journal of Translational Medicine. Uninspected specialty-section placement is not automatically a universal admission barrier. The report's overall failure does not mean every recommendation was unsupported.",
+          "Empty quartile and acceptance-time routes were justified. No verified JCR quartiles or submission-to-acceptance statistics were supplied. First-decision medians and review-stage ranges cannot replace acceptance time; missing optional metrics do not independently invalidate supported fit recommendations.",
+          "The hypothetical unpublished assessment was respected. Manuscript reporting contradictions, limited mechanistic validation and substantive novelty remain relevant concerns, but the source article's publication history is not a fit failure. No supplied official evidence establishes Chemical Biology & Drug Design's current eligibility or superiority."
+        ],
+        "no_change_reason": "No instruction change is justified by this case. Existing rules already require source-supported method gates, pending status for unresolved eligibility, specialist candidate discovery, authoritative retrieval repair and field-specific handling of missing evidence. The demonstrated problems call for better execution and retrieval prioritization, not duplicate instructions or a journal rule inferred from the revealed publishing outlet.",
+        "stratum_confirmed": true,
+        "classification_reason": "The Introduction and Section 2.1 identify the main objective as explaining Triphala-related ferroptosis mechanisms through network pharmacology, computational analyses and cell experiments. Prognostic modeling, public transcriptomics and Mendelian randomization are substantial supporting components. The network stratum is supported; the study is not solely computational or primarily a prediction-method paper."
+      },
+      "generation_seals": [
+        {
+          "variant": "v2",
+          "context_id": "01a1050a-1fef-7dc1-ac39-0442a584938b",
+          "output_hash": "78317e21616225ef72d988d95abb5592a27e031a0389ae6706ff26fc7ad98743",
+          "sealed_at": "2026-10-04T04:06:08.318624+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "review_seals": [
+        {
+          "context_id": "01a10517-336a-7653-a52a-a5648843154d",
+          "output_hash": "ade2b05276d1653f15df2ffb2388a28d2823dd02f7a03ca460f81ef81df3497b",
+          "sealed_at": "2026-10-04T04:08:20.275298+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a10517-3410-76f2-ae5c-39fc672a1aab",
+          "output_hash": "e7e48803a3827502ceb8f6921a2bcecf72d4086f46e79b8e7145ef261b991e93",
+          "sealed_at": "2026-10-04T04:09:23.604226+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        },
+        {
+          "context_id": "01a1051a-2cf4-7223-8e01-56f2d43ea35d",
+          "output_hash": "7c40f0edde341f5e2f9428093ce646ee4f7ce62f3d95eec7be916ea8373280f6",
+          "sealed_at": "2026-10-04T04:11:56.639361+00:00",
+          "model": "gpt-6.1-sol",
+          "effort": "xhigh"
+        }
+      ],
+      "changes": [
+        {
+          "decision": "no_change",
+          "reason": "No new selector rule is justified. Both blind reviews establish the TCR method-policy overclaim, and the genuine adjudicator retains that hard failure while accepting Discover Oncology and a weaker conditional general Research route at Journal of Translational Medicine. Captured TCR scope and ethics/data obligations cannot resolve the uninspected methodological guidelines. JTM primary preclinical research and applicable BMC standards support conditional consideration without requiring exhaustive section clearance or invented animal/extra-database mandates. The original hard grade and recommendation stay unchanged. Actual targeted retrieval was not performed; existing source-gate and specialist-discovery rules already cover the fault. Decision follows genuine sealed separate blind reviews, adjudication where required, post-reveal diagnosis, independent runtime receipt audit and root captured-source inspection. Original poor results, semantic hard failures, old failed attempts, cached checkpoints and usage remain preserved.",
+          "at": "2026-10-04T04:37:01.853536+00:00",
+          "files": [],
+          "regression_sha256": null
+        }
+      ]
     }
   ]
 }
