@@ -8,7 +8,9 @@ Formal valid development completion is **82/100**, with **0/50 final cases** and
 
 ## Registered experiment
 
-Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. One authorized failed-gate extension may add 100 development and 50 new final cases.
+Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. Continue this first stage. If the final evaluation fails the release gates, pause with the results retained; no additional 100-development/50-final stage is automatically authorized.
+
+The current allocation has **68 papers remaining: 18 development cases (seven incomplete with retained checkpoints and eleven fresh), then 50 sealed final tests**. The final batch remains unstarted and requires all 100 genuinely completed development records.
 
 The keyword/BM25 and TF-IDF baselines use the shared LLM-generated profile's keywords and `abstract_summary`, not independent author-supplied keywords or the verbatim author abstract. They are **LLM-assisted discovery comparators**. The completed development cases did not include baseline policy review, so their baseline usable-journal metric is unknown. Final evaluation requires both reviewers to assess all four anonymous results; ranking-only baselines do not claim complete reports.
 
