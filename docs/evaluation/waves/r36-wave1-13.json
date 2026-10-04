@@ -1,14 +1,14 @@
 {
   "eval_version": "r36-wave1-13",
   "wave_id": "8191c086351247938cabd1697b3253ba",
-  "status": "running; whole-wave results and central decision pending",
-  "observed_at": "2026-10-04T07:05:21.083414+00:00",
+  "status": "sealed;100 development complete; campaign paused by user",
+  "observed_at": "2026-10-04T07:45:35.234186+00:00",
   "actual_launcher_started_at": "2026-10-04T06:59:18.416038+00:00",
   "whole_wave_started_at": "2026-10-04T06:59:19.570680+00:00",
-  "completed_development": 99,
+  "completed_development": 100,
   "completed_final": 0,
   "preserved_protocol_trials": 24,
-  "new_blind_case_credit": 0,
+  "new_blind_case_credit": 1,
   "case_workers": 10,
   "actual_cases_in_wave": 1,
   "model_call_limit": 5,
@@ -28,8 +28,7 @@
   "running_observation_sha256": "6f81d2a93f7c333e125579bb4dcc224a0d3ee5bffa82ba63140eb9d3720ef54a",
   "launch_control_seal_sha256": "baa1e14dd493ef37654b52027d70ba98cc72c29f9b2c3355e03124569956c3d4",
   "frozen_inputs_unchanged": true,
-  "whole_wave_results_pending": true,
-  "current_wave_usage_and_errors": "Not verified（未核到）; full runtime audit waits for whole-wave terminal receipts",
+  "whole_wave_results_pending": false,
   "completed_predecessor": {
     "epoch": "r35-wave3-12",
     "record": "waves/r35-wave3-12.json",
@@ -38,15 +37,90 @@
   },
   "faster_observer": {
     "fallback_interval_minutes": 1,
-    "ongoing_execution": "Continuous registered CLI scheduler; bounded root waits and prompt eligible barrier handling."
+    "ongoing_execution": "No running scheduler or automatic continuation after genuine100 development completion.",
+    "status": "PAUSED"
   },
-  "on_final_quality_gate_failure": "Pause first; preserve results; no automatic extra100+50.",
+  "on_final_quality_gate_failure": "Historical policy; current direct human control pauses at100 development before any final testing.",
   "final_administrative_software": {
-    "status": "Original final-only administrative candidate rejected; separate revision and independent validation required before any genuine final dispatch.",
+    "status": "Original candidate rejected; separate revision author checks completed and preserved, independently unvalidated and unadopted. Further work paused by user.",
     "independent_failed_seal_sha256": "bccefa82ec02d7c79865018ecc65cf995399234910a7fbad769db6dae5eacb40",
     "confirmed_candidate_startup_race_gaps": 2,
     "actual_final_generation_or_reveal": false,
-    "new_benchmark_credit": 0
+    "new_benchmark_credit": 0,
+    "revision_author_methods": 32,
+    "revision_author_seal_sha256": "87b6e1e6e9f5628357eaa1de0949dbe00739c154a3df5a2300fd99b6c66a7711",
+    "revision_independent_validation_performed": false,
+    "revision_adopted": false
   },
-  "interpretation": "The last ordinary development case is running. Formal99/100 and final0/50 stay unchanged until its genuine complete loop and central decision.51 papers remain:1 development now running, followed by50 final. Earlier poor results, failures and usage remain preserved. Stable releaseV1.0.0."
+  "interpretation": "The final development loop is genuinely complete,99 to100. Ten primary classes each have10 completed cases. Original usable result and all prior negative scores, attempts and usage preserved. Six fresh completed model terminals with six real CLI exit1, root wrapper exit0, measured peak2 and zero new transport errors/reconnects. The campaign and heartbeat are paused by direct user instruction. Final50 remain0/50; no final quality pass/fail or stableV2release exists. StableV1.0.0 remains available.",
+  "sealed_at": "2026-10-04T07:20:01.972155+00:00",
+  "centrally_decided_valid_cases": 1,
+  "central_decision_counts": {
+    "no_change": 1
+  },
+  "central_decision_seal_sha256": "a2570728780e2346896298094029c6af88d02c1f0933a7b902e815d7205508fe",
+  "completed100_frame_proof_sha256": "140a4b8e976248e792f0440d4d208c104e51f49b48abceefa1c89440b32c2170",
+  "human_pause_policy_sha256": "7d0a028ea1ae062444113bd97550ce51e7ea4249d3c0fc91567f7cee44ea23d6",
+  "campaign_paused_by_user": true,
+  "automation_status": "PAUSED",
+  "final_preparation_or_dispatch_started": false,
+  "final50_user_intent": "User will try Dots; no Dots task is dispatched here.",
+  "original_usable_cases": 1,
+  "original_unusable_cases": 0,
+  "original_hard_failure_cases": 0,
+  "completed_by_primary_class": {
+    "clinical_nursing": 10,
+    "laboratory": 10,
+    "public_database": 10,
+    "bioinformatics": 10,
+    "prediction": 10,
+    "network": 10,
+    "systematic_meta": 10,
+    "other_review": 10,
+    "bibliometrics": 10,
+    "case_report": 10
+  },
+  "actual_new_cli_calls": 6,
+  "new_unique_contexts": 6,
+  "new_completed_model_terminals": 6,
+  "new_failed_calls": 0,
+  "actual_CLI_exit_counts": {
+    "1": 6
+  },
+  "root_tool_terminal": {
+    "session_id": 86872,
+    "chunk": "9038ee",
+    "exit_code": 0
+  },
+  "actual_shared_interval_peak": 2,
+  "new_role_counts": {
+    "lesson.json": 1,
+    "profile.json": 1,
+    "review-1.json": 1,
+    "review-2.json": 1,
+    "source-plan.json": 1,
+    "v2-selection.json": 1
+  },
+  "new_transport_failure_counts": {},
+  "new_observed_error_events": 0,
+  "new_observed_reconnects": 0,
+  "available_new_completed_terminal_usage": {
+    "input_tokens": 531822,
+    "cached_input_tokens": 19328,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 31558,
+    "reasoning_output_tokens": 17751
+  },
+  "failed_disconnected_historical_usage": "Not verified（未核到）",
+  "usage_limit": "Completed terminal only; cached input and reasoning output overlap totals. Historical failed/disconnected usage and full cost unknown.",
+  "independent_runtime_checks": 3439,
+  "independent_runtime_original_files_unchanged": 1618,
+  "independent_runtime_seal_sha256": "51ca80f2dac904611305b9ff72b820fd700488b176630aa9f955da9ff942162c",
+  "runtime_summary_sha256": "880283ffa5431caa122e6f4d419199fd1093834dee6b6cffaf4642f8deaa4be0",
+  "root_source_schema_constraint_checks": 3,
+  "root_genuine_frame_verifications": 4,
+  "root_source_seal_sha256": "53b314e67f2e7d3b314b11f3bb4eb45082bef1561694844ce669f3ec3975c31f",
+  "new_selector_instruction_changes": 0,
+  "new_execution_repairs": 0,
+  "retrieval_repairs_actually_performed": 0
 }

@@ -2,23 +2,23 @@
 
 [简体中文](README.zh-CN.md) · [Trainer guide](../trainer-guide.md) · [Parallel plan](parallel-execution-plan.md) · [Candidate validation](../validation-v2.md)
 
-**Status: workflow validation and development are in progress. There is no final V2 accuracy result or stable V2 release.**
+**Status: 100 development loops are complete and sealed; the campaign is paused by the user. The 50 final tests have not started. There is no final V2 quality result or stable V2 release.**
 
-Formal valid development completion is **99/100**, with **0/50 final cases** and **24 protocol trials retained separately**. Three r35 no-change decisions are sealed. Frozen execution **r25** and Selector **r18** are unchanged; poor results, hard failures and failed attempts remain. Software checks add no blind-test or accuracy credit. No final V2 quality result or stable V2 release exists.
+Formal valid development completion is **100/100**, with **10 cases in each of ten primary classes**, **0/50 final cases** and **24 protocol trials retained separately**. The last r36 loop has sealed blind reviews, post-reveal diagnosis, runtime/source checks and an explicit no-change decision; genuine completion frames were verified for all 100 cases. Frozen execution **r25**, Selector **r18**, poor results, hard failures and failed attempts remain preserved. Software checks add no accuracy credit.
 
 **r34-wave7-11 is sealed and centrally complete**, raising development from 89 to 96. Original results are three usable, four unusable and one semantic hard-failure case. [Sealed record](waves/r34-wave7-11.json)
 
 **r35-wave3-12 is sealed with three central decisions**, raising development from 96 to 99. Original one usable, two unusable and zero hard-failure cases are preserved. [Sealed record](waves/r35-wave3-12.json)
 
-**r36-wave1-13 is running the last ordinary development case.** Formal completion remains99/100 development and0/50 final until the genuine whole-wave audit and decision. [Launch metadata](waves/r36-wave1-13.json)
+**r36-wave1-13 is sealed with the last central decision**, raising development from 99 to 100, followed by the requested pause. [Sealed derived record](waves/r36-wave1-13.json)
 
-The unused final-only administrative candidate failed independent startup checks. Two receipt-write races were confirmed; a separate revision must pass independent validation before any final dispatch. This software audit adds no benchmark credit.
+The unused original final administrative candidate failed independent startup checks; its two receipt-write race gaps are preserved. A separate revision finished its 32 author software checks that were already running, but remains independently unvalidated and unadopted. Further work is paused by the user. No genuine final preflight, registration, model call or reveal occurred.
 
 ## Registered experiment
 
-Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. Continue this first stage. If the final evaluation fails the release gates, pause with the results retained; no additional 100-development/50-final stage is automatically authorized.
+The original registered plan used 100 distinct development cases and 50 sealed final cases, stratified by primary research objective with secondary methods retained as tags. **The latest direct user instruction pauses after 100 development cases; the user plans to try Dots for the 50 final tests.** This campaign does not automatically prepare or run final tests, expand, or operate Dots. Remaining counts and plans in older wave sections are preserved historical observations; the current state is stated above.
 
-**51 papers remain in the current allocation:** one development case, followed by 50 sealed final tests. Final requires 100 genuine completed development loops.
+**Development is complete; the 50 final tests remain unstarted.** The automation is paused pending a new direct human instruction; scheduled messages do not resume it.
 
 The keyword/BM25 and TF-IDF baselines use the shared LLM-generated profile's keywords and `abstract_summary`, not independent author-supplied keywords or the verbatim author abstract. They are **LLM-assisted discovery comparators**. The completed development cases did not include baseline policy review, so their baseline usable-journal metric is unknown. Final evaluation requires both reviewers to assess all four anonymous results; ranking-only baselines do not claim complete reports.
 
@@ -203,3 +203,13 @@ Three authentic cases completed two separate blind reviews, post-reveal diagnosi
 Independent source-free runtime auditing passed **3,959 checks**, retaining **1,829 original files and directory membership**. Root source/schema/constraint inspection passed **9 checks** and verified **12 generation/review/diagnosis terminal frames**. **18 fresh calls in 18 distinct contexts** completed: three profiles, three source plans, three selections, six blind reviews and three diagnoses, with no adjudication. All 18 real model CLI exits remain 1, separate from genuine model completion and the root wrapper exit0. Measured peak **5**; new transport errors and reconnects **0**.
 
 Available completed-terminal usage: **1,744,726 input; 100,649 output; 305,664 cached input; 52,812 reasoning output; zero cache-write tokens**. Subcounts overlap totals. Historical failed/disconnected usage and full cost remain **Not verified（未核到）**. The runtime auditor excluded final and answer files; the full corpus aggregate was checked against existing registered bindings only. One other-review development case remains, followed by 50 final tests. Final quality failure pauses first, with no automatic expansion.
+
+## Completion of 100 development cases and pause: r36-wave1-13
+
+The final narrative review completed blind reviews in two separate contexts, post-reveal diagnosis and an explicit no-change decision. Its original **one usable result and zero hard failures** remain. No new rule, execution repair or source replay was adopted. All 100 original development ledgers and genuine generation/review/diagnosis/decision frames were verified, with 10 cases per primary class and zero pending decisions. All prior 99 public derived entries are identical in content. [Wave receipts](waves/r36-wave1-13.json) · [100 development results](results.json)
+
+Independent source-free runtime auditing passed **3,439 checks**, retaining **1,618 original files and directory membership**. Root inspection passed **3 source/schema/constraint checks** and verified **4 genuine generation/review/diagnosis frames**. **Six fresh calls in six distinct contexts** completed: one profile, one source plan, one selection, two blind reviews and one diagnosis. All six real model CLI exit codes remain 1, separate from the root wrapper exit code 0. Measured peak **2**; new transport errors and reconnects **0**.
+
+Available completed-terminal usage: **531,822 input; 31,558 output; 19,328 cached input; 17,751 reasoning output; zero cache-write tokens**. Subcounts overlap totals. Historical failed/disconnected usage and full cost remain **Not verified（未核到）**. The runtime auditor excluded final scientific material and answers.
+
+**The latest human instruction is now applied: pause after 100 development cases; the automation is PAUSED. Final remains 0/50 and the user will try Dots; this campaign has started no final preparation, calls, reviews or reveal.** The exporter’s incomplete_or_failed status means overall release gates remain incomplete; it does not mean final quality was evaluated and failed. Development completion is not a V2 accuracy pass. No V2 release or automatic extra 100+50 follows. Original sealed inputs, poor scores, hard failures, failed attempts and available usage remain preserved.
