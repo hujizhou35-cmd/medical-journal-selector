@@ -26,7 +26,7 @@ One distinct manuscript completes selection, blind review, reveal, diagnosis and
 
 The first stage uses 100 development papers and 50 sealed tests across ten article classes; **89/100 valid development cases are complete, final testing remains 0/50, and 24 protocol trials are retained separately**. **r33-recovery-7 is sealed with seven explicit no-change central decisions.** Formal development reached 89/100. The original one usable, six unusable and one semantic hard-failure case remain; all r32b failures are preserved. The ten r31 central decisions are complete. A bibliography-only inline-format matching repair was adopted in frozen execution **r25**; Selector **r18** and its rules are unchanged. Original scores and valid-input poor results remain intact. Software checks add no blind cases or evidence of accuracy improvement. Continue the current first stage. If the final evaluation fails the release gates, pause and retain the results; do not automatically add another 100 development papers and 50 final tests. The stable download remains **V1.0.0** until the gates pass. See the [protocol and actual results](evaluation/README.md).
 
-**61 papers remain in the current allocation:** eleven fresh development cases, followed by the 50 sealed final tests. Final evaluation still requires all 100 development cases to be genuinely completed.
+**61 papers remain in the current allocation:** eleven development cases, including seven now running in r34-wave7-11, followed by the 50 sealed final tests. Final evaluation still requires all 100 development cases to be genuinely completed.
 
 ## Installation
 

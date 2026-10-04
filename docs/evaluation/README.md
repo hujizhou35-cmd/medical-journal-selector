@@ -6,6 +6,8 @@
 
 Formal valid development completion is **89/100**, with **0/50 final cases** and **24 protocol trials retained separately**. The ten r31 central decisions are sealed: **one accepted software change and nine no-change decisions**. **r33-recovery-7 is sealed with seven explicit no-change central decisions**, raising development from 82 to 89. Original one usable, six unusable and one semantic hard-failure case remain; all r32b failures are preserved. The bibliography-only inline-format source matcher is adopted in frozen execution **r25**; Selector **r18** and its rules are unchanged. Poor valid-input results and genuine output hard failures remain in the denominator; original scores and failed-wave histories remain. The software checks add zero blind-case credit and establish no accuracy improvement. There is no final V2 accuracy result, evidence of improvement over V1 or stable V2 release.
 
+**r34-wave7-11 is now running seven new development cases at the registered five-call limit.** The previous r33 recovery remains sealed; its seven decisions and original grades are unchanged. Completion stays at 89/100 development and 0/50 final until this whole wave and its central decisions genuinely finish. [Current launch metadata](waves/r34-wave7-11.json)
+
 ## Registered experiment
 
 Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. Continue this first stage. If the final evaluation fails the release gates, pause with the results retained; no additional 100-development/50-final stage is automatically authorized.
