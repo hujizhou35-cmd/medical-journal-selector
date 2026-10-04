@@ -8,6 +8,8 @@ Formal valid development completion is **96/100**, with **0/50 final cases** and
 
 **r34-wave7-11 is sealed and centrally complete**, raising development from 89 to 96. Original results are three usable, four unusable and one semantic hard-failure case. [Sealed record](waves/r34-wave7-11.json)
 
+**r35-wave3-12 is running three new development cases at the registered five-call limit.** Formal completion remains96/100 development and0/50 final until genuine whole-wave audit and decisions. [Launch metadata](waves/r35-wave3-12.json)
+
 ## Registered experiment
 
 Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. Continue this first stage. If the final evaluation fails the release gates, pause with the results retained; no additional 100-development/50-final stage is automatically authorized.
