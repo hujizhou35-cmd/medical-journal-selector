@@ -59,7 +59,7 @@ Each journal comes with an official **Aims & Scope quotation**, a specific expla
 
 **Medical Journal Selector Skill Trainer** runs masked manuscript cases, seals recommendations and independent reviews, then reveals the known publishing journal. It turns supported failures into reusable rules and checks a separate untouched test set.
 
-The V2 candidate and Trainer are being evaluated: **96/100 development cases are complete and final testing is 0/50.** Three of the four remaining development cases are now running. The registered scheduler runs continuously, with a one-minute status check as fallback. If final quality gates fail, the campaign pauses. The stable download remains **V1.0.0** until the release checks pass. [Trainer guide](docs/trainer-guide.md) · [Evaluation status](docs/evaluation/README.md)
+The V2 candidate and Trainer are being evaluated: **99/100 development cases are complete and final testing is 0/50.** One development case remains. The registered scheduler runs continuously, with a one-minute status check as fallback. If final quality gates fail, the campaign pauses. The stable download remains **V1.0.0** until release checks pass. [Trainer guide](docs/trainer-guide.md) · [Evaluation status](docs/evaluation/README.md)
 
 ## Common questions
 
