@@ -26,7 +26,7 @@ One distinct manuscript completes selection, blind review, reveal, diagnosis and
 
 The first stage uses 100 development papers and 50 sealed tests across ten article classes. **99/100 valid development cases are complete; final remains 0/50, with 24 protocol trials separate.** Three r35 no-change decisions preserve original one usable, two unusable and zero hard-failure cases. Frozen execution **r25** and Selector **r18** are unchanged; original scores and failed attempts remain. If final quality gates fail, pause and preserve results; no automatic extra 100+50. Stable downloads remain **V1.0.0** until release gates pass. [Protocol and results](evaluation/README.md)
 
-**51 papers remain in the current allocation:** one development case, followed by 50 sealed final tests. Final requires 100 genuine completed development loops.
+**51 papers remain in the current allocation:** one development case now running in r36-wave1-13, followed by 50 sealed final tests. Final requires 100 genuine completed development loops.
 
 ## Installation
 

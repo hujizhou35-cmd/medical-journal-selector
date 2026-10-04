@@ -10,6 +10,10 @@ Formal valid development completion is **99/100**, with **0/50 final cases** and
 
 **r35-wave3-12 is sealed with three central decisions**, raising development from 96 to 99. Original one usable, two unusable and zero hard-failure cases are preserved. [Sealed record](waves/r35-wave3-12.json)
 
+**r36-wave1-13 is running the last ordinary development case.** Formal completion remains99/100 development and0/50 final until the genuine whole-wave audit and decision. [Launch metadata](waves/r36-wave1-13.json)
+
+The unused final-only administrative candidate failed independent startup checks. Two receipt-write races were confirmed; a separate revision must pass independent validation before any final dispatch. This software audit adds no benchmark credit.
+
 ## Registered experiment
 
 Stage one requires 100 distinct development cases and 50 untouched final cases, stratified into ten primary article classes. Class follows the main research objective; secondary methods remain labels. Compare fixed keyword and TF-IDF abstract baselines, frozen V1, and frozen V2. Continue this first stage. If the final evaluation fails the release gates, pause with the results retained; no additional 100-development/50-final stage is automatically authorized.
