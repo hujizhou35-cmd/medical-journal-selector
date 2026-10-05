@@ -31,3 +31,5 @@
 ```
 
 </details>
+
+[发布检查记录](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/main/docs/releases/presentation-refresh-verification.json)

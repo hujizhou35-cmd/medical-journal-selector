@@ -31,3 +31,5 @@ This packages the existing Trainer 1.0.0 source. Prepare eligible material, isol
 ```
 
 </details>
+
+[Publication checks](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/main/docs/releases/presentation-refresh-verification.json)

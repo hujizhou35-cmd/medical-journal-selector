@@ -16,7 +16,8 @@
   "process_archive": {
     "files": 72,
     "bytes": 460986,
-    "sha256": "11c51de97f48e5174a7c57526465f041ab53a55bd3398371b23c2bc14428ebcf"
+    "sha256": "11c51de97f48e5174a7c57526465f041ab53a55bd3398371b23c2bc14428ebcf",
+    "verified_payload_hashes": 71
   },
   "local_layout": {
     "renderer": "GitHub Markdown API with local preview CSS",
@@ -31,5 +32,180 @@
     ],
     "horizontal_page_overflow": false
   },
-  "public_downloads_and_ci": "Publication checks pending; this record will be updated with observed results."
+  "checked_at": "2026-10-05T05:51:04.595604+00:00",
+  "implementation_commit": "ce4b1aee89675e2ff10232689d5df87d1582b87a",
+  "ci": {
+    "url": "https://github.com/hujizhou35-cmd/medical-journal-selector/actions/runs/37268978678",
+    "conclusion": "success",
+    "matrix": [
+      {
+        "os": "ubuntu-latest",
+        "python": "3.10",
+        "conclusion": "success"
+      },
+      {
+        "os": "ubuntu-latest",
+        "python": "3.12",
+        "conclusion": "success"
+      },
+      {
+        "os": "windows-latest",
+        "python": "3.10",
+        "conclusion": "success"
+      },
+      {
+        "os": "windows-latest",
+        "python": "3.12",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "public_downloads": [
+    {
+      "tag": "v1.0.0",
+      "checked_at": "2026-10-05T05:46:03.444944+00:00",
+      "anonymous": true,
+      "scope": "complete curated release inventory",
+      "passed": true,
+      "assets": [
+        {
+          "name": "SKILL.md",
+          "sha256": "fdba0fce27021f534afebb7be91503930118f11849de117fb34c797f72bd7460",
+          "bytes": 26104,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-codex-plugin-v1.0.0.zip",
+          "sha256": "959a98432ae3f6f41520195576bdcde197d28833ed9fdba47b2d0fd59ca3ed19",
+          "bytes": 25059,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-v1.0.0.skill",
+          "sha256": "1adff7dd6b43dc55263d0402e670f40d99097a32258216cde30185f5e77337e6",
+          "bytes": 23864,
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "tag": "v2.0.0-experimental.1",
+      "checked_at": "2026-10-05T05:46:04.273742+00:00",
+      "anonymous": true,
+      "scope": "complete curated release inventory",
+      "passed": true,
+      "assets": [
+        {
+          "name": "SKILL.md",
+          "sha256": "024b2923cf5bcb9b4de5f565362536cbf4426165d4645abc6b1748917a273843",
+          "bytes": 32245,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-codex-plugin-v2.0.0-experimental.1.zip",
+          "sha256": "26dbbb6fe9eff0955666974dcbdaa7a9bad1b5ab55bf82d80e71001322c3b32d",
+          "bytes": 31280,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-v2.0.0-experimental.1-process.zip",
+          "sha256": "11c51de97f48e5174a7c57526465f041ab53a55bd3398371b23c2bc14428ebcf",
+          "bytes": 460986,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-v2.0.0-experimental.1.skill",
+          "sha256": "f8d3782f230fe34649b8f188d6dc93f7a8c2dd9c55fc0cac19eee908ccd80162",
+          "bytes": 30048,
+          "status": 200,
+          "passed": true
+        }
+      ]
+    },
+    {
+      "tag": "trainer-v1.0.0",
+      "checked_at": "2026-10-05T05:46:03.741913+00:00",
+      "anonymous": true,
+      "scope": "complete curated release inventory",
+      "passed": true,
+      "assets": [
+        {
+          "name": "SKILL.md",
+          "sha256": "90a4d5006ad34fbbfcbef4dec6fe1cecaaf1ac1113808f06238181113aa029fa",
+          "bytes": 43400,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-skill-trainer-codex-plugin-v1.0.0.zip",
+          "sha256": "82a973bfa11b25146be6c86de3b26108487e90d1fa5eda2340f6bfc1633093ad",
+          "bytes": 98463,
+          "status": 200,
+          "passed": true
+        },
+        {
+          "name": "medical-journal-selector-skill-trainer-v1.0.0.skill",
+          "sha256": "716cf629eb2ad78697c997169c7c586db1940b43f341e9731a641ef82ce836a5",
+          "bytes": 96160,
+          "status": 200,
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "curated_asset_counts": {
+    "v1.0.0": 3,
+    "v2.0.0-experimental.1": 4,
+    "trainer-v1.0.0": 3
+  },
+  "latest_release": "v1.0.0",
+  "pull_requests": {
+    "enabled": true,
+    "creation_policy": "all"
+  },
+  "links": {
+    "repository_file_and_release_links_checked": 149,
+    "broken": 0
+  },
+  "live_homepage_checks": [
+    {
+      "width": 1280,
+      "chineseHref": "/hujizhou35-cmd/medical-journal-selector/blob/main/docs/README.zh-CN.md",
+      "englishReturn": "/hujizhou35-cmd/medical-journal-selector/blob/main/README.md",
+      "pageOverflow": false
+    },
+    {
+      "width": 390,
+      "chineseHref": "/hujizhou35-cmd/medical-journal-selector/blob/main/docs/README.zh-CN.md",
+      "englishReturn": "/hujizhou35-cmd/medical-journal-selector/blob/main/README.md",
+      "pageOverflow": false
+    }
+  ],
+  "live_release_language_checks": [
+    {
+      "tag": "v1.0.0",
+      "chineseHref": "https://github.com/hujizhou35-cmd/medical-journal-selector/blob/main/docs/releases/v1.0.0.zh-CN.md",
+      "chineseHeading": "医学选刊工具 V1.0.0 稳定版",
+      "englishReturn": "https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0"
+    },
+    {
+      "tag": "v2.0.0-experimental.1",
+      "chineseHref": "https://github.com/hujizhou35-cmd/medical-journal-selector/blob/main/docs/releases/v2.0.0-experimental.1.zh-CN.md",
+      "chineseHeading": "医学选刊工具 V2.0.0 实验版 1",
+      "englishReturn": "https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1"
+    },
+    {
+      "tag": "trainer-v1.0.0",
+      "chineseHref": "https://github.com/hujizhou35-cmd/medical-journal-selector/blob/main/docs/releases/trainer-v1.0.0.zh-CN.md",
+      "chineseHeading": "选刊 Skill Trainer 1.0.0 配套预览版",
+      "englishReturn": "https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/trainer-v1.0.0"
+    }
+  ],
+  "full_reports": "Prose and numbers match the original reports; only navigation and archived-data links changed. Original bytes are preserved in the process ZIP."
 }
