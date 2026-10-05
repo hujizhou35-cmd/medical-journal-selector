@@ -14,7 +14,7 @@ import zipfile
 from pathlib import Path, PurePosixPath
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG = "releases/experimental-v2.0.0.json"
+CONFIG = "development/releases/experimental-v2.0.0.json"
 SKILL_PREFIX = "skills/medical-journal-selector/"
 SELECTOR_FILES = frozenset({
     "SKILL.md", "agents/openai.yaml", "references/evidence-format.md",

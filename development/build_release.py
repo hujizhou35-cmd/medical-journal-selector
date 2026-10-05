@@ -1,85 +1,104 @@
 #!/usr/bin/env python3
-"""Build deterministic bundles from the checked-out source. No network access."""
+"""Build three install formats for an explicit target, preserving published bytes."""
 import argparse
 import hashlib
 import json
-import re
+import shutil
+import subprocess
+import tempfile
 import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skills/medical-journal-selector"
-TRAINER = ROOT / "skills/medical-journal-selector-skill-trainer"
+SKILL = ROOT / 'skills/medical-journal-selector'
+TRAINER = ROOT / 'skills/medical-journal-selector-skill-trainer'
 
-
-def bundle(path, roots):
-    entries = []
-    for root, prefix in roots:
-        for f in ([root] if root.is_file() else root.rglob("*")):
-            if f.is_file() and "__pycache__" not in f.parts and f.suffix != ".pyc":
-                name = prefix if root.is_file() else (prefix + "/" + f.relative_to(root).as_posix()).lstrip("/")
-                entries.append((name, f))
-    with zipfile.ZipFile(path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        for name, f in sorted(entries):
-            info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
-            info.compress_type = zipfile.ZIP_DEFLATED
-            info.external_attr = 0o644 << 16
-            payload = f.read_bytes()
-            if f.suffix in (".md", ".py", ".json", ".yaml", ".yml") or f.name == "LICENSE":
-                payload = payload.replace(b"\r\n", b"\n")
-            z.writestr(info, payload)
-
+def git(*args):
+    return subprocess.check_output(['git', *args], cwd=ROOT)
 
 def portable(skill=SKILL):
-    text = (skill / "SKILL.md").read_text(encoding="utf-8")
-    text += "\n\n# Portable edition: inlined references\n\nAll references below are included in this file. If a relative reference cannot be opened, read its matching section below. Executable helpers are optional and are shipped only in the full bundles; apply their documented rules manually when unavailable.\n"
-    for ref in sorted((skill / "references").glob("*.md")):
-        text += f"\n---\n\n## Inlined reference: {ref.name}\n\n" + ref.read_text(encoding="utf-8")
+    text = (skill / 'SKILL.md').read_text(encoding='utf-8')
+    text += '\n\n# Portable edition: inlined references\n\nAll references below are included in this file. If a relative reference cannot be opened, read its matching section below. Executable helpers are optional and are shipped only in the full bundles; apply their documented rules manually when unavailable.\n'
+    for ref in sorted((skill / 'references').glob('*.md')):
+        text += '\n---\n\n## Inlined reference: '+ref.name+'\n\n'+ref.read_text(encoding='utf-8')
     return text
 
+def bundle(path, entries, legacy=False):
+    with zipfile.ZipFile(path, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for name, payload in sorted(entries.items()):
+            info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+            # V1 was published with Windows ZIP attributes; use those on all hosts.
+            info.create_system = 0 if legacy else 3
+            info.external_attr = (0o644 if legacy else 0o100644) << 16
+            info.compress_type = zipfile.ZIP_DEFLATED
+            archive.writestr(info, payload.replace(b'\r\n', b'\n'))
+
+def inventory():
+    return json.loads((ROOT / 'development/releases/distribution.json').read_text(encoding='utf-8'))
+
+def build(target, output=None):
+    if target not in ('stable', 'experimental', 'trainer'):
+        raise ValueError('Choose stable, experimental or trainer explicitly')
+    tag = {'stable':'v1.0.0','experimental':'v2.0.0-experimental.1','trainer':'trainer-v1.0.0'}[target]
+    output = Path(output or ROOT / 'dist' / target).resolve()
+    if output == ROOT or ROOT in output.parents and (ROOT / 'dist') not in output.parents:
+        raise ValueError('Build output inside this repository must be below dist/')
+    if output.is_symlink() or any(p.is_symlink() for p in output.parents):
+        raise ValueError('Build output cannot use symbolic links')
+    output.mkdir(parents=True, exist_ok=True)
+    prefix = 'medical-journal-selector'+('-skill-trainer' if target=='trainer' else '')
+    version = '2.0.0-experimental.1' if target=='experimental' else '1.0.0'
+    names = [prefix+'-v'+version+'.skill',prefix+'-codex-plugin-v'+version+'.zip','SKILL.md']
+    if any(p.name not in names or not p.is_file() or p.is_symlink() for p in output.iterdir()):
+        raise ValueError('Output must contain only this target\'s three install files')
+    if target=='experimental':
+        import experimental_release
+        with tempfile.TemporaryDirectory() as temp:
+            built = experimental_release.build(output=Path(temp)/'artifacts')
+            for name in names: shutil.copyfile(built/name,output/name)
+    elif target=='stable':
+        commit = inventory()['releases'][tag]['source_commit']
+        source_prefix = 'skills/medical-journal-selector/'
+        paths = git('ls-tree','-r','--name-only',commit,source_prefix).decode().splitlines()
+        entries = {p[len(source_prefix):]:git('show',commit+':'+p) for p in paths}
+        entries['LICENSE'] = git('show',commit+':LICENSE')
+        bundle(output/names[0],entries,legacy=True)
+        plugin = {source_prefix+k:v for k,v in entries.items() if k!='LICENSE'}
+        plugin.update({'LICENSE':entries['LICENSE'],'.codex-plugin/plugin.json':git('show',commit+':.codex-plugin/plugin.json')})
+        bundle(output/names[1],plugin,legacy=True)
+        (output/'SKILL.md').write_bytes(git('show',commit+':SKILL.md'))
+    else:
+        source_prefix = 'skills/medical-journal-selector-skill-trainer/'
+        paths = git('ls-files',source_prefix).decode().splitlines()
+        if not paths: raise ValueError('No tracked Trainer sources')
+        entries = {}
+        for p in paths:
+            path = ROOT/p
+            if path.is_symlink() or any(parent.is_symlink() for parent in path.parents):
+                raise ValueError('Trainer source cannot be a symbolic link')
+            entries[p[len(source_prefix):]] = path.read_bytes()
+        entries['LICENSE'] = (ROOT/'LICENSE').read_bytes()
+        entries['RELEASE-NOTICE.md'] = b'# Trainer companion preview\n\nThis tool organizes Skill development and evaluation; it does not train model weights. Software checks do not establish overall recommendation improvement.\n'
+        bundle(output/names[0],entries)
+        plugin = {source_prefix+k:v for k,v in entries.items() if k not in ('LICENSE','RELEASE-NOTICE.md')}
+        plugin.update({k:entries[k] for k in ('LICENSE','RELEASE-NOTICE.md')})
+        metadata = json.loads((ROOT/'development/trainer-plugin.json').read_text(encoding='utf-8'))
+        if metadata['version'] != version: raise ValueError('Trainer version mismatch')
+        plugin['.codex-plugin/plugin.json'] = (json.dumps(metadata,ensure_ascii=False,indent=2)+'\n').encode()
+        bundle(output/names[1],plugin)
+        (output/'SKILL.md').write_text(portable(TRAINER),encoding='utf-8',newline='\n')
+    hashes = {name:hashlib.sha256((output/name).read_bytes()).hexdigest() for name in names}
+    if target in ('stable','experimental'):
+        expected = inventory()['releases'][tag]['assets']
+        if any(hashes[name]!=expected[name] for name in names):
+            raise ValueError('Generated bytes differ from the original published '+tag+' assets')
+    return {'tag':tag,'assets':hashes}
 
 def main():
-    p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--output", type=Path, default=ROOT / "dist")
-    p.add_argument("--sync-portable", action="store_true", help="Explicitly update root SKILL.md")
-    args = p.parse_args()
-    version = (ROOT / "VERSION").read_text().strip()
-    manifest = json.loads((ROOT / ".codex-plugin/plugin.json").read_text(encoding="utf-8"))
-    if manifest["version"] != version:
-        raise SystemExit("manifest/version mismatch")
-    expected = portable()
-    trainer_expected = portable(TRAINER)
-    if args.sync_portable:
-        (ROOT / "SKILL.md").write_text(expected, encoding="utf-8", newline="\n")
-        (ROOT / "TRAINER-SKILL.md").write_text(trainer_expected, encoding="utf-8", newline="\n")
-    elif not (ROOT / "SKILL.md").exists() or (ROOT / "SKILL.md").read_text(encoding="utf-8") != expected:
-        raise SystemExit("root SKILL.md is stale; run with --sync-portable")
-    if not (ROOT / "TRAINER-SKILL.md").exists() or (ROOT / "TRAINER-SKILL.md").read_text(encoding="utf-8") != trainer_expected:
-        raise SystemExit("root TRAINER-SKILL.md is stale; run with --sync-portable")
-    out = args.output
-    out.mkdir(parents=True, exist_ok=True)
-    name = f"medical-journal-selector-v{version}.skill"
-    bundle(out / name, [(SKILL, ""), (ROOT / "LICENSE", "LICENSE")])
-    bundle(out / f"medical-journal-selector-portable-v{version}.zip", [(SKILL, "medical-journal-selector"), (ROOT / "LICENSE", "medical-journal-selector/LICENSE")])
-    bundle(out / f"medical-journal-selector-codex-plugin-v{version}.zip", [(ROOT / ".codex-plugin", ".codex-plugin"), (SKILL, "skills/medical-journal-selector"), (ROOT / "LICENSE", "LICENSE")])
-    (out / "SKILL.md").write_text(expected, encoding="utf-8", newline="\n")
-    assets = sorted([out / name, out / f"medical-journal-selector-portable-v{version}.zip", out / f"medical-journal-selector-codex-plugin-v{version}.zip", out / "SKILL.md"])
-    trainer_manifest = json.loads((ROOT / "development/trainer-plugin.json").read_text(encoding="utf-8"))
-    trainer_version = trainer_manifest["version"]
-    prefix = f"medical-journal-selector-skill-trainer"
-    trainer_skill = out / f"{prefix}-v{trainer_version}.skill"
-    trainer_zip = out / f"{prefix}-portable-v{trainer_version}.zip"
-    trainer_plugin = out / f"{prefix}-codex-plugin-v{trainer_version}.zip"
-    bundle(trainer_skill, [(TRAINER, ""), (ROOT / "LICENSE", "LICENSE")])
-    bundle(trainer_zip, [(TRAINER, prefix), (ROOT / "LICENSE", prefix+"/LICENSE")])
-    bundle(trainer_plugin, [(ROOT / "development/trainer-plugin.json", ".codex-plugin/plugin.json"), (TRAINER, "skills/"+prefix), (ROOT / "LICENSE", "LICENSE")])
-    trainer_md=out / "TRAINER-SKILL.md"
-    trainer_md.write_text(trainer_expected,encoding="utf-8",newline="\n")
-    assets=sorted(assets+[trainer_skill,trainer_zip,trainer_plugin,trainer_md])
-    sums = "".join(f"{hashlib.sha256(f.read_bytes()).hexdigest()}  {f.name}\n" for f in assets)
-    (out / "SHA256SUMS.txt").write_text(sums, encoding="ascii", newline="\n")
-    print(sums, end="")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--target',required=True,choices=('stable','experimental','trainer'))
+    parser.add_argument('--output',type=Path)
+    args = parser.parse_args()
+    print(json.dumps(build(args.target,args.output),indent=2))
 
-
-if __name__ == "__main__":
-    main()
+if __name__=='__main__': main()

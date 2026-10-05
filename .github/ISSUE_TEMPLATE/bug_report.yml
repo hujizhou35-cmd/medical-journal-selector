@@ -1,24 +1,24 @@
-name: 问题反馈 / Bug report
-description: 报告安装、规则或证据处理问题；不要提交未公开稿件或密钥。
+name: Report a problem
+description: Report an installation, rule or evidence-handling problem.
 body:
   - type: input
     id: host
     attributes:
-      label: Agent 与版本
-      placeholder: 例如 Codex / Claude Code，以及 Skill 版本
+      label: Host and version
+      description: Include the Skill version and your AI host.
     validations:
       required: true
   - type: textarea
     id: problem
     attributes:
-      label: 问题和期望结果
-      description: 使用虚构材料或可公开的来源链接，说明怎样复现。
+      label: Steps, expected result and actual result
+      description: Use fictional examples or shareable source links. Include access dates for policy claims.
     validations:
       required: true
   - type: checkboxes
     id: privacy
     attributes:
-      label: 公开内容确认
+      label: Public material
       options:
-        - label: 我没有附上未公开稿件、患者资料、凭据或无权分享的数据。
+        - label: I have not included unpublished manuscripts, patient information, credentials or restricted data.
           required: true

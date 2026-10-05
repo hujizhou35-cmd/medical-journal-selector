@@ -1,99 +1,76 @@
-# Medical Journal Selector｜医学选刊助手
+# 医学选刊工具
 
-**从读懂稿件、查找期刊到逐项核验，帮你比较适合这篇文章的投稿选择。**
+[English](../README.md) | **简体中文**
 
-[English](../README.md) · [下载 v1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [安装教程](getting-started.zh-CN.md) · [完整报告示例](examples/fictional-report.zh-CN.md)
+把医学稿件变成一份**有来源、可核查的投稿期刊清单**。提供稿件与投稿要求，工具会按**分区、时间、适配**三条路线推荐期刊，说明理由和仍需核验的事项。
 
 ## 从这里开始
 
-选择你正在使用的 AI 助手，**只需下载一种文件**。
+| 我想做什么 | 使用什么 | 入口 |
+|---|---|---|
+| 为稿件选择期刊 | **Selector V1.0.0 稳定版** | [下载与说明](releases/v1.0.0.zh-CN.md) |
+| 评测和改进选刊规则 | **Trainer 配套预览版** | [下载与说明](releases/trainer-v1.0.0.zh-CN.md) · [教程](trainer-guide.zh-CN.md) |
 
-- **Codex：** 下载 [Skill 安装包](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill)，将文件交给 Codex，安装到当前项目的 `.agents/skills/medical-journal-selector/`；[查看步骤](getting-started.zh-CN.md#codex)。
-- **Claude Code：** 下载 [Skill 文件夹 ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-portable-v1.0.0.zip)，将其中的文件夹放进 `.claude/skills/`，再调用 `/medical-journal-selector`；[查看步骤](getting-started.zh-CN.md#claude-code)。
-- **其他 AI 助手：** 下载 [独立 SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md)，让助手读取这个文件，再提供稿件。
+**选刊工具下载：** [Skill](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-v1.0.0.skill) · [Plugin ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/medical-journal-selector-codex-plugin-v1.0.0.zip) · [SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/v1.0.0/SKILL.md)
 
-完整安装步骤和 Codex Plugin 的使用方式见[安装教程](getting-started.zh-CN.md)。
+只选一种即可：`.skill` 是单个 Skill 的安装包；Plugin ZIP 包含 Codex 插件信息与 Skill；`SKILL.md` 是供其他助手读取的完整单文件指令。它们不是独立的AI服务；模型、文件读取与联网由你使用的助手提供。[安装教程](getting-started.zh-CN.md)
 
-## 它怎样完成选刊
+## 三步开始选刊
 
-1. **阅读稿件。** 梳理研究问题、研究设计、数据来源、主要发现和目标读者，分清稿件已经提供的信息与尚未说明的内容。
-2. **判断领域与文章类型。** 先识别所属医学大类，再细分到具体主题；判断是原创研究、综述、病例报告等，提取检索词，同时查看研究方法和验证方式。
-3. **确认投稿要求。** 只追问影响选刊的缺失条件，例如 JCR 分区、收录、预算、开放获取、排除期刊和截止日期。时间要求会分清“接收”“上线”还是“完成检索”。
-4. **检索候选期刊。** 从相似已发表研究和相关期刊入手，跨出版社寻找候选。公共数据库分析优先查看近 24 个月的同类研究；其他文章以近 5 年为背景，侧重近期证据。
-5. **逐刊核验。** 阅读当前 Aims & Scope、文章类型和方法政策，现查收录、JCR、影响因子、周期、开放获取、费用及相关预警名单。
-6. **筛选并比较三条路线。** 先执行你的硬条件，再分别按分区、时间和适配程度比较；需要补查的条件单独列出，被排除的期刊说明原因。
-7. **复查证据，交付报告。** 对缺失或冲突信息补查，必要时调整名单，最后提供推荐理由、来源和待确认事项。由你选定期刊后，再进入投稿信流程。
-
-关键词用于发现候选；真正决定是否合适的是稿件方法、期刊当前政策和你的投稿要求。
-
-## 带着稿件试一次
-
-提供全文，或先提供摘要，然后复制：
+1. **安装一个文件。** 首次使用选择V1稳定版，然后打开新对话。
+2. **提供稿件与投稿要求。** 包括收录或分区、预算、是否接受开放获取及截止日期；说明期限指接收、在线发表还是检索。
+3. **比较推荐清单。** 阅读每本期刊的证据、适配理由和待核验事项，再决定投稿目标。
 
 ```text
 使用 medical-journal-selector 帮我选刊，请用中文回复。
-先判断稿件领域、文章类型、研究方法和验证方式。
-缺少关键投稿要求时集中问我，再检索并核验候选期刊。
-同时比较高分区优先、时间优先和适配优先三条路线，
-说明每项推荐的理由与当前来源；未确认的信息写“未核到”。
+先判断研究问题、文章类型、方法和验证方式。
+缺少关键投稿要求时问我，再检索并核验候选期刊。
+比较分区、时间、适配三条路线，附来源与待核验项。
 ```
 
-想用英文时，可以改成 **“Please respond in English.”** 项目主页的显示语言不会限制报告语言。
-
-也可以补充：“我需要 JCR Q2 及以上，总费用不超过［预算和币种］，希望在［日期］前接收。”这些是填写示例，不是默认要求。
+也可以要求工具使用英文或其他语言输出。
 
 ## 你会得到什么
 
-| 路线 | 优先比较什么 |
+**读稿 → 理解研究 → 查找相似论文 → 核验当前期刊政策 → 比较候选。**
+
+| 路线 | 比较内容 |
 |---|---|
-| **高分区优先** | 在范围、方法和投稿条件基本符合后，比较已核验的 JCR 分区 |
-| **时间优先** | 按你需要达到的时间终点，比较口径相近的周期 |
-| **适配优先** | 方法、文章类型、目标读者及近期发表先例的吻合程度 |
+| 分区优先 | 在其他条件合格的期刊中，比较已核验的JCR分区 |
+| 时间优先 | 比较与你所需投稿阶段和期限对应的时间证据 |
+| 适配优先 | 比较研究方法、文章类型、读者与发表先例 |
 
-每本期刊都附有官网 **Aims & Scope 原文**、具体适配理由、相似论文、投稿信息和来源。每条路线最多列 3 本，证据不足时少列。适配判断不等于录用概率。
+每条路线最多三本期刊，证据不足时可以更少。变化信息附来源和日期，查不到就写“未核到”。推荐清单不代表录用概率。
 
-**[查看完整报告示例 →](examples/fictional-report.zh-CN.md)** 示例中的期刊与数字均为虚构，用来展示你会收到怎样的报告。
+[查看完整虚构示例](examples/fictional-report.zh-CN.md) · [隐私说明](privacy.zh-CN.md)
 
-## 改进选刊 Skill
+## V1 与 V2 实验版有什么区别
 
-**Medical Journal Selector Skill Trainer** 先对脱敏稿件选刊、封存推荐和独立评审，再揭晓真实发表期刊，将有依据的问题变成可复用规则，并用未参与修改的文章验收。
+V1建立三条推荐路线和当前来源核验。V2进一步细化方法政策、来源用途和最终报告审计。Trainer完成了**100篇开发案例**，再对冻结的V1和V2进行**50篇最终测评**。
 
-100篇开发与50篇最终测评已完成；严格稳定晋升门槛未通过，V2未证明整体明显提升。[V2.0.0实验版已发布](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)，保留冻结r18；V1.0.0仍为稳定下载。[100+50过程与比较](evaluation/100-plus-50.md) · [下载校验与实验版说明](releases/v2.0.0-experimental.1.md)
+| 最终50篇指标 | V1 | V2 |
+|---|---:|---:|
+| 历史发表期刊进入前十 | 4/50，8% | 1/50，2% |
+| 至少一个可用推荐，且无保留硬错误 | 14/50，28% | 16/50，32% |
+| 硬错误涉及案例 | 21/50，42% | 12/50，24% |
+| 保留硬错误标记数 | 37 | 41 |
 
-## 常见问题
+V2硬错误涉及案例更少，但标记总数更多，历史期刊命中更少。AI评审记录为**V2胜11、平26、V1胜8、未决5**。结果没有证明V2整体更好；**V1继续作为稳定版，V2继续作为实验版**。
 
-<details>
-<summary><strong>只有摘要，可以开始吗？</strong></summary>
+[V2实验版与下载](releases/v2.0.0-experimental.1.zh-CN.md) · [方法、消耗与完整比较](evaluation/100-plus-50.zh-CN.md)
 
-可以先判断主题并开始检索。想更准确地评估方法是否符合期刊要求，建议再提供完整方法和相关补充材料。
+## 用 Trainer 改进工具
 
-</details>
+Trainer组织这样的闭环：**遮蔽已发表案例 → 封存推荐 → 在独立上下文评审 → 揭晓历史期刊 → 诊断 → 检查可复用的规则修改**。它改进的是Skill指令和检查流程，不训练模型参数。
 
-<details>
-<summary><strong>可以处理哪些文章？</strong></summary>
+**Trainer下载：** [Trainer Skill](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/trainer-v1.0.0/medical-journal-selector-skill-trainer-v1.0.0.skill) · [Plugin ZIP](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/trainer-v1.0.0/medical-journal-selector-skill-trainer-codex-plugin-v1.0.0.zip) · [SKILL.md](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/download/trainer-v1.0.0/SKILL.md)
 
-包括临床、护理、基础实验、公共数据库、生信、预测模型、网络药理／毒理、综述、Meta 分析、文献计量及病例报告。它会按你的具体文章类型和方法检查期刊要求。
+预览版面向想研究或改进流程的贡献者，普通选刊不需要安装。[新手教程](trainer-guide.zh-CN.md) · [公开实验资料](evaluation/README.zh-CN.md)
 
-</details>
+## 参与改进
 
-<details>
-<summary><strong>能按分区、预算或毕业时间筛选吗？</strong></summary>
+欢迎改进教程、兼容性、来源核验与推荐规则。[报告问题](https://github.com/hujizhou35-cmd/medical-journal-selector/issues/new/choose)、阅读[贡献指引](../.github/CONTRIBUTING.md)，或[提交Pull request](https://github.com/hujizhou35-cmd/medical-journal-selector/compare)。
 
-可以。告诉它哪些是必须满足的条件，哪些只是偏好。涉及毕业时间时，需要说明是接收、上线还是检索；报告会比较现有周期证据，但不能保证完成日期。
+选定期刊后，可使用[投稿信工具](https://github.com/hujizhou35-cmd/journal-cover-letter-tutorial)根据已经核实的稿件信息撰写投稿信。
 
-</details>
-
-<details>
-<summary><strong>为什么有些信息显示“未核到”？</strong></summary>
-
-表示本次没有从可靠的当前来源确认，报告会说明缺在哪里。如果这项信息关系到你的硬条件，该刊会进入待核验名单，不会被当作已经满足要求的推荐。
-
-</details>
-
-## 选好期刊以后
-
-将选定期刊、稿件事实和已核验的适配理由交给 [Journal Cover Letter Skill](https://github.com/hujizhou35-cmd/journal-cover-letter-tutorial)，继续准备投稿信。
-
----
-
-作者：**Jizhou Hu** · [MIT 许可](../LICENSE) · [隐私说明](privacy.zh-CN.md) · [反馈问题](https://github.com/hujizhou35-cmd/medical-journal-selector/issues)
+作者：**Jizhou Hu** · [MIT许可证](../LICENSE) · [引用信息](../CITATION.cff)

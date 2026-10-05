@@ -1,5 +1,7 @@
 # Planned 50-case final evaluation: derived numerical report
 
+[English](public_report.md) | [简体中文](final-report.zh-CN.md) · [Readable methods and results](../100-plus-50.md)
+
 **Protocol deviation disclosed: 1 record(s), affecting 1 case(s). Stable protocol gate: GATES_NOT_PASSED.**
 
 Planned 50-case final cohort with a disclosed protocol deviation; do not claim fifty fully protocol-compliant final cases.

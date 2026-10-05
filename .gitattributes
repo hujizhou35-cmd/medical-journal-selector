@@ -3,5 +3,5 @@
 *.jpg binary
 *.zip binary
 *.skill binary
-# Preserve the immutable final-evaluation export byte for byte.
+# Explicit report bytes; immutable original exports are in the process archive.
 docs/evaluation/final50/** -text

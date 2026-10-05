@@ -1,0 +1,34 @@
+{
+  "schema": "public-release-inventory-v1",
+  "historical_commit": "0f9ffb7adbad863643428475412252e7ca322a42",
+  "releases": {
+    "v2.0.0-experimental.1": {
+      "source_commit": "f66b3b1541cda4c60faee492ebbbfa68b867d57d",
+      "prerelease": true,
+      "assets": {
+        "medical-journal-selector-codex-plugin-v2.0.0-experimental.1.zip": "26dbbb6fe9eff0955666974dcbdaa7a9bad1b5ab55bf82d80e71001322c3b32d",
+        "medical-journal-selector-v2.0.0-experimental.1-process.zip": "11c51de97f48e5174a7c57526465f041ab53a55bd3398371b23c2bc14428ebcf",
+        "medical-journal-selector-v2.0.0-experimental.1.skill": "f8d3782f230fe34649b8f188d6dc93f7a8c2dd9c55fc0cac19eee908ccd80162",
+        "SKILL.md": "024b2923cf5bcb9b4de5f565362536cbf4426165d4645abc6b1748917a273843"
+      }
+    },
+    "v1.0.0": {
+      "source_commit": "4a6e33db8446508044dddf059e41d841d1486a14",
+      "prerelease": false,
+      "assets": {
+        "medical-journal-selector-codex-plugin-v1.0.0.zip": "959a98432ae3f6f41520195576bdcde197d28833ed9fdba47b2d0fd59ca3ed19",
+        "medical-journal-selector-v1.0.0.skill": "1adff7dd6b43dc55263d0402e670f40d99097a32258216cde30185f5e77337e6",
+        "SKILL.md": "fdba0fce27021f534afebb7be91503930118f11849de117fb34c797f72bd7460"
+      }
+    },
+    "trainer-v1.0.0": {
+      "prerelease": true,
+      "source": "skills/medical-journal-selector-skill-trainer at trainer-v1.0.0",
+      "assets": {
+        "medical-journal-selector-skill-trainer-codex-plugin-v1.0.0.zip": "82a973bfa11b25146be6c86de3b26108487e90d1fa5eda2340f6bfc1633093ad",
+        "medical-journal-selector-skill-trainer-v1.0.0.skill": "716cf629eb2ad78697c997169c7c586db1940b43f341e9731a641ef82ce836a5",
+        "SKILL.md": "90a4d5006ad34fbbfcbef4dec6fe1cecaaf1ac1113808f06238181113aa029fa"
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # 医学期刊选择器：实际50篇最终测评
 
+[English](public_report.md) | [简体中文](final-report.zh-CN.md) · [先读方法与结果](../100-plus-50.zh-CN.md)
+
 **没有证据支持V2明显提升。** V2真实发表期刊Hit@10为1/50（2%），V1为4/50（8%）；可用推荐覆盖从14/50（28%）到16/50（32%），硬错误涉及篇数从21到12，但保留错误标记从37到41。盲评偏好为V2胜11、平26、V1胜8、未决5。不同维度有改善和退步，不能用wins≥losses或Wilson区间重叠来宣称显著/明显改善。
 
 **严格稳定发布协议门槛：GATES_NOT_PASSED。** lab017选择时跳过更早储备的既有流程偏差仍成立。本报告保留全部实际50篇、每类5篇与原分数；不提供删除偏差样本后的49篇替代主结果。实验V2.0.0是否发布由原流程依用户授权后续决定，本次只报告、不发布。
@@ -59,7 +61,7 @@
 | 病例报告/系列 | V1完整报告 | 2/5；40.0% [11.8%, 76.9%] | 2/5；40.0% [11.8%, 76.9%] | 2/5；40.0% [11.8%, 76.9%] |
 | 病例报告/系列 | V2完整报告 | 1/5；20.0% [3.6%, 62.4%] | 1/5；20.0% [3.6%, 62.4%] | 1/5；20.0% [3.6%, 62.4%] |
 
-逐篇原派生名次见[200行方法记录](public_case_metrics.csv)，总体/分类机器统计见[44组指标](public_metrics.csv)与[完整派生JSON](public_summary.json)。名次均值/中位数只在Hit@10内计算，不把截断非命中当作已知名次。
+逐篇原派生名次见[200行方法记录](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_case_metrics.csv)，总体/分类机器统计见[44组指标](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_metrics.csv)与[完整派生JSON](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_summary.json)。名次均值/中位数只在Hit@10内计算，不把截断非命中当作已知名次。
 
 | 方法 | 前十命中/未命中 | 条件名次均值/中位数 | 名次未知 |
 |---|---|---|---|
@@ -121,7 +123,7 @@
 
 关键词/摘要各有23次检索池无冻结真匹配，另10/15次为固定算法前十截断，不能称其为完整报告政策错误，也未证明真实期刊就应排得更高。V1来源/信息不足44次：23检索、10未递交、10资格/适用性未决、1递交但未做政策评估；V2相应48次：23、10、14、1。clinical_nursing-015两版的当前分析暂缓有原捕获政策、原分析内容及封存事实记录支持，可修复，不是永久或普遍排除。other_review-015的V1政策适用解释与V2不同，原链接指导未完整获取，归unknown，未强推合理排除。
 
-模型排名错误归因为0仅表示未证实它是最终非命中的原因，不表示模型没有错误；V1/V2原硬标记与model_failed收据完整保留。不能从空名单自动断定排序错误。5篇原失败受影响案例在每方法的非命中中出现，但所有最终方法输出真实完成，未证实历史已恢复故障是最终非命中的因果。reasonable withholding指当前分析条件的暂缓，不证明期刊必会拒稿。public_database-011诊断不确认原类别，仍在原类、原分母保留。详情见[200条公开阶段分类](public_nonhit_case_methods.csv)及[分类规则/汇总](public_nonhit_classification.json)；原依据路径/哈希仅存私有附录。
+模型排名错误归因为0仅表示未证实它是最终非命中的原因，不表示模型没有错误；V1/V2原硬标记与model_failed收据完整保留。不能从空名单自动断定排序错误。5篇原失败受影响案例在每方法的非命中中出现，但所有最终方法输出真实完成，未证实历史已恢复故障是最终非命中的因果。reasonable withholding指当前分析条件的暂缓，不证明期刊必会拒稿。public_database-011诊断不确认原类别，仍在原类、原分母保留。详情见[200条公开阶段分类](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_nonhit_case_methods.csv)及[分类规则/汇总](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_nonhit_classification.json)；原依据路径/哈希仅存私有附录。
 
 ## 硬错误、证据与真正缺失
 
@@ -155,7 +157,7 @@ V2的41个标记有39个篇内精确不同签名，重复2个；V1为37/37。精
 
 verified是生成器的声明状态，不是独立正确性证明。独立SCIE/JCR确认覆盖没有可用统一数据，保持unknown；PubMed不等于SCIE。两版JCR各只有2条verified声明，不能称2条已独立确认或推造SCI分区。缺非硬指标允许相应路线为空，但不能编造事实。
 
-50个包的as_of标签均2026-10-02。实际捕获尝试记录1204条，checked_at均存在，UTC范围2026-10-04T09:54:05.567279+00:00至2026-10-04T21:42:40.884209+00:00，属于10月4日UTC，不等同于包标签日期。来源记录均无结构化数据as_of字段；文本中的数据年份未另做系统提取。capture/as_of差异、来源数据日期未知必须保留，不宣称统一当天或长期持续有效。见[时间元数据](public_source_time_metadata.json)。
+50个包的as_of标签均2026-10-02。实际捕获尝试记录1204条，checked_at均存在，UTC范围2026-10-04T09:54:05.567279+00:00至2026-10-04T21:42:40.884209+00:00，属于10月4日UTC，不等同于包标签日期。来源记录均无结构化数据as_of字段；文本中的数据年份未另做系统提取。capture/as_of差异、来源数据日期未知必须保留，不宣称统一当天或长期持续有效。见[时间元数据](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_source_time_metadata.json)。
 
 ## 初审分歧与裁决
 
@@ -199,7 +201,7 @@ verified是生成器的声明状态，不是独立正确性证明。独立SCIE/J
 
 三个资格排除均生成/评审/揭晓0，准备调用completed，不能伪称模型/传输失败。lab017 orphan单列input54543、cached54016、output14406、reasoning5315；terminal context去重，无receipt/time/exit补造。
 
-调用秒数之和包含并行、重试和失败；波次区间/调度span是另外口径，不能相加为专属墙钟耗时。r46实际父进程CLIspan41.335403秒、exit0；r47 span1012.332573秒、exit0；它们也不能再加到模型调用秒数当新增费用。见[实际阶段时间](public_final_phase_cli_spans.json)及JSON波次时间。未记录、行政作者/审计上下文、无receipt original time和金钱价格未知，不声称完整费用。
+调用秒数之和包含并行、重试和失败；波次区间/调度span是另外口径，不能相加为专属墙钟耗时。r46实际父进程CLIspan41.335403秒、exit0；r47 span1012.332573秒、exit0；它们也不能再加到模型调用秒数当新增费用。见[实际阶段时间](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_final_phase_cli_spans.json)及JSON波次时间。未记录、行政作者/审计上下文、无receipt original time和金钱价格未知，不声称完整费用。
 
 ## 分数保持证据与交付
 
@@ -207,4 +209,4 @@ verified是生成器的声明状态，不是独立正确性证明。独立SCIE/J
 
 输入/封存/私有原因证据留内部；公开包只含允许caseID、数字、枚举和本说明，不含期刊/文章身份、原文、claim/source/reason正文、私有路径或上下文。handoff_sent仍null，没有发原chat，没有发布GitHub。当前停止于真实报告完成，等待原流程按用户授权处理实验版本。
 
-附件均采用本目录相对文件名：[原英文派生报告](public_report.md)、[候选覆盖/两类胜负](public_coverage_rank_summary.json)、[逐方法非命中](public_nonhit_case_methods.csv)、[公开包哈希](public-file-manifest.json)。整包按原字节归档可保留链接，不依赖.work相对链接。
+附件均采用本目录相对文件名：[原英文派生报告](public_report.md)、[候选覆盖/两类胜负](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_coverage_rank_summary.json)、[逐方法非命中](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public_nonhit_case_methods.csv)、[公开包哈希](https://github.com/hujizhou35-cmd/medical-journal-selector/blob/0f9ffb7adbad863643428475412252e7ca322a42/docs/evaluation/final50/public-file-manifest.json)。整包按原字节归档可保留链接，不依赖.work相对链接。

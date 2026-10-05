@@ -1,5 +1,11 @@
 # 设计记录与参考作品
 
+## 2026-10-05 页面改版
+
+参考 [Journal Cover Letter](https://github.com/hujizhou35-cmd/journal-cover-letter-tutorial) 的主工具与 Trainer 分流、独立中文页面及三种安装格式，以及 [PaperQA](https://github.com/Future-House/paper-qa) 的用途优先、快速开始在前的顺序。以下旧设计记录保留其历史范围；当前结构以首页为准。
+
+当前顺序：用途 → 选刊／改进两个入口 → 三步使用 → 输出示例 → 简短版本比较 → Trainer → 贡献。英文与中文分别成页，Release 默认英文并链接完整中文说明。实验记录集中为带校验清单的过程包，主分支保留源码和易读报告。
+
 ## 产品边界
 
 V1.0 是可移植的 Agent Skill 和 Codex 分发包。用户在现有 Agent 内提供稿件、回答必要问题并取得报告。GitHub 首页负责解释、下载和引导；无需独立上传网站或自建模型后端。

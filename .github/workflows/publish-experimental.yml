@@ -1,75 +1,26 @@
-name: Publish experimental V2
-
+name: Verify release packages
 on:
-  push:
-    branches: [main]
-    paths: ['releases/experimental-v2.0.0.json']
   workflow_dispatch:
-
 permissions:
   contents: read
-
-concurrency:
-  group: experimental-v2-release
-  cancel-in-progress: false
-
 jobs:
-  validate:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest]
-        python: ['3.10', '3.12']
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python }}
-      - run: python -B -m unittest discover -s development/tests -v
-      - run: python -B development/check_project.py
-      - run: python -B development/experimental_release.py
-      - run: python -B development/experimental_release.py --verify
-
-  publish:
-    needs: validate
+  packages:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -B development/experimental_release.py
-      - run: python -B development/experimental_release.py --verify
-      - name: Publish new prerelease without changing V1
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          tag=v2.0.0-experimental.1
-          if gh release view "$tag" >/dev/null 2>&1; then
-            echo 'This experimental release already exists; refusing to overwrite it.'
-            exit 1
-          fi
-          if tag_probe=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/tags/$tag" 2>&1); then
-            echo 'This tag already exists without a release; refusing to attach new assets to it.'
-            exit 1
-          elif [[ "$tag_probe" != *'HTTP 404'* ]]; then
-            echo 'Could not establish that the release tag is absent; publication stopped.'
-            exit 1
-          fi
-          gh release create "$tag" dist/experimental-v2.0.0-experimental.1/* \
-            --target "$GITHUB_SHA" --prerelease --latest=false \
-            --title 'Medical Journal Selector V2.0.0 Experimental 1' \
-            --notes-file docs/releases/v2.0.0-experimental.1.md
-      - name: Verify anonymous public downloads
-        run: python -B development/verify_public_release.py v2.0.0-experimental.1 dist/experimental-v2.0.0-experimental.1
+      - run: python development/check_project.py
+      - run: python development/build_release.py --target stable
+      - run: python development/build_release.py --target experimental
+      - run: python development/build_release.py --target trainer
       - uses: actions/upload-artifact@v4
-        if: always()
         with:
-          name: experimental-release-download-proof
-          path: dist/experimental-v2.0.0-experimental.1/public-download-proof.json
-          if-no-files-found: ignore
+          name: checked-install-packages
+          path: |
+            dist/stable/*
+            dist/experimental/*
+            dist/trainer/*

@@ -11,9 +11,13 @@ jobs:
         python: ['3.10', '3.12']
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
       - run: python -m unittest discover -s development/tests -v
       - run: python development/check_project.py
-      - run: python development/build_release.py
+      - run: python development/build_release.py --target stable
+      - run: python development/build_release.py --target experimental
+      - run: python development/build_release.py --target trainer

@@ -1,0 +1,23 @@
+name: Suggest an improvement
+description: Improve usability, compatibility, evidence checks or recommendation rules.
+title: "[Improvement] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What could work better?
+      description: Describe the task and the difficulty you encountered.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Suggested change
+      description: Explain the expected result. Include sources and access dates for policy claims.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Example and environment
+      description: Include your host/version if relevant. Use fictional or shareable material only.

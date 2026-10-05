@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "scope": "Documentation, repository organization and distribution; no scientific rerun",
+  "local_tests": {
+    "run": 315,
+    "passed": 314,
+    "skipped": 1,
+    "skip_reason": "Windows symlink creation unavailable"
+  },
+  "selector_source_changes": false,
+  "preserved_install_assets": {
+    "v1.0.0": 3,
+    "v2.0.0-experimental.1": 3
+  },
+  "archived_records_removed_from_main": 37,
+  "process_archive": {
+    "files": 72,
+    "bytes": 460986,
+    "sha256": "11c51de97f48e5174a7c57526465f041ab53a55bd3398371b23c2bc14428ebcf"
+  },
+  "local_layout": {
+    "renderer": "GitHub Markdown API with local preview CSS",
+    "widths": [
+      1200,
+      390
+    ],
+    "pages": [
+      "English homepage",
+      "Chinese homepage",
+      "V2 English release notes"
+    ],
+    "horizontal_page_overflow": false
+  },
+  "public_downloads_and_ci": "Publication checks pending; this record will be updated with observed results."
+}
