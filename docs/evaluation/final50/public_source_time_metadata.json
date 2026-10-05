@@ -1,0 +1,15 @@
+{
+  "schema_version": "final50-source-capture-time-metadata-v1",
+  "cases": 50,
+  "packet_as_of_counts": {
+    "2026-10-02": 50
+  },
+  "policy_capture_records": 1204,
+  "capture_timestamp_reported_records": 1204,
+  "capture_timestamp_missing_records": 0,
+  "first_policy_capture_timestamp": "2026-10-04T09:54:05.567279+00:00",
+  "last_policy_capture_timestamp": "2026-10-04T21:42:40.884209+00:00",
+  "source_declared_as_of_missing_policy_records": 1204,
+  "independently_confirmed_scie_jcr_coverage": null,
+  "interpretation": "Packet as_of is a protocol label; checked_at is actual endpoint capture time. Missing source-declared data dates/independentSCIE-JCR coverage stay unknown. Counts include attempted endpoints, not successful independent fact verification."
+}

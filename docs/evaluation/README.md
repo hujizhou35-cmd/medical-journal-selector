@@ -1,3 +1,17 @@
+# V2 evaluation: completed 100 + 50
+
+[简体中文](README.zh-CN.md) · [Process and comparison](100-plus-50.md) · [Experimental build](../releases/v2.0.0-experimental.1.md)
+
+**Current status (2026-10-05): 100/100 development and 50/50 final cases completed. Stable promotion gates did not pass; the user authorized experimental V2 packaging, with no additional benchmark cases.** V1.0.0 remains stable.
+
+Final historical-outlet Hit@10: V1 4/50, V2 1/50; usable coverage: 14/50 and16/50; hard-failure affected cases:21/50 and12/50. All50 remain in the denominator, including a disclosed reserve-order deviation. Same-model blind preference:11 V2wins,26ties,8V1wins,5unresolved. See the [final report](final50/final-report.zh-CN.md), [English derived report](final50/public_report.md) and [data](final50/public_summary.json) for definitions, intervals and limits.
+
+The final completion handoff supersedes the development-only pause snapshot below. The eleven archived final files remain byte-preserved; their publication fields describe the time they were sealed, not subsequent GitHub publication. The English resource table lists receipted usage; the full report additionally accounts for the preserved orphan terminal's available usage, without inventing its missing receipt/exit/duration.
+
+## Historical development observations
+
+The following archived text describes the development-only pause on2026-10-04 and earlier waves. It is not the current final status.
+
 # V2 evaluation
 
 [简体中文](README.zh-CN.md) · [Trainer guide](../trainer-guide.md) · [Parallel plan](parallel-execution-plan.md) · [Candidate validation](../validation-v2.md)

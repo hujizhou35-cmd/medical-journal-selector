@@ -2,6 +2,9 @@
 
 [简体中文](validation-v2.zh-CN.md) · [Evaluation status](evaluation/README.md) · [V1 release checks](validation.md)
 
+
+**2026-10-05 update:** The 100+50 evaluation is complete; stable promotion gates did not pass. See [the comparison](evaluation/100-plus-50.md) and [experimental release notes](releases/v2.0.0-experimental.1.md). The checks and host observations below are historical and do not certify native import of the new experimental packages.
+
 These are observed development checks, not a completed V2 release or a journal-selection accuracy result. The required 100 development and 50 final cases remain tracked separately in [the actual case records](evaluation/results.json).
 
 ## Local checks

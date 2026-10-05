@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0-experimental.1 — 2026-10-05
+
+- Experimental packaging of the unchanged evaluated Selector r18; original V1.0.0 release assets remain stable.
+- Publish the 100-development + 50-final process, four-method results and disclosed limitations. Stable promotion gates did not pass and no clear overall improvement is claimed.
+- Add same-page Chinese homepage, installation and example sections, deterministic allowlisted packages and checksum/public-download verification.
+- No additional benchmark cases, post-final rule changes or inherited validation for future revisions.
+
 ## 1.0.0
 
 - 医学多类型稿件画像与方法适配规则。

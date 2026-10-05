@@ -2,6 +2,9 @@
 
 [English](validation-v2.md) · [评测进度](evaluation/README.zh-CN.md) · [V1 发布检查](validation.md)
 
+
+**2026-10-05更新：**100+50评测已完成，严格稳定晋升门槛未通过。[比较与过程](evaluation/100-plus-50.md) · [实验版说明](releases/v2.0.0-experimental.1.md)。下方检查和宿主实测为历史记录，不证明新实验包的原生导入已通过。
+
 这里记录实际做过的开发检查，不代表 V2 已正式发布，也不是选刊准确率结果。要求的 100 篇开发和 50 篇最终测试单独记录在[真实案例记录](evaluation/results.json)中。
 
 ## 本地检查

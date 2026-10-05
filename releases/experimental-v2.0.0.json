@@ -1,0 +1,49 @@
+{
+  "schema": "medical-journal-selector-experimental-release-v1",
+  "version": "2.0.0-experimental.1",
+  "tag": "v2.0.0-experimental.1",
+  "prerelease": true,
+  "candidate_revision": "r18",
+  "quality_gate": "GATES_NOT_PASSED",
+  "overall_improvement_demonstrated": false,
+  "frozen_selector_manifest_sha256": "201617d201120ad3165e418347ba0d2519ae7e6009ed745bce2f3fb1943a72f4",
+  "source_hash_basis": "The frozen raw hashes are provenance from the local r18 seal. Builds validate canonical LF hashes so Git checkout newline conversion does not alter the packaged software. Package hashes are separate from original raw source hashes.",
+  "sources": {
+    "skills/medical-journal-selector/agents/openai.yaml": {
+      "frozen_raw_sha256": "4b0c2ac129462737bff94d8ee925e2978ba181bd3a301cfd0d9a320aba7c9bb6",
+      "canonical_lf_sha256": "4b0c2ac129462737bff94d8ee925e2978ba181bd3a301cfd0d9a320aba7c9bb6"
+    },
+    "skills/medical-journal-selector/references/evidence-format.md": {
+      "frozen_raw_sha256": "182808283165b2f3d300ccd9b6e9eb6fb62415366bf36a3c0883b67d8f0dfc48",
+      "canonical_lf_sha256": "182808283165b2f3d300ccd9b6e9eb6fb62415366bf36a3c0883b67d8f0dfc48"
+    },
+    "skills/medical-journal-selector/references/medical-methods.md": {
+      "frozen_raw_sha256": "edd339c69865f0c2579921889b2a8dedc17cd8e915174b54b16030af604bde5a",
+      "canonical_lf_sha256": "edd339c69865f0c2579921889b2a8dedc17cd8e915174b54b16030af604bde5a"
+    },
+    "skills/medical-journal-selector/references/sources-and-verification.md": {
+      "frozen_raw_sha256": "520fa45f5ff8e68024e2dfb7239534d20f4b79a4151db381a7b967d1a65d08c9",
+      "canonical_lf_sha256": "520fa45f5ff8e68024e2dfb7239534d20f4b79a4151db381a7b967d1a65d08c9"
+    },
+    "skills/medical-journal-selector/scripts/search_precedents.py": {
+      "frozen_raw_sha256": "d176dfc4bda9b21e3c10d5fd0f03aa1270ef804e84e690443b972aadcbbb12e6",
+      "canonical_lf_sha256": "d176dfc4bda9b21e3c10d5fd0f03aa1270ef804e84e690443b972aadcbbb12e6"
+    },
+    "skills/medical-journal-selector/scripts/selector.py": {
+      "frozen_raw_sha256": "bc264046fa6843968a79b4b0ed8515decdffd44d3b02db0dd83e63a2fe6ed950",
+      "canonical_lf_sha256": "bc264046fa6843968a79b4b0ed8515decdffd44d3b02db0dd83e63a2fe6ed950"
+    },
+    "skills/medical-journal-selector/SKILL.md": {
+      "frozen_raw_sha256": "8d96dcd2ec538dfae8e03b250b85ca9771ecdc6ebd761da1907bba33fe391498",
+      "canonical_lf_sha256": "8d96dcd2ec538dfae8e03b250b85ca9771ecdc6ebd761da1907bba33fe391498"
+    },
+    "LICENSE": {
+      "frozen_raw_sha256": "7e31154a01c13a7659936e6bf680188d4d5724ef9d1e9b9cb1afe8fcc5d2d3da",
+      "canonical_lf_sha256": "7e31154a01c13a7659936e6bf680188d4d5724ef9d1e9b9cb1afe8fcc5d2d3da"
+    },
+    ".codex-plugin/plugin.json": {
+      "frozen_raw_sha256": "55129ddba81897ef9b085c061c67814075b784bf7c1c7334303f374f4336c7f8",
+      "canonical_lf_sha256": "55129ddba81897ef9b085c061c67814075b784bf7c1c7334303f374f4336c7f8"
+    }
+  }
+}

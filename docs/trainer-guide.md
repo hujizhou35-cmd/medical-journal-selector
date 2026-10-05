@@ -24,9 +24,9 @@ One distinct manuscript completes selection, blind review, reveal, diagnosis and
 
 ## Project V2 campaign
 
-The project has completed **100/100 valid development cases**, ten per primary class; final remains **0/50**, with **24 protocol trials separate**. All original reviews, diagnoses and explicit decisions are sealed. Frozen execution **r25**, Selector **r18**, original scores and failed attempts remain preserved. **The user requested a pause at 100 and plans to try Dots for the 50 final tests.** No final work or automatic expansion follows here. Stable downloads remain **V1.0.0** until release gates pass. [Protocol and results](evaluation/README.md)
+**100/100 development cases and 50/50 final cases are complete.** Ten classes contain ten development and five final cases each; 24 protocol trials remain separate. All original results, failures and candidate r18 are preserved. Stable promotion gates remain **GATES_NOT_PASSED**. The latest user instruction permits an experimental release because no clear overall improvement was demonstrated. No additional development or final cohort is authorized.
 
-**Development is complete; the 50 final tests remain unstarted.** The automation is paused pending a new direct human instruction; scheduled messages do not resume it.
+[100+50 process and comparison](evaluation/100-plus-50.md) · [Final report](evaluation/final50/final-report.zh-CN.md) · [Experimental release notes](releases/v2.0.0-experimental.1.md). V1.0.0 remains stable. The previous pause after100 was followed by a separately authorized final evaluation and completion handoff; older dated observations below are historical.
 
 ## Installation
 

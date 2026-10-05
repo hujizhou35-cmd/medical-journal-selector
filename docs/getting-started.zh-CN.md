@@ -2,7 +2,7 @@
 
 [English](getting-started.md) · [中文主页](README.zh-CN.md) · [下载页面](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0)
 
-**选择一种安装方式即可。** `.skill` 和 ZIP 中包含相同的核心规则。推荐安装到当前稿件项目，便于管理不同版本。V2 正在评测，上方稳定下载仍为 V1，须通过发布检查才会更新。
+**选择一种安装方式即可。** `.skill` 和 ZIP 中包含相同的核心规则。推荐安装到当前稿件项目，便于管理不同版本。100+50测评已完成，稳定晋升门槛未通过；上方入口继续安装V1。实验版保留r18，详情见[实验版说明](releases/v2.0.0-experimental.1.md)与[过程页](evaluation/100-plus-50.md)。实验版请装在独立测试项目，不要同时加载两个同名Skill。
 
 ## Codex
 
@@ -10,7 +10,7 @@
 2. 复制主页的安装指令。`.skill` 是 ZIP 格式，不是可执行程序。安装后的路径应为 `.agents/skills/medical-journal-selector/SKILL.md`，文件夹内还包含 `references`、`scripts` 和 `agents`。
 3. 打开新对话，在 Skill 选择器寻找 **Medical Journal Selector**，或明确输入 `$medical-journal-selector`。
 
-也可以让 Codex 从本仓库的 `skills/medical-journal-selector` 目录安装。当前官方本地发现路径是项目 `.agents/skills/` 或用户 `~/.agents/skills/`；不假定每个版本都提供相同的文件导入按钮。[官方说明](https://learn.chatgpt.com/docs/build-skills)
+仓库当前 `skills/medical-journal-selector` 目录是实验版r18，V1 Release下载保持原稳定文件。请按要使用的版本选择来源。当前官方本地发现路径是项目 `.agents/skills/` 或用户 `~/.agents/skills/`；不假定每个版本都提供相同的文件导入按钮。[官方说明](https://learn.chatgpt.com/docs/build-skills)
 
 **成功标志：** 用后面的测试提示，它能够识别 Skill 并按规则处理缺失数据。仅看到文件夹存在不等于调用成功。
 
