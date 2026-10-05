@@ -6,6 +6,8 @@
 
 ## Codex
 
+需要试用V2时，进入[实验版下载页](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)，按[说明核对校验和](releases/v2.0.0-experimental.1.md)。七个文件已通过匿名下载检查；请使用独立测试项目。下面仍以稳定V1说明目录结构。
+
 1. 下载 `medical-journal-selector-v1.0.0.skill`，将文件提供给 Codex。
 2. 复制主页的安装指令。`.skill` 是 ZIP 格式，不是可执行程序。安装后的路径应为 `.agents/skills/medical-journal-selector/SKILL.md`，文件夹内还包含 `references`、`scripts` 和 `agents`。
 3. 打开新对话，在 Skill 选择器寻找 **Medical Journal Selector**，或明确输入 `$medical-journal-selector`。

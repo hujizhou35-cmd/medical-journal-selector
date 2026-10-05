@@ -5,9 +5,11 @@
 
 **2026-10-05 update:** The 100+50 evaluation is complete; stable promotion gates did not pass. See [the comparison](evaluation/100-plus-50.md) and [experimental release notes](releases/v2.0.0-experimental.1.md). The checks and host observations below are historical and do not certify native import of the new experimental packages.
 
-These are observed development checks, not a completed V2 release or a journal-selection accuracy result. The required 100 development and 50 final cases remain tracked separately in [the actual case records](evaluation/results.json).
+The [experimental prerelease](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1) is available. Its published source passed four Windows/Linux × Python 3.10/3.12 jobs: each ran 312 tests, with 311 passing and one local-only private-provenance check skipped. Public canonical source bindings, package builds, package verification and project links passed in every job. The original private source seal was checked locally. All seven assets passed anonymous download and checksum verification. [Verification record](releases/v2.0.0-experimental.1-verification.json) · [Genuine workflow](https://github.com/hujizhou35-cmd/medical-journal-selector/actions/runs/37263233237)
 
-## Local checks
+These are software and distribution observations. Stable quality gates remain failed; native plugin import and general behavior across hosts remain unverified. The completed scientific evaluation is recorded separately in [the 100+50 comparison](evaluation/100-plus-50.md).
+
+## Earlier local checks
 
 The checked source covers report language, current-source envelopes, hard constraints, three routes, policy exclusions, masking, source restrictions, duplicate families, answer isolation, sealed-output integrity, failed-attempt retention, original preparation seals, four-comparator blind reviews, genuine 100-case entry gates, whole-50-case reveal order and packaging. The complete suite passed 233 tests. Source links and standalone Markdown consistency passed separately. Synthetic gate fixtures do not count as evaluated manuscripts.
 
@@ -24,6 +26,6 @@ The current corpus audit checked all 150 allocated inputs: hashes match their pr
 
 The evaluation model remains `gpt-6.1-sol` with `xhigh` and existing Codex login. Host installation checks are not evaluated manuscript cases and never increase the iteration count. Full transcripts, account settings and original papers stay private.
 
-## Before release
+## Remaining before stable promotion
 
-Complete the required real loops and untouched paired tests, assess the release gates, repeat host checks on frozen files, build from committed source, and verify public downloads against checksums. Until these observations exist, compatibility and publication checks remain incomplete.
+The 100+50 campaign and experimental distribution are complete. Stable promotion would still require resolving the retained quality and protocol failures and observing host behavior on frozen files under a separately authorized plan. No extra benchmark cases or rule changes were started for this release. A later candidate cannot inherit validation from these exposed final cases.

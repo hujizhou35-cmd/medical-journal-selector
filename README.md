@@ -2,9 +2,9 @@
 
 **Turn a medical manuscript into a source-backed journal shortlist.** Read the study, search similar papers, verify current journal policies, then compare **quartile, time and fit** routes.
 
-[Stable V1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [Install](docs/getting-started.md) · [Example report](docs/examples/fictional-report.md) · [简体中文 ↓](#简体中文)
+[Stable V1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [Experimental V2](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1) · [Install](docs/getting-started.md) · [Example report](docs/examples/fictional-report.md) · [简体中文 ↓](#简体中文)
 
-> **100 development cases + 50 final cases completed.** V2 did not demonstrate a clear overall improvement and did not pass stable promotion gates. The unchanged evaluated candidate is being packaged as **V2.0.0 Experimental 1**. [Release notes](docs/releases/v2.0.0-experimental.1.md) · [100 + 50: changes, process and results](docs/evaluation/100-plus-50.md)
+> **100 development cases + 50 final cases completed.** V2 did not demonstrate a clear overall improvement and did not pass stable promotion gates. **[V2.0.0 Experimental 1 is available](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)** with the evaluated candidate unchanged. [Release notes and verified downloads](docs/releases/v2.0.0-experimental.1.md) · [100 + 50: changes, process and results](docs/evaluation/100-plus-50.md)
 
 ## Try it in three steps
 
@@ -60,9 +60,9 @@ After selecting a journal, pass verified facts to [Journal Cover Letter Skill](h
 
 **把医学稿件变成有来源支撑的投稿期刊清单。** 先读懂研究，再查相似论文和当前期刊政策，最后比较**分区、时间、适配**三条路线。
 
-[稳定版 V1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [安装教程](docs/getting-started.md#简体中文) · [完整示例](docs/examples/fictional-report.md#简体中文) · [100+50过程页](docs/evaluation/100-plus-50.md)
+[稳定版 V1.0.0](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0) · [V2实验版](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1) · [安装教程](docs/getting-started.md#简体中文) · [完整示例](docs/examples/fictional-report.md#简体中文) · [100+50过程页](docs/evaluation/100-plus-50.md)
 
-**100篇开发和50篇最终测评已完成。** V2没有证明整体明显提升，严格稳定发布门槛未通过。正在将评测时保持不变的候选打包为**V2.0.0 实验版**；[查看说明](docs/releases/v2.0.0-experimental.1.md)。
+**100篇开发和50篇最终测评已完成。** V2没有证明整体明显提升，严格稳定发布门槛未通过。**[V2.0.0 实验版现已发布](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)**，保留评测时的候选；[下载、校验与说明](docs/releases/v2.0.0-experimental.1.md)。
 
 ### 三步开始
 

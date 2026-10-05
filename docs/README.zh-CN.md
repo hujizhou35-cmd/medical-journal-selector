@@ -58,7 +58,7 @@
 
 **Medical Journal Selector Skill Trainer** 先对脱敏稿件选刊、封存推荐和独立评审，再揭晓真实发表期刊，将有依据的问题变成可复用规则，并用未参与修改的文章验收。
 
-100篇开发与50篇最终测评已完成；严格稳定晋升门槛未通过，V2未证明整体明显提升。最新指令允许将冻结r18作为实验版提供，V1.0.0仍为稳定下载。[100+50过程与比较](evaluation/100-plus-50.md) · [实验版说明](releases/v2.0.0-experimental.1.md)
+100篇开发与50篇最终测评已完成；严格稳定晋升门槛未通过，V2未证明整体明显提升。[V2.0.0实验版已发布](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)，保留冻结r18；V1.0.0仍为稳定下载。[100+50过程与比较](evaluation/100-plus-50.md) · [下载校验与实验版说明](releases/v2.0.0-experimental.1.md)
 
 ## 常见问题
 

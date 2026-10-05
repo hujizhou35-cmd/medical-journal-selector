@@ -2,7 +2,7 @@
 
 [English](README.md) · [过程与比较](100-plus-50.md) · [实验版说明](../releases/v2.0.0-experimental.1.md)
 
-**当前状态（2026-10-05）：100／100篇开发、50／50篇最终测评已完成。严格稳定发布门槛未通过；用户允许实验版打包，没有授权追加测评。** V1.0.0继续作为稳定版。
+**当前状态（2026-10-05）：100／100篇开发、50／50篇最终测评已完成。严格稳定发布门槛未通过；[V2.0.0实验版已发布](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)，没有追加测评。** V1.0.0继续作为稳定版。[软件和公开下载检查](../releases/v2.0.0-experimental.1-verification.json)
 
 历史发表期刊前十命中V1为4/50、V2为1/50；可用覆盖14/50与16/50；硬失败涉及21/50与12/50。全部50篇保留，储备顺序偏差已披露。同模型盲评V2胜11、平26、负8、未决5。[完整报告](final50/final-report.zh-CN.md) · [公开数据](final50/public_summary.json) · [100+50过程页](100-plus-50.md)。
 

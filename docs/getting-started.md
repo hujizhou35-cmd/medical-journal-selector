@@ -6,6 +6,8 @@
 
 ## Trying experimental V2
 
+**[Download V2.0.0 Experimental 1](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1).** All seven release assets passed anonymous download and checksum checks. [Choose a file and verify it](releases/v2.0.0-experimental.1.md).
+
 Use a separate test project for the experimental build. It keeps the same Skill name, so install only one selector version in that project's discovery paths. Choose the experimental `.skill`, portable ZIP or standalone `SKILL.md` described in its release notes, and follow the same directory layout below. Check `SHA256SUMS.txt` before installing. Experimental package checks do not imply improved recommendations, native plugin import, or verified behavior in every host.
 
 ## Codex
@@ -83,6 +85,8 @@ For evaluation and improvement, see the separate [Trainer guide](trainer-guide.m
 # 安装与第一次使用
 
 [English](getting-started.md) · [中文主页](README.zh-CN.md) · [下载页面](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v1.0.0)
+
+**[V2.0.0实验版已可下载](https://github.com/hujizhou35-cmd/medical-journal-selector/releases/tag/v2.0.0-experimental.1)**，七个文件均已通过匿名下载和校验和检查。实验版请装在独立测试项目，避免同时加载两个同名Skill；[选文件与核验步骤](releases/v2.0.0-experimental.1.md)。下面步骤继续以稳定V1为例。
 
 **选择一种安装方式即可。** `.skill` 和 ZIP 中包含相同的核心规则。推荐安装到当前稿件项目，便于管理不同版本。100+50测评已完成，稳定晋升门槛未通过；上方入口继续安装V1。实验版保留r18，详情见[实验版说明](releases/v2.0.0-experimental.1.md)与[过程页](evaluation/100-plus-50.md)。实验版请装在独立测试项目，不要同时加载两个同名Skill。
 
